@@ -22,6 +22,8 @@ if(localeCode!=null){
 <%@ page import="com.whir.common.util.CommonUtils" %>
 <%@ page import="com.whir.org.common.util.SysSetupReader" %>
 <%@ page import="com.whir.ezoffice.logon.bd.ResetPasswordBD" %>
+<%@ page import="java.security.SecureRandom" %>
+
 
 <%
 
@@ -126,7 +128,7 @@ if("no".equals(validate)){
         localeCode = LocaleUtils.getLocale(localeCode);
 	}
 	//注销时，清除工作流当前用户的锁
-	String userAccount = session.getAttribute("userAccount")==null?"":session.getAttribute("userAccount").toString();
+	String userAccount = session.getAttribute("userAccount")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(session.getAttribute("userAccount").toString());
 	if(!"".equals(userAccount)){
 		com.whir.ezoffice.workflow.newBD.WorkFlowButtonBD wfbd = new com.whir.ezoffice.workflow.newBD.WorkFlowButtonBD();
 		wfbd.logoutWFOnlineUser(userAccount);
@@ -150,7 +152,7 @@ String logoFile = rootPath+"/images/"+localeCode+"/bg.jpg";
 int inputPwdErrorNum = Integer.parseInt(request.getAttribute("inputPwdErrorNum")!=null?(String)request.getAttribute("inputPwdErrorNum"):"0");
 int inputPwdErrorNumMax = Integer.parseInt(request.getAttribute("inputPwdErrorNumMax")!=null?(String)request.getAttribute("inputPwdErrorNumMax"):"6");
 String useCaptcha = com.whir.org.common.util.SysSetupReader.getInstance().getSysValueByName("captcha", "0");
-String userAccount = request.getAttribute("userAccount")==null?"":request.getAttribute("userAccount").toString();
+String userAccount = request.getAttribute("userAccount")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getAttribute("userAccount").toString());
 String userPassword = request.getAttribute("userPassword")==null?"":request.getAttribute("userPassword").toString();
 
 //获取找回密码配置----开始
@@ -162,6 +164,11 @@ String userPassword = request.getAttribute("userPassword")==null?"":request.getA
  
  //登陆设置预览
  String previewId = request.getAttribute("previewId")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getAttribute("previewId")+"");
+ 
+SecureRandom random1=SecureRandom.getInstance("SHA1PRNG");
+long seq=random1.nextLong();
+String random=""+seq;
+session.setAttribute("random_session",random);
 %>
 
 <html lang='zh-cn' id = "loginHtml">
@@ -227,6 +234,7 @@ String userPassword = request.getAttribute("userPassword")==null?"":request.getA
                     <div class="wh-lg-logoIn-top" >
                         <a href="javascript:void(0)"><img src="" class="user" id = "empLivingPhoto" onclick ="submitByPhoto()" /></a>
                         <form id="LogonForm" name="LogonForm" action="Logon!logon.action" method="post">
+						<input type="hidden" name="random_form" value=<%=random%>></input>
 	                         <div <%if(domainAccount!=null){%>style="display:none"<%}%>>
 	                            <input type="text" id="domainAccount" name="domainAccount" <%if(domainAccount!=null){%>value="<%=domainAccount%>"<%}%> class="acc textOn" />
 	                            <div class="inputText"><%=Resource.getValue(localeCode,"common","comm.unitaccount")%></div>
@@ -238,7 +246,7 @@ String userPassword = request.getAttribute("userPassword")==null?"":request.getA
 							
                             <div class="vali-pass">
                                 <i class="fa fa-lock" id  = "passwordStyle"></i>
-                                <input type="password" id="userPassword" name="userPassword" class="info"/>
+                                <input type="password" id="userPassword" name="userPassword" class="info"     autocomplete="off" />
 								 <input type="hidden" id="userPasswordTemp" name="userPasswordTemp"/>
 								 <input type="hidden" id="time" name="time"/>
                             </div>

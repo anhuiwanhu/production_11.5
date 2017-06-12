@@ -1,0 +1,178 @@
+/*!
+ * =====================================================
+ * 万户OA微信版 - 基于FrameWork7深度定制
+ * 版本：0.1.1 *
+ * =====================================================
+ */
+
+/*.theme-mixin(e('gray'), #8e8e93);
+.theme-mixin(e('white'), #ffffff);
+.theme-mixin(e('black'), #000000);*/
+.theme-lightblue a {
+  color: inherit;
+}
+.theme-lightblue .link {
+  color: #5ac8fa;
+}
+.theme-lightblue .wh-header-btn a:hover,
+.theme-lightblue .wh-header-btn a.active {
+  color: #5ac8fa;
+}
+.theme-lightblue .wh-header-btn a:hover span,
+.theme-lightblue .wh-header-btn a.active span {
+  color: #5ac8fa;
+}
+.theme-lightblue .wh-footer-btn .fbtn-matter,
+.theme-lightblue .wh-footer-btn .fbtn-matter {
+  color: #5ac8fa;
+}
+.theme-lightblue .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #5ac8fa;
+}
+.theme-lightblue .searchbar.searchbar-active .searchbar-cancel {
+  color: #5ac8fa;
+}
+.theme-yellow a {
+  color: inherit;
+}
+.theme-yellow .link {
+  color: #ffcc00;
+}
+.theme-yellow .wh-header-btn a:hover,
+.theme-yellow .wh-header-btn a.active {
+  color: #ffcc00;
+}
+.theme-yellow .wh-header-btn a:hover span,
+.theme-yellow .wh-header-btn a.active span {
+  color: #ffcc00;
+}
+.theme-yellow .wh-footer-btn .fbtn-matter,
+.theme-yellow .wh-footer-btn .fbtn-matter {
+  color: #ffcc00;
+}
+.theme-yellow .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #ffcc00;
+}
+.theme-yellow .searchbar.searchbar-active .searchbar-cancel {
+  color: #ffcc00;
+}
+.theme-orange a {
+  color: inherit;
+}
+.theme-orange .link {
+  color: #ff9500;
+}
+.theme-orange .wh-header-btn a:hover,
+.theme-orange .wh-header-btn a.active {
+  color: #ff9500;
+}
+.theme-orange .wh-header-btn a:hover span,
+.theme-orange .wh-header-btn a.active span {
+  color: #ff9500;
+}
+.theme-orange .wh-footer-btn .fbtn-matter,
+.theme-orange .wh-footer-btn .fbtn-matter {
+  color: #ff9500;
+}
+.theme-orange .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #ff9500;
+}
+.theme-orange .searchbar.searchbar-active .searchbar-cancel {
+  color: #ff9500;
+}
+.theme-pink a {
+  color: inherit;
+}
+.theme-pink .link {
+  color: #ff2d55;
+}
+.theme-pink .wh-header-btn a:hover,
+.theme-pink .wh-header-btn a.active {
+  color: #ff2d55;
+}
+.theme-pink .wh-header-btn a:hover span,
+.theme-pink .wh-header-btn a.active span {
+  color: #ff2d55;
+}
+.theme-pink .wh-footer-btn .fbtn-matter,
+.theme-pink .wh-footer-btn .fbtn-matter {
+  color: #ff2d55;
+}
+.theme-pink .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #ff2d55;
+}
+.theme-pink .searchbar.searchbar-active .searchbar-cancel {
+  color: #ff2d55;
+}
+.theme-blue a {
+  color: inherit;
+}
+.theme-blue .link {
+  color: #007aff;
+}
+.theme-blue .wh-header-btn a:hover,
+.theme-blue .wh-header-btn a.active {
+  color: #007aff;
+}
+.theme-blue .wh-header-btn a:hover span,
+.theme-blue .wh-header-btn a.active span {
+  color: #007aff;
+}
+.theme-blue .wh-footer-btn .fbtn-matter,
+.theme-blue .wh-footer-btn .fbtn-matter {
+  color: #007aff;
+}
+.theme-blue .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #007aff;
+}
+.theme-blue .searchbar.searchbar-active .searchbar-cancel {
+  color: #007aff;
+}
+.theme-green a {
+  color: inherit;
+}
+.theme-green .link {
+  color: #21c164;
+}
+.theme-green .wh-header-btn a:hover,
+.theme-green .wh-header-btn a.active {
+  color: #21c164;
+}
+.theme-green .wh-header-btn a:hover span,
+.theme-green .wh-header-btn a.active span {
+  color: #21c164;
+}
+.theme-green .wh-footer-btn .fbtn-matter,
+.theme-green .wh-footer-btn .fbtn-matter {
+  color: #21c164;
+}
+.theme-green .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #21c164;
+}
+.theme-green .searchbar.searchbar-active .searchbar-cancel {
+  color: #21c164;
+}
+.theme-red a {
+  color: inherit;
+}
+.theme-red .link {
+  color: #ff3b30;
+}
+.theme-red .wh-header-btn a:hover,
+.theme-red .wh-header-btn a.active {
+  color: #ff3b30;
+}
+.theme-red .wh-header-btn a:hover span,
+.theme-red .wh-header-btn a.active span {
+  color: #ff3b30;
+}
+.theme-red .wh-footer-btn .fbtn-matter,
+.theme-red .wh-footer-btn .fbtn-matter {
+  color: #ff3b30;
+}
+.theme-red .fbtn-more-nav .fbtn-more-nav-inner a {
+  color: #ff3b30;
+}
+.theme-red .searchbar.searchbar-active .searchbar-cancel {
+  color: #ff3b30;
+}
