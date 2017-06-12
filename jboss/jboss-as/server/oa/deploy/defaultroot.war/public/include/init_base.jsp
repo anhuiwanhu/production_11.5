@@ -59,8 +59,12 @@ if(session!=null&&session.getAttribute("skin")!=null){
 		whir_session_skin="2015/pure-green";
 	}else if(whir_session_skin.equals("2015/color_seablue")){ 
 		whir_session_skin="2015/pure-seablue";
-	}else{
+	}else if(whir_session_skin.equals("2013/blue")){ 
 		whir_session_skin="2015/default-blue";
+	}else if(whir_session_skin.indexOf("-")<0||whir_session_skin.indexOf("/")<0){ 
+		whir_session_skin="2015/default-blue";
+	}else{
+		//whir_session_skin="2015/default-blue";
 	} 
 	/*if(",2015/color_default,2015/color_green,2015/color_lineorange,2015/color_linepurple,2015/color_linered,2015/color_orange,2015/color_pureblue,2015/color_puregreen,2015/color_seablue,".indexOf(","+session.getAttribute("skin")+",")>=0){
 		// default - default-blue

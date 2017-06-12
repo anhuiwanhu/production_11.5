@@ -78,7 +78,7 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 			</td>
 			<td nowrap>
 			<s:if test="#request.curModifyField==null || #request.curModifyField.indexOf('$information.informationTitle$') > -1">
-				<s:textfield name="information.informationTitle" id="informationTitle" cssClass="inputText" whir-options="vtype:[{'maxLength':150}]" cssStyle="width:76%;" />
+				<s:textfield name="information.informationTitle" id="informationTitle" cssClass="inputText" whir-options="vtype:['spechar3',{'maxLength':150}]" cssStyle="width:76%;" />
 				<span id="info_add_1">
 				<s:if test="#request.curModifyField==null || #request.curModifyField.indexOf('$information.displayTitle$') > -1">
 					<s:checkboxlist name="information.displayTitle" list="#{'1':getText('info.newinfodetailnotdisplay')}"/>
@@ -97,7 +97,7 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 				</span>
 			</s:if>
 			<s:else>
-				<s:textfield name="information.informationTitle" id="informationTitle" cssClass="inputText" readonly="true" whir-options="vtype:['notempty',{'maxLength':150}]" cssStyle="width:76%;" />
+				<s:textfield name="information.informationTitle" id="informationTitle" cssClass="inputText" readonly="true" whir-options="vtype:['notempty','spechar3',{'maxLength':150}]" cssStyle="width:76%;" />
 				<span id="info_add_1">
 				<s:if test="#request.curModifyField==null || #request.curModifyField.indexOf('$information.displayTitle$') > -1">
 					<s:checkboxlist name="information.displayTitle" list="#{'1':getText('info.newinfodetailnotdisplay')}"/>

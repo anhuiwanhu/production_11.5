@@ -425,8 +425,15 @@
 	            $(obj).parent().parent().find('#money').val(sumMoney);
 	        }else{
 				if(mode == "stock" || mode == "salesreturn"){
-	            	var sumPrice =eval(money/amount).toFixed(2);
-	            	$(obj).parent().parent().find('#price').val(sumPrice);
+	            	//var sumPrice =eval(money/amount).toFixed(2);
+	            	//$(obj).parent().parent().find('#price').val(sumPrice);
+					if(amount!=null&&amount!=""){
+					var sumPrice =eval(money/amount).toFixed(2);
+					$(obj).parent().parent().find('#price').val(sumPrice);
+					}else{
+					var sumPrice =eval(money/1).toFixed(2);
+					$(obj).parent().parent().find('#price').val(sumPrice);
+                    }					
 	            }
 	        }
 	    }

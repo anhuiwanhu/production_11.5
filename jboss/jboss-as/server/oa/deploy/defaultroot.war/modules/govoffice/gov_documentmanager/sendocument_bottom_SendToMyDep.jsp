@@ -3,6 +3,7 @@
 <%@ include file="/public/include/init.jsp"%>
 
 <%
+    String canDownLoad=request.getParameter("canDownLoad")==null?"0":request.getParameter("canDownLoad").toString();
     com.whir.org.common.util.SysSetupReader sysRed=com.whir.org.common.util.SysSetupReader.getInstance();
     String sfMail=sysRed.getOa_mailremind(session.getAttribute("domainId").toString());
 com.whir.integration.realtimemessage.Realtimemessage rutil = new com.whir.integration.realtimemessage.Realtimemessage();
@@ -184,7 +185,9 @@ boolean smsright = true;
               <tr>
                   <td class="td_lefttitle">分发选项：</td>
                   <td align="left">
+                  <%if("1".equals(canDownLoad)){%>
                       <input type="checkbox"  name="sendFileCanDownload" value="1"  checked="true">允许下载正文
+                  <%}%>
                       <input type="checkbox"   name="sendFileFFfj" value="1" checked="true"  />同时分发附件
                   </td>
               </tr>

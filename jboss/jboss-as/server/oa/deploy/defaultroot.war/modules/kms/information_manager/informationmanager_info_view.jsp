@@ -385,7 +385,7 @@
 					<!--视频播放-----20130929-----start-->
 					<s:elseif test="#request.fileType == 'MPG' || #request.fileType == 'MP3' || #request.fileType == 'WMV' || #request.fileType == 'ASF' || #request.fileType == 'AVI' || #request.fileType == 'MPEG'">
 						<div class="wh-dtl-media">
-							<object classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95" >
+							<object classid="clsid:22d6f312-b0f6-11d0-94ab-0080c74c7e95">
 								<param name="showstatusbar" value="1">
 								<param name="filename" value="<%=preUrl%>/upload/<%=path%>/<%=subFolder+saveName%>">
 								<embed src="<%=preUrl%>/upload/<%=path%>/<%=subFolder+saveName%>"></embed>
@@ -680,6 +680,7 @@ $('#versionDropdown').on('show.bs.dropdown', function () {
   var userId = "<%=userId%>";
   var canVindicate = '<%=canVindicate%>';
   var formId = "historyForm";
+	var moditime = '<s:property value="information.informationModifyTime"/>';
 	//分页参数等html、公共js事件绑定
 	initList(formId);
  	var jq_form = $('#'+formId);
@@ -691,17 +692,18 @@ $('#versionDropdown').on('show.bs.dropdown', function () {
 				var data = json.data;
 				//如果只有当前第一个版本，则版本图标不带有箭头：<i>↑</i>
 				if(data.length == 0){
-					//如果不是历史版本的查看页面，则高亮选中的是最新版本：class="current"
-					if('<%=historyId%>' == ''){
+					//如果没有版本修改，则仅一个版本
+					if(moditime == null || moditime == ''){
 						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.informationIssuer"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
 					}else{
-						html = '<li id="lastest-li"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.informationIssuer"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
+						//如果有版本修改，但历史版本被删除，最后版本取修改人与时间
+						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
 					}
 				}else{
 					if('<%=historyId%>' == ''){
-						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.informationIssuer"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
+						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
 					}else{
-						html = '<li id="lastest-li"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.informationIssuer"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
+						html = '<li id="lastest-li"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
 					}
 						
 				}
@@ -1098,14 +1100,14 @@ function addNote(){
 	var channelId = '<s:property value="channelId"/>';
 	var userChannelName = '<s:property value="#request.channelNameString"/>';
 	var informationType = "<s:property value='information.informationType'/>";
-	var informationTitle = "<s:property value='information.informationTitle'/>";
-	var vUrl = whirRootPath + '/NoteBookAction!addNoteBook.action?noteType=information'
+	var informationTitle = '<%=request.getAttribute("information.informationTitle")%>';
+	var vUrl = whirRootPath + '/NoteBookAction!addNoteBook.action?noteType=information';
 	vUrl += '&informationId=' + informationId;
 	vUrl += "&informationType=" + informationType;
 	vUrl += "&channelId=" + channelId;
 	vUrl += "&informationTitle=" + informationTitle;
 	vUrl += "&userChannelName=" + userChannelName;
-	openWin({url:vUrl, width:620, height:350, winName:'addNoteBook'});
+	openWin({url:vUrl, isPost:true, width:620, height:350, winName:'addNoteBook'});
 }
 
 //收藏
