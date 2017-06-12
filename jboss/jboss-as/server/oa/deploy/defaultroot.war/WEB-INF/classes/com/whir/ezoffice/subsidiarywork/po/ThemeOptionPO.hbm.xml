@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+    <class name="com.whir.ezoffice.subsidiarywork.po.ThemeOptionPO" table="OA_THEMEOPTION" schema="EZOFFICE">
+        <id name="themeOptionId" column="THEMEOPTIONID">
+           <generator class="native" />
+        </id>
+        <property name="title" column="TITLE"/>
+		<property name="pitchon" column="PITCHON"/>
+		<property name="optionScore" column="OPTIONSCORE"/>
+		<property name="domainId" column="DOMAIN_ID"/>
+		<property name="opImgRealName" column="opImgRealName"/>
+		<property name="opImgSaveName" column="opImgSaveName"/>
+		<property name="customAnswer" column="customAnswer"/>
+		<many-to-one
+    		name="questheme"
+			class="com.whir.ezoffice.subsidiarywork.po.QuesthemePO"
+			not-null="true"
+		>
+        <column name="QUESTHEMEID" />
+    </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.whir.ezoffice.wxlocation.po.WxWorkAttendancePO" table="WX_WORK_ATTENDANCE" schema="EZOFFICE">
+		<id name="id" column="ID">
+			<generator class="native"/>
+		</id>
+		<property name="domainId" column="DOMAINID"/>
+		<property name="userId" column="USERID"/>
+		<property name="userName" column="USERNAME"/>
+		<property name="ordId" column="ORGID"/>
+		<property name="orgName" column="ORGNAME"/>
+		<property name="orgIdString" column="ORGIDSTRING"/>
+		<property name="presentTime" column="PRESENTTIME"/>
+		<property name="presentAddress" column="PRESENTADDRESS"/>
+		<property name="longItude" column="LONGITUDE"/>
+		<property name="latItude" column="LATITUDE"/>
+		<property name="record" column="RECORD"/>
+		<property name="attendanceSource" column="ATTENDANCESOURCE"/>
+	</class>
+</hibernate-mapping>
