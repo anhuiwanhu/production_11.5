@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="com.whir.ezoffice.portal.actionsupport" extends="whir">
+        <action name="Header!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalHeaderFooterAction">
+            <result name="list">/platform/portal/header/portal_header_list.jsp</result>
+			<result name="add">/platform/portal/header/portal_header_add.jsp</result>
+			<result name="load">/platform/portal/header/portal_header_modify.jsp</result>
+        </action>
+
+		<action name="PortalTemplate!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalTemplateAction">
+            <result name="list">/platform/portal/template/portal_template_list.jsp</result>
+			<result name="add">/platform/portal/template/portal_template_add.jsp</result>
+			<result name="load">/platform/portal/template/portal_template_modify.jsp</result>
+        </action>
+
+		<action name="PortalMenuSet!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalMenuSetAction">
+            <result name="list">/platform/portal/menu/portal_menu_set_list.jsp</result>
+			<result name="add">/platform/portal/menu/portal_menu_set_add.jsp</result>
+			<result name="load">/platform/portal/menu/portal_menu_set_modify.jsp</result>
+        </action>
+
+		<action name="PortalMenu!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalMenuAction">
+            <result name="list">/platform/portal/menu/portal_menu_list.jsp</result>
+			<result name="add">/platform/portal/menu/portal_menu_add.jsp</result>
+			<result name="load">/platform/portal/menu/portal_menu_modify.jsp</result>
+        </action>
+
+		<action name="PortalLayout!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalLayoutAction">
+            <result name="list">/platform/portal/layout/portal_layout_list.jsp</result>
+			<result name="add">/platform/portal/layout/portal_layout_add.jsp</result>
+			<result name="load">/platform/portal/layout/portal_layout_modify.jsp</result>
+			<result name="design">/platform/portal/layout/portal_layout_design.jsp</result>
+			<result name="listhomepage">/platform/portal/layout/portal_homepage_list.jsp</result>
+			<result name="addhomepage">/platform/portal/layout/portal_homepage_add.jsp</result>
+			<result name="loadhomepage">/platform/portal/layout/portal_homepage_modify.jsp</result>
+			<result name="templateSet">/platform/portal/layout/portal_layout_templateSet.jsp</result>
+        </action>
+
+		<action name="PortalType!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalTypeAction">
+            <result name="list">/platform/portal/type/portal_type_list.jsp</result>
+			<result name="add">/platform/portal/type/portal_type_add.jsp</result>
+			<result name="load">/platform/portal/type/portal_type_modify.jsp</result>
+        </action>
+
+		<action name="PortletData!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortletDataAction">
+            <result name="expert">/platform/portal/portlet/conf/showExpert.jsp</result>
+			<result name="myChannel">/platform/portal/portlet/conf/showAllChannel.jsp</result>
+			<result name="allOrg">/platform/portal/portlet/conf/showAllOrg.jsp</result>
+			<result name="transChannel">/platform/portal/portlet/conf/transChannel.jsp</result>
+			<result name="allForum">/platform/portal/portlet/conf/showAllForum.jsp</result>
+			<result name="allBmp">/platform/portal/portlet/conf/showAllBmp.jsp</result>
+			<result name="allJournal">/platform/portal/portlet/conf/showAllJournal.jsp</result>
+			<result name="allBmp2">/platform/portal/portlet/conf/showAllBmp2.jsp</result>
+			<result name="allProcess">/platform/portal/portlet/conf/allProcess.jsp</result>
+        </action>
+
+		<action name="PortalTheme!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalThemeAction">
+            <result name="list">/platform/portal/theme/portal_theme_list.jsp</result>
+			<result name="add">/platform/portal/theme/portal_theme_add.jsp</result>
+			<result name="load">/platform/portal/theme/portal_theme_modify.jsp</result>
+        </action>
+        
+    </package>
+
+    <package name="com.whir.ezoffice.portal.actionsupport.portal" extends="struts-default">
+        <action name="Portal!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalAction">
+            <result name="main">/platform/portal/main.jsp</result>
+			<result name="main_go">/platform/portal/main_go.jsp</result>
+            <result name="main_pageleft">/platform/portal/main_pageleft.jsp</result>
+            <result name="portal">/portal.jsp</result>
+        </action>       
+		
+		<action name="PortalMenuThumb!*" method="{1}" class="com.whir.ezoffice.portal.actionsupport.PortalMenuAction">
+			<result name="thumb">/platform/portal/menu/portal_menu_thumblist.jsp</result>
+        </action>
+    </package>
+
+</struts>

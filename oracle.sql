@@ -342,3 +342,47 @@ commit;
  commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.16_SP_20161219','11.5.0.16',sysdate);
 commit;
+
+
+
+
+
+
+-- 初始化流程场景portlet
+insert into oa_portal_portlet
+  (PORTLET_ID,
+   NAME,
+   CONTENT,
+   TYPE_,
+   LINKURL,
+   ICON_CLS,
+   STATUS,
+   DESCRIPTION,
+   SORT_NO,
+   DEL_FLAG,
+   DOMAIN_ID,
+   OUTTER_FLAG,
+   PORTLET_CATEGORY,
+   PORTLET_CATEGORY_NAME,
+   CATEGORY_SORTNO,
+   ICON_FONT)
+values
+  ((select max(a.portlet_id)+1 from oa_portal_portlet a),
+   '流程场景',
+   null,
+   'processscene',
+   null,
+   '',
+   '1',
+   null,
+   163,
+   '0',
+   0,
+   '',
+   'cate_dealwith',
+   '文件办理类',
+   30,
+   'fa-sitemap');
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.17_SP_20170103','11.5.0.17',sysdate);
+commit;

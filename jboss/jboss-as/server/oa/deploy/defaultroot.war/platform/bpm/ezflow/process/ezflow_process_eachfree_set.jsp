@@ -18,6 +18,8 @@ if(haveUserTask.equals("1")){
 	<%@ include file="/public/include/meta_base.jsp"%>
 	<%@ include file="/public/include/meta_list.jsp"%>
 	<!--这里可以追加导入模块内私有的js文件或css文件-->
+	<script src="<%=rootPath%>/platform/bpm/ezflow/graph/whirflow/src/name/xio/util/Map.js" type="text/javascript"></script> 
+    <script src="<%=rootPath%>/platform/bpm/ezflow/graph/whirflow/src/name/xio/util/List.js" type="text/javascript"></script> 
 </head>
 
 <body class="MainFrameBox"> 
@@ -37,9 +39,13 @@ if(haveUserTask.equals("1")){
             </td>
             <td align="right">
 			  <input type="button" class="btnButton4font" onclick="saveOK(0);"  value='确　　定' />
-                <input type="button" class="btnButton4font" onclick="saveOK(1);"  value='流程设计器' /> 
+               <input type="button" class="btnButton4font" onclick="saveOK(1);"  value='流程设计器' /> 
             </td>
         </tr>
+		<tr>
+		  <td colspan="2"> <span class="MustFillColor">抢占(可选多人，其中一个人办理完毕即可);  &nbsp;&nbsp; 顺序（可选多人，按选择顺序，顺序办理）; &nbsp;&nbsp; 并行（可选多人，不按选择顺序，并行办理）; &nbsp;&nbsp; 单人（只能选择单人，办理即可）</span>
+         </td>
+		</tr>
     </table>
     <!-- MIDDLE	BUTTONS	END -->
 
@@ -56,7 +62,7 @@ if(haveUserTask.equals("1")){
 		</thead>
 		<tbody  id="itemContainer" >
 		  <tr  class="listTableLine1"> 
-				<td><input  type="text" name="userTaskname"   class="inputText" ></td> 
+				<td><input  type="text" name="userTaskname"   class="inputText" value="活动1"></td> 
 				<td>
 				    <select  name="taskSequenceType">
 					   <option value="monopolise"><%=Resource.getValue(local, "workflow", "workflow.monopolise")%></option>
@@ -67,11 +73,11 @@ if(haveUserTask.equals("1")){
 				</td> 
 				<td>
 				   <select  name="priority">
-					   <option value="50"><%=Resource.getValue(local, "filetransact", "file.sort1") %></option>
-					   <option value="40"><%=Resource.getValue(local, "filetransact", "file.sort2") %></option>
-					   <option value="30"><%=Resource.getValue(local, "filetransact", "file.sort4") %></option>
-					   <option value="20"><%=Resource.getValue(local, "filetransact", "file.sort3") %></option>
-					   <option value="10"><%=Resource.getValue(local, "filetransact", "file.sort5") %></option>
+					<option value="10"><%=Resource.getValue(local, "filetransact", "file.sort5") %></option>
+					<option value="20"><%=Resource.getValue(local, "filetransact", "file.sort3") %></option>
+					<option value="30"><%=Resource.getValue(local, "filetransact", "file.sort4") %></option>
+					<option value="40"><%=Resource.getValue(local, "filetransact", "file.sort2") %></option>
+					<option value="50"><%=Resource.getValue(local, "filetransact", "file.sort1") %></option>  
 				    </select>
 				</td>  
 				<td> 
@@ -82,10 +88,10 @@ if(haveUserTask.equals("1")){
 					   <option value="initiator">流程启动人</option>
 					   <!-- <option value="someGroups">从选定的群组中选择</option>  --> 
 				    </select>
-					<span><input type="text" style="width:50%;" class="inputText" name="passRound_candidate0" readonly="true"  id="passRound_candidate0"><a href="#" class="selectIco" onclick="chooseUser(this);return false;"><img src="/defaultroot/images/select_arrow.gif" width="16" height="16" align="absmiddle"/></a><input type="hidden" name="passRound_candidateId0"  id="passRound_candidateId0" value=""></span>
+					<span name="userspan"><input type="text" style="width:50%;" class="inputText" name="passRound_candidate0" readonly="true"  id="passRound_candidate0"><a href="#" class="selectIco" onclick="chooseUser(this);return false;"><img src="/defaultroot/images/select_arrow.gif" width="16" height="16" align="absmiddle"/></a><input type="hidden" name="passRound_candidateId0"  id="passRound_candidateId0" value=""></span>
 				</td>
 				<td >
-				<a href="javascript:void(0)"  onclick="addEachTr(this)"><img src="/defaultroot/images/madd.gif" title="增加" border="0"></a>
+				<a href="javascript:void(0)"  onclick="addEachTr(this)" name="addtra"><img src="/defaultroot/images/madd.gif" title="增加" border="0" ></a>
 				<a href="javascript:void(0)" onclick="delEachTr(this)"><img src="/defaultroot/images/del.gif" title="删除" border="0"></a>
 				<a  href="javascript:void(0)"  onclick="nextTr(this)"><img src="/defaultroot/images/move_down.gif" title="下移" border="0"></a>
 				<a href="javascript:void(0)"  onclick="lastTr(this)"><img src="/defaultroot/images/move_up.gif" title="上移" border="0"></a>
@@ -150,7 +156,8 @@ if(haveUserTask.equals("1")){
 			        if(succ==-10) { 
 						$("#processDefId").val(recordId);
 						if(window.opener){	
-							opener.document.getElementById('p_wf_processId').value=recordId;  
+							opener.document.getElementById('p_wf_processId').value=recordId;   
+							opener.document.getElementById('p_wf_processId_freeOld').value="<%=request.getParameter("processDefId")%>";  
 						}   
 						if($("#needToGraph").val()=="1"){
 						   fff();
@@ -197,7 +204,9 @@ if(haveUserTask.equals("1")){
 		var nextTr = parentTr.next("tr").eq(0); 
 		nextTr.find('input[name="eachIndex"]').val(index);  
         nextTr.find('input[name=passRound_candidateId'+index+']').val("");
-		nextTr.find('input[name=passRound_candidate'+index+']').val("");   
+		nextTr.find('input[name=passRound_candidate'+index+']').val("");  
+		
+		nextTr.find('input[name="userTaskname"]').val("活动"+(index+1));  
 		nextTr.find("span").show();
 
 		/*var secondRow = $(currentTrigTable).find('#refTable tr:eq(1)');
@@ -310,12 +319,21 @@ if(haveUserTask.equals("1")){
 				if( $("input[name='userTaskname']").val()==""){
 					zhijiegraph=true;
 				}
+                 var  index_=$("input[name=eachIndex]").val();
+				if($("select[name='participantType']").val()=="someUsers"){
+					if($("#passRound_candidateId"+index_).val()==""){
+						zhijiegraph=true;
+						$("input[name='userTaskname']").val("");
+					}
+				}
+
 			}
 
 		}
 		if(zhijiegraph){
 			  fff(); 
 		}else if(judgeHF()){
+			setOpenerProcessList();
 			$("#needToGraph").val(type);
 			$("#dataForm").submit();
 		}
@@ -325,6 +343,111 @@ if(haveUserTask.equals("1")){
 		var src=whirRootPath+"/platform/bpm/ezflow/graph/jsp/updateprocess.jsp?recordId=&subType=0&moduleId="+$("#p_wf_moduleId").val();
 	    src+="&processDefId="+$("#processDefId").val(); 
 		location_href(src); 
+	}
+
+
+ 
+   initProcessList();
+   function initProcessList(){
+	   var list=opener.getTableListProcessSet();
+       var eachMap=null; 
+	   if(list!=null&&list.size() > 0){
+		   var size=list.size();
+		   for(var i=0;i<size;i++){ 
+			   eachMap=list.get(i);
+			   if(i==0){
+				   $("input[name='userTaskname']").val(eachMap.get("userTaskname"));
+				   $("select[name='taskSequenceType']").val(eachMap.get("taskSequenceType"));
+				   $("select[name='participantType']").val(eachMap.get("participantType"));
+				   $("select[name='priority']").val(eachMap.get("priority"));
+				   $("input[name='passRound_candidateId0']").val(eachMap.get("passRound_candidateId"));
+				   $("input[name='passRound_candidate0']").val(eachMap.get("passRound_candidate")); 
+
+				   if(eachMap.get("participantType")=="someUsers"){
+					    $("span[name='userspan']").show();  
+				   }else{
+					    $("span[name='userspan']").hide(); 
+				   }
+			   }else{
+				    var obj=$("a[name='addtra']")[i-1];
+				    addEachTr_(obj,eachMap);
+
+			   }
+		   } 
+		} 
+   }
+
+    //字段联动 增加行
+	function addEachTr_(obj,eachMap){ 
+		index=index+1;
+		var parentTr = $(obj).parent().parent(); 
+		var  nowIndex=parentTr.find('input[name="eachIndex"]').val();  
+	    var f_tableName_tr_html=parentTr.html();
+
+		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidateId"+nowIndex,"passRound_candidateId"+index);
+		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidateId"+nowIndex,"passRound_candidateId"+index);
+		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidate"+nowIndex,"passRound_candidate"+index);
+		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidate"+nowIndex,"passRound_candidate"+index); 
+
+
+
+
+		parentTr.after($('<tr class="listTableLine1">'+f_tableName_tr_html+'</tr>'));  
+		var nextTr = parentTr.next("tr").eq(0); 
+		nextTr.find('input[name="eachIndex"]').val(index);  
+        nextTr.find('input[name=passRound_candidateId'+index+']').val(eachMap.get("passRound_candidateId"));
+		alert(eachMap.get("passRound_candidate"));
+		nextTr.find('input[name=passRound_candidate'+index+']').val(eachMap.get("passRound_candidate"));  
+		nextTr.find('input[name="userTaskname"]').val(eachMap.get("userTaskname"));  
+
+		//taskSequenceType   participantType  priority
+		nextTr.find('select[name="taskSequenceType"]').val(eachMap.get("taskSequenceType")); 
+		nextTr.find('select[name="participantType"]').val(eachMap.get("participantType"));  
+		nextTr.find('select[name="priority"]').val(eachMap.get("priority")); 
+		
+		if(eachMap.get("participantType")=="someUsers"){
+			nextTr.find("span").show();
+		}else{
+			nextTr.find("span").hide();
+		} 
+	}
+
+
+ 
+	function setOpenerProcessList(){
+        var oldProcessTableList=new List();  
+        var  _participantType="";
+		var  _eachIndex="";
+		var parentparent=null;
+		var _passRound_candidateId="";
+		var _passRound_candidate="";
+		var _taskSequenceType="";
+		var _userTaskname="";
+		var _priority=""; 
+		$("select[name='participantType']").each(function(){
+			  parentparent=$(this).parent().parent();
+			  var  map=new Map(); 
+			  _participantType=$(this).val();
+			  _eachIndex=parentparent.find("input[name='eachIndex']").val();
+			  _passRound_candidateId=$("#passRound_candidateId"+_eachIndex).val();
+			  _passRound_candidate=$("#passRound_candidate"+_eachIndex).val();
+			  _taskSequenceType=parentparent.find("select[name='taskSequenceType']").val();
+			  _priority=parentparent.find("select[name='priority']").val();
+			  _userTaskname=parentparent.find("input[name='userTaskname']").val();
+			  map.put("eachIndex",_eachIndex);
+			  map.put("participantType",_participantType);
+			  map.put("eachIndex",_eachIndex);
+			  map.put("passRound_candidateId",_passRound_candidateId);
+ 
+			  map.put("passRound_candidate",_passRound_candidate);
+			  map.put("taskSequenceType",_taskSequenceType);
+			  map.put("priority",_priority);
+			  map.put("userTaskname",_userTaskname);
+			  oldProcessTableList.add(map);  
+			  
+		});
+		opener.setTableListProcessSet(oldProcessTableList);   
+
 	}
   
 	//*************************************下面的函数属于各个模块 完全 自定义的*************************************************//

@@ -55,6 +55,8 @@ String cur_commentField=request.getAttribute("p_wf_curCommField")==null?"":reque
 <input type="hidden" name="p_wf_oldTaskId"           id="p_wf_oldTaskId"   value="<%=request.getAttribute("p_wf_taskId")+""%>">
 <!--流程定义id-->
 <s:hidden name="p_wf_processId"                      id="p_wf_processId"/>
+<!--  -->
+<input type="hidden" name="p_wf_processId_freeOld"   id="p_wf_processId_freeOld">
 <s:hidden name="p_wf_processType"                    id="p_wf_processType"/>
 <s:hidden name="p_wf_tableId"                        id="p_wf_tableId" />
 
@@ -331,6 +333,12 @@ String  otherTaskId=com.whir.component.security.crypto.EncryptUtil.htmlcode(requ
 <input type="hidden" name="p_wf_activityclassType"   id="p_wf_activityclassType"  value="<%=request.getAttribute("p_wf_activityclassType")==null?"":request.getAttribute("p_wf_activityclassType")+""%>" />
 
 
+<input type="hidden" name="p_wf_parentProcessInstanceId"   id="p_wf_parentProcessInstanceId"  value="<%=request.getParameter("p_wf_parentProcessInstanceId")==null?"":request.getParameter("p_wf_parentProcessInstanceId")+""%>" />
+
+<input type="hidden" name="p_wf_extendMainTable_nowNeed"   id="p_wf_extendMainTable_nowNeed"  value="<%=request.getParameter("extendMainTable")==null?"":request.getParameter("extendMainTable")+""%>" />
+
+
+
 <%
 
 String p_wf_activityclassType=request.getAttribute("p_wf_activityclassType")==null?"":request.getAttribute("p_wf_activityclassType").toString();
@@ -355,7 +363,7 @@ String [] sub_processInfo=null;
 		 var p_wf_subProcHref=$("#p_wf_subProcHref").val(); 
 		 var url="<%=rootPath%>/bpmstart!start.action";
 		 var paraVal="p_wf_pool_processId="+p_wf_pool_processId+"&whir_startProcessFromTaskId="+$("#p_wf_taskId").val() +
-			         "&p_wf_fffffffffpareRecordId="+$("#p_wf_recordId").val()+"&rrecordId="+ $("#p_wf_recordId").val()+"&rmoduleId="+$("#p_wf_moduleId").val()+"&subProcess=1&extendMainTable="+$("#p_wf_extendMainTable").val()+"&p_wf_pool_processType=1";
+			         "&p_wf_fffffffffpareRecordId="+$("#p_wf_recordId").val()+"&rrecordId="+ $("#p_wf_recordId").val()+"&rmoduleId="+$("#p_wf_moduleId").val()+"&subProcess=1&extendMainTable="+$("#p_wf_extendMainTable").val()+"&p_wf_pool_processType=1&p_wf_parentProcessInstanceId="+$("#p_wf_processInstanceId").val();
 
 		 if($("#p_wf_extendMainTable").val()=="1"){
 			 paraVal+="&parentFormId="+$("#p_wf_formId").val()+"&parentRecordId="+$("#p_wf_recordId").val(); 

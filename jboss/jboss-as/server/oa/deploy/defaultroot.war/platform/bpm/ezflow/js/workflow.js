@@ -426,8 +426,12 @@ function include_CancelTran(){
 
 //设置流程
 function cmdSetProcess(){ 
+	var processId=$("#p_wf_processId_freeOld").val();
+	if(processId==null||processId==""){
+		processId=$("#p_wf_processId").val();
+	}
 	var src=whirRootPath+"/ezflowprocess!loadProcessForFreeFlow.action?recordId=&subType=0&moduleId="+$("#p_wf_moduleId").val();
-	src+="&processDefId="+$("#p_wf_processId").val();
+	src+="&processDefId="+processId;
 	//window.open(src,'','TOP=0,LEFT=0,scrollbars=yes,resizable=yes,width=920,height=800');
 	openWin({url:src,width:1185,height:780,scrollbars:'yes',resizable:'yes',winName:''}); 
 } 
