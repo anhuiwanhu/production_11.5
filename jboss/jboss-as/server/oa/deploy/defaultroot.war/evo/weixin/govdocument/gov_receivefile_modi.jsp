@@ -82,15 +82,15 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 										docSaveFiles.append(pageContext.getAttribute("saveFile").toString()).append("|");
 										%>
 									</x:forEach>
-									<x:forEach select="$govDoc//docSaveFile/file" var="file" >
+									<x:forEach select="$govDoc//docRealFile/file" var="file" >
 										<c:set var="realFile" ><x:out select="$file/text()" /></c:set>
 										<%
 										docRealFiles.append(pageContext.getAttribute("realFile").toString()).append("|");
 										%>
 									</x:forEach>
 									<jsp:include page="../common/include_download.jsp" flush="true">
-										<jsp:param name="realFileNames"	value="<%=docSaveFiles.toString() %>" />
-										<jsp:param name="saveFileNames" value="<%=docRealFiles.toString() %>" />
+										<jsp:param name="realFileNames"	value="<%=docRealFiles.toString() %>" />
+										<jsp:param name="saveFileNames" value="<%=docSaveFiles.toString() %>" />
 										<jsp:param name="moduleName" value="govdocumentmanager" />
 									</jsp:include>
 		            			</td>

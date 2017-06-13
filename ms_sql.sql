@@ -243,3 +243,11 @@ alter table   ez_flow_hi_procinst  add  WHIR_FROMTASKID nvarchar(300);
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.14_SP_20161128','11.5.0.14',getdate());
 go
+
+
+
+
+
+
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.15_SP_20161203','11.5.0.15',getdate());
+go
