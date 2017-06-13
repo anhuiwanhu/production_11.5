@@ -192,3 +192,29 @@ alter table tfield add field_signpic nvarchar(1);
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.10_SP_20161029','11.5.0.10',getdate());
 go
+
+
+
+
+
+
+alter table gov_ReceiveFileSeq  add  tempProceID nvarchar(2000);
+go
+update gov_ReceiveFileSeq set tempProceID=seqproceid;
+go
+alter table gov_ReceiveFileSeq drop COLUMN seqproceid ;
+go
+alter  table  gov_ReceiveFileSeq  add  seqproceid nvarchar(2000);
+go
+update gov_ReceiveFileSeq set seqproceid='$'+tempProceID+'$';
+go
+alter table gov_ReceiveFileSeq  alter   COLUMN seqprocenamer nvarchar(2000);
+alter table gov_ReceiveFileSeq drop COLUMN tempProceID;
+go
+
+alter table OA_INFORMATIONHISTORY alter column HISTORYISSUERNAME  nvarchar(100);
+alter table OA_INFORMATIONBROWSER alter column BROWSERNAME  nvarchar(100);
+alter table OA_INFORMATIONVIEWRECORD alter column VIEWERNAME  nvarchar(100);
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.11_SP_20161105','11.5.0.11',getdate());
+go

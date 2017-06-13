@@ -416,7 +416,7 @@
 				   &nbsp;&nbsp;<%=Resource.getValue(whir_locale,"mail","mail.sendoption")%>：    
 			   </td>    
 			   <td>    
-				    <input type="checkbox" name="maillevel1" id="maillevel1" value="2" /><%=Resource.getValue(whir_locale,"mail","mail.urgency")%>
+				    <input type="checkbox" name="maillevel" id="maillevel" value="2" /><%=Resource.getValue(whir_locale,"mail","mail.urgency")%>
 					<input type="checkbox" name="mailneedrevert" id="mailneedrevert" value="1"/><%=Resource.getValue(whir_locale,"mail","mail.receipt")%>  
 					<input type="checkbox" name="mailSign" id="mailSign" value="1"/><%=Resource.getValue(whir_locale,"mail","mail.signature")%>  
 					<input type="checkbox" name="mailanonymous" id="mailanonymous" value="1"/><%=Resource.getValue(whir_locale,"mail","mail.anonymous")%>

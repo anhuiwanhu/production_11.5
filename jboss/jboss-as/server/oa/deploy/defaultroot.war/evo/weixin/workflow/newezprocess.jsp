@@ -5,6 +5,7 @@
 String pageId = request.getParameter("pageId");
 String processId = request.getParameter("processId");
 String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgId").toString();
+String userName = session.getAttribute("userName")==null?"":session.getAttribute("userName").toString();
 %>
 <!DOCTYPE html>
 <html>
@@ -282,6 +283,11 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 									<%--登录人信息 --%>
 									<c:when test="${( showtype =='213' || showtype =='215'|| showtype =='406'|| showtype =='601'|| showtype =='602'|| showtype =='603'|| showtype =='604'|| showtype =='605'|| showtype =='607'|| showtype =='701'|| showtype =='702'|| showtype =='201'|| showtype =='202' || showtype =='207'  ) && readwrite =='1'}">
 										<c:choose>
+										    <%--当前登录人 --%>
+											<c:when test="${showtype == '202'}">
+												<%=userName%>
+												<input id='<x:out select="$fd/sysname/text()"/>' type="hidden" name='_main_<x:out select="$fd/sysname/text()"/>'  value='<%=userName%>' />
+											</c:when>
 											<%--最末端组织 --%> 
 											<c:when test="${expressionval == 'self'}">
 												<%

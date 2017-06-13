@@ -233,3 +233,32 @@ comment on column tfield.field_signpic  is '使用签名图片(1 是)';
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.10_SP_20161029','11.5.0.10',sysdate);
 commit;
+
+
+
+
+
+
+
+alter  table  gov_ReceiveFileSeq  add  tempProceID nvarchar2(2000);
+commit;
+update gov_ReceiveFileSeq set tempProceID=seqproceid;
+alter table gov_ReceiveFileSeq drop (seqproceid);
+commit;
+
+alter  table  gov_ReceiveFileSeq  add  seqproceid nvarchar2(2000);
+comment on column gov_ReceiveFileSeq.seqproceid is '流程id串';
+commit;
+update gov_ReceiveFileSeq set seqproceid='$'||tempProceID||'$';
+commit;
+alter table gov_ReceiveFileSeq  modify seqprocenamer nvarchar2(2000);
+alter table gov_ReceiveFileSeq drop (tempProceID);
+commit;
+
+
+alter table OA_INFORMATIONHISTORY modify HISTORYISSUERNAME  VARCHAR2(100);
+alter table OA_INFORMATIONBROWSER modify BROWSERNAME  VARCHAR2(100);
+alter table OA_INFORMATIONVIEWRECORD modify VIEWERNAME  VARCHAR2(100);
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.11_SP_20161105','11.5.0.11',sysdate);
+commit;

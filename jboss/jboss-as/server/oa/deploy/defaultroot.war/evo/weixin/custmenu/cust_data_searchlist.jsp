@@ -49,9 +49,14 @@
     </div>
     <script type="text/javascript" src="/defaultroot/evo/weixin/frameworktemplate/js/template.min.js"></script>
 	<script type="text/javascript" src="/defaultroot/evo/weixin/frameworktemplate/js/plugin/zepto.js"></script>
+	<script type="text/javascript" src="/defaultroot/evo/weixin/custmenu/js/custmenu.js"></script>
+	<script type="text/javascript">
+	  var myApp = new Framework7({
+			  fastClicks: false,
+	  });
+	  var $$ = Dom7;
+	</script>
     <script type="text/javascript">
-      var myApp = new Framework7();
-      var $$ = Dom7;
       // 清除搜索区域焦点bug
       $$(document).on('touchmove', function() {
         if ($$("#searchBug").is(":focus")) {
@@ -168,22 +173,22 @@
 				            	searchfieldShows += fieldShow+",";
 		        	        }else if(fieldShow == '107'){
 				        		//日期
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="date" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入"/> ';
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="date" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="date" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入" onfocus="selectDateNew(this)"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="date" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入" onfocus="selectDateNew(this)"/> ';
 		        	            searchfieldNames += fieldName+",";
 				            	searchfieldTypes += fieldType+",";
 				            	searchfieldShows += fieldShow+",";
 		        	        }else if(fieldShow == '108'){
 				        		//时间 
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="time" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入"/> ';
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="time" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="time" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入" onfocus="selectTimeNew(this)"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="time" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入" onfocus="selectTimeNew(this)"/> ';
 		        	            searchfieldNames += fieldName+",";
 				            	searchfieldTypes += fieldType+",";
 				            	searchfieldShows += fieldShow+",";
 		        	        }else if(fieldShow == '109'){
 				        		//日期 时间 
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="datetime" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入"/> ';
-				        		itemContent += '<input  class="edit-ipt-r" data-dateType="datetime" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="datetime" type="text" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入" onfocus="selectDateTimeNew(this)"/> ';
+				        		itemContent += '<input  class="edit-ipt-r" data-dateType="datetime" type="text" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入" onfocus="selectDateTimeNew(this)"/> ';
 		        	            searchfieldNames += fieldName+",";
 				            	searchfieldTypes += fieldType+",";
 				            	searchfieldShows += fieldShow+",";
@@ -340,8 +345,9 @@
 			                   fieldShow == '103' ||
 			                   fieldShow == '105'){
 				              if(document.getElementById(fieldName).value!=''){
+				                var _txt=document.getElementById(fieldName).options[document.getElementById(fieldName).options.selectedIndex].text;
 				                cust_queryField += fieldName + '|';
-				                cust_queryText += document.getElementById(fieldName).value+'|';
+				                cust_queryText += document.getElementById(fieldName).value+','+_txt+'|';
 				              }
 	    	           }else if(fieldShow == '104'){
 				              if(document.getElementById(fieldName).checked == true){

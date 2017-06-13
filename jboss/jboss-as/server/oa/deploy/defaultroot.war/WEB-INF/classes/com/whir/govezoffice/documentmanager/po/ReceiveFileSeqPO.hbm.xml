@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+	<class name="com.whir.govezoffice.documentmanager.po.ReceiveFileSeqPO" schema="EZOFFICE" table="gov_ReceiveFileSeq">
+
+		<id column="ID" name="id" type="java.lang.Long">
+			<generator class="native"/>
+		</id>
+		<property name="seqNameR" column="seqNameR" />
+		<property name="seqProceNameR" column="seqProceNameR" />
+		<property name="seqProceId" column="seqProceId"/>
+		<property name="seqBitNumR" column="seqBitNumR"/>
+		<property name="seqIsYearR" column="seqIsYearR"/>
+		<property name="seqInitValueR" column="seqInitValueR" />
+		<property name="seqFormatR" column="seqFormatR" />
+		<property name="seqModeR" column="seqModeR"/>
+                <property name="seqfigR" column="seqfigR"/>
+		<property name="seqIsName" column="seqIsName"/>
+                <property name="receiveUser" column="receiveUser"/>
+                <property name="receiveOrg" column="receiveOrg"/>
+                <property name="receiveGroup" column="receiveGroup"/>
+                <property name="receiveScopeName" column="receiveScopeName"/>
+                <property name="receiveScopeId" column="receiveScopeId"/>
+                <property name="seqType" column="seqType"/>
+                <property name="oldYear" column="oldYear"/>
+                <property name="keyValue" column="keyValue"/>
+                <property name="createOrg" column="createOrg"/>
+                <property name="createEmp" column="createEmp"/>
+                <property name="canModifyEmpId" column="canModifyEmpId"/>
+                <property name="canModifyEmpName" column="canModifyEmpName"/>
+        </class>
+</hibernate-mapping>
+
+
+
+
+
+
+

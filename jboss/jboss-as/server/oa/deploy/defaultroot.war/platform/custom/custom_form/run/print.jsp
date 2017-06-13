@@ -86,9 +86,10 @@ try{
     try{dbopt.close();}catch(Exception e2){}
 }
 %>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" style="height:0;">
 <head>
     <title><%=submitPerson%> <%=submitDate%> <%=processName%></title>
+     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <%
     whir_custom_str="easyui";
@@ -142,6 +143,10 @@ try{
     .dataDiv{
     }
 
+    div.cls-print{
+      padding:0 5px;
+    }
+
     </style>
 </head>
 <body scroll="yes" style="overflow:auto;">
@@ -176,7 +181,7 @@ try{
         <input type=hidden name=tableId value="<%=pageId%>">
         <%
             String flag="none";
-            out.print("<input type=hidden name=recordId value="+request.getParameter("p_wf_recordId")+">");
+            //out.print("<input type=hidden name=recordId value="+request.getParameter("p_wf_recordId")+">");
             request.setAttribute("infoId",request.getParameter("p_wf_recordId"));
         %>
 		<div style="padding:10px;margin-bottom:10px">
@@ -250,10 +255,10 @@ function commentWidth(){
 }
 
 function printDoc(obj){
-    //window.print();
-    //window.close();
+    window.print();
+    window.close();
 
-    var basePath = 'http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=rootPath%>';
+   /* var basePath = 'http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=rootPath%>';
     var printHtml = '';
     printHtml += '<!DOCTYPE html>';
     printHtml += '<html style="height:0;">';
@@ -280,7 +285,7 @@ function printDoc(obj){
 
     printHtml += '<script>';
     printHtml += 'try{document.getElementById("showformDiv").style.height="auto";}catch(e){}';
-    //printHtml += 'try{document.getElementById("includeCommentDiv").style.width="100%";}catch(e){}';
+    printHtml += 'try{document.getElementById("includeCommentDiv").style.width="100%";}catch(e){}';
     printHtml += '</sc'+'ript>';
 
     printHtml += '</body>';
@@ -288,7 +293,7 @@ function printDoc(obj){
 
     printWin = window.open("", "newwin", "");
     printWin.document.write(printHtml);
-    printWin.document.close();
+    printWin.document.close();*/
 }
 
 function _export2(url, content){

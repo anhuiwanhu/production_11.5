@@ -112,7 +112,8 @@
 	  var htmlcon ='';
 	  var arr = cust_queryText.substring(0,cust_queryText.length-1).split('|');
 	  for(var a=0;a<arr.length;a++){
-		htmlcon+='<span>'+arr[a]+'</span>';
+		var _tmp = arr[a].split(",");
+		htmlcon+='<span>'+_tmp[1]+'</span>';
 	  }
 	 
 	  htmlcon+='<p>查询结果如下：</p>';
@@ -183,8 +184,7 @@
 				            for(var j=1;j<groups[i].length;j++){
 				               title +=groups[i][j]+"  ";
 				            }
-				            title = title.replace(/\&/g,'&amp;');
-				            title = title.replace(/\</g,'&lt;');
+				            title = title.replace('&nbsp','');
 				            htmlContent +=  '<li onclick="go_viewForm(\''+formId+'\',\''+infoId+'\');">'
 										+  '<strong class="document-icon">'+title+'</strong>'
 										+  '</li>';
@@ -195,9 +195,8 @@
 						var title="";
 						for(var j=1;j<groups.list.length;j++){
 						   title +=groups.list[j]+"  ";
-						}
-						title = title.replace(/\&/g,'&amp;');
-						title = title.replace(/\</g,'&lt;');
+						}					
+						title = title.replace('&nbsp','');
 						htmlContent +=  '<li onclick="go_viewForm(\''+formId+'\',\''+infoId+'\');">'
 									+  '<strong class="document-icon">'+title+'</strong>'
 									+  '</li>'; 

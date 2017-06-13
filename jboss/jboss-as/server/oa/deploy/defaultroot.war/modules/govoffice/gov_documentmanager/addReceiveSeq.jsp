@@ -45,14 +45,16 @@
                         </td>  
                         <td  colspan="3">
 
-							<s:hidden name="seqPo.seqProceNameR" id="seqProceNameR"/>
-							<s:select name="seqPo.seqProceId" onchange="$('#seqProceNameR').val(this.value);" list="#request.proList" whir-options="vtype:['notempty']" headerKey="" headerValue="--请选择--" cssClass="easyui-combobox" cssStyle="width:92%;;height:29px;" editable="true" data-options="width:202,panelHeight:'auto',
-    onSelect: function(record){  
+                            <s:hidden name="seqPo.seqProceId" id="processId" />
+                                <%--<s:select name="seqPo.seqProceId" onchange="$('#seqProceNameR').val(this.value);" list="#request.proList" whir-options="vtype:['notempty']" headerKey="" headerValue="--请选择--" cssClass="easyui-combobox" cssStyle="width:92%;;height:29px;" editable="true" data-options="width:202,panelHeight:'auto',
+                              onSelect: function(record){
 
-       $('#seqProceNameR').val(record.text); 
-    }">    
+                                 $('#seqProceNameR').val(record.text);
+                              }">  </s:select>--%>
+                            <s:textfield name="seqPo.seqProceNameR" id="processName" readonly="true" cssClass="inputText" cssStyle="width:92%;"/>
+                            <a href="javascript:void(0);" style="margin-left:-26px;" class="selectIco" onclick="popup({content:'url:<%=rootPath%>/GovDocSet!sendProcessList.action?moduleId=3',title: '流程列表',width:800,height:600,winName:'selProcess'});"></a>
 
-						    </s:select>
+
 						</td>  
                     </tr>
 					<tr>  
