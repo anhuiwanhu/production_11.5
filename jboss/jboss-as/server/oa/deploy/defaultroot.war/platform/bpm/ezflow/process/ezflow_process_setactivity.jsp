@@ -616,6 +616,22 @@ if("".equals(outDataSourceCodeDealStr)){
 											</select>
 										</td>
 									</tr>
+
+									<!--审批权限-->
+									<tr>
+										<td>
+											<input onClick="clickParticipantType(this);" value="approvalRight" type="radio"  name="participantType">
+											审批权限
+											<select name="approvalLevel">
+												<option value="oneLevel" selected>一级审批</option>
+												<option value="twoLevel">二级审批</option>
+												<option value="threeLevel">三级审批</option>
+												<option value="fourLevel">四级审批</option>
+												<option value="fiveLevel">五级审批</option>
+												<option value="sixLevel">六级审批</option>
+											</select>
+										</td>
+									</tr>
 												
 									<tr>
 										<td height="22"><strong><s:text name="workflow.newactivityorggroup"/></strong></td>

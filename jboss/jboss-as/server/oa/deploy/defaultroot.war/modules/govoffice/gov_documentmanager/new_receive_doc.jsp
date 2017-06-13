@@ -199,9 +199,9 @@ if(request.getParameter("createdDate") != null && !"".equals(request.getParamete
 
 	 <s:form name="dataForm" id="dataForm" action="wfoperate!showSend.action" method="post" theme="simple" >
          <s:hidden id='noNeedfsjx' name='noNeedfsjx'/>
-         <s:if test="p_wf_cur_ModifyField.indexOf('$receiveFileSendFileUnit$') != -1">
+         <%--<s:if test="p_wf_cur_ModifyField.indexOf('$receiveFileSendFileUnit$') != -1">
          <s:hidden  name='receiveFileSendFileUnit' property='receiveFileSendFileUnit' id="lwdwmc"/>
-       </s:if>
+       </s:if>--%>
          <%@ include file="/public/include/form_detail.jsp"%>
 	 <table border="0"  cellpadding="0" cellspacing="0" height="100%" align="center" class="doc_width">
          <tr valign="top">
@@ -318,13 +318,18 @@ function  changePanle(flag){
 	var windowHeight = window.screen.availHeight;
 	window.moveTo(0,0);
 	window.resizeTo(windowWidth,windowHeight);
+var tempValueNameArr=[];
+var tempValueidArr=[];
 $(document).ready(function() {
-	 var receiveFileSendFileUnit=$("#lwdwmc").val();
-
+	 //var receiveFileSendFileUnit=$("#lwdwmc").val();
+    if($.trim($("*[name='receiveFileSendFileUnit']").val())!=""){
+        tempValueNameArr=$("*[name='receiveFileSendFileUnit']").val().split(',');
+        tempValueidArr=$("*[name='receiveFileSendFileUnitId']").val().split(',');
+    }
 	//initDataFormToAjax({"dataForm":'dataForm'});
 	//初始话信息
     ezFlowinit();
-    $("#receiveFileSendFileUnitTemp").combobox({
+   /* $("#receiveFileSendFileUnitTemp").combobox({
             onBeforeLoad:function(param){
             if(receiveFileSendFileUnit===''|| receiveFileSendFileUnit===undefined || typeof(receiveFileSendFileUnit)==='undefined'){
                 var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
@@ -348,12 +353,12 @@ $(document).ready(function() {
                 $("#lwdwmc").val(receiveFileSendFileUnitVal2);
                 }
     }
-});
+});*/
     //$("#receiveFileSendFileUnitId").combobox('select', data[0].value);
-    $("#receiveFileSendFileUnitTemp").combobox().next().children(":text").blur(function(){
+  /*  $("#receiveFileSendFileUnitTemp").combobox().next().children(":text").blur(function(){
         var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
         $("#lwdwmc").val(receiveFileSendFileUnitVal);
-    });
+    });*/
     receiveFileReceiveDateInitVal();
 });
     function receiveFileReceiveDateInitVal(){
@@ -364,6 +369,33 @@ $(document).ready(function() {
             }
         }
     }
+function updateReceiveUnitValue(tempNameValue,tempIdValue,tempFlag){
+    if(tempFlag=='1'){
+        for(i in tempValueidArr){
+            if(tempValueidArr[i] == tempIdValue){
+                tempValueNameArr[i]=tempNameValue;
+                $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
+                $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
+                return;
+            }
+        }
+        tempValueNameArr.push(tempNameValue);
+        tempValueidArr.push(tempIdValue);
+
+    } else{
+
+        for(i in tempValueidArr){
+            if(tempValueidArr[i] == tempIdValue){
+                tempValueidArr.splice(i,1);
+                tempValueNameArr.splice(i,1)
+            }
+        }
+    }
+    $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
+    $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
+
+
+}
 </script>
 
 </html>

@@ -591,6 +591,9 @@ function save(type) {
 				extension.set("dutyLevelOperateAnd",$("select[name='prevTraLAnd']")[0].value);
 				extension.set("dutyLevelOperate",$("select[name='prevDutyLevelOperate']")[0].value);
 				extension.set("dutyLevel",$("select[name='prevDutyLevel']")[0].value); 
+			}else if (extension.get("code") == "approvalRight") {
+				//审批权限
+				extension.set("type",$("select[name='approvalLevel']")[0].value);
 			}
 		}
 	}
@@ -1525,6 +1528,9 @@ function initData(id) {
 			$("input[name='participantMethodName']")[0].value = extension.get("methodName");
 			$("input[name='participantInPaNames']")[0].value = extension.get("inPaNames");
 			$("input[name='participantInPavalues']")[0].value = extension.get("inPavalues");
+		}else if (extension.get("code") == "approvalRight") {
+			//审批权限
+			$("select[name='approvalLevel']")[0].value = extension.get("type");
 		}
 	}
 	//阅件办理人 taskReadParticipantType  

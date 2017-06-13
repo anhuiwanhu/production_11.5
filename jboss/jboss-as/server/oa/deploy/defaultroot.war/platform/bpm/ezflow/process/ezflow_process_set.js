@@ -396,6 +396,22 @@ function initData() {
 	var processNeedDossierRadio = $("input[name='processNeedDossier'][value='" + model.getAttribute("whir:processNeedDossier") + "']");
 	if(processNeedDossierRadio.length > 0) {
 		processNeedDossierRadio[0].checked = true;
+
+		//归档路径
+		var processNeedDossierTypeRadio = $("input[name='processNeedDossierType'][value='" + model.getAttribute("whir:processNeedDossierType") + "']");
+		if(processNeedDossierTypeRadio.length > 0) {
+			processNeedDossierTypeRadio[0].checked = true;
+			
+			var processNeedDossierTypeValue =model.getAttribute("whir:processNeedDossierType");
+			//alert("processNeedDossierTypeValue:"+processNeedDossierTypeValue);
+			if(processNeedDossierTypeValue == 1){
+				var processNeedDossierPathValue = model.getAttribute("whir:processNeedDossierPath");
+				//alert("processNeedDossierPathValue:"+processNeedDossierPathValue);
+				if(processNeedDossierPathValue != null) {
+					$("select[name='processNeedDossierPath']").attr("value", processNeedDossierPathValue);
+				}
+			}
+		}
 	}
 
 	//whir:processAutoNextWithNullUser  活动参与者为空自动跳转下一步
@@ -1065,8 +1081,27 @@ function save(type){
 	var processNeedDossierRadio = $("input[name='processNeedDossier']:checked");
 	if(processNeedDossierRadio.length > 0) {
 		model.setAttribute("whir:processNeedDossier", processNeedDossierRadio[0].value);
+
+		//processNeedDossierType 归档路径
+		var processNeedDossierTypeRadio =$("input[name='processNeedDossierType']:checked");
+		if(processNeedDossierRadio.length > 0) {
+			model.setAttribute("whir:processNeedDossierType", processNeedDossierTypeRadio[0].value);
+
+			//alert("processNeedDossierTypeRadio:"+processNeedDossierTypeRadio[0].value);
+			if(processNeedDossierTypeRadio[0].value == 1){
+				//alert("选择档案类目");
+				var processNeedDossierSelect = $("select[name='processNeedDossierPath']");
+				if(processNeedDossierSelect.length > 0) {
+					model.setAttribute("whir:processNeedDossierPath", processNeedDossierSelect[0].value)
+				}
+			}else{
+				model.removeAttribute("whir:processNeedDossierPath");
+			}
+		}
 	}else{
 		model.removeAttribute("whir:processNeedDossier");
+		model.removeAttribute("whir:processNeedDossierType");
+		model.removeAttribute("whir:processNeedDossierPath");
 	}
 
 

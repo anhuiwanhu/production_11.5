@@ -2,7 +2,7 @@
 //选择来文单位
 function  choosePerson(type,field,fieldId,title){
 	var url = "GovDocReceiveProcess!chooseUnit.action?type="+type+"&field="+field+"&fieldId="+fieldId;
-	openWin({url:url,width:620,height:350,winName:'sendtoother'});
+	openWin({url:url,width:700,height:350,winName:'sendtoother'});
 	//postWindowOpen("SenddocumentBaseAction.do?action=unitlist_choose&type="+type+"&field="+field+"&fieldId="+fieldId,title,'menubar=0,scrollbars=yes,locations=0,width=800,height=600,resizable=yes');
 }
 

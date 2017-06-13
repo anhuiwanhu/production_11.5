@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+    <class name="com.whir.ezoffice.boardroom.po.BoardRoomPO" table="OA_BOARDROOM" schema="EZOFFICE">
+        <id name="boardroomId" column="BOARDROOMID">
+             <generator class="native"/>
+        </id>
+        <property name="name" column="Name" type="java.lang.String"/>
+		<property name="depict" column="DEPICT" type="java.lang.String"/>
+		<property name="location" column="LOCATION" type="java.lang.String"/>
+		<property name="capacitance" column="CAPACITANCE" type="java.lang.String"/>
+		<property name="boardroomType" column="BOARDROOMTYPE" type="java.lang.Integer"/>
+		<property name="cost" column="COST" type="java.lang.Float"/>
+		<property name="emphasis" column="EMPHASIS" type="java.lang.Integer"/>
+		<property name="scope" column="SCOPE" type="java.lang.String"/>
+		<property name="remark" column="REMARK" type="java.lang.String"/>
+		<property name="scopeOrg" column="SCOPEORG" type="java.lang.String"/>
+		<property name="scopeGroup" column="SCOPEGROUP" type="java.lang.String"/>
+		<property name="scopeEmp" column="SCOPEEMP" type="java.lang.String"/>
+		<property name="limit" column="LIMIT0" type="java.lang.Integer"/>
+		<property name="defaultProcessId" column="DEFAULTPROCESSID" type="java.lang.Long"/>
+		<property name="createdEmp" column="CREATEDEMP" type="java.lang.Long"/>
+		<property name="createdOrg" column="CREATEDORG" type="java.lang.Long"/>
+        <property name="controlNumber" column="CONTROLNUMBER" type="java.lang.Long"/>
+        <property name="doorNumber" column="DOORNUMBER" type="java.lang.Long"/>
+		<property name="domainId" column="DOMAIN_ID"/>
+		<property name="isVideo" column="ISVIDEO"/>
+		<property name="maxNumber" column="MAXNUMBER"/>
+		<property name="workaddress" column="workaddress"/>
+		<property name="manageOrgName" column="manageorgname"/>
+		<property name="manageOrg" column="manageorg"/>
+		<property name="ezflowApproval" column="ezflowApproval"/>
+                <set name="boardRoomApply"
+                table="OA_BOARDROOMAPPLY"
+                lazy="true"
+                inverse="false"
+                cascade="none"
+    		sort="unsorted">
+    		<key column="boardroomId"/>
+    		<one-to-many class="com.whir.ezoffice.boardroom.po.BoardRoomApplyPO"/>
+                </set>
+    <set name="boardRoomEquipment"
+            schema="EZOFFICE"
+            table="oa_bdroomequ"
+            lazy="false"
+            inverse="true"
+            cascade="none"
+            sort="unsorted">
+            <key column="BOARDROOMID" />
+            <one-to-many class="com.whir.ezoffice.boardroom.po.BoardRoomEquipmentPO" />
+        </set>
+
+
+	</class>
+</hibernate-mapping>

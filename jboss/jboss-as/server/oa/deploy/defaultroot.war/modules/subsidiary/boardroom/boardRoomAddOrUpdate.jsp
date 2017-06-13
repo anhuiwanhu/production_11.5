@@ -158,11 +158,19 @@
                 </td>  
             </tr>
             <tr>  
-                <td for="适用流程" class="td_lefttitle" >  
-                    适用流程：  
+                <td for="流程审批" class="td_lefttitle" >  
+                    流程审批：  
                 </td>  
-                <td colspan="3">  
-                     <select name="boardRoomPO.defaultProcessId" id="defaultProcessId"  class="easyui-combobox" style="width:150px"  data-options="panelHeight:'auto',forceSelection:true" >
+                <td>
+					<s:if test='#request.action == "add"'>
+                    <s:radio name="boardRoomPO.ezflowApproval" list="%{#{'0':'是','1':'否'}}" value="0" onclick="ezflowApproval(this)" theme="simple"></s:radio>
+					</s:if>
+                    <s:else>
+					<s:radio name="boardRoomPO.ezflowApproval" list="%{#{'0':'是','1':'否'}}" onclick="ezflowApproval(this)" theme="simple"></s:radio>
+					</s:else>
+					<span style="padding-left:20px;" id="ableEzflow">
+					 适用流程： 
+					 <select name="boardRoomPO.defaultProcessId" id="defaultProcessId"  class="easyui-combobox" style="width:150px"  data-options="panelHeight:'auto',forceSelection:true" >
                        <option value="-1"></option>
                         <%
                         java.util.List boradRoomApplyFlowlist=(java.util.List)request.getAttribute("boradRoomApplyFlowlist");
@@ -181,6 +189,7 @@
                         <%}
                         }%>
                     </select>
+					</span>
                 </td>  
             </tr>
              <tr>  
@@ -280,7 +289,12 @@
                 };
             }
         </s:if>
-        
+        var ezflowApproval_val =  $(":radio[name='boardRoomPO.ezflowApproval']:checked").val();
+		if(ezflowApproval_val==0){
+			$("#ableEzflow").show();
+		}else{
+			$("#ableEzflow").hide();
+		}
     });
     function save(n,obj){ 
        var formId = $(obj).parents("form").attr("id");
@@ -293,56 +307,65 @@
        }
     }
     
-function checkForm(){
-    var name = $('#name').val();
-    var depict = $('#depict').val();
-    var location = $('#location').val();
+	function checkForm(){
+		var name = $('#name').val();
+		var depict = $('#depict').val();
+		var location = $('#location').val();
 
-    var val =getWebeditorHTML(mailcontentHtml);
-    //mailcontentHtml.getHTML();
-	$('#depict').val(val);
-	depict = $('#depict').val();
-    if (name !=""){
-            if(name.substring(0,1) ==" "){
-                whir_poshytip($('#name'),"名称不得为空格开头，请去空格。");
-                return false;
-                }
-			if(name.indexOf(" ")>-1){
-                whir_poshytip($('#name'),"名称中间不能有空格，请去空格。");
-                return false;
-                }
-        }
-    if (location !=""){
-            if(location.substring(0,1) ==" "){
-                whir_poshytip($('#location'),"位置不得为空格开头，请去空格。");
-                return false;
-                }
-        }
-   if(!checkQuery($('#name'),"名称")) {
-        return false;
-      }
-   if(!checkQuery($('#location'),"位置")) {
-     return false;
+		var val =getWebeditorHTML(mailcontentHtml);
+		//mailcontentHtml.getHTML();
+		$('#depict').val(val);
+		depict = $('#depict').val();
+		if (name !=""){
+				if(name.substring(0,1) ==" "){
+					whir_poshytip($('#name'),"名称不得为空格开头，请去空格。");
+					return false;
+					}
+				if(name.indexOf(" ")>-1){
+					whir_poshytip($('#name'),"名称中间不能有空格，请去空格。");
+					return false;
+					}
+			}
+		if (location !=""){
+				if(location.substring(0,1) ==" "){
+					whir_poshytip($('#location'),"位置不得为空格开头，请去空格。");
+					return false;
+					}
+			}
+	   if(!checkQuery($('#name'),"名称")) {
+			return false;
+		  }
+	   if(!checkQuery($('#location'),"位置")) {
+		 return false;
 
-     }
-      return true;
-}
-function checkQuery(obj,objName) {
-    var regu = /["|']/g ;
-    var re = new RegExp(regu);
-    var val = obj.val();
-    if (val.search(re) != -1){
-        whir_poshytip(obj,objName+"不能包含半角符号！");
-        return false;
-    }
-    return true;
-}
+		 }
+		  return true;
+	}
+
+	function checkQuery(obj,objName) {
+		var regu = /["|']/g ;
+		var re = new RegExp(regu);
+		var val = obj.val();
+		if (val.search(re) != -1){
+			whir_poshytip(obj,objName+"不能包含半角符号！");
+			return false;
+		}
+		return true;
+	}
+
     function addBoardRoomEqu(){
         var url = "<%=rootPath%>/modules/subsidiary/boardroom/addBoardRoomEqu.jsp"
         openWin({url:url,width:560,height:180,winName:'addBoardRoomEqu'});
     }
 
-
+	function ezflowApproval(obj){
+		var value = $(obj).val();
+		if(value=="0"){//是
+			$("#ableEzflow").show();
+		}else{//否
+			$("#ableEzflow").hide();
+		}
+	}
 
 </script>
 

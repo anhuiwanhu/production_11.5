@@ -193,3 +193,43 @@ update oa_attendance_source set source_name='企业号' where source_id=2;
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.09_SP_20161015','11.5.0.09',sysdate);
 commit;
+
+
+
+
+
+ALTER TABLE  ORG_ORGANIZATION  ADD   ONELEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   ONELEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   TWOLEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   TWOLEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   THREELEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   THREELEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   FOURLEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   FOURLEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   FIVELEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   FIVELEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   SIXLEVEL_USERID  VARCHAR2(200);
+COMMIT;
+ALTER TABLE  ORG_ORGANIZATION  ADD   SIXLEVEL_USERNAME  VARCHAR2(200);
+COMMIT;
+alter  table  GOV_receiveFile  add  receiveFile_SENDFILEUNITID nvarchar2(200);
+comment on column GOV_receiveFile.receiveFile_SENDFILEUNITID is '来文单位id集合';
+commit;
+alter table oa_boardroom add ezflowApproval varchar2(1);
+comment on column oa_boardroom.ezflowApproval is '流程审批(0 是 1 否)';
+commit;
+alter table tfield add field_signpic varchar2(1);
+comment on column tfield.field_signpic  is '使用签名图片(1 是)';
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.10_SP_20161029','11.5.0.10',sysdate);
+commit;

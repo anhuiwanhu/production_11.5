@@ -244,9 +244,9 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 	 <s:form name="dataForm" id="dataForm" action="wfoperate!showSend.action" method="post" theme="simple" >
 	 <input type="hidden" name="createdEmp" value="<%=request.getAttribute("createdEmp")%>">
 	 <input type="hidden" name="createdOrg" value="<%=request.getAttribute("createdOrg")%>">
-         <s:if test="p_wf_cur_ModifyField.indexOf('$receiveFileSendFileUnit$') != -1 || #parameters.isEdit != null">
+        <%-- <s:if test="p_wf_cur_ModifyField.indexOf('$receiveFileSendFileUnit$') != -1 || #parameters.isEdit != null">
              <s:hidden  name='receiveFileSendFileUnit' property='receiveFileSendFileUnit' id="lwdwmc"/>
-         </s:if>
+         </s:if>--%>
 	 <%@ include file="/public/include/form_detail.jsp"%>
 	 <table border="0"  cellpadding="0" cellspacing="0" height="100%" align="center" class="doc_width">
          <tr valign="top">
@@ -411,9 +411,14 @@ function initBody(){
     //ezFlowinit();
 
 }
-
+var tempValueNameArr=[];
+var tempValueidArr=[];
 $(document).ready(function() {
-    var receiveFileSendFileUnit=$("#lwdwmc").val();
+    if($.trim($("*[name='receiveFileSendFileUnit']").val())!=""){
+        tempValueNameArr=$("*[name='receiveFileSendFileUnit']").val().split(',');
+        tempValueidArr=$("*[name='receiveFileSendFileUnitId']").val().split(',');
+    }
+    //var receiveFileSendFileUnit=$("#lwdwmc").val();
     var windowWidth = window.screen.availWidth;
 	var windowHeight = window.screen.availHeight;
 	window.moveTo(0,0);
@@ -429,7 +434,7 @@ $(document).ready(function() {
     if(receiveNum>0){
         $("#viewReceivenum").html("("+receiveNum+")");
     }
-    $("#receiveFileSendFileUnitTemp").combobox({
+  /*  $("#receiveFileSendFileUnitTemp").combobox({
         onBeforeLoad:function(param){
             if(receiveFileSendFileUnit===''|| receiveFileSendFileUnit===undefined || typeof(receiveFileSendFileUnit)==='undefined'){
                 var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
@@ -458,7 +463,7 @@ $(document).ready(function() {
     $("#receiveFileSendFileUnitTemp").combobox().next().children(":text").blur(function(){
         var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
         $("#lwdwmc").val(receiveFileSendFileUnitVal);
-    });
+    }); */
 });
 function gd(){
     //alert("11111111");
@@ -486,7 +491,33 @@ function gd(){
 <%if(request.getParameter("gd") != null){%>
 gd();
 <%}%>
+function updateReceiveUnitValue(tempNameValue,tempIdValue,tempFlag){
+    if(tempFlag=='1'){
+        for(i in tempValueidArr){
+            if(tempValueidArr[i] == tempIdValue){
+                tempValueNameArr[i]=tempNameValue;
+                $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
+                $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
+                return;
+            }
+        }
+        tempValueNameArr.push(tempNameValue);
+        tempValueidArr.push(tempIdValue);
 
+    } else{
+
+        for(i in tempValueidArr){
+            if(tempValueidArr[i] == tempIdValue){
+                tempValueidArr.splice(i,1);
+                tempValueNameArr.splice(i,1)
+            }
+        }
+    }
+    $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
+    $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
+
+
+}
 </SCRIPT>
  </body>
 </html>

@@ -424,8 +424,8 @@
 		    <%}%>
 		   
 		 <%menuIndex++;%>
-       // 资产管理
-        <% if(canShowMenus.indexOf("officemanager_assetManger")>=0 && cmdb.hasMenuAuth("officemanager_assetManger",userId,orgId)){ 
+       // 资产管理(2016-10-24 11.5.0.10补丁需要隐藏)
+        <% if(canShowMenus.indexOf("officemanager_assetManger")>=0 && cmdb.hasMenuAuth("officemanager_assetManger",userId,orgId)&&(1==2)){ 
         %>
 		 ,{ id:"menuTitleBox<%=menuIndex%>", pId:0, name:"资产管理", target:'mainFrame',iconSkin:"fa fa"}
 		    <% if(managerBD.hasRight(session.getAttribute("userId").toString(), "2011*0105*01")||managerBD.hasRight(session.getAttribute("userId").toString(), "2011*0105*02")){%>

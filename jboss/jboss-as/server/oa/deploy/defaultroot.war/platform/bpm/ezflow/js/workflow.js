@@ -8,11 +8,53 @@
 	}
 	
 	$("#dataForm").attr("action",whirRootPath+"/ezflowoperate!startProcess_init.action");
-    //$("#submitFormType").val("showPopup");
-    setCallBackName("showPopup");
-    setWf_dialog_title(workflowMessage_js.startProcess);
-    $("#p_wf_dealWithJob").val("0");
-    $("#dataForm").submit();
+    
+    var boradroomId = $("#boardroomId").val();
+	if(boradroomId!=null && boradroomId!="" && boradroomId!=undefined){
+		if(beforeSubmit()){
+			//判断会议室审批流程
+			judgeApproval(boradroomId);
+		}
+	}else{
+		//$("#submitFormType").val("showPopup");
+		setCallBackName("showPopup");
+		setWf_dialog_title(workflowMessage_js.startProcess);
+		$("#p_wf_dealWithJob").val("0");
+		$("#dataForm").submit();
+	}
+}
+
+function judgeApproval(id){
+	$.ajax({
+		url:whirRootPath+"/boardRoom!judgeApproval.action",
+		type:"POST",
+		data:{"boardroomId":id},
+		async: false,
+		dataType:"text",
+		timeout:10000,
+		success:function(dataForm){
+			var datas = eval('('+dataForm+')');
+			var flag = datas.data.flag;
+			if(flag=="0"){//走流程
+				//$("#submitFormType").val("showPopup");
+				setCallBackName("showPopup");
+				setWf_dialog_title(workflowMessage_js.startProcess);
+				$("#p_wf_dealWithJob").val("0");
+				$("#dataForm").submit();
+			}else{//仅保存
+				//保存数据
+				$("#dataForm").attr("action",whirRootPath+"/boardRoom!saveApprovalData.action");
+				$("#dataForm").submit();
+				whir_alert("保存成功！");
+				setTimeout(function(){window.close();},1000);
+				return false;
+			}
+		},
+		error:function(XMLHttpRequest,textStatus,errorThrown){
+			whir_alert('检查流程审批是否出错');
+			return false;
+		}
+	});
 }
 
 //判断是否是批量发起

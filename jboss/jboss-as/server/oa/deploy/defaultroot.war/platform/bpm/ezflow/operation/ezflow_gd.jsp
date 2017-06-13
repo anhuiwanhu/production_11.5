@@ -21,6 +21,9 @@ if(request.getParameter("gd") != null) {
 	String p_submitPerson = request.getParameter("gd_startUserName")!=null?request.getParameter("gd_startUserName"):"";
 	String p_submitTime = request.getParameter("gd_startTime")!=null?request.getParameter("gd_startTime"):"";
 	p_submitTime = p_submitTime.indexOf(".")!=-1?p_submitTime.substring(0, p_submitTime.indexOf(".")):p_submitTime;
+	
+	String gd_type = request.getParameter("gd_type")!=null?request.getParameter("gd_type"):"";
+	String gd_path = request.getParameter("gd_path")!=null?request.getParameter("gd_path"):"";
 
 	if (pageContent != null && pageContent.length() > 0) {
 		//int fp = pageContent.indexOf("<SCRIPT language=javascript>");
@@ -77,7 +80,20 @@ if(request.getParameter("gd") != null) {
     com.whir.ezoffice.dossier.bd.DossierBD gdBD = new com.whir.ezoffice.dossier.bd.DossierBD();
     //gdBD.gdDossier(workId,"EZFLOW",p_submitPerson + " " + p_submitTime + " 的" + title,null,null,null,session.getAttribute("orgName")+"",now.get(Calendar.YEAR)+"",null,null,"",null,createEmp,createOrg,sdf.format(gdDate),session.getAttribute("domainId").toString(),"htm",tmp,null,null,null);
 
-	gdBD.gdDossier(workId,"EZFLOW",gd_remindTitle,null,null,null,session.getAttribute("orgName")+"",now.get(Calendar.YEAR)+"",null,null,"",null,createEmp,createOrg,sdf.format(gdDate),session.getAttribute("domainId").toString(),"htm",tmp,null,null,null);
+	if(gd_type.equals("1")){//设置了归档路径
+		if(!gd_path.equals("")){
+			com.whir.ezoffice.dossier.po.DossierCategoryPO dossierCategoryPo =null;
+			dossierCategoryPo = gdBD.loadDossierCategory(Long.valueOf(gd_path));
+			String lookUserId =dossierCategoryPo.getLookUserId()==null?"":dossierCategoryPo.getLookUserId();
+    		String lookUser   =dossierCategoryPo.getLookUser()==null?"":dossierCategoryPo.getLookUser();
+				
+			gdBD.gdDossierEzFlow(workId,"EZFLOW",gd_remindTitle,null,null,null,session.getAttribute("orgName")+"",now.get(Calendar.YEAR)+"",null,null,"",null,createEmp,createOrg,sdf.format(gdDate),session.getAttribute("domainId").toString(),"htm",tmp,null,null,null,gd_path,lookUserId,lookUser);
+		}else{
+			gdBD.gdDossier(workId,"EZFLOW",gd_remindTitle,null,null,null,session.getAttribute("orgName")+"",now.get(Calendar.YEAR)+"",null,null,"",null,createEmp,createOrg,sdf.format(gdDate),session.getAttribute("domainId").toString(),"htm",tmp,null,null,null);
+		}
+	}else{
+		gdBD.gdDossier(workId,"EZFLOW",gd_remindTitle,null,null,null,session.getAttribute("orgName")+"",now.get(Calendar.YEAR)+"",null,null,"",null,createEmp,createOrg,sdf.format(gdDate),session.getAttribute("domainId").toString(),"htm",tmp,null,null,null);
+	}
 
 	java.io.File file = new java.io.File(fileName);
 	if(!file.exists()){

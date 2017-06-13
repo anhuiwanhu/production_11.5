@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+<class name="com.whir.org.vo.organizationmanager.OrganizationVO" schema="EZOFFICE" table="ORG_ORGANIZATION">
+    <id column="ORG_ID" name="orgId" type="java.lang.Long">
+        <generator class="native" />
+    </id>
+
+    <property column="ORGPARENTORGID" name="orgParentOrgId" type="long"/>
+    <property column="ORGMANAGEREMPID" name="orgManagerEmpId" type="string"/>
+    <property column="ORGMANAGEREMPNAME" name="orgManagerEmpName" type="string"/>
+    <property column="ORGNAME" name="orgName" not-null="true" type="string"/>
+    <property column="ORGSIMPLENAME" name="orgSimpleName"/>
+    <property column="ORGSERIAL" name="orgSerial" />
+    <property column="ORGORDERCODE"  name="orgOrderCode" type="int"/>
+    <property column="ORGFOUNDDATE" length="7" name="orgFoundDate" type="date"/>
+    <property column="ORGDESCRIPTE" length="300" name="orgDescripte" type="string"/>
+    <property column="ORGLEVEL" name="orgLevel" type="int"/>
+    <property column="ORGHASJUNIOR" name="orgHasJunior" type="int"/>
+    <property column="ORGSTATUS" name="orgStatus" type="int"/>
+    <property column="ORGIDSTRING" name="orgIdString" type="string"/>
+    <property column="ORGHASCHANNEL" name="orgHasChannel" type="int"/>
+    <property column="ORGNAMESTRING" name="orgNameString" type="string"/>
+    <property column="RTXDEPTID" name="rtxDeptId" type="string"/>
+    <property column="RTXDEPTPID" name="rtxDeptPId" type="string"/>
+    <property column="ORGBANNER" name="orgBanner" type="string"/>
+    <property column="DOMAIN_ID" name="domainId" />
+    <property column="ORGTYPE" name="orgType" />
+    <property column="orgChannelType" name="orgChannelType" />
+    <property column="orgChannelUrl" name="orgChannelUrl" />
+    <property column="ORG_ENGLISH_NAME" name="orgEnglishName" />
+
+    <property column="charge_leader_ids" name="chargeLeaderIds" />
+    <property column="charge_leader_names" name="chargeLeaderNames" />
+
+    <property column="webserviceurl" name="webserviceUrl" />
+    <property column="orgstyle" name="orgStyle" />
+    <property column="orglayout" name="orgLayoutId" />
+
+    <property column="win_title" name="winTitle" />
+    <property column="logo_filename" name="logoFileName" />
+    <property column="logo_savefilename" name="logoSaveFileName" />
+
+    <property name="scopeNames" column="scope_names" />
+    <property name="scopeUserIds" column="scope_userids" />
+    <property name="scopeOrgIds" column="scope_orgids" />
+    <property name="scopeGroupIds" column="scope_groupids" />
+
+	<property name="oneLevelUserId" column="ONELEVEL_USERID" />
+	<property name="oneLevelUserName" column="ONELEVEL_USERNAME" />
+	<property name="twoLevelUserId" column="TWOLEVEL_USERID" />
+	<property name="twoLevelUserName" column="TWOLEVEL_USERNAME" />
+	<property name="threeLevelUserId" column="THREELEVEL_USERID" />
+	<property name="threeLevelUserName" column="THREELEVEL_USERNAME" />
+	<property name="fourLevelUserId" column="FOURLEVEL_USERID" />
+	<property name="fourLevelUserName" column="FOURLEVEL_USERNAME" />
+	<property name="fiveLevelUserId" column="FIVELEVEL_USERID" />
+	<property name="fiveLevelUserName" column="FIVELEVEL_USERNAME" />
+	<property name="sixLevelUserId" column="SIXLEVEL_USERID" />
+	<property name="sixLevelUserName" column="SIXLEVEL_USERNAME" />
+
+    <set name="employees"
+         table="ORG_ORGANIZATION_USER"
+         lazy="true"
+         inverse="true"
+         cascade="none"
+         sort="unsorted"
+         schema="EZOFFICE">
+         <key column="ORG_ID"/>
+         <many-to-many
+              class="com.whir.org.vo.usermanager.UserPO"
+          column="Emp_Id"
+          outer-join="false"/>
+    </set>
+</class>
+</hibernate-mapping>

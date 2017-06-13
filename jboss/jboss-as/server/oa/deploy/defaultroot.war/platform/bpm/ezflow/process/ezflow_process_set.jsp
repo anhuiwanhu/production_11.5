@@ -656,11 +656,21 @@ if(whir_agent.indexOf("Firefox/4")>0){
 									<td> </td>
 								</tr>
 								<!--设置项-->
+								<%java.util.List lmList  = request.getAttribute("lmList")!=null?(List)request.getAttribute("lmList"):null;%>
 								<tr>
 									<td class="td_lefttitle" ><s:text name="workflow.set_set"/>：</td>
 									<td> 
 										<div style="padding-top:4px;padding-bottom:3px;">
-											<input name="processNeedDossier"  id="processNeedDossier" type="checkbox" value="true"><s:text name="workflow.newworkflowarchive"/>&nbsp;&nbsp;&nbsp;&nbsp;<input name="processEndMail" type="checkbox" value="true"><s:text name="workflow.set_completeprocesswithemail"/>&nbsp;&nbsp;&nbsp;&nbsp;<input name="processKeepBackComment" type="checkbox" value="true"><s:text name="workflow.set_backsavecomment"/>&nbsp; &nbsp;&nbsp;&nbsp;<input name="processKeepReSubmitComment" type="checkbox" value="true"><s:text name="workflow.keepComments"/><br>
+											<input name="processNeedDossier"  id="processNeedDossier" type="checkbox" value="true"><s:text name="workflow.newworkflowarchive"/>&nbsp;&nbsp;&nbsp;归档路径：<INPUT value="0" CHECKED type="radio" name="processNeedDossierType">空&nbsp;
+											<INPUT value="1" type="radio" name="processNeedDossierType">档案类目&nbsp;<select name="processNeedDossierPath" style="width:100px;">
+											<option value="">--请选择--</option><%
+											if(lmList !=null && lmList.size() >0){
+												for(int i=0; lmList!=null&&i<lmList.size(); i++){
+													java.util.Map map=(java.util.Map)lmList.get(i);
+											
+											%>
+											<option value="<%=map.get("id")%>"><%=map.get("nameString")%></option><%}}%></select>
+											<br><input name="processEndMail" type="checkbox" value="true"><s:text name="workflow.set_completeprocesswithemail"/>&nbsp;&nbsp;&nbsp;&nbsp;<input name="processKeepBackComment" type="checkbox" value="true"><s:text name="workflow.set_backsavecomment"/>&nbsp; &nbsp;&nbsp;&nbsp;<input name="processKeepReSubmitComment" type="checkbox" value="true"><s:text name="workflow.keepComments"/><br>
 											<input name="processCommentIsNull" type="checkbox" value="true"><s:text name="workflow.set_commentisnotnull"/>&nbsp; &nbsp;<input name="processCommentAcc" type="checkbox" value="true"><s:text name="workflow.set_commentcanacc"/>&nbsp; &nbsp;<s:text name="workflow.set_commentsort"/>：<select name="orgcommentSortType"><option value=""><s:text name="workflow.notOrderByOrg"/></option><option value="org_asc"><s:text name="workflow.orderByOrgAsc"/></option><option value="org_desc"><s:text name="workflow.orderByOrgDesc"/></option></select>&nbsp;<select name="commentSortType"><option value="time_asc"><s:text name="workflow.set_commenttimeasc"/></option><option value="time_desc"><s:text name="workflow.set_commenttimedesc"/></option><option value="dute_asc"><s:text name="workflow.set_commentdutyasc"/></option><option value="dute_desc"><s:text name="workflow.set_commentdutydesc"/></option></select><br>
 											<input name="processNeedPrint" id="processNeedPrint" type="checkbox" value="true" ><!-- onclick="showExportTemp(this)"  流程办结后可以打印 --><s:text name="workflow.Sponsormayprinttheworkflowafterprocess" />&nbsp;&nbsp;<span id="ExportTempSpan" style="display:none"><input name="processPrintExportTemp" type="checkbox" value="true">流程办结后可以导出word模板和下载&nbsp; &nbsp;</span><input name="processAutoNextWithNullUser"  id="processAutoNextWithNullUser" type="checkbox" value="true"><s:text name="workflow.autodealwithnullusers"/><!-- 活动参与者为空自动跳转下一步 -->
 											<!--  <input name="processAutoNextWithRepeat"  id="processAutoNextWithRepeat" type="checkbox" value="true">下一步参与者重复 -->
