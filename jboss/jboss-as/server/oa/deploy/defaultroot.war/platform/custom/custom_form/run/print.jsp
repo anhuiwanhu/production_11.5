@@ -154,7 +154,7 @@ try{
 <br/>&nbsp;&nbsp;&nbsp;&nbsp;
 <input type="button" id="print" style="display:none" onclick="javascript:printDoc(this);" value="打　印" class="btnButton4font">
 <%if(isForbiddenPad){%><input type="button" id="download" style="display:none" onclick="javascript:downloadHTML();" value="下载网页格式文件" class="btnButton4font">
-<input type="button" id="exportWord" style="display:none" onclick="javascript:exportWord();" value="下载WORD格式文件" class="btnButton6font"><%}%>
+<input type="button" id="exportWord" style="display:none" onclick="javascript:exportWord();" value="下载WORD格式文件" class="btnButton6font"><input type="button" id="downloadPdf" style="display:none" onclick="javascript:downloadPdf();" value="下载pdf" class="btnButton4font"><%}%>
 <OBJECT CLASSID="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2" ID="save" HEIGHT=0 WIDTH=0></OBJECT>
 </div>
 <!-- body start-->
@@ -225,10 +225,12 @@ function init(){
 	    document.getElementById('print').style.display="";
 		document.getElementById('download').style.display="";
         document.getElementById('exportWord').style.display="";
+        document.getElementById('downloadPdf').style.display="";
 	}else{
 		document.getElementById('print').style.display="none";
 		document.getElementById('download').style.display="none";
         document.getElementById('exportWord').style.display="none";
+        document.getElementById('downloadPdf').style.display="none";
 	}
 
     if($('#isEzForm').length > 0){
@@ -237,6 +239,8 @@ function init(){
 
     resetCommentWidth();
     $(window).resize(function(){resetCommentWidth();});
+
+    PrintDocument();
 }
 
 function resetCommentWidth(){
@@ -255,6 +259,7 @@ function commentWidth(){
 }
 
 function printDoc(obj){
+	PrintDocument();
     window.print();
     window.close();
 
@@ -324,12 +329,17 @@ function processContent(){
 
     if(processFlag){
         $('#__contentDIV__ img').each(function(){
-            var src = $(this).attr('src');
-            if(src){
-                if(src.indexOf("http:")==-1 && src.indexOf("https:")==-1){
-                    $(this).attr('src', _this_href + src);
+            var src = $(this).attr('src'); 
+             if(src){
+                  
+                try{
+                    if(src.indexOf("data:image")&&src.indexOf("http:")==-1 && src.indexOf("https:")==-1){
+                        $(this).attr('src', _this_href + src);
+                    }
+                }catch(e){
+                    alert(e);
                 }
-            }
+            } 
         });
         //processFlag = false;
     }
@@ -363,13 +373,22 @@ function processContent(){
     return __contentDIV__;
 }
 
+function  downloadPdf(){
+    PrintDocument();
+    dhtmlFlag = false;
+    var __contentDIV__ = processContent();
+    _export2('/defaultroot/Creat2DownloadServlet', __contentDIV__);
+}
+
 function downloadHTML(){
+    PrintDocument();
     dhtmlFlag = false;
     var __contentDIV__ = processContent();
     _export2(exportUrl+'!export2html.action', __contentDIV__);
 }
 
 function exportWord(){
+	PrintDocument();
     dhtmlFlag = true;
     var __contentDIV__ = processContent();
     _export2(exportUrl+'!export2doc.action', __contentDIV__);
@@ -401,5 +420,34 @@ function processPrintHtml(){
 function endPrintHtml(tempHtml){
     document.getElementById('__contentDIV__').innerHTML = tempHtml;
 }
+
+
+  //获取当前IE版本
+function getBrowserInfo(){
+   var agent = navigator.userAgent.toLowerCase() ;
+   var regStr_ie = /msie [\d.]+;/gi ;
+   var browser=agent.match(regStr_ie) ;
+   var verinfo = (browser+"").replace(/[^0-9.]/ig,"");
+   return verinfo;
+}
+
+//设置签章打印参数
+function PrintSet(Param){
+   var mLength = document.getElementsByName("iHtmlSignature").length;
+   for ( var i = 0; i < mLength; i++) {
+	   try{
+       var vItem = document.getElementsByName("iHtmlSignature")[i];
+       vItem.SetParam('PRINTTYPE',Param); 
+	   }catch(e){
+	   } 
+   }
+}
+
+//作用：打印文档
+function PrintDocument(){
+    PrintSet(1);  
+}
+
+
 //-->
 </script>

@@ -45,8 +45,8 @@
                         </td>  
                         <td  colspan="3">
 
-                            <s:hidden name="seqPo.seqProceId" id="processId" />
-                                <%--<s:select name="seqPo.seqProceId" onchange="$('#seqProceNameR').val(this.value);" list="#request.proList" whir-options="vtype:['notempty']" headerKey="" headerValue="--请选择--" cssClass="easyui-combobox" cssStyle="width:92%;;height:29px;" editable="true" data-options="width:202,panelHeight:'auto',
+                            <s:hidden name="seqPo.seqproceidStrig" id="processId" />
+                                <%--<s:Nselect name="seqPo.seqProceId" onchange="$('#seqProceNameR').val(this.value);" list="#request.proList" whir-options="vtype:['notempty']" headerKey="" headerValue="--请选择--" cssClass="easyui-combobox" cssStyle="width:92%;;height:29px;" editable="true" data-options="width:202,panelHeight:'auto',
                               onSelect: function(record){
 
                                  $('#seqProceNameR').val(record.text);
@@ -234,7 +234,7 @@ function initPara() {
 	 checkNumber($("input[name='seqPo.seqInitValueR']")[0] ,"顺序号的初始值",99999)&& 
 	 checkTextInput($("input[name='seqPo.seqNameR']")[0]  ,"流水号名称，")&& 
 	 checkEmpty($("input[name='seqPo.seqNameR']")[0]  ,"流水号名称，")&& 
-	 checkEmpty($("input[name='seqPo.seqProceId']")[0],"对应流程名，")){
+	 checkEmpty($("input[name='seqPo.seqproceidStrig']")[0],"对应流程名，")){
 	 
 	 }else{
 	 	return false;
@@ -382,9 +382,9 @@ function closer() {
 
 
 function changeProceName(){
-  nLen =document.all.seqProceId.length;
+  nLen =document.all.seqproceidStrig.length;
  for(i=0;i<nLen;i++){
-		var optObj = document.all.seqProceId.options(i);
+		var optObj = document.all.seqproceidStrig.options(i);
 		var strText = optObj.text;
 
 		if(optObj.selected){

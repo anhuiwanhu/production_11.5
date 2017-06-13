@@ -8,7 +8,7 @@
 		</id>
 		<property name="seqNameR" column="seqNameR" />
 		<property name="seqProceNameR" column="seqProceNameR" />
-		<property name="seqProceId" column="seqProceId"/>
+		<property name="seqproceidStrig" column="seqProceId"/>
 		<property name="seqBitNumR" column="seqBitNumR"/>
 		<property name="seqIsYearR" column="seqIsYearR"/>
 		<property name="seqInitValueR" column="seqInitValueR" />

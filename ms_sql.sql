@@ -218,3 +218,11 @@ alter table OA_INFORMATIONVIEWRECORD alter column VIEWERNAME  nvarchar(100);
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.11_SP_20161105','11.5.0.11',getdate());
 go
+
+
+
+
+
+
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.12_SP_20161110','11.5.0.12',getdate());
+go

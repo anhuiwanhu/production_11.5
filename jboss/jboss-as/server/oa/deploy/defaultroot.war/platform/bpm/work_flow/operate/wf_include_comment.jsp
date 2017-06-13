@@ -85,8 +85,8 @@ if(include_sysMap != null && include_sysMap.get("电子签章") != null && "1".e
 
  }else{
 	 //非IE 不显示电子签章与 手写签名
-     handSignInUse_w=0;
-	 signatureInUse_w=0;
+    // handSignInUse_w=0;
+	// signatureInUse_w=0;
  }
  
 
@@ -768,12 +768,11 @@ if(false){
  } 
 %>
 
-<!-----带 key 的电子签章------>
+ 
 <%if(signatureInUse_w==1){%>
 <OBJECT id="SignatureControl_w" classid="clsid:D85C89BE-263C-472D-9B6B-5264CD85B36E" codebase="<%=rootPath%>/public/iSignatureHTML.jsp/iSignatureHTML.cab#version=7,2,0,216" width="0" height="0" VIEWASTEXT>
-<param name="ServiceUrl" value="http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=rootPath%>/public/iSignatureHTML.jsp/Service.jsp"><!--读去数据库相关信息-->
-<param name="WebAutoSign" value="0">             <!--是否自动数字签名(0:不启用，1:启用)-->
-<!--param name="Weburl"  value="">        <签章服务器响应-->
+<param name="ServiceUrl" value="http://<%=request.getServerName()%>:<%=request.getServerPort()%><%=rootPath%>/public/iSignatureHTML.jsp/Service.jsp"> 
+<param name="WebAutoSign" value="0">
 </OBJECT>
 <%}%>
 
@@ -1268,7 +1267,7 @@ try{
 	$(document).ready(function(){
 	   if($.browser.msie) { 
 	   }else{
-           whir_alert('本页面可能包含电子签章或手写签名,不支持在非IE下操作！',function(){});
+           //whir_alert('本页面可能包含电子签章或手写签名,不支持在非IE下操作！',function(){});
 	   }
 	});
 <%}%>
