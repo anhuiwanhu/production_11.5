@@ -196,8 +196,8 @@ function clickSub(url,obj,saveFileName,moduleName,smartInUse){
 	if(!((userAgent.indexOf("android") != -1) || (
 		(userAgent.indexOf("linux") != -1) && (((userAgent.indexOf("chrome") != -1) || (userAgent.indexOf("safari") != -1)))))){
 		if(iosOpenFileType.indexOf(fileType) != -1){
-			window.open(url);
-			return;
+			window.location = url;
+			return false;
 		}
 	}else{
 		// 暂时支持http上传方式的文件读取
@@ -206,10 +206,10 @@ function clickSub(url,obj,saveFileName,moduleName,smartInUse){
 			if(androidFileType.indexOf(fileType) != -1){
 				isOpenTip = false;
 				if(fileType.toLowerCase() == '.doc' || fileType.toLowerCase() == '.docx'){
-					var dialog = $.dialog({
-			            content:"正在打开，请稍候...",
-			            title : "ok"
-			        });
+					//var dialog = $.dialog({
+			           // content:"正在打开，请稍候...",
+			            //title : "ok"
+			       // });
 					$.ajax({
 						url : '/defaultroot/convertFile/doc2Html.controller',
 						type : 'post',

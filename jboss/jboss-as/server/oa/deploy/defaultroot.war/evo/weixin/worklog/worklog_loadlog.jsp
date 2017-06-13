@@ -103,13 +103,23 @@
                     <tr>
                       <th>项目编号：</th>
                       <td>
-                        <p><x:out select="$doc//logDetail/projectCode/text()"/></p>
+                        <p>
+                        	<c:set var="projectCode"><x:out select="$doc//logDetail/projectCode/text()"/></c:set>
+                        	<c:if test="${projectCode!='null' }">
+                        		<x:out select="$doc//logDetail/projectCode/text()"/>
+                        	</c:if>
+                        </p>
                       </td>
                     </tr>
                     <tr>
                       <th>项目名称：</th>
                       <td>
-                        <p><x:out select="$doc//logDetail/projectName/text()"/></p>
+                        <p>
+                        	<c:set var="projectName"><x:out select="$doc//logDetail/projectName/text()"/></c:set>
+                        	<c:if test="${projectName!='null' }">
+                        		<x:out select="$doc//logDetail/projectName/text()"/>
+                        	</c:if>
+                        </p>
                       </td>
                     </tr>
                     <tr>
@@ -120,10 +130,8 @@
                     </tr>
                     <tr>
                       <th>备注：</th>
-                      <td>
-                        <div class="edit-txta-box">
+                      <td id="bzstyle">
                           <x:out select="$doc//logDetail/remark/text()" escapeXml="false" />
-                        </div>
                       </td>
                     </tr>
                   </tbody>
@@ -175,15 +183,17 @@
   <script type="text/javascript"> 
     //Export DOM7 to local variable to make it easy accessable
     var myApp = new Framework7();
-    var $$ = Dom7;  
-    
+    var $$ = Dom7;
+      
+    $$('#bzstyle font').css("line-height","100%");
     $$('.log-submit').on('click', function () {
       myApp.prompt('请输入留言内容', ' ', function (value) {
-      	 if(value == ''){
+      	 if(value.replace(/\s/g,"") == ''){
       	 	myApp.alert('内容不能为空');
       	 	return;
       	 }
-      	 if(/[@#\$%\^&\*]+/g.test(value)){
+      	 //if(/[@#\$%\^&\*]+/g.test(value)){
+      	 if(/[\\\/?#&'"]+/g.test(value)){
 				myApp.alert('内容不可以包含特殊字符！');
 				return false;
 			}

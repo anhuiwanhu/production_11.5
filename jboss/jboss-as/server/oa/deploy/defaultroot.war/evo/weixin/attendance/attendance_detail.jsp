@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
 </head>
-
 <body class="theme-green">
 <c:if test="${not empty docXml}">
 <x:parse xml="${docXml}" var="doc"/>
@@ -136,8 +135,10 @@
 		            	+'<i class="fa fa-map-marker"></i>'
 		            	+'<p>'
 		            	+'<a href="###">'+jsonData.data0[i].address+'</a>';
-		            	for (var j = 0; j < arr.length; j++) {
-		            		html +='<img onclick="imgDetail('+arr[i]+','+folderVal+')" src="/defaultroot/upload/phonekq/'+folderVal+'/'+arr[i]+'"/>';
+		            	if(pictures!=''){
+		            		for (var j = 0; j < arr.length; j++) {
+		            			html +='<img onclick="imgDetail(\''+arr[j]+'\',\''+folderVal+'\')" src="/defaultroot/upload/phonekq/'+folderVal+'/'+arr[j]+'"/>';
+		            		}
 		            	}
 		            	html +='<strong>'+jsonData.data0[i].remark+'</strong>'
 		            	+'</p>'
@@ -162,3 +163,4 @@
 	  }
   </script>
   </body>
+  </html>

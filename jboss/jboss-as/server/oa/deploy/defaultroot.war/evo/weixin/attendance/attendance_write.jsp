@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.ios.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
+  <link rel="stylesheet" href="/defaultroot/evo/weixin/template/css/alert/template.alert.css" />
 </head>
 <style type="text/css">
 #container {
@@ -107,9 +108,10 @@
   <script type="text/javascript" src="/defaultroot/evo/weixin/frameworktemplate//js/plugin/zepto.js"></script>
   <script type="text/javascript" src="/defaultroot/evo/weixin/js/uploadPreview.min.js"></script>
   <script type="text/javascript" src="/defaultroot/modules/comm/microblog/script/ajaxfileupload.js"></script>
+  <script type="text/javascript" src="/defaultroot/evo/weixin/js/common.js"></script>
+<script type="text/javascript" src="/defaultroot/evo/weixin/template/js/alert/zepto.alert.js"></script>
   <script charset="utf-8" src="http://map.qq.com/api/js?v=2.exp"></script>
   <script type="text/javascript">
-  
   var modal;
 
   var comflag = 1;
@@ -262,8 +264,9 @@
     
     //回调函数上传图片
 	function callBackFun(upImgId,imgliId){
-		var myApp = new Framework7();
-		myApp.showPreloader('正在上传...');
+		//var myApp = new Framework7();
+		//myApp.showPreloader('正在上传...');
+		var loadingDialog = openTipsDialog('正在上传...');
 		$("#img_name_"+(index-1)).val($("#"+upImgId).val());
 		var fileShowName = $("#"+upImgId).val();
 		$.ajaxFileUpload({
@@ -277,9 +280,11 @@
 				$("#img_save_name_"+(index-1)).data("filesize",msg.fileSize);
 				$("#img_name_"+(index-1)).val(fileShowName);
 				$("#"+imgliId).show();
-				myApp.hidePreloader();
+				loadingDialog.close();
+				//myApp.hidePreloader();
 			},
 			error: function (data, status, e){//服务器响应失败处理函数
+				var myApp = new Framework7();
 				myApp.alert("文件上传失败！");
 			}
 		});
@@ -304,8 +309,8 @@
 		var latitude = $('#latitude').val();
 		var presentAddress = $('#presentAddress').val();
 		wx.openLocation({
-		    latitude: latitude, // 纬度，浮点数，范围为90 ~ -90
-		    longitude: longitude, // 经度，浮点数，范围为180 ~ -180。
+		    latitude: parseFloat(latitude), // 纬度，浮点数，范围为90 ~ -90
+		    longitude: parseFloat(longitude), // 经度，浮点数，范围为180 ~ -180。
 		    name: presentAddress, // 位置名
 		    address: presentAddress, // 地址详情说明
 		    scale: 28, // 地图缩放级别,整形值,范围从1~28。默认为最大

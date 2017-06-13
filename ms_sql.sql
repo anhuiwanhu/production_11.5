@@ -100,3 +100,12 @@ go
 
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.05_SP_20160914','11.5.0.05',getdate());
 go
+
+
+
+
+
+alter table Oa_Custmenu_Qlcase alter column  QL_FIELD nvarchar(4000)
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.06_SP_20160924','11.5.0.06',getdate());
+go

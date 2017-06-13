@@ -207,7 +207,7 @@
 						var fieldType=groups.field.fieldType;
 						var fieldShow = groups.field.fieldShow;
 
-						var itemContent = '<tr><th><strong>'+fieldDesName+'</strong></th><div class="edit-ipt-a-arrow">';
+						var itemContent = '<tr><th><strong>'+fieldDesName+'</strong></th><td><div class="edit-ipt-a-arrow">';
 						if(fieldType=="1000000" || fieldType=="1000001"){
 						   itemContent += '<input class="edit-ipt-r" type="number" id="' + fieldName + '_start" name="' + fieldName + '_start" value="" placeholder="请输入"/> ';
 						   itemContent += '<input class="edit-ipt-r" type="number" id="' + fieldName + '_end" name="' + fieldName + '_end" value="" placeholder="请输入"/> ';

@@ -112,7 +112,7 @@
 	                    + state
 	                    +'<p>'
 	                    + '<a href="javascript:openNaireDetail('+jsonData.data0[i].questionnaireId+','+jsonData.data0[i].isSubmitAnswered+');">'+jsonData.data0[i].title+'等待您的参与！</a>'
-	                    +'<span>'+jsonData.data0[i].startDate.substring(0,10)+'</span>'
+	                    +'<span>['+jsonData.data0[i].startDate.substring(0,10)+']</span>'
 	                    +'</p>'
 	                    +'</li>';
 		      	}

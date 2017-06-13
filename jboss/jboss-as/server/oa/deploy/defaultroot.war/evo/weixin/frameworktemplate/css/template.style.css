@@ -1243,13 +1243,16 @@ strong.document-icon img {
 .wh-cate-lists.wh-cate-planlist.list-block .item-link:after {
   content: '\f055';
   color: #0d7aff;
+  font-size: 2rem;
+  top: 1.6rem;
 }
 .wh-cate-lists.wh-cate-planlist.list-block .item-link.notip:after {
   content: "";
 }
 .wh-cate-lists.wh-cate-planlist.list-block .accordion-item-expanded > .item-link:after {
+  font-size: 2rem;
   content: '\f056';
-  color: #ff0000;
+  top: 1.6rem;
 }
 /* Forum Category */
 .wh-category-forum .wh-cate-lists ul > li i.fa.fa-check-circle {
@@ -2468,25 +2471,20 @@ article.wh-edit table.wh-table-edit td div.wh-iframe.wh-ios-iframe-bug {
 }
 /* plan */
 .wh-plan-head {
-  height: 2.5rem;
-  padding: 0.83rem 0;
+  min-height: 2.5rem;
+  padding: 0.83rem 1rem;
   background-color: #eeeeee;
   border-bottom: 1px solid #e6e6e6;
 }
 .wh-plan-head span {
   display: inline-block;
-  height: 2.5rem;
   line-height: 2.5rem;
   padding: 0 1.9rem;
   background-color: #cecece;
   border-radius: 1.5rem;
-}
-.wh-plan-head span:first-child {
-  margin-left: 1rem;
+  margin-bottom: 0.5rem;
 }
 .wh-plan-head p {
-  display: inline-block;
-  margin-left: 1.5rem;
   color: #bbbbbb;
 }
 /* File error */

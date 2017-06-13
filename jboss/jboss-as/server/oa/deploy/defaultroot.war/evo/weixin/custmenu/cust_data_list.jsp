@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
-  <title>计划报送项目-显示列表页</title> 
+  <title>${menuName}</title> 
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.ios.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
@@ -20,6 +20,7 @@
         <div class="page">
           <section id="sectionScroll" class="wh-section infinite-scroll wh-section-bottomfixed">
 		    <input type="hidden"  name="menuId" value="${menuId}" id="menuId"/>
+			<input type="hidden"  name="menuName" value="${menuName}" id="menuName"/>
 			<input type="hidden"  name="cust_queryField" value="${cust_queryField}" id="cust_queryField"/>
 			<input type="hidden"  name="cust_queryText" value="${cust_queryText}" id="cust_queryText"/>
             <header id="searchBar" class="wh-search">
@@ -27,7 +28,7 @@
                 <div class="wh-search-input" id="serchDiv">
                   <form method="get" data-search-list=".list-container" data-search-in=".item-title" class="searchbar searchbar-init searchbar-active">
                     <label class="fa fa-search" for="search"></label>
-                    <input id="searchBug" type="search"  placeholder="搜索信息标题" onclick="searchList()">
+                    <input id="searchBug" type="search"  placeholder="搜索信息标题" onfocus="searchList()">
                     <a href="#" class="searchbar-cancel">取消</a>
                   </form>
                 </div>
@@ -250,13 +251,15 @@
      //新增表单
      function go_CmdAdd(formtype,formId){
 		var menuId =$("#menuId").val();
-		window.location = "/defaultroot/custmenu/custDataAdd.controller?pageId="+formId+"&cust_formType="+formtype+"&menuId="+menuId+"&processId=''";
+		var menuName =$("#menuName").val();
+		window.location = "/defaultroot/custmenu/custDataAdd.controller?pageId="+formId+"&cust_formType="+formtype+"&menuId="+menuId+"&menuName="+menuName+"&processId=''";
 	 }
     
 	//新表单新增
 	function go_newCmdAdd(formtype,formId,formCode) {	
 	   var menuId =$("#menuId").val();
-	   window.location = "/defaultroot/custmenu/custDataAdd.controller?pageId="+formId+"&cust_formType="+formtype+"&menuId="+menuId+"&cust_formCode="+formCode+"&processId=''";
+	   var menuName =$("#menuName").val();
+	   window.location = "/defaultroot/custmenu/custDataAdd.controller?pageId="+formId+"&cust_formType="+formtype+"&menuId="+menuId+"&menuName="+menuName+"&cust_formCode="+formCode+"&processId=''";
 	}
 	 //老流程
 	function go_CmdFlow(pageId,processId,processName) {

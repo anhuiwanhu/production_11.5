@@ -127,17 +127,17 @@
                     <tr>
                       <th>项目编号：</th>
                       <td>
-                      	<input type="hidden" name="projectId" value="${projectId }" id="projectId"/>
-                      	<input type="hidden" name="projectName" value="${projectName }" id="projectName"/>
-                        <input class="edit-ipt-r" type="text" readonly="readonly" value="${projectCode }" name="projectCode" id="projectCode" placeholder="" />
+                      	<input type="hidden" name="projectId" <c:if test="${projectId!='null' }"> value="${projectId }"</c:if> id="projectId"/>
+                      	<input type="hidden" name="projectName" <c:if test="${projectName!='null' }"> value="${projectName }"</c:if> id="projectName"/>
+                        <input class="edit-ipt-r" type="text" readonly="readonly" <c:if test="${projectCode!='null' }"> value="${projectCode }"</c:if> name="projectCode" id="projectCode" placeholder="" />
                       </td>
                     </tr>
                     <tr>
                       <th>项目名称：</th>
                       <td id="protd"  onclick="selPro()" style=" text-align:center">
                         <!-- <input class="edit-ipt-r edit-ipt-arrow" type="text" maxlength="50" name="projectName" value="${projectName }" id="projectName" readonly="readonly" placeholder="请选择&nbsp;" onclick="selPro()"/> -->
-                        ${projectName }
-                        <c:if test="${projectName == '' }">
+                        <c:if test="${projectName!='null' }"> ${projectName }</c:if>
+                        <c:if test="${empty projectName || projectName == 'null' }">
                         <input class="edit-ipt-r edit-ipt-arrow" type="text" readonly="readonly" placeholder="请选择&nbsp;"/>
                         </c:if>
                       </td>
@@ -217,6 +217,9 @@
    		}else{
    			$("#datetype2").show();
    		}
+   		var myDate = new Date();
+   		var m = myDate.getMonth()+1;
+   		$$("#picker-date").val(myDate.getFullYear()+'-'+m+'-'+myDate.getDate());
     });
   
   //天气
@@ -265,7 +268,9 @@
       {
         values: (function() {
           var arr = [];
-          for (var i = 1990; i <= 2030; i++) {
+         var date = new Date();
+   		 newYear = date.getFullYear() + 15;
+          for (var i = 1990; i <= newYear; i++) {
             arr.push(i);
           }
           return arr;
@@ -412,8 +417,14 @@
  		var min1 = date1.substring(3,5);
  		var min2 = date2.substring(3,5);
  		var len = $$("#projectName").val().length;
-		if($$("#logContent").val() == ''){
+		if($$("#logContent").val().replace(/\s/g,"")==""){
 			myApp.alert('内容不能为空！');
+			return;
+		}else if(/[\\\/?#&'"]+/g.test($$("#logContent").val())){
+			myApp.alert('内容不可以包含特殊字符！');
+			return;
+		}else if(/[\\\/?#&'"]+/g.test($$("#workResult").val())){
+			myApp.alert('结果不可以包含特殊字符！');
 			return;
 		}else if(hour1 > hour2){
 			myApp.alert('开始时间必须在结束时间之前！');
@@ -510,7 +521,6 @@
 	}
 	//修改日志
 	function updateWorkLog() {
-		alert('11');
 		$$.ajax({
 		    type: "post",
 		    url: "/defaultroot/worklog/updateWorkLog.controller",

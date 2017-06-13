@@ -141,7 +141,11 @@
 		      	maxItems = jsonData.data1;
 		      	if(maxItems<15){
 		      		$$('.wh-load-md').hide();
-		      	}
+		      	}//如果查询总记录数大于15，则加载无线滚动事件
+		    	if(maxItems > 15){
+		    		$$('.wh-load-md').show();
+		    		myApp.attachInfiniteScroll($$('#sectionScroll'));
+		    	}
 		      	if(jsonData.data0.length>0){
 			      	for(var i = 0; i < jsonData.data0.length; i++){
 			      		hadread = jsonData.data0[i].hadread;
@@ -189,13 +193,19 @@
 	}
 	
 	function sel(obj) {
-    	empIds = "$"+$(obj).val()+"$";
+		if($(obj).val() == 'apple'){
+			var arr = $$("input[name=empId]");
+			var selEmpId = '';
+		 	if(arr.length>0){
+		 		for(var i=0;i<arr.length;i++){
+			 		selEmpId += '$'+arr[i].value+'$';
+		 		}
+		 	}
+		 	empIds = selEmpId;
+		}else{
+			empIds = "$"+$(obj).val()+"$";
+		}
     	addItems(empIds,1,'0');
-    	//如果查询总记录数大于15，则加载无线滚动事件
-    	if(maxItems > 15){
-    		$$('.wh-load-md').show();
-    		myApp.attachInfiniteScroll($$('#sectionScroll'));
-    	}
 	}
   </script>
 </body> 

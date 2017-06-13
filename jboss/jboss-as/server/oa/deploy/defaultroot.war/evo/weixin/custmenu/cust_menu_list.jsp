@@ -7,7 +7,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
-  <title>计划报送</title>
+  <title>${menuName}</title>
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.ios.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
@@ -168,7 +168,7 @@
 	  }
 	}
 	function goDataList(menuId,menuName){
-	   window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId;
+	   window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId+"&menuName="+menuName;
 	}
 	function goSSOLink(menuAction){
 	  window.location.href="http://"+menuAction;

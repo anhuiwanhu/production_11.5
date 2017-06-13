@@ -12,7 +12,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
-    <title>${param.processName}</title>
+    <title>新增</title>
     <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.reset.css" />
     <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.icon.css" />
     <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.fa.css" />
@@ -31,6 +31,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 <form id="sendForm" class="dialog" action="/defaultroot/custmenu/sendNew.controller" method="post">
 <section class="wh-section wh-section-bottomfixed" id="mainContent">
     <input type="hidden"  name="menuId" value="${menuId}" id="menuId"/>
+	<input type="hidden"  name="menuName" value="${menuName}" id="menuName"/>
 	<input type="hidden"  name="moduleType" value="${moduleType}" id="moduleType"/>
     <article class="wh-edit wh-edit-document">
         <div class="wh-container">
@@ -557,6 +558,8 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 					success : function(info){
 						if(info == 'success'){
 							openNextPage();
+						}else{
+						    alert("无法保存！");
 						}
 					}
 				});
@@ -729,7 +732,8 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 
 	function openNextPage(){
 		var menuId =$("#menuId").val();
-		window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId;
+		var menuName =$("#menuName").val();
+		window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId+"&menuName="+menuName;
 	}
 </script>
 
