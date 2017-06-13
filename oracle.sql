@@ -148,3 +148,10 @@ alter table Oa_Custmenu_Qlcase modify QL_FIELD varchar2(4000);
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.06_SP_20160924','11.5.0.06',sysdate);
 commit;
+
+
+
+
+
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.07_SP_20160926','11.5.0.07',sysdate);
+commit;

@@ -40,7 +40,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 <c:set var="isEzFlow"><x:out select="$doc//workInfo/isEzFlow/text()"/></c:set>
 <c:set var="processCommentAcc"><x:out select="$doc//workInfo/processCommentAcc/text()"/></c:set>
 <c:set var="isDossier"><x:out select="$doc//workInfo/isDossier/text()"/></c:set>
-<c:set var="trantype"><x:out select="$doc//workInfo/trantype/text()"/></c:set>
 <c:if test="${not empty EmpLivingPhoto}"><c:set var="EmpLivingPhoto">/defaultroot/upload/peopleinfo/${EmpLivingPhoto}</c:set></c:if>
 <form id="sendForm" class="dialog" action="/defaultroot/workflow/sendnew.controller" method="post">
 <section class="wh-section wh-section-bottomfixed" id="mainContent">
@@ -73,15 +72,15 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 										<c:when test="${showtype != '401' }">
 											<c:if test="${mustfilled == '1' && readwrite == '1'}">
 												<i class="fa fa-asterisk"></i>
-											    </c:if>：
+											    </c:if>
 										</c:when>
 										<c:otherwise>
 											<c:if test="${commentmustnonull == 'true' && readwrite == '1'}">
 												<i class="fa fa-asterisk"></i>
-											</c:if>：
+											</c:if>
 										</c:otherwise>
 									</c:choose>
-				                    <x:out select="$fd/name/text()"/>
+				                    <x:out select="$fd/name/text()"/>：
 			                    </th>
 							<td style="text-align:right">
 							<c:choose>
@@ -94,7 +93,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 										<input placeholder="请输入" class="edit-ipt-r" type="number" maxlength="18" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onkeyup="mainMath(this);"/>
 									</c:if>
 									<c:if test="${fieldtype != '1000000' && fieldtype != '1000001'  }">
-										<input placeholder="请输入" class="edit-ipt-r" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' />
+										<input placeholder="请输入" class="edit-ipt-r" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>'/>
 									</c:if>
 								</c:when>
 								<%--密码输入 102--%>
@@ -205,12 +204,10 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 										if(aval[0] != null && aval[0].endsWith(",")) {
 											saveFileNames =aval[0].substring(0, aval[0].length() -1);
 											saveFileNames =saveFileNames.replaceAll(",","|");
-											System.out.println("saveFileNames----------------->"+saveFileNames);
 										}
 										if(aval[1] != null && aval[1].endsWith(",")) {
 											realFileNames =aval[1].substring(0, aval[1].length() -1);
 											realFileNames =realFileNames.replaceAll(",","|");
-											System.out.println("realFileNames----------------->"+realFileNames);
 										}
 										%>
 										<jsp:include page="../common/include_download.jsp" flush="true">
@@ -314,7 +311,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 								<%--金额 301--%>
 								<c:when test="${showtype =='301' && readwrite =='1'}">
 									<c:if test="${fieldtype == '1000000' || fieldtype == '1000001'  }">
-										<input class="edit-ipt-r" id='<x:out select="$fd/sysname/text()"/>' type="number" name='_main_<x:out select="$fd/sysname/text()"/>' onkeyup="changeMoney('<x:out select='$fd/sysname/text()'/>');mainMath(this);" value='<x:out select="$fd/value/text()"/>' />
+										<input class="edit-ipt-r" id='<x:out select="$fd/sysname/text()"/>' type="number" name='_main_<x:out select="$fd/sysname/text()"/>' onkeyup="changeMoney('<x:out select='$fd/sysname/text()'/>');mainMath(this);"value='<x:out select="$fd/value/text()"/>' />
 									</c:if>
 									<c:if test="${fieldtype != '1000000' && fieldtype != '1000001'  }">
 										<input class="edit-ipt-r" id='<x:out select="$fd/sysname/text()"/>' type="text" name='_main_<x:out select="$fd/sysname/text()"/>' onkeyup="changeMoney('<x:out select='$fd/sysname/text()'/>');mainMath(this);" value='<x:out select="$fd/value/text()"/>' />
@@ -485,10 +482,11 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 						<c:set var="actiCommFieldType" ><x:out select="$doc//workInfo/actiCommFieldType/text()"/></c:set>
 						<c:if test="${actiCommFieldType != '-1' && (commentField == '-1' || commentField == 'nullCommentField' || commentField == 'autoCommentField' || commentField == 'null') }">
 						<tr>
-							<th><c:if test="${commentmustnonull eq true}">
+							<th>
+							<c:if test="${commentmustnonull eq true}">
 									<i class="fa fa-asterisk"></i>
-								</c:if>
-								审批意见：
+							</c:if>
+							审批意见：
 							</th>
 							<td>
 	                            <textarea class="edit-txta edit-txta-l" placeholder="请输入文字" name="comment_input" id="comment_input" maxlength="300"></textarea>
@@ -565,7 +563,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 													<jsp:param name="moduleName" value="<%=moduleName1%>" />
 											</jsp:include>
 										</x:forEach>
-								</c:if>
+								</c:if>						
 								</td>
 							</tr>
 						</x:forEach>
@@ -695,7 +693,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 	<input type="hidden" name="worktitle" value="${worktitle}">
 	<input type="hidden" name="workcurstep" value="${workcurstep}">
 	<input type="hidden" name="worksubmittime" value="${worksubmittime}">
-	<input type="hidden" name="trantype" value="${trantype}">
 	<input type="hidden" name="workStatus" value="0">
 	<input type="hidden" name="comment_tran" id="comment_tran" value="">
 </form>
@@ -746,6 +743,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 		var comment = $('#comment_input').val();
 		$('#comment_tran').val(comment);
 	}
+
 
     var dialog = null;
     var flag = 1;//防止重复提交
@@ -1123,7 +1121,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 		});
 		//window.open('/defaultroot/dealfile/subprocess.controller?workId='+workId);
 	}*/
-	
+
 	//金额大写
 	function changeMoney(id,name){
 		var val =document.getElementById(id).value;
