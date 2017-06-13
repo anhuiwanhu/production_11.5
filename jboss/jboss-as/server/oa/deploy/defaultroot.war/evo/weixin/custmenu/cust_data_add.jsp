@@ -407,15 +407,14 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
         </div>
     </article>
 </section>
-<footer class="wh-footer wh-footer-forum" id="footerButton">
-    <div class="wh-wrapper">
-        <div class="wh-container">
-            <div class="wh-footer-btn">
-<%--                <a href="javascript:saveDraft();" class="fbtn-cancel col-xs-6"><i class="fa fa-file-text-o"></i>保存草稿</a>--%>
-                <a href="javascript:sendFlow();" class="fbtn-matter col-xs-12"><i class="fa fa-check-square"></i>发送</a>
-            </div>
-        </div>
-    </div>
+<footer class="wh-footer wh-footer-forum">
+	<div class="wh-wrapper">
+		<div class="wh-container">
+			<div class="wh-footer-btn row" id="but_cmdAdd">
+			  <a href="javascript:sendFlow();" class="fbtn-matter col-100 " id="cmdAdd">保存</a>
+			</div>
+		</div>
+	</div>
 </footer>
 <section id="selectContent" style="display:none">
 </section>

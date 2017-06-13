@@ -120,7 +120,7 @@
                       <th>内容<i class="fa fa-asterisk"></i>：</th>
                       <td>
                         <div class="edit-txta-box">
-                          <textarea id="logContent" onclick="fours(0)"  name="logContent" class="edit-txta edit-txta-l" placeholder="请输入文字">${logContent }</textarea>
+                          <textarea id="logContent" onfocus="fours(0)"  name="logContent" class="edit-txta edit-txta-l" placeholder="请输入文字">${logContent }</textarea>
                         </div>
                       </td>
                     </tr>
@@ -145,14 +145,14 @@
                     <tr>
                       <th>结果：</th>
                       <td>
-                        <input class="edit-ipt-r" onclick="fours(1)" id="workResult" value="${workResult }" name="workResult" type="text" placeholder="请填写" />
+                        <input class="edit-ipt-r" onfocus="fours(1)" id="workResult" value="${workResult }" name="workResult" type="text" placeholder="请填写" />
                       </td>
                     </tr>
                      <tr>
                       <th>备注：</th>
                       <td>
-                        <div class="edit-txta-box">
-                          <textarea id="remark" onclick="fours(2)"  name="remark" class="edit-txta edit-txta-l" placeholder="请输入文字">${remark}</textarea>
+                        <div class="edit-txta-box" style="cursor:pointer" >
+                          <textarea id="remark" onfocus="fours(2)"  name="remark" class="edit-txta edit-txta-l" placeholder="请输入文字">${remark}</textarea>
                         </div>
                       </td>
                     </tr>
@@ -186,6 +186,7 @@
   </div>
   </form>
   <script src="/defaultroot/evo/weixin/frameworktemplate/js/template.min.js"></script>
+  <script type="text/javascript" src="/defaultroot/evo/weixin/js/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" src="/defaultroot/evo/weixin/frameworktemplate/js/plugin/zepto.js"></script>
   <script type="text/javascript"> 
   var myApp = new Framework7();
@@ -432,7 +433,12 @@
 		}
 	}
  	//保存日志
+ 	var comflag = 1;
  	function saveWorkLog() {
+ 		if(comflag == 0){
+    		return;
+    	}
+    	comflag = 0;
  		$$.ajax({
 		    type: "post",
 		    url: "/defaultroot/worklog/saveWorkLog.controller",
@@ -504,6 +510,7 @@
 	}
 	//修改日志
 	function updateWorkLog() {
+		alert('11');
 		$$.ajax({
 		    type: "post",
 		    url: "/defaultroot/worklog/updateWorkLog.controller",
@@ -525,15 +532,19 @@
 	function fours(flag) {
 		if(flag == 0){
 			var t=$("#logContent").val();
-			$("#logContent").val("").focus().val(t);
+			$("#logContent").val("");
+			$("#logContent").val(t);
 		}else if(flag == 1){
 			var t=$("#workResult").val();
-			$("#workResult").val("").focus().val(t);
+			$("#workResult").val("");
+			$("#workResult").val(t);
 		}else{
 			var t=$("#remark").val();
-			$("#remark").val("").focus().val(t);
+			$("#remark").val("");
+			$("#remark").val(t);
 		}
 	}
+	
   </script>
 </body>
 </html>

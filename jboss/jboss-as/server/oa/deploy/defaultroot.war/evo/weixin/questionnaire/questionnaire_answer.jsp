@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="../common/taglibs.jsp"%>
 <!DOCTYPE html>
 <html>
@@ -56,7 +56,7 @@
                			<c:set var="imgFlag"><x:out select="$tolPhoto/opImgSaveName/text()"/></c:set>
                		</x:forEach>
                		<div class="wj ques <c:if test="${imgFlag !='' }">wh-questionnaire-img-list clearfix</c:if>" >
-	                  <h3>${liNum}.${questionnaireTitle }</h3>
+	                  <h3><c:if test="${answerNum !=1 }">${liNum}.${questionnaireTitle }</c:if></h3>
 	                  <c:if test="${contents !='' }">
 	                  	<textarea readonly="readonly">${contents }</textarea>
 	                  </c:if>
@@ -85,7 +85,7 @@
 				                      </em>
 				                      <p>
 				                        <label class="label-radio item-content" onclick="radioSel('${questhemeId}','${themeOptionId }')">
-				                          <input type="radio" <c:if test="${isMySelected =='1' }">checked="checked"</c:if>  name="questhemeRadioList_${questhemeId }"  value="<x:out select="$tolR/themeOptionId/text()"/>">
+				                          <input type="radio" <c:if test="${isSubmitAnswered ==1 }">disabled</c:if> <c:if test="${isMySelected =='1' }">checked="checked"</c:if>  name="questhemeRadioList_${questhemeId }"  value="<x:out select="$tolR/themeOptionId/text()"/>">
 				                          <span class="edit-radio-l">${themeOptionTitle }</span>
 				                        </label>
 				                      </p>
@@ -94,7 +94,7 @@
 	                  			<c:otherwise>
 	                  				<li class="current">
 				                      <label class="label-radio item-content" onclick="radioSel('${questhemeId}','${themeOptionId }')">
-				                        <input type="radio"  <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeRadioList_${questhemeId }" value="<x:out select="$tolR/themeOptionId/text()"/>">
+				                        <input type="radio" <c:if test="${isSubmitAnswered ==1 }">disabled</c:if> <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeRadioList_${questhemeId }" value="<x:out select="$tolR/themeOptionId/text()"/>">
 				                        <span class="edit-radio-l">${themeOptionTitle }</span>
 				                      </label>
 				                    </li>
@@ -102,13 +102,15 @@
 	                  		</c:choose>
 	                  	</x:forEach>
 	                  	<c:if test="${isOtherAnswer == '1' }">
+	                  	  <c:set var="isMyOtherAnswer"><x:out select="$qr/isMyOtherAnswer/text()"/></c:set>
+                      	  <c:set var="myOtherAnswerContent"><x:out select="$qr/myOtherAnswerContent/text()"/></c:set>
                   			<li class="current">
 		                      <label class="label-radio item-content" onclick="radioSel('${questhemeId}','other')">
-		                        <input type="radio" name="questhemeRadioList_${questhemeId }" value="">
+		                        <input <c:if test="${isSubmitAnswered ==1 }">disabled</c:if>  <c:if test="${isMyOtherAnswer =='1' }">checked="checked"</c:if> type="radio" name="questhemeRadioList_${questhemeId }" value="">
 		                        <span class="edit-radio-l">其他意见</span>
 		                      </label>
 		                    </li>
-		                    <textarea readonly="readonly" class="textarea_a" name="questhemeRadioListOther_${questhemeId }" id="other_${questhemeId }" onblur="radioOther('${questhemeId }')">${customAnswer }</textarea>
+		                    <textarea readonly="readonly" class="textarea_a" name="questhemeRadioListOther_${questhemeId }" id="other_${questhemeId }" onblur="radioOther('${questhemeId }')">${myOtherAnswerContent }</textarea>
                   			<input class="edit-ipt-r" readonly="readonly" type="text"  />
                   		</c:if>
 	                  </ul>
@@ -128,7 +130,7 @@
                			<c:set var="imgCFlag"><x:out select="$tolCImg/opImgSaveName/text()"/></c:set>
                		</x:forEach>
                		<div class="wj ques <c:if test="${imgCFlag !='' }">wh-questionnaire-img-list clearfix</c:if>">
-	                  <h3>${liNum}.${questionnaireTitle }</h3>
+	                  <h3><c:if test="${answerNum !=1 }">${liNum}.${questionnaireTitle }</c:if></h3>
 	                  <c:if test="${contents !='' }">
 	                  	<textarea readonly="readonly">${contents }</textarea>
 	                  </c:if>
@@ -154,7 +156,7 @@
 				                         %>
 				                     </em>
 				                     <label class="label-checkbox item-content" onclick="checkSel('${questhemeId}','${themeOptionId }')">
-				                       <input type="checkbox" <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeCheckList_${questhemeId }" value="<x:out select="$tolC/themeOptionId/text()"/>">
+				                       <input type="checkbox" <c:if test="${isSubmitAnswered ==1 }">disabled</c:if> <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeCheckList_${questhemeId }" value="<x:out select="$tolC/themeOptionId/text()"/>">
 				                       <div class="item-media">
 				                         <span class="edit-radio-r">${themeOptionTitle }</span>
 				                       </div>
@@ -164,7 +166,7 @@
 	                  			<c:otherwise>
 	                  				<li>
 				                      <label class="label-checkbox item-content" onclick="checkSel('${questhemeId}','${themeOptionId }')"> 
-				                        <input type="checkbox" <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeCheckList_${questhemeId }" value="<x:out select="$tolC/themeOptionId/text()"/>">
+				                        <input type="checkbox" <c:if test="${isSubmitAnswered ==1 }">disabled</c:if> <c:if test="${isMySelected =='1' }">checked="checked"</c:if> name="questhemeCheckList_${questhemeId }" value="<x:out select="$tolC/themeOptionId/text()"/>">
 				                        <div class="item-media">
 				                          <span class="edit-radio-r">${themeOptionTitle }</span>
 				                        </div>
@@ -174,16 +176,17 @@
 	                  		</c:choose>
 	                  	</x:forEach>
 	                  	<c:if test="${isOtherAnswer == '1' }">
-	                  		<c:set var="customAnswer"><x:out select="$qc//themeOptionList/customAnswer/text()"/></c:set>
+	                  		<c:set var="isMyOtherAnswer"><x:out select="$qc/isMyOtherAnswer/text()"/></c:set>
+                      	  <c:set var="myOtherAnswerContent"><x:out select="$qc/myOtherAnswerContent/text()"/></c:set>
                   			<li class="current">
 		                      <label class="label-checkbox item-content" onclick="checkOther('${questhemeId}')"> 
-		                        <input type="checkbox" name="questhemeCheckList_${questhemeId }" value="">
+		                        <input type="checkbox" id="cbox_${questhemeId }" <c:if test="${isMyOtherAnswer =='1' }">checked="checked"</c:if> <c:if test="${isSubmitAnswered ==1 }">disabled</c:if> name="questhemeCheckList_${questhemeId }" value="">
 		                        <div class="item-media">
 		                          <span class="edit-radio-r">其他意见</span>
 		                        </div>
 		                      </label>
 		                    </li>
-		                    <textarea readonly="readonly" class="textarea_a" name="questhemeCheckListOther_${questhemeId }" id="other_${questhemeId }" >${customAnswer }</textarea>
+		                    <textarea readonly="readonly" class="textarea_a" name="questhemeCheckListOther_${questhemeId }" id="other_${questhemeId }" >${myOtherAnswerContent }</textarea>
 		                    <input class="edit-ipt-r" readonly="readonly" type="text"  />
                   		</c:if>
 	                  </ul>
@@ -199,11 +202,11 @@
                		<c:set var="answerContent"><x:out select="$qe/answerContent/text()"/></c:set>
                		<input type="hidden" name = "essayQuesthemeId" value="${questhemeId }"/>
                		<div class="wj ques">
-	                  <h3>${liNum}.${questionnaireTitle }</h3>
+	                  <h3><c:if test="${answerNum !=1 }">${liNum}.${questionnaireTitle }</c:if></h3>
 	                  <c:if test="${contents !='' }">
 	                  	<textarea readonly="readonly">${contents }</textarea>
 	                  </c:if>
-	                  <textarea class="textarea_a" id="essay_${questhemeId }">${answerContent }</textarea>
+	                  <textarea <c:if test="${isSubmitAnswered ==1 }">readonly="readonly"</c:if>  class="textarea_a" id="essay_${questhemeId }">${answerContent }</textarea>
 	                </div>
 	                <input type="hidden" name="questhemeEssayList" id="${questhemeId }"/>
                </x:forEach>
@@ -297,7 +300,8 @@
         $(".ques").hide().eq(currentques).show();
         $(".next-ques").removeClass("fbtn-cancel").addClass("fbtn-matter");
       } 
-
+		$("#zj").css("display","block");
+		$("#que").css("display","none");
       //判断是否为第一题 ， 如果是 ，则上一题按钮为灰色 如果否 则可以点击上一题。
       if(currentques == 0){
 		$("#zj").css("display","none");
@@ -309,23 +313,58 @@
       }    
       
     }) 
+    var comflag = 1;
   //保存问卷
   	function saveAnswer() {
-  		setAnswer();
+  		if(comflag == 0){
+    		return;
+    	}
+    	comflag = 0;
   		var radioResArr = $("input[name=questhemeRadioList]");
   		var checkResArr = $("input[name=checkQuesthemeId]");
+  		var quResArr = $("input[name=essayQuesthemeId]");
   		for(var i=0;i<radioResArr.length;i++){
   			if(radioResArr[i].value == ''){
   				myapp.alert("单选题答案不能为空！");
+  				comflag = 1;
   				return;
   			}
+  			if(/[@#\$%\^&\*]+/g.test(radioResArr[i].value)){
+				myapp.alert('其他答案不可以包含特殊字符！');
+				comflag = 1;
+				return;
+			}
   		}
   		for(var i=0;i<checkResArr.length;i++){
-  			if($('#'+checkResArr[i].value).val() == ''){
-  				myapp.alert("多选题答案不能为空！");
-  				return;
+  			var other = $('#other_'+checkResArr[i].value).val();
+  			if(other != undefined){
+  				if($('#'+checkResArr[i].value).val() == '' && $('#other_'+checkResArr[i].value).val() == ''){
+	  				myapp.alert("多选题答案不能为空！");
+	  				comflag = 1;
+	  				return;
+  				}
+  			}else{
+  				if($('#'+checkResArr[i].value).val() == '' || $('#other_'+checkResArr[i].value).val()==''){
+	  				myapp.alert("多选题答案不能为空！");
+	  				comflag = 1;
+	  				return;
+  				}
   			}
+  			 
+  			if(/[@#\$%\^&\*]+/g.test($('#other_'+checkResArr[i].value).val())){
+				myapp.alert('其他答案不可以包含特殊字符！');
+				comflag = 1;
+				return;
+			}
   		}
+  		for(var i=0;i<quResArr.length;i++){
+  			if(/[@#\$%\^&\*]+/g.test($('#essay_'+quResArr[i].value).val())){
+				myapp.alert('问答题不可以包含特殊字符！');
+				comflag = 1;
+				return;
+			}
+  		}
+  		setAnswer();
   		$$.ajax({
 	      type: "post",
 	      url: "saveNaire.controller",

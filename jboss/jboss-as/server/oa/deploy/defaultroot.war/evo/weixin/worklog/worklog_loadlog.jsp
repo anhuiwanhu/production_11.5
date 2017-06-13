@@ -191,8 +191,12 @@
       	  newComment();
       });
     });
-
+	var comflag = 1;
 	function newComment() {
+		if(comflag == 0){
+    		return;
+    	}
+    	comflag = 0;
 		$$.ajax({
 		    type: "post",
 		    url: "/defaultroot/worklog/saveComment.controller",

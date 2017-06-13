@@ -50,8 +50,8 @@
 <script type="text/javascript">
 	var myApp = new Framework7();
 	var $$ = Dom7;
-	function openNaireDetail(questionnaireId) {
-		window.location = "/defaultroot/naire/questionnaireAnswer.controller?questionnaireId="+questionnaireId;
+	function openNaireDetail(questionnaireId,state) {
+		window.location = "/defaultroot/naire/questionnaireAnswer.controller?questionnaireId="+questionnaireId+"&state="+state;
 	}
 	var curpage = 1;
 	var itemsPerLoad = 15;
@@ -111,7 +111,7 @@
 		      		 html +='<li>'
 	                    + state
 	                    +'<p>'
-	                    + '<a href="javascript:openNaireDetail('+jsonData.data0[i].questionnaireId+');">'+jsonData.data0[i].title+'等待您的参与！</a>'
+	                    + '<a href="javascript:openNaireDetail('+jsonData.data0[i].questionnaireId+','+jsonData.data0[i].isSubmitAnswered+');">'+jsonData.data0[i].title+'等待您的参与！</a>'
 	                    +'<span>'+jsonData.data0[i].startDate.substring(0,10)+'</span>'
 	                    +'</p>'
 	                    +'</li>';

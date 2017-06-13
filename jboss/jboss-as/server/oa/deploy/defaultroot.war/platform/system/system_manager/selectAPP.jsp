@@ -79,7 +79,7 @@
 			%>
 			
 					<li style="float:left;list-style:none;width:90px;height:25px;line-height:25px;">
-						<input type="radio" value="customer_appid_<%=cusMenuId%>" id="customer_appid_<%=cusMenuId%>" name="selectapp" data='<%=mobileMenuName%>' style="float:left"></input>
+						<input type="radio" value="customer_appid_<%=cusMenuId%>#!#@!@<%=mobileMenuName%>" id="customer_appid_<%=cusMenuId%>" name="selectapp" data='<%=mobileMenuName%>' style="float:left"></input>
 					   <span style="float:left"><%=mobileMenuName%></span>
 					</li>
 				

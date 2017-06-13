@@ -146,13 +146,13 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 			<td>
 			<%
 			boolean wordEidt = com.whir.org.common.util.SysSetupReader.getInstance().hasWordEdit(session.getAttribute("domainId").toString());
-            boolean isCOSClient = com.whir.component.util.SystemUtils.isCOS4Firefox4(request);//true-是 false-否
-            //20160725 -by jqq 判断客户端是否是linux系统，如果是office编辑方式屏蔽
+      boolean isCOSClient = com.whir.component.util.SystemUtils.isCOS4Firefox4(request);//true-是 false-否
+      //20160725 -by jqq 判断客户端是否是linux系统，如果是office编辑方式屏蔽
 			boolean isLinux = com.whir.common.util.CommonUtils.isLinuxClient(request);
 			//String isyibo_flag = request.getAttribute("isYiBoChannel")!=null?request.getAttribute("isYiBoChannel").toString():"";
-            %>
+      %>
 			<%
-			if(wordEidt && !isCOSClient && !isLinux){%>
+			if((wordEidt && !isCOSClient) || (isLinux && "1".equals(isfromgov))){%>
 				<s:radio name="information.informationType" list="%{#{'1':getText('info.newinfohtml'),'0':getText('info.newinfocommon'),'2':getText('info.newinfoaddlink'),'3':getText('info.newinfofilelink'),'4':getText('info.newinfowordedit'),'5':getText('info.newinfoexceledit'),'6':getText('info.pptedite')}}" value="1" theme="simple"></s:radio>
 			<%}else{%>
 				<s:radio name="information.informationType" list="%{#{'1':getText('info.newinfohtml'),'0':getText('info.newinfocommon'),'2':getText('info.newinfoaddlink'),'3':getText('info.newinfofilelink')}}" value="1" theme="simple"></s:radio>
@@ -181,7 +181,7 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 				<s:hidden name="infoPicSaveName" id="infoPicSaveName" value="%{#request.infoPicSaveName}"/>
 				<s:if test="#request.curModifyField==null || #request.curModifyField.indexOf('$information.accessory$') > -1">
 				<jsp:include page="/public/upload/uploadify/upload_include.jsp" flush="true">
-				   <jsp:param name="thumbnail" value="800x800_small;" />
+				   <jsp:param name="thumbnail" value="800x999999_small;" />
 				   <jsp:param name="dir" value="information" />
 				   <jsp:param name="uniqueId" value="uploadImg" />
 				   <jsp:param name="realFileNameInputId" value="infoPicName" />
@@ -199,7 +199,7 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 				</s:if>
 				<s:else>
 				<jsp:include page="/public/upload/uploadify/upload_include.jsp" flush="true">
-				   <jsp:param name="thumbnail" value="800x800_small;" />
+				   <jsp:param name="thumbnail" value="800x999999_small;" />
 				   <jsp:param name="dir" value="information" />
 				   <jsp:param name="uniqueId" value="uploadImg" />
 				   <jsp:param name="realFileNameInputId" value="infoPicName" />

@@ -31,6 +31,10 @@
 	String hisFlag = request.getAttribute("hisFlag")!=null?request.getAttribute("hisFlag").toString():"";
 	String userId = session.getAttribute("userId").toString();
 	String userName = session.getAttribute("userName").toString();
+	String userName2 = "";
+	if(userName.length() > 4){
+		userName2 = userName.substring(0,4)+"...";
+	}
 	String canVindicate = request.getAttribute("canVindicate")!=null?request.getAttribute("canVindicate").toString():"false";//栏目维护权限
 	String delComment = request.getAttribute("delComment")!=null?request.getAttribute("delComment").toString():"0";//评论修改删除权限
 	String fileServer = com.whir.component.config.ConfigReader.getFileServer(request.getRemoteAddr());
@@ -90,6 +94,11 @@
 	}
 	String checkdepart = request.getParameter("checkdepart")!=null ? request.getParameter("checkdepart") : "";
 	checkdepart = com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(checkdepart);
+	//20160913 -by jqq https金格控件改造
+	String prefixURL = "http://";
+  if(null != request.getScheme() && "https".equalsIgnoreCase(request.getScheme())){
+		prefixURL = "https://";
+  }
 %> 
 <body <s:if test="information.forbidCopy==1">onselectstart="return false"</s:if> >
 	<div class="wh-wrapper">
@@ -608,7 +617,7 @@
 				<div class="comment-fr">
 					<div class="user-icon">
 						<img src="<%=userphoto%>" width="30" alt="">
-						<span><%=userName%></span>
+						<span title="<%=userName%>"><%=("".equals(userName2) ? userName : userName2)%></span>
 					</div>
 					<button type="button" class="btn btn-default" onclick="saveComment();"><s:text name="info.saysubmit"/></button>
 				</div>
@@ -681,6 +690,16 @@ $('#versionDropdown').on('show.bs.dropdown', function () {
   var canVindicate = '<%=canVindicate%>';
   var formId = "historyForm";
 	var moditime = '<s:property value="information.informationModifyTime"/>';
+	var issuemen = '<s:property value="information.informationIssuer"/>';
+	var issuemen2 = '';
+	var modimen = '<s:property value="information.inforModifyMen"/>';
+	var modimen2 = '';
+	if(issuemen!=null && issuemen!='' && issuemen.length>8){
+		issuemen2 = issuemen.substring(0,8)+'...';
+	}
+	if(modimen!=null && modimen!='' && modimen.length>8){
+		modimen2 = modimen.substring(0,8)+'...';
+	}
 	//分页参数等html、公共js事件绑定
 	initList(formId);
  	var jq_form = $('#'+formId);
@@ -694,16 +713,16 @@ $('#versionDropdown').on('show.bs.dropdown', function () {
 				if(data.length == 0){
 					//如果没有版本修改，则仅一个版本
 					if(moditime == null || moditime == ''){
-						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.informationIssuer"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
+						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span title="'+issuemen+'"><s:text name="info.viewmodifier"/>：'+(issuemen2=='' ? issuemen : issuemen2 )+'</span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationIssueTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
 					}else{
 						//如果有版本修改，但历史版本被删除，最后版本取修改人与时间
-						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
+						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span title="'+modimen+'"><s:text name="info.viewmodifier"/>：'+(modimen2=='' ? modimen : modimen2 )+'</span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a></li>';
 					}
 				}else{
 					if('<%=historyId%>' == ''){
-						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
+						html = '<li id="lastest-li" class="current"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span title="'+modimen+'"><s:text name="info.viewmodifier"/>：'+(modimen2=='' ? modimen : modimen2 )+'</span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
 					}else{
-						html = '<li id="lastest-li"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span><s:text name="info.viewmodifier"/>：<s:property value="information.inforModifyMen"/></span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
+						html = '<li id="lastest-li"><a href="javascript:void(0);" class="clearfix"><em><s:property value="information.informationVersion"/></em><p><span title="'+modimen+'"><s:text name="info.viewmodifier"/>：'+(modimen2=='' ? modimen : modimen2 )+'</span><span><s:text name="info.viewpubtime"/>：<s:date name="information.informationModifyTime" format="yyyy-MM-dd HH:mm:ss"/></span></p></a><i class="arrowtip">&#8593;</i></li>';
 					}
 						
 				}
@@ -719,7 +738,11 @@ $('#versionDropdown').on('show.bs.dropdown', function () {
 					}
 					//var li = '<li><a href="javascript:void(0);" class="clearfix" onclick="historyView(\''+po.historyId+'\',\''+po.historyVersion+'\')">';
 					li += '<em>'+po.historyVersion+'</em>';
-					li += '<p><span><s:text name="info.viewmodifier"/>：'+po.historyIssuerName+'</span><span><s:text name="info.viewpubtime"/>：'+po.historyTime+'</span></p>';
+					var issuename2 = '';
+					if(po.historyIssuerName!=null && po.historyIssuerName!='' && po.historyIssuerName.length>8){
+						issuename2 = po.historyIssuerName.substring(0,8)+'...';;
+					}
+					li += '<p><span title="'+po.historyIssuerName+'"><s:text name="info.viewmodifier"/>：'+(issuename2=='' ? po.historyIssuerName : issuename2 )+'</span><span><s:text name="info.viewpubtime"/>：'+po.historyTime+'</span></p>';
 					//最后一个版本后面不加箭头
 					if(i == data.length -1){
 						li += '</a>';
@@ -817,14 +840,14 @@ function initCommentListFormToAjax(){
 				var informationId = '<s:property value="information.informationId"/>';			
 				for (var i=0; i<data.length; i++) {
 					var po = data[i];
-					var li = '<li><div class="comment-title"><div class="comment-user">';
+					var li = '<li><div class="comment-title clearfix"><div class="fl clearfix"><div class="comment-user fl">';
 					li += '<a href="javascript:void(0);"><img src="'+po.empLivingPhoto+'" width="42" alt="'+po.commentIssuerName+'"></a>';
 					li += '</div>';
-					li += '<span>'+po.commentIssuerName+'</span>&nbsp;&nbsp;<i></i><span>'+po.commentIssuerOrg+'</span>';
-					li += '<em>'+po.commentIssueTime+'</em>';
+					li += '<div class="fl fm"><span style="display:inline">'+po.commentIssuerName+'</span>&nbsp;&nbsp;<i></i><span style="display:inline">'+po.commentIssuerOrg+'</span>';
+					li += '<em>'+po.commentIssueTime+'</em></div></div>';
 					//如果是本人的评论，可以修改与删除
 					if(po.commentIssuerId == userId){
-						li += '<div class="icon-opera">';
+						li += '<div class="icon-opera fr">';
 						li += '<i class="fa fa-pencil-square-o" onclick="modifyComment('+po.commentId+');" title="<s:text name="info.allmodify"/><s:text name="info.detailcomment"/>"></i>';
 						li += '<i class="fa fa-minus-circle" onclick="deleteComment('+po.commentId+','+informationId+');" title="<s:text name="info.DelComment"/>"></i>';
 						li += '</div>';
@@ -1413,7 +1436,7 @@ $(document).ready(function(){
 			whir_alert("该页面不支持在PAD上显示，请于PC端查看!");
 		}else{
 			var content = '<%=content%>';
-			webform.WebOffice.WebUrl="http://<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
+			webform.WebOffice.WebUrl="<%=prefixURL%>"+"<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
 			webform.WebOffice.RecordID=content;
 			webform.WebOffice.Template="";
 			webform.WebOffice.FileName=content+".doc";
@@ -1475,7 +1498,7 @@ $(document).ready(function(){
 			whir_alert("该页面不支持在PAD上显示，请于PC端查看!");
 		}else{
 			var content = '<%=content%>';
-			webform.WebOffice.WebUrl="http://<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
+			webform.WebOffice.WebUrl="<%=prefixURL%>"+"<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
 			webform.WebOffice.RecordID=content;
 			webform.WebOffice.Template="";
 			webform.WebOffice.FileName=content+".xls";
@@ -1535,7 +1558,7 @@ $(document).ready(function(){
 			whir_alert("该页面不支持在PAD上显示，请于PC端查看!");
 		}else{
 			var content = '<%=content%>';
-			webform.WebOffice.WebUrl="http://<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
+			webform.WebOffice.WebUrl="<%=prefixURL%>"+"<%=request.getServerName()+":"+request.getServerPort()%><%=rootPath%>/officeserverservlet";
 			webform.WebOffice.RecordID=content;
 			webform.WebOffice.Template="";
 			webform.WebOffice.FileName=content+".ppt";

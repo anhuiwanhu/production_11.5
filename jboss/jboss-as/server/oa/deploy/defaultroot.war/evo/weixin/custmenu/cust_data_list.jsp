@@ -188,22 +188,24 @@
 				        }
 						$("#listul").append(htmlContent);
                     }else if(groups instanceof Object){
-                           var infoId=groups.list[0];
-				            var title="";
-				            for(var j=1;j<groups.list.length;j++){
-				               title +=groups.list[j]+"  ";
-				            }
-				            title = title.replace(/\&/g,'&amp;');
-				            title = title.replace(/\</g,'&lt;');
-				            htmlContent +=  '<li onclick="go_viewForm(\''+formId+'\',\''+infoId+'\');">'
-										+  '<strong class="document-icon">'+title+'</strong>'
-										+  '</li>'; 
-                            $("#listul").append(htmlContent);
+						var infoId=groups.list[0];
+						var title="";
+						for(var j=1;j<groups.list.length;j++){
+						   title +=groups.list[j]+"  ";
+						}
+						title = title.replace(/\&/g,'&amp;');
+						title = title.replace(/\</g,'&lt;');
+						htmlContent +=  '<li onclick="go_viewForm(\''+formId+'\',\''+infoId+'\');">'
+									+  '<strong class="document-icon">'+title+'</strong>'
+									+  '</li>'; 
+						$("#listul").append(htmlContent);
 
                     }
+					$$('.wh-load-md').hide();
 			     }else{
-			                htmlContent = '<p>没有更多记录</p>';
-							$("#listul").append(htmlContent);
+					htmlContent = '<p>没有更多记录</p>';
+					$("#listul").append(htmlContent);
+					$$('.wh-load-md').hide();
 			     }
 
 			 }			

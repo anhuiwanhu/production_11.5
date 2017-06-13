@@ -60,6 +60,7 @@
                 	<c:set var="liNum">${liNum+1 }</c:set>
                		<c:set var="questhemeId"><x:out select="$qr/questhemeId/text()"/></c:set>
                		<c:set var="questionnaireTitle"><x:out select="$qr/questhemeTitle/text()"/></c:set>
+               		<c:set var="isOtherAnswer"><x:out select="$qr/isOtherAnswer/text()"/></c:set>
                		<c:set var="imgFlag" value=""/>
                		<x:forEach select="$qr//themeOptionList" var="tolPhoto" >
                			<c:set var="imgFlag"><x:out select="$tolPhoto/opImgSaveName/text()"/></c:set>
@@ -113,7 +114,6 @@
 			                            		<span class="color color-no">${answerRatio1 }</span>
 		                            		</c:if>
 				                        </div>
-				                        
 				                      </div>
 	                  			</c:otherwise>
 	                  		</c:choose>
@@ -122,6 +122,29 @@
 	                  			</ul>
                       		</div>
                       </c:if>
+                      <c:if test="${isOtherAnswer == '1' }">
+                      	  <c:set var="isMyOtherAnswer"><x:out select="$qr/isMyOtherAnswer/text()"/></c:set>
+                      	  <c:set var="myOtherAnswerContent"><x:out select="$qr/myOtherAnswerContent/text()"/></c:set>
+                      	  <c:set var="otherAnswerNum"><x:out select="$qr/otherAnswerNum/text()"/></c:set>
+                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+	                      <div class="box">  
+	                        <p>
+	                          <label class="label-radio item-content">
+	                            <input disabled type="radio" name="questhemeRadioList_${liNum }" <c:if test="${isMyOtherAnswer =='1' }">checked="checked"</c:if> value="${themeOptionId }">
+	                            <span class="edit-radio-l">其他意见</span>
+	                          </label>
+	                        </p>
+	                        <div class="statistics-bar-a">
+	                        	<c:if test="${answerRatio1ot != '0%'}">
+	                           		<span style="width:${answerRatio1ot}" class="color"></span>
+	                           		<span class="color color-no">${answerRatio1ot }</span>
+	                          	</c:if>
+	                        </div>
+	                        <div class="wj">
+	                        <textarea readonly="readonly" class="textarea_a">${myOtherAnswerContent }</textarea>
+	                      </div>
+	                      </div>
+                      </c:if>
                       <li>
                     </x:forEach>
                     <!-- 复选 -->
@@ -129,6 +152,7 @@
 	                	<c:set var="liNum">${liNum+1 }</c:set>
 	               		<c:set var="questhemeId"><x:out select="$qc/questhemeId/text()"/></c:set>
 	               		<c:set var="questionnaireTitle"><x:out select="$qc/questhemeTitle/text()"/></c:set>
+	               		<c:set var="isOtherAnswer"><x:out select="$qc/isOtherAnswer/text()"/></c:set>
 	               		<c:set var="imgFlag" value=""/>
 	               		<x:forEach select="$qc//themeOptionList" var="tolPhotoC" >
 	               			<c:set var="imgFlag"><x:out select="$tolPhotoC/opImgSaveName/text()"/></c:set>
@@ -157,9 +181,7 @@
 				                            <p>
 				                              <label class="label-radio item-content">
 				                                <input disabled type="checkbox" name="questhemeRadioList_${liNum }" <c:if test="${isMySelected =='1' }">checked="checked"</c:if> value="${themeOptionId }">
-				                                <div class="item-media">
 							                         <span class="edit-radio-l">${themeOptionTitle }</span>
-							                       </div>
 				                              </label>
 				                            </p>
 				                            <div class="statistics-bar-a">
@@ -191,6 +213,29 @@
 		                  <c:if test="${imgFlag !='' }">
 		                  		</ul>
 	                      		</div>
+	                      </c:if>
+	                       <c:if test="${isOtherAnswer == '1' }">
+	                      	  <c:set var="isMyOtherAnswer"><x:out select="$qc/isMyOtherAnswer/text()"/></c:set>
+	                      	  <c:set var="myOtherAnswerContent"><x:out select="$qc/myOtherAnswerContent/text()"/></c:set>
+	                      	  <c:set var="otherAnswerNum"><x:out select="$qc/otherAnswerNum/text()"/></c:set>
+	                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+		                      <div class="box">  
+		                        <p>
+		                          <label class="label-radio item-content">
+		                            <input disabled type="checkbox" name="questhemeRadioList_${liNum }" <c:if test="${isMyOtherAnswer =='1' }">checked="checked"</c:if> value="${themeOptionId }">
+		                            <span class="edit-radio-l">其他意见</span>
+		                          </label>
+		                        </p>
+		                        <div class="statistics-bar-a">
+		                        	<c:if test="${answerRatio1ot != '0%'}">
+		                           		<span style="width:${answerRatio1ot}" class="color"></span>
+		                           		<span class="color color-no">${answerRatio1ot }</span>
+		                          	</c:if>
+		                        </div>
+		                        <div class="wj">
+		                        <textarea readonly="readonly" class="textarea_a">${myOtherAnswerContent }</textarea>
+		                      </div>
+		                      </div>
 	                      </c:if>
 	                      <li>
 	                 </x:forEach>

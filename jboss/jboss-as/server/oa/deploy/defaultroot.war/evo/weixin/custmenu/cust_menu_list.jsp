@@ -19,6 +19,7 @@
       <div class="pages">
         <div class="page">
           <section class="wh-section wh-section-bottomfixed">
+		  <input type="hidden"  name="menuId" value="${menuId}" id="menuId"/>
             <aside class="wh-category wh-category-forum">
               <div class="wh-container">
                 <div class="wh-cate-lists list-block wh-cate-planlist" id="menuContent">
@@ -47,7 +48,7 @@
 
     //加载菜单数据
 	function loadCustMenu(){
-		var menuId ="3620";
+		var menuId =$("#menuId").val();
 		$.ajax({
 			 type: 'post',
 			 url: "/defaultroot/custmenu/custMenuData.controller",
@@ -69,10 +70,7 @@
 				  var menuName = groups[i].menuName;   
 				  var hasacc1="";
 				  if(groups[i].actionType =="1"){				   
-					 if(groups[i].isftp=="1"){
-					 }else{
-					   hasacc1 = "downloadFile('"+groups[i].downloadUrl+"','"+groups[i].filename+"');";
-					 }
+					 hasacc1 = "downloadFile('"+groups[i].menuHtmlLink+"','"+groups[i].menuFileLink+"','"+groups[i].isftp+"');";
 				   }else if(groups[i].actionType =="2"){
 					 hasacc1 = "goStartFlow('"+groups[i].menuStartFlow.type+"','"+groups[i].menuStartFlow.formId+"','"+groups[i].menuStartFlow.processId+"','"+groups[i].menuStartFlow.processName+"');";
 				   }else if(groups[i].actionType =="3"){
