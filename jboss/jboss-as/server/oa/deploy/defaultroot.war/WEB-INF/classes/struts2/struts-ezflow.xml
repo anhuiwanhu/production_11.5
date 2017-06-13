@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="com.whir.ezflow.actionsupport" extends="whir">
+        <action name="ezflowpackage!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowPackageAction">
+            <result name="packageList">/platform/bpm/ezflow/package/ezflow_package_list.jsp</result>
+			<result name="addPackage">/platform/bpm/ezflow/package/ezflow_package_add.jsp</result>
+			<result name="updatePackage">/platform/bpm/ezflow/package/ezflow_package_modify.jsp</result>
+			<result name="viewPackage">/platform/bpm/ezflow/package/ezflow_package_view.jsp</result>
+        </action>
+		 <action name="ezflowbutton!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowButtonAction">
+            <result name="buttonList">/platform/bpm/ezflow/button/ezflow_button_list.jsp</result>
+			<result name="addButton">/platform/bpm/ezflow/button/ezflow_button_add.jsp</result>
+			<result name="updateButton">/platform/bpm/ezflow/button/ezflow_button_modify.jsp</result>
+			<result name="viewButton">/platform/bpm/ezflow/button/ezflow_button_view.jsp</result>
+        </action>
+		<action name="ezflowprocess!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowProcessAction">
+            <result name="ezFlowList">/platform/bpm/ezflow/process/ezflow_process_list.jsp</result>
+			<result name="add">/platform/bpm/ezflow/process/ezflow_process_add.jsp</result>
+			<result name="modify">/platform/bpm/ezflow/process/ezflow_process_modify.jsp</result>
+			<result name="save">/platform/bpm/ezflow/process/ezflow_button_view.jsp</result>
+            <result name="setprocess">/platform/bpm/ezflow/process/ezflow_process_set.jsp</result>
+            <result name="setstartevent">/platform/bpm/ezflow/process/ezflow_process_setstartevent.jsp</result>	
+			<result name="setactivity">/platform/bpm/ezflow/process/ezflow_process_setactivity.jsp</result>	
+			<result name="setcondition">/platform/bpm/ezflow/process/ezflow_process_setcondition.jsp</result>	
+			<result name="setcallactivity">/platform/bpm/ezflow/process/ezflow_process_setcallactivity.jsp</result>
+            <result name="description">/platform/bpm/ezflow/process/ezflow_process_description.jsp</result>
+			<result name="ezFlowProcessVersion">/platform/bpm/ezflow/process/ezflow_process_version.jsp</result>
+			<result name="setprocess_sub">/platform/bpm/ezflow/process/ezflow_process_sub_set.jsp</result> 
+			<result name="setactivity_sub">/platform/bpm/ezflow/process/ezflow_process_setactivity.jsp</result>
+			<result name="setSubProcess">/platform/bpm/ezflow/process/ezflow_process_setsubprocess.jsp</result>	
+
+			<result name="freesetlist">/platform/bpm/ezflow/process/ezflow_process_eachfree_set.jsp</result>	
+        </action>
+
+
+		<action name="ezflowcanstart!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowMyFlowAction">
+            <result name="myFlow">/platform/bpm/ezflow/canstart/ezflow_canstart_list.jsp</result>
+			<result name="newAdd">/platform/bpm/ezflow/canstart/ezflow_newAdd.jsp</result>
+			<result name="myDossierFlow">/platform/bpm/ezflow/canstart/ezflow_dossier.jsp</result>
+        </action>
+
+
+	   <action name="ezflowopen!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowOpenAction">
+            <result name="startOpen">/platform/bpm/ezflow/operation/ezflow_add.jsp</result>
+			<result name="updateProcess">/platform/bpm/ezflow/operation/ezflow_modify.jsp</result>
+       </action>
+
+	   <action name="ezflowoperate!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowTransactAction">
+            <result name="showActivitys">/platform/bpm/ezflow/operation/ezflow_chooseActivity.jsp</result>
+			<result name="updateProcess">/platform/bpm/ezflow/operation/ezflow_modify.jsp</result>
+            <result name="dealResult">/platform/bpm/ezflow/operation/ezflow_dealResult.jsp</result>	
+			<result name="showRandom">/platform/bpm/ezflow/operation/ezflow_random_send.jsp</result>
+			<result name="showJumpActs">/platform/bpm/ezflow/operation/ezflow_chooseActivity_freeJump.jsp</result>
+			<result name="showJumpActUser">/platform/bpm/ezflow/operation/ezflow_chooseActivity_freeJump_actUser.jsp</result>
+       </action>
+
+	    <action name="ezflowbuttonevent!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowButtonEventAction">
+            <result name="back_init">/platform/bpm/ezflow/operation/ezflow_button_back.jsp</result>
+			<result name="addSign_init">/platform/bpm/ezflow/operation/ezflow_button_chooseuser.jsp</result>
+			<result name="transferDeal_init">/platform/bpm/ezflow/operation/ezflow_button_chooseuser.jsp</result>
+			<result name="sendRead_init">/platform/bpm/ezflow/operation/ezflow_button_chooseuser.jsp</result>
+			<result name="tranRead_init">/platform/bpm/ezflow/operation/ezflow_button_chooseuser.jsp</result>
+			<result name="drawBack_init">/platform/bpm/ezflow/operation/ezflow_button_drawback.jsp</result>
+			<result name="press_init">/platform/bpm/ezflow/operation/ezflow_button_press.jsp</result>
+			<result name="feedback_init">/platform/bpm/ezflow/operation/ezflow_button_feedback.jsp</result>
+			<result name="tranWithMail_init">/platform/bpm/ezflow/operation/ezflow_button_tranmail.jsp</result> 
+			<result name="showCancel">/platform/bpm/ezflow/operation/ezflow_button_cancel.jsp</result>
+			<result name="trans_batch_init">/platform/bpm/ezflow/operation/ezflow_batch_tran.jsp</result> 
+            <result name="showActivitys">/platform/bpm/ezflow/operation/ezflow_chooseEeAddSignActivity.jsp</result>  
+       </action>
+
+
+	   <action name="ezflowdealwith!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowDealWithAction">
+            <result name="dealList">/platform/bpm/ezflow/flowlist/ezflow_filedealwith_list.jsp</result> 
+       </action>
+
+	    <action name="ezflowdraft!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowDraftAction">
+            <result name="draftList">/platform/bpm/ezflow/draft/ezflow_draft_list.jsp</result> 
+       </action>
+	   <action name="ezflowworkproxy!*" method="{1}" class="com.whir.ezflow.actionsupport.EzFlowWorkProxyAction">
+            <result name="proxyList">/platform/bpm/ezflow/workproxy/ezflow_workproxy_list.jsp</result> 
+			<result name="add">/platform/bpm/ezflow/workproxy/ezflow_workproxy_add.jsp</result>
+			<result name="modify">/platform/bpm/ezflow/workproxy/ezflow_workproxy_modify.jsp</result>
+			<result name="proxyList2">/platform/bpm/ezflow/workproxy/ezflow_workproxy_list.jsp</result>
+       </action>
+    </package>
+</struts>

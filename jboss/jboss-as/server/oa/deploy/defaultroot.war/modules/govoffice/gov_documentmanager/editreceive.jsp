@@ -3,8 +3,6 @@
 <%@ page isELIgnored ="false" %>
 <%
 String local = session.getAttribute("org.apache.struts.action.LOCALE").toString();
-    whir_custom_str="tagit";
-
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -14,11 +12,9 @@ String local = session.getAttribute("org.apache.struts.action.LOCALE").toString(
 	<%@ include file="/public/include/meta_base_head.jsp"%>
 	<%@ include file="/public/include/meta_base.jsp"%>
 	<%@ include file="/public/include/meta_detail.jsp"%>
-	<link rel="stylesheet" type="text/css" href="/defaultroot/platform/custom/ezform/css/ezform.css">
-	<link rel="stylesheet" type="text/css" href="/defaultroot/platform/custom/ezform/css/ezform_ext.css">
 	<!--这里可以追加导入模块内私有的js文件或css文件-->
     <!--工作流包含页 js文件-->  
-    <%@ include file="/public/include/meta_base_bpm.jsp"%>
+    <%@ include file="/public/include/meta_base_workflow.jsp"%>  
  	<script src="<%=rootPath%>/modules/govoffice/gov_documentmanager/js/receive.js"   type="text/javascript"></script>
 	<style type="text/css">
 	<!--
@@ -109,79 +105,52 @@ String local = session.getAttribute("org.apache.struts.action.LOCALE").toString(
      $("#mainContent").height(dh);
     });
     </script>
-		<%@ include file="/public/include/include_extjs.jsp"%>
-
-
-	<script language="javascript" src="/defaultroot/scripts/i18n/zh_CN/WorkflowResource.js" type="text/javascript"></script>
-	<script language="javascript" src="/defaultroot/platform/custom/ezform/js/ezform.js"></script>
-	<script language="javascript" src="/defaultroot/platform/custom/ezform/js/popselectdata.js"></script>
-	<script language="javascript" src="/defaultroot/scripts/util/textareaAutoHeight2.js"></script>
 </head>
 <body  class="docBodyStyle"   style="position:relative; height:100%;"     onload="initBody();">
-<s:hidden name="govFieldJson" id="govFieldJson"  />
-<s:hidden name="receivenum"/>
-<s:hidden name="pdfnum"/>
-
-<input id="receiveFileFileNumberOld" value="<%=request.getAttribute("receiveFileFileNumber")%>" />
 <input type="hidden" name="from" value="<%=request.getParameter("from")%>">
 <%
-//System.out.println("p_wf_modiButton--1--->"+request.getAttribute("p_wf_modiButton"));
+	//System.out.println("[[[[[[[[[[[[[[[[[[[["+request.getAttribute("p_wf_modiButton"));;
 
-org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(java.lang.System.class.getName());
-	 
 String workStatus = request.getAttribute("p_wf_workStatus")==null?"1":(String)request.getAttribute("p_wf_workStatus");
 String receiveStatus=request.getAttribute("receiveStatus")==null?"":request.getAttribute("receiveStatus").toString();
-//判断是新老工作流
-String processType = request.getAttribute("p_wf_pool_processType") ==null?"":request.getAttribute("p_wf_pool_processType").toString();
+
 String modiButton = null ;//"none";
-boolean showBackButton = false;
-if("0".equals(processType)){
-	showBackButton = true;
-}
+
 if(request.getParameter("isEdit")!=null&&"1".equals(request.getParameter("isEdit").toString())){
-	//办理完毕 
-	if(receiveStatus.equals("1")){
-		if("1".equals(request.getParameter("isBack"))){
-			modiButton=",Print,Tosend,Saveclose";
-		}else{
-			logger.error("wf_workStatus:"+request.getAttribute("p_wf_workStatus"));
-			modiButton=",Back,Print,Tosend,Saveclose";
-			if(!("1".equals(request.getAttribute("p_wf_workStatus")) || "101".equals(request.getAttribute("p_wf_workStatus")) 
-					|| ("100".equals(request.getAttribute("p_wf_workStatus")) && showBackButton))  ){
-				modiButton=",Print,Tosend,Saveclose";
-			}
-		}
-	}
-	//办理中
-	else{
-		//System.out.println("_______________________________________________ISBACK__"+request.getParameter("isBack"));
-		if(!"1".equals(request.getParameter("isBack"))){
-			modiButton=",Wait,Back,Print,Tosend,Saveclose";
-			//logger.error("wf_workStatus:"+request.getAttribute("p_wf_workStatus"));
-			//gexiang  modify 2015-11-3 如果是收文管理中的老流程 点击修改流程时 p_wf_workStatus = 0(待办),100(办理完毕) 102(已阅)
-			if(!("1".equals(request.getAttribute("p_wf_workStatus")) || "101".equals(request.getAttribute("p_wf_workStatus")) 
-					|| "0".equals(request.getAttribute("p_wf_workStatus")) || "102".equals(request.getAttribute("p_wf_workStatus"))) ){
-				modiButton=",Wait,Print,Tosend,Saveclose";
-			}
-		}else{
-			modiButton=",Wait,Print,Tosend,Saveclose";
-		}
-	}
+  
+  if(receiveStatus.equals("1")){
+ // System.out.println("_______________________________________________ISBACK2__"+request.getParameter("isBack"));
+  	if("1".equals(request.getParameter("isBack"))){
+ 		modiButton=",Print,Tosend,Saveclose";
+ 	}else{
+ 		modiButton=",Back,Print,Tosend,Saveclose";
+ 	}
+ }else{
+ //System.out.println("_______________________________________________ISBACK__"+request.getParameter("isBack"));
+ 	if(!"1".equals(request.getParameter("isBack"))){
+  		modiButton=",Wait,Back,Print,Tosend,Saveclose";
+  	}else{
+  		modiButton=",Wait,Print,Tosend,Saveclose";
+  	}
+ }
+ 
 }else if(request.getParameter("viewOnly")!=null&&"1".equals(request.getParameter("viewOnly").toString())){
-	modiButton=",Print";
+ modiButton="";
+
 }
 
 if(!"waitingRead".equals(  request.getParameter("p_wf_openType")   ) && (request.getAttribute("p_wf_processId")==null||request.getAttribute("p_wf_processId").toString().equals("")||request.getAttribute("p_wf_processId").toString().equals("null"))){
-	modiButton="";
+ modiButton="";
 }
 
 if( !"waitingRead".equals(  request.getParameter("p_wf_openType")   ) && workStatus.equals("-1")){
-	modiButton="";
+modiButton="";
 }
 
 if(!"waitingRead".equals(  request.getParameter("p_wf_openType")   ) && workStatus.equals("2")){
-	modiButton="none";
-	//modiButton=",End,Viewtran";
+modiButton="none";
+//modiButton=",End,Viewtran";
+
 }
 //System.out.println("=================================================================================" + modiButton);
 if(request.getParameter("fromdesktop")!=null && !"null".equals(request.getParameter("fromdesktop")) && "2".equals(request.getParameter("fromdesktop"))){
@@ -201,21 +170,6 @@ if( "1".equals( workStatus) ){
 if( "blcyview".equals(  request.getParameter("from") ) || "blcyedit".equals(  request.getParameter("from") ) ){
 	request.setAttribute("p_wf_concealField","");
 }
-
-
-
- if( "blcyedit".equals(  request.getParameter("from") ) ){ 
-	//如果是办理完毕 
-	if(receiveStatus.equals("1")){
-		//新流程
-		if("1".equals(""+request.getAttribute("p_wf_pool_processType"))){
-			//新流程 办理完毕 不支持退回功能 
-		}else{//老流程
-			modiButton=",Print,Tosend,Back,Saveclose";
-		}
-	}
-}
-
 if( "blcyview".equals(  request.getParameter("from") ) ){
 	 modiButton = (String)request.getAttribute("p_wf_modiButton");
 	 modiButton = modiButton.replace("ReadHistorytext","");
@@ -223,20 +177,16 @@ if( "blcyview".equals(  request.getParameter("from") ) ){
 	 request.setAttribute("p_wf_modiButton",modiButton);
 	 modiButton = null;
 }
-if( "startAgain".equals(  request.getAttribute("p_wf_openType") ) || "reStart".equals(  request.getAttribute("p_wf_openType") ) ){
-	modiButton=",Send,Relation";
-
-}
 if(modiButton == null){
 	 modiButton = (String)request.getAttribute("p_wf_modiButton");
-}
-//System.out.println("_______________________________________________modiButton__"+modiButton);
-request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","));
-//System.out.println("p_wf_modiButton--2--->"+request.getAttribute("p_wf_modiButton"));;
-%>
+}//System.out.println("_______________________________________________modiButton__"+modiButton);
+	request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","));
+	//System.out.println("[[[[[[[[[[[[[[[[[[[["+request.getAttribute("p_wf_modiButton"));;
+	
+	%>
        <!--包含头部--->
 		 <div style="height:37px; position:absolute; top:0; width:100%;z-index:1000;" >
-	<jsp:include page="/public/toolbar/toolbar_include.jsp" ></jsp:include>
+	<jsp:include page="/public/toolbar/toolbar_include.jsp" > </jsp:include>
 		</div>
 	 <div class="" id="mainContent" style="overflow-y:auto; position:relative; top:47px; width:100%; _width:99%; "><!-- id="mainContent" style="height:100%;width:100%;overflow:auto;"-->
 
@@ -244,9 +194,7 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 	 <s:form name="dataForm" id="dataForm" action="wfoperate!showSend.action" method="post" theme="simple" >
 	 <input type="hidden" name="createdEmp" value="<%=request.getAttribute("createdEmp")%>">
 	 <input type="hidden" name="createdOrg" value="<%=request.getAttribute("createdOrg")%>">
-        <%-- <s:if test="p_wf_cur_ModifyField.indexOf('$receiveFileSendFileUnit$') != -1 || #parameters.isEdit != null">
-             <s:hidden  name='receiveFileSendFileUnit' property='receiveFileSendFileUnit' id="lwdwmc"/>
-         </s:if>--%>
+
 	 <%@ include file="/public/include/form_detail.jsp"%>
 	 <table border="0"  cellpadding="0" cellspacing="0" height="100%" align="center" class="doc_width">
          <tr valign="top">
@@ -256,14 +204,11 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 						 <ul>
 							  <li class="aon"  id="Panle0"><a href="javascript:void(0);" onClick="changePanle(0);" >基本信息</a></li>
 							  <li id="Panle1"><a href="javascript:void(0);" onClick="changePanle(1);">流程图</a></li> 
-							  <li id="Panle2" ><a href="#" onClick="changePanle(2);">流程记录</a></li>
-							  <li id="Panle3" ><a href="javascript:void(0);" onClick="changePanle(3);">关联流程<span class="redBold" id="viewrelationnum"></span></a></li>
-							  <%if( !"1".equals( request.getAttribute("p_wf_pool_processType") ) ){%>
-							  <li id="Panle4" ><a href="#" onClick="changePanle(4);">相关附件<span class="redBold" id="viewaccnum"></span></a></li>
-							  <%}%>
-							  <li id="Panle5" ><a href="#" onClick="changePanle(5);">相关发文<span class="redBold" id="viewReceivenum"></span></a></li>
-                             <li id="Panle6" ><a href="#" onClick="changePanle(6);">PDF批注</a><span class="redBold" id="viewpdfnum"></span></li>
-                         </ul>
+							  <li id="Panle2" ><a href="javascript:void(0);" onClick="changePanle(2);">关联流程<span class="redBold" id="viewrelationnum"></span></a></li>
+							  <li id="Panle3" ><a href="#" onClick="changePanle(3);">相关附件<span class="redBold" id="viewaccnum"></span></a></li>
+							  <li id="Panle4" ><a href="#" onClick="changePanle(4);">流程记录</a></li>
+							  <li id="Panle5" ><a href="#" onClick="changePanle(5);">相关发文</a></li>
+						 </ul>
 					   </div>  
                        <div class="clearboth"></div>  
                        <div id="docinfo0" class="doc_Content"  align="center">
@@ -274,9 +219,10 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 							<%
 							com.whir.govezoffice.documentmanager.bd.SendFileBD sendFileBD = new com.whir.govezoffice.documentmanager.bd.SendFileBD();
 							String tableId_form =(String) request.getAttribute("p_wf_tableId" );
+
 							if(request.getAttribute("p_wf_formId" )!=null&&!request.getAttribute("p_wf_formId" ).toString().equals("")&&!request.getAttribute("p_wf_formId" ).toString().equals("null")){
 								tableId_form=request.getAttribute("p_wf_formId" ).toString();
-							}
+							} 
 							List tableInfoList = sendFileBD.getWfTableInfoByTableId(tableId_form); // 根据tableId
 							// 找table
 							// 信息
@@ -307,20 +253,16 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 							</div>	
 							<!--工作流包含页-->
 							 <div>  
-								  <%@ include file="/platform/bpm/pool/pool_include_form.jsp"%>
+								  <%@ include file="/platform/bpm/work_flow/operate/wf_include_form.jsp"%>
 						    </div>
-							<div>  
-							 <%@ include file="/platform/bpm/pool/pool_include_comment.jsp"%>
-							</div>
 				      </div>
 					 <div id="docinfo1" class="doc_Content"  style="display:none;"></div>
 					 <div id="docinfo2" class="doc_Content"  style="display:none;"></div>
 					 <div id="docinfo3" class="doc_Content"  style="display:none;"></div>
 					 <div id="docinfo4" class="doc_Content"  style="display:none;"></div>
 					 <div id="docinfo5" class="doc_Content"  style="display:none;"></div>
-                    <div id="docinfo6" class="doc_Content"  style="display:none;"></div>
-                </div>
-				 
+                 </div>
+				  <%@ include file="/platform/bpm/work_flow/operate/wf_include_comment.jsp"%>  
              </td>
          </tr>
      </table>
@@ -347,11 +289,10 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
 		<input type="hidden" name="saveName1" value="<%=accessorySaveName1%>">
 		<input type="hidden" name="fileName2" value="<%=accessoryName2%>">
 		<input type="hidden" name="saveName2" value="<%=accessorySaveName2%>">
-		
 	</form>
 	</div>
     <div class="docbody_margin"></div>
-	<%@ include file="/platform/bpm/pool/pool_include_form_end.jsp"%>
+	<%@ include file="/platform/bpm/work_flow/operate/wf_include_form_end.jsp"%>
 
 
 <SCRIPT language=javascript>
@@ -361,7 +302,7 @@ request.setAttribute("p_wf_modiButton",modiButton.replaceAll(",Saveclose,",","))
  */
 function  changePanle(flag){
 	//if( flag == 3 ) flag= 2;
-	for(var i=0;i<=6;i++){
+	for(var i=0;i<6;i++){
 		$("#Panle"+i).removeClass("aon");
 	}
 	$("#Panle"+flag).addClass("aon");
@@ -373,17 +314,17 @@ function  changePanle(flag){
 		//传流程图的div的id
        showWorkFLowGraph("docinfo1");
 	}
-    	//显示流程记录
+    //显示关联流程
 	if(flag=="2" ){
-	   showWorkFlowLog("docinfo2");
+	   showWorkFlowRelation("docinfo2");
 	}
 	//显示相关附件
-	if(flag=="4"){
-		showWorkFlowAcc("docinfo4");
-	}
-  //显示关联流程
 	if(flag=="3"){
-	   showWorkFlowRelation("docinfo3");
+		showWorkFlowAcc("docinfo3");
+	}
+	//显示流程记录
+	if(flag=="4"){
+	   showWorkFlowLog("docinfo4");
 	}
 	
 	if(flag=="5"){
@@ -393,13 +334,6 @@ function  changePanle(flag){
 
 		$("#docinfo"+flag).html(html);
 	}
-    if(flag=="6"){
-        var url="/defaultroot/GovDocReceiveProcess!pdflistbz.action?pdfgwlx=0&receiveFileId="+$("#p_wf_recordId").val();
-        var html = $.ajax({url: url,async: false,cache:false}).responseText;
-        $("#docinfo"+flag).html(html);
-
-
-    }
 }
 
 /**
@@ -414,59 +348,15 @@ function initBody(){
     //ezFlowinit();
 
 }
-var tempValueNameArr=[];
-var tempValueidArr=[];
+
 $(document).ready(function() {
-    if($.trim($("*[name='receiveFileSendFileUnit']").val())!=""){
-        tempValueNameArr=$("*[name='receiveFileSendFileUnit']").val().split(',');
-        tempValueidArr=$("*[name='receiveFileSendFileUnitId']").val().split(',');
-    }
-    //var receiveFileSendFileUnit=$("#lwdwmc").val();
-    var windowWidth = window.screen.availWidth;
+	var windowWidth = window.screen.availWidth;
 	var windowHeight = window.screen.availHeight;
 	window.moveTo(0,0);
 	//window.resizeTo(windowWidth,windowHeight);
 	//initDataFormToAjax({"dataForm":'dataForm'});
 	//初始话信息
     ezFlowinit();
-    var receiveNum=$("#receivenum").val();
-    var pdfnum=$("#pdfnum").val();
-    if(pdfnum>0){
-        $("#viewpdfnum").html("("+pdfnum+")");
-    }
-    if(receiveNum>0){
-        $("#viewReceivenum").html("("+receiveNum+")");
-    }
-  /*  $("#receiveFileSendFileUnitTemp").combobox({
-        onBeforeLoad:function(param){
-            if(receiveFileSendFileUnit===''|| receiveFileSendFileUnit===undefined || typeof(receiveFileSendFileUnit)==='undefined'){
-                var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
-                if(receiveFileSendFileUnitVal=='请选择')  {
-                    $("#lwdwmc").val('');
-                }
-                else{
-                    $("#lwdwmc").val(receiveFileSendFileUnitVal);
-                }
-            } else{
-                $("#receiveFileSendFileUnitTemp").combobox('select', receiveFileSendFileUnit);
-                $("input[name='receiveFileSendFileUnitTemp']").val(receiveFileSendFileUnit);
-            }
-        },
-        onSelect:function(param){
-            var receiveFileSendFileUnitVal2= $("input[name='receiveFileSendFileUnitTemp']").val();
-            if(receiveFileSendFileUnitVal2=='请选择')  {
-                $("#lwdwmc").val('');
-            }
-            else{
-                $("#lwdwmc").val(receiveFileSendFileUnitVal2);
-            }
-        }
-    });
-    //$("#receiveFileSendFileUnitId").combobox('select', data[0].value);
-    $("#receiveFileSendFileUnitTemp").combobox().next().children(":text").blur(function(){
-        var receiveFileSendFileUnitVal= $("input[name='receiveFileSendFileUnitTemp']").val();
-        $("#lwdwmc").val(receiveFileSendFileUnitVal);
-    }); */
 });
 function gd(){
     //alert("11111111");
@@ -478,7 +368,7 @@ function gd(){
 //		}
 //		
 //	}
-	gdform.pageContent.value = "<br><br><div style=\"padding:20px\"><input type=\"hidden\" name= \"workflow_thisIsInGDpage\" id = \"workflow_thisIsInGDpage\" >"+document.getElementById("docinfo0").outerHTML+"</div>";
+	gdform.pageContent.value = "<br><br><div style=\"padding:20px\">"+document.getElementById("docinfo0").outerHTML+"</div>";
    // gdform.pageContent.value = document.body.innerHTML;
     gdform.fileTitle.value = document.getElementsByName("receiveFileTitle")[0].value;
     gdform.fileId.value = document.getElementsByName("p_wf_recordId")[0].value;
@@ -494,33 +384,7 @@ function gd(){
 <%if(request.getParameter("gd") != null){%>
 gd();
 <%}%>
-function updateReceiveUnitValue(tempNameValue,tempIdValue,tempFlag){
-    if(tempFlag=='1'){
-        for(i in tempValueidArr){
-            if(tempValueidArr[i] == tempIdValue){
-                tempValueNameArr[i]=tempNameValue;
-                $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
-                $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
-                return;
-            }
-        }
-        tempValueNameArr.push(tempNameValue);
-        tempValueidArr.push(tempIdValue);
 
-    } else{
-
-        for(i in tempValueidArr){
-            if(tempValueidArr[i] == tempIdValue){
-                tempValueidArr.splice(i,1);
-                tempValueNameArr.splice(i,1)
-            }
-        }
-    }
-    $("*[name='receiveFileSendFileUnit']").val(tempValueNameArr.join(','));
-    $("*[name='receiveFileSendFileUnitId']").val(tempValueidArr.join(','));
-
-
-}
 </SCRIPT>
  </body>
 </html>

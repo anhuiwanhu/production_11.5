@@ -393,6 +393,9 @@ if((""+request.getAttribute("p_wf_modiButton")).indexOf("Savefile")>=0 ){
 								
 								com.whir.govezoffice.documentmanager.bd.SendFileBD sendFileBD = new com.whir.govezoffice.documentmanager.bd.SendFileBD();
 								String tableId_form = (String)request.getAttribute("p_wf_tableId");
+								if(request.getAttribute("p_wf_formId" )!=null&&!request.getAttribute("p_wf_formId" ).toString().equals("")&&!request.getAttribute("p_wf_formId" ).toString().equals("null")){
+									tableId_form=request.getAttribute("p_wf_formId" ).toString();
+							    } 
 								List tableInfoList = sendFileBD.getWfTableInfoByTableId(tableId_form); // 根据tableId
 								// 找table
 								// 信息

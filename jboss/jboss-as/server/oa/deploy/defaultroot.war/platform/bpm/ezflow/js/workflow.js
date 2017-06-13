@@ -425,8 +425,8 @@ function include_CancelTran(){
 
 
 //设置流程
-function cmdSetProcess(){
-	var src=whirRootPath+"/platform/bpm/ezflow/graph/jsp/updateprocess.jsp?recordId=&subType=0&moduleId="+$("#p_wf_moduleId").val();
+function cmdSetProcess(){ 
+	var src=whirRootPath+"/ezflowprocess!loadProcessForFreeFlow.action?recordId=&subType=0&moduleId="+$("#p_wf_moduleId").val();
 	src+="&processDefId="+$("#p_wf_processId").val();
 	//window.open(src,'','TOP=0,LEFT=0,scrollbars=yes,resizable=yes,width=920,height=800');
 	openWin({url:src,width:1185,height:780,scrollbars:'yes',resizable:'yes',winName:''}); 

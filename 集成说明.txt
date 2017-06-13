@@ -276,3 +276,24 @@
    文件defaultroot/public/edit/updateData.jsp、updateLoginName.jsp
 
 10、验证系统功能
+
+
+
+
+
+
+1、停OA服务
+
+2、备份生产环境程序、数据库
+
+3、覆盖产品补丁包到OA安装目录d:\jboss
+
+4、ezFLOW流程超期portal列表设置：
+   自定义html portal，切换到code页签，添加以下内容:
+<iframe src="/defaultroot/platform/bpm/ezflow/flowlist/ezflow_overtimelist.jsp" allowtransparency="true" style="width:100%;height:100%" frameborder="0"></iframe>
+
+5、执行数据库升级脚本（分oralce、sqlserver两种类型库）
+
+6、清服务端缓存，启动OA服务
+
+7、验证系统功能

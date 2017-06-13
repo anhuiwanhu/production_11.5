@@ -1485,7 +1485,7 @@ if("".equals(outDataSourceCodeDealStr)){
 							  
 							  <tr>
 							    <td width="55%">
-								  <INPUT TYPE="checkbox" NAME="operButton"  value="EzFlowBackTask" onClick="checkBackButton()" ><IMG SRC="images/toolbar/back.png" align="absmiddle" width="24" height="24">&nbsp;&nbsp;<bean:message bundle="workflow" key="workflow.newactivitybuttonback"/>【<bean:message bundle="workflow" key="workflow.newactivitybuttonunderapp"/>】<!-- 退回【待办按钮】 -->        
+								  <INPUT TYPE="checkbox" NAME="operButton"  value="EzFlowBackTask" onClick="checkBackButton()" ><IMG SRC="images/toolbar/back.png" align="absmiddle" width="24" height="24">&nbsp;&nbsp;<bean:message bundle="workflow" key="workflow.newactivitybuttonback"/>【<bean:message bundle="workflow" key="workflow.newactivitybuttonunderapp"/>】<!-- 退回【待办按钮】 -->   <INPUT TYPE="checkbox" NAME="backlimit"  value="1" > 默认退回上一步 
 							    </td>
 		  		                <td width="45%">
 								   <INPUT TYPE="checkbox" NAME="operButton"  value="EzFlowAbandon"><IMG SRC="images/toolbar/delete.png" align="absmiddle" width="24" height="24">&nbsp;&nbsp;<bean:message bundle="workflow" key="workflow.newactivitybuttonvoid"/>【<bean:message bundle="workflow" key="workflow.newactivitybuttonunderapp"/>】<!-- 作废【待办按钮】 -->           

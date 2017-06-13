@@ -898,6 +898,13 @@ function save(type) {
 						extension.set("autoTranReturn", autoTranReturnCheckBox[0].value);
 					}
 				}
+
+				if(name == "EzFlowBackTask"){
+					var backlimitCheckBox = $("input[name='backlimit']:checked"); 
+					if(backlimitCheckBox.length > 0 ){ 
+						extension.set("backlimit", backlimitCheckBox[0].value);
+					}
+				}
 				model.addWhirExtension(extension);
 			}
 		}
@@ -1282,6 +1289,19 @@ function initData(id) {
 				}
 			}
 		}
+
+		//如果是退回 设置 默认退回上一步 
+		if(name == "EzFlowBackTask"){
+			var value = extension.get("backlimit");
+			if( value != null ){
+				var backlimitCheckBox = $("input[name='backlimit'][value='"+ value+"']"); 
+				if(backlimitCheckBox.length > 0 ){
+					backlimitCheckBox[0].checked = false;
+					backlimitCheckBox[0].click();//click一下就变true,并触发事件
+				}
+			}
+		}
+
 
 		//范围
 		range = extension.get("range");

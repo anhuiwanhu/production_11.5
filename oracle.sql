@@ -270,3 +270,11 @@ commit;
 
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.12_SP_20161110','11.5.0.12',sysdate);
 commit;
+
+
+
+
+
+
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.13_SP_20161113','11.5.0.13',sysdate);
+commit;
