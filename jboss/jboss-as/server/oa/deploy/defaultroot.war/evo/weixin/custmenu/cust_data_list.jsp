@@ -144,17 +144,19 @@
 			            $('#but_cmdAdd').show();
 
 			       }else if(type=='cmdStartFlow'){
+					 var fid = formId;
 			         var processId = obj.data.middlButton.button.processId;
 			         var processName = obj.data.middlButton.button.processName;
 					 $('#cmdAdd').click(function(){ 
-						go_CmdFlow(formId,processId,processName);
+						go_CmdFlow(fid.replace("new\\$",""),processId,processName);
 					 });
-			         $('#but_cmdAdd').hide();
+			         $('#but_cmdAdd').show();
 			       }else if(type=='cmdNewStartFlow'){
+					 var fid = formId;
 			         var processId = obj.data.middlButton.button.processId;
 			         var processName = obj.data.middlButton.button.processName;
 					 $('#cmdAdd').click(function(){ 
-						go_CmdNewFlow(formId,processId,processName);
+						go_CmdNewFlow(fid.replace("new\\$",""),processId,processName);
 					 });
 			         $('#but_cmdAdd').show();
 			       }
@@ -263,7 +265,7 @@
 	}
 	 //老流程
 	function go_CmdFlow(pageId,processId,processName) {
-	   window.location = '/defaultroot/workflow/newezform.controller?pageId='+pageId+'&processId='+processId+'&processName='+processName;
+	   window.location = '/defaultroot/workflow/newform.controller?pageId='+pageId+'&processId='+processId+'&processName='+processName;
 	}
 	//新流程
 	function go_CmdNewFlow(pageId,processId,processName) {

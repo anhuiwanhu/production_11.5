@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帮助中心</title>
+<link href="css/css_help.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script language=javascript id=clientEventHandlersJS>
+<!--
+var number=2;
+
+function LMYC() {
+var lbmc;
+var treePic;
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+       treePic = eval('treePic'+i);
+       treePic.src = 'img/menu_a_h.png';
+      lbmc.style.display = 'none';
+		
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+   treePic = eval('treePic' + i)
+    if (lbmc.style.display == 'none') {
+        LMYC();
+       treePic.src = 'img/menu_a_h_t.png';
+      lbmc.style.display = '';
+	
+    }
+    else {
+      treePic.src = 'img/menu_a_h.png';
+        lbmc.style.display = 'none';
+    }
+}
+//-->
+      </script>
+      
+      
+            
+<script type="text/javascript">
+	function isShowIndex(tab_id,div_id,who,aId,num){
+   for(var i = 0;i < num;i++){
+    document.getElementById("dt"+who+i).style.display="none";
+      document.getElementById("sp"+who+i).className="aoff";
+   }
+ document.getElementById(div_id).style.display="block";
+   document.getElementById(tab_id).className="aon";
+}
+
+</script>
+            
+            		
+</head>
+
+<body>
+<div class="help_bg">
+<div class="help_box">
+<div class="help_head">
+<a href="index.html" title="万户--帮助中心" class="logo"><img src="img/logo.png" /></a>
+<ul class="nav_box">
+<li class="on_nav"><a href="index.html" class="user1">用户手册</a></li><li><a href="help_user.html" class="user2">管理员手册</a></li><li><a href="help_ask.html" class="user3">常见问题</a></li>
+</ul>
+
+<a href="#" onclick="openWin({url:'../about/about.jsp',width:'530',height:'380',isScroll:'no',winName:'about'});" class="ico_sm"></a>
+<a href="#" onclick="window.close();" class="ico_tc"></a>
+
+</div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="220" valign="top" class="left_nr">
+        <div class="help_left">
+ 
+     
+     
+<div class="ask_list">
+<h1 id="spA_0" onclick="isShowIndex('spA_0','dtA_0','A_','','19')"><a onClick="javascript:ShowFLT(1);" href="javascript:void(null)" target="_self">基础与公共部分<span><img src="img/menu_a_h.png"  id="treePic1" /></span></a></h1>
+<div id=LM1 style="DISPLAY: none">
+	<h2><a href="index.html" target="_self">ezOFFICE系统基础</a></h2>
+	<h2><a href="h12.html" target="_self" >HTML编辑器</a></h2>
+    <h2><a href="h13.html" target="_self" >WORD控件</a></h2>
+    <h2><a href="h14.html" target="_self" >EXCEL控件</a></h2>
+</div>
+
+
+<h1 id="spA_1" onclick="isShowIndex('spA_1','dtA_1','A_','','19')"><a onClick="javascript:ShowFLT(2);" href="javascript:void(null)" target="_self">催办督办<span><img src="img/menu_a_h.png"  id="treePic2" /></span></a></h1>
+<div id=LM2 style="DISPLAY: none">
+    <h2><a href="h21.html" target="_self">督办任务</a></h2>
+    <h2><a href="h22.html" target="_self">我接收的催办</a></h2>
+</div>
+
+
+<h1 id="spA_2" onclick="isShowIndex('spA_2','dtA_2','A_','','19')"><a onClick="javascript:ShowFLT(3);" href="javascript:void(null)" target="_self">信息管理<span><img src="img/menu_a_h.png"  id="treePic3" /></span></a></h1>
+<div id=LM3 style="DISPLAY: none">
+    <h2><a href="h31.html" target="_self">如何查看信息</a></h2>
+    <h2><a href="h32.html" target="_self">如何新建信息</a></h2>
+    <h2><a href="h33.html" target="_self">信息管理模块的权限模型</a></h2>
+    <h2><a href="h34.html" target="_self">如何修改信息</a></h2>
+    <h2><a href="h35.html" target="_self" >如何查询信息</a></h2>
+    <h2><a href="h36.html" target="_self">所有信息</a></h2>
+    <h2><a href="h37.html" target="_self" >精华信息</a></h2>
+    <h2><a href="h38.html" target="_self">全文检索</a></h2>
+</div>
+
+
+<h1 id="spA_3" onclick="isShowIndex('spA_3','dtA_3','A_','','19')"><a onClick="javascript:ShowFLT(4);" href="javascript:void(null)" target="_self">单位主页<span><img src="img/menu_a_h.png"  id="treePic4" /></span></a></h1>
+<div id=LM4 style="DISPLAY: none">
+    <h2><a href="h41.html" target="_self">如何查看单位主页</a></h2>
+</div>
+
+
+<h1 id="spA_4" onclick="isShowIndex('spA_4','dtA_4','A_','','19')"><a onClick="javascript:ShowFLT(5);" href="javascript:void(null)" target="_self">工作流程<span><img src="img/menu_a_h.png"  id="treePic5" /></span></a></h1>
+<div id=LM5 style="DISPLAY: none">
+    <h2><a href="h51.html" target="_self">如何发起一个流程</a></h2>
+    <h2><a href="h52.html" target="_self">如何监控流程</a></h2>
+    <h2><a href="h53.html" target="_self">如何审批（办理）流程</a></h2>
+    <h2><a href="h54.html" target="_self">审批按钮说明</a></h2>
+    <h2><a href="h55.html" target="_self">流程表单的页签</a></h2>
+    <h2><a href="h56.html" target="_self"  >流程转交</a></h2>
+    <h2><a href="h57.html" target="_self" >如何查找某个流程文件</a></h2>
+    <h2><a href="h58.html" target="_self">常用流程</a></h2>
+</div>
+
+
+<h1 id="spA_5" onclick="isShowIndex('spA_5','dtA_5','A_','','19')" class="aon"><a onClick="javascript:ShowFLT(6);" href="javascript:void(null)" target="_self">工作流程(ezFLOW)<span><img src="img/menu_a_h.png"  id="treePic6" /></span></a></h1>
+<div id=LM6 style="DISPLAY: block">
+    <h2><a href="h61.html" target="_self" >如何发起一个流程</a></h2>
+    <h2><a href="h62.html" target="_self">如何监控流程</a></h2>
+    <h2><a href="h63.html" target="_self" >如何审批（办理）流程</a></h2>
+    <h2><a href="h64.html" target="_self" class="cur">审批按钮说明</a></h2>
+    <h2><a href="h65.html" target="_self" >流程表单的页签</a></h2>
+    <h2><a href="h66.html" target="_self">流程转交</a></h2>
+    <h2><a href="h67.html" target="_self" >如何查找某个流程文件</a></h2>
+    <h2><a href="h68.html" target="_self">常用流程</a></h2>
+</div>
+
+
+<h1 id="spA_6" onclick="isShowIndex('spA_6','dtA_6','A_','','19')"><a onClick="javascript:ShowFLT(7);" href="javascript:void(null)" target="_self">文件办理<span><img src="img/menu_a_h.png"  id="treePic7" /></span></a></h1>
+<div id=LM7 style="DISPLAY: none">
+    <h2><a href="h71.html" target="_self" >待办文件</a></h2>
+    <h2><a href="h72.html" target="_self">待阅文件</a></h2>
+    <h2><a href="h73.html" target="_self" >已办文件</a></h2>
+    <h2><a href="h74.html" target="_self">已阅文件</a></h2>
+    <h2><a href="h75.html" target="_self" >我的文件</a></h2>
+    <h2><a href="h76.html" target="_self">我退回的文件</a></h2>
+    <h2><a href="h77.html" target="_self" >我退回的文件(ezFLOW)</a></h2>
+    <h2><a href="h78.html" target="_self">下属待办文件</a></h2>
+    <h2><a href="h79.html" target="_self">转交</a></h2>
+</div>
+
+
+<h1 id="spA_7" onclick="isShowIndex('spA_7','dtA_7','A_','','19')"><a onClick="javascript:ShowFLT(8);" href="javascript:void(null)" target="_self">公文管理<span><img src="img/menu_a_h.png"  id="treePic8" /></span></a></h1>
+<div id=LM8 style="DISPLAY: none">
+    <h2><a href="h81.html" target="_self" >概述</a></h2>
+    <h2><a href="h82.html" target="_self">我的收文</a></h2>
+    <h2><a href="h83.html" target="_self" >发文管理</a></h2>
+    <h2><a href="h84.html" target="_self">收文管理</a></h2>
+    <h2><a href="h85.html" target="_self" >文件送审签</a></h2>
+    <h2><a href="h86.html" target="_self">公文交换</a></h2>
+    <h2><a href="h87.html" target="_self" >领导文件查阅</a></h2>
+</div>
+
+
+<h1 id="spA_8" onclick="isShowIndex('spA_8','dtA_8','A_','','19')"><a onClick="javascript:ShowFLT(9);" href="javascript:void(null)" target="_self">信息报送<span><img src="img/menu_a_h.png"  id="treePic9" /></span></a></h1>
+<div id=LM9 style="DISPLAY: none">
+    <h2><a href="h91.html" target="_self" >权限说明</a></h2>
+    <h2><a href="h92.html" target="_self">信息报送</a></h2>
+    <h2><a href="h93.html" target="_self" >刊物管理</a></h2>
+    <h2><a href="h94.html" target="_self">统计报表</a></h2>
+</div>
+
+
+<h1 id="spA_9" onclick="isShowIndex('spA_9','dtA_9','A_','','19')"><a onClick="javascript:ShowFLT(10);" href="javascript:void(null)" target="_self">邮件<span><img src="img/menu_a_h.png"  id="treePic10" /></span></a></h1>
+<div id=LM10 style="DISPLAY: none">
+    <h2><a href="h101.html" target="_self" >如何查看邮件</a></h2>
+    <h2><a href="h102.html" target="_self">如何写邮件</a></h2>
+    <h2><a href="h103.html" target="_self" >如何回复邮件</a></h2>
+    <h2><a href="h104.html" target="_self">如何删除邮件</a></h2>
+    <h2><a href="h105.html" target="_self" >文件夹管理</a></h2>
+    <h2><a href="h106.html" target="_self">如何搜索邮件</a></h2>
+    <h2><a href="h107.html" target="_self" >设置</a></h2>
+    <h2><a href="h108.html" target="_self">历史邮件</a></h2>
+    <h2><a href="h109.html" target="_self">外部邮箱整合</a></h2>
+</div>
+
+
+<h1 id="spA_10" onclick="isShowIndex('spA_10','dtA_10','A_','','19')"><a onClick="javascript:ShowFLT(11);" href="javascript:void(null)" target="_self">短信<span><img src="img/menu_a_h.png"  id="treePic11" /></span></a></h1>
+<div id=LM11 style="DISPLAY: none">
+    <h2><a href="h111.html" target="_self" >查看短信</a></h2>
+    <h2><a href="h112.html" target="_self">写短信</a></h2>
+    <h2><a href="h113.html" target="_self" >如何搜索短信</a></h2>
+    <h2><a href="h114.html" target="_self">查看发信箱记录</a></h2>
+</div>
+
+
+<h1 id="spA_11" onclick="isShowIndex('spA_11','dtA_11','A_','','19')"><a onClick="javascript:ShowFLT(12);" href="javascript:void(null)" target="_self">论坛<span><img src="img/menu_a_h.png"  id="treePic12" /></span></a></h1>
+<div id=LM12 style="DISPLAY: none">
+    <h2><a href="h121.html" target="_self" >如何查看帖子</a></h2>
+    <h2><a href="h122.html" target="_self">如何回复帖子</a></h2>
+    <h2><a href="h123.html" target="_self" >如何引用帖子内容进行回帖</a></h2>
+    <h2><a href="h124.html" target="_self">如何发布新帖</a></h2>
+    <h2><a href="h125.html" target="_self" >我的帖子</a></h2>
+    <h2><a href="h126.html" target="_self">我的回复</a></h2>
+    <h2><a href="h127.html" target="_self" >精华帖子</a></h2>
+</div>
+
+
+<h1 id="spA_12" onclick="isShowIndex('spA_12','dtA_12','A_','','19')"><a onClick="javascript:ShowFLT(13);" href="javascript:void(null)" target="_self">个人办公<span><img src="img/menu_a_h.png"  id="treePic13" /></span></a></h1>
+<div id=LM13 style="DISPLAY: none">
+    <h2><a href="h131.html" target="_self" >全文检索</a></h2>
+    <h2><a href="h132.html" target="_self">我的文档</a></h2>
+    <h2><a href="h133.html" target="_self" >联系人</a></h2>
+    <h2><a href="h134.html" target="_self">日程</a></h2>
+    <h2><a href="h135.html" target="_self" >工作日志</a></h2>
+    <h2><a href="h136.html" target="_self">工作汇报</a></h2>
+    <h2><a href="h137.html" target="_self" >任务中心</a></h2>
+    <h2><a href="h138.html" target="_self">个人工具</a></h2>
+    <h2><a href="h139.html" target="_self">催办管理</a></h2>
+    <h2><a href="h1310.html" target="_self">人员去向</a></h2>
+    <h2><a href="h1311.html" target="_self">个人设置</a></h2>
+</div>
+
+
+<h1 id="spA_13" onclick="isShowIndex('spA_13','dtA_13','A_','','19')"><a onClick="javascript:ShowFLT(14);" href="javascript:void(null)" target="_self">综合办公<span><img src="img/menu_a_h.png"  id="treePic14" /></span></a></h1>
+<div id=LM14 style="DISPLAY: none">
+    <h2><a href="h141.html" target="_self" >资源使用</a></h2>
+    <h2><a href="h142.html" target="_self">车辆管理</a></h2>
+    <h2><a href="h143.html" target="_self" >资料管理</a></h2>
+    <h2><a href="h144.html" target="_self">物品管理</a></h2>
+    <h2><a href="h145.html" target="_self" >资产管理</a></h2>
+    <h2><a href="h146.html" target="_self">网上调查</a></h2>
+    <h2><a href="h147.html" target="_self" >问卷调查</a></h2>
+    <h2><a href="h148.html" target="_self">会务管</a></h2>
+    <h2><a href="h149.html" target="_self">设备管理</a></h2>
+    <h2><a href="h1410.html" target="_self">项目管理</a></h2>
+    <h2><a href="h1411.html" target="_self">名片订购</a></h2>
+    <h2><a href="h1412.html" target="_self">合同管理</a></h2>
+</div>
+
+
+<h1 id="spA_14" onclick="isShowIndex('spA_14','dtA_14','A_','','19')"><a onClick="javascript:ShowFLT(15);" href="javascript:void(null)" target="_self">人事管理<span><img src="img/menu_a_h.png"  id="treePic15" /></span></a></h1>
+<div id=LM15 style="DISPLAY: none">    <h2><a href="h151.html" target="_self">人事管理</a></h2>
+    <h2><a href="h152.html" target="_self">考勤管理</a></h2>
+    <h2><a href="h153.html" target="_self">社保及公积金管理</a></h2>
+    <h2><a href="h154.html" target="_self">薪资管理</a></h2>
+    <h2><a href="h155.html" target="_self">贺卡管理</a></h2>
+    <h2><a href="h156.html" target="_self">培训管理</a></h2>
+
+</div>
+
+
+<h1 id="spA_15" onclick="isShowIndex('spA_15','dtA_15','A_','','19')"><a onClick="javascript:ShowFLT(16);" href="javascript:void(null)" target="_self">档案管理<span><img src="img/menu_a_h.png"  id="treePic16" /></span></a></h1>
+<div id=LM16 style="DISPLAY: none">
+    <h2><a href="h161.html" target="_self" >档案查询</a></h2>
+    <h2><a href="h162.html" target="_self">档案借阅</a></h2>
+</div>
+
+
+<h1 id="spA_16" onclick="isShowIndex('spA_16','dtA_16','A_','','19')"><a onClick="javascript:ShowFLT(17);" href="javascript:void(null)" target="_self">文档管理<span><img src="img/menu_a_h.png"  id="treePic17" /></span></a></h1>
+<div id=LM17 style="DISPLAY: none">
+    <h2><a href="h171.html" target="_self" >所有文档</a></h2>
+    <h2><a href="h172.html" target="_self">新建文档</a></h2>
+    <h2><a href="h173.html" target="_self" >我接收的文档</a></h2>
+</div>
+
+
+<h1 id="spA_17" onclick="isShowIndex('spA_17','dtA_17','A_','','19')"><a onClick="javascript:ShowFLT(18);" href="javascript:void(null)" target="_self">关系管理<span><img src="img/menu_a_h.png"  id="treePic18" /></span></a></h1>
+<div id=LM18 style="DISPLAY: none">
+    <h2><a href="h181.html" target="_self" >数据查看</a></h2>
+    <h2><a href="h182.html" target="_self">数据查询</a></h2>
+</div>
+
+
+<h1 id="spA_18" onclick="isShowIndex('spA_18','dtA_18','A_','','19')"><a onClick="javascript:ShowFLT(19);" href="javascript:void(null)" target="_self">微博<span><img src="img/menu_a_h.png"  id="treePic19" /></span></a></h1>
+<div id=LM19 style="DISPLAY: none">
+    <h2><a href="h191.html" target="_self" >首页动态</a></h2>
+    <h2><a href="h192.html" target="_self">@提到我的</a></h2>
+    <h2><a href="h193.html" target="_self" >评论</a></h2>
+    <h2><a href="h194.html" target="_self">收藏</a></h2>
+</div>
+
+
+<h1 id="spA_19" onclick="isShowIndex('spA_19','dtA_19','A_','','19')"><a onClick="javascript:ShowFLT(20);" href="javascript:void(null)" target="_self">定位服务<span><img src="img/menu_a_h.png"  id="treePic20" /></span></a></h1>
+<div id=LM20 style="DISPLAY: none">
+    <h2><a href="h201.html" target="_self" >人员轨迹</a></h2>
+    <h2><a href="h202.html" target="_self">人员位置</a></h2>
+    <h2><a href="h203.html" target="_self" >考勤信息</a></h2>
+</div>
+
+
+<h1 id="spA_20" onclick="isShowIndex('spA_20','dtA_20','A_','','19')"><a onClick="javascript:ShowFLT(21);" href="javascript:void(null)" target="_self">知道<span><img src="img/menu_a_h.png"  id="treePic21" /></span></a></h1>
+<div id=LM21 style="DISPLAY: none">
+    <h2><a href="h211.html" target="_self" >知道首页</a></h2>
+    <h2><a href="h212.html" target="_self">如何提问</a></h2>
+    <h2><a href="h213.html" target="_self" >如何回答问题</a></h2>
+    <h2><a href="h214.html" target="_self">所有问题</a></h2>
+    <h2><a href="h215.html" target="_self" >精华问题</a></h2>
+    <h2><a href="h216.html" target="_self">个人问题管理</a></h2>
+    <h2><a href="h217.html" target="_self" >知道专家库</a></h2>
+</div>
+
+
+<h1 id="spA_21" onclick="isShowIndex('spA_21','dtA_21','A_','','19')"><a onClick="javascript:ShowFLT(22);" href="javascript:void(null)" target="_self">知识文库<span><img src="img/menu_a_h.png"  id="treePic22" /></span></a></h1>
+<div id=LM22 style="DISPLAY: none">
+    <h2><a href="h221.html" target="_self" >知识文库首页</a></h2>
+    <h2><a href="h222.html" target="_self">如何上传文档</a></h2>
+    <h2><a href="h223.html" target="_self" >我的文档</a></h2>
+    <h2><a href="h224.html" target="_self">所有文档</a></h2>
+</div>
+
+
+</div>
+
+     
+    </div> 
+    
+    
+  
+       </td>
+    <td valign="top" class="right_nr">
+<div class="right_bg">
+<span id="dtA_0"  class="ask_blank" style="display:block"></span>
+<span id="dtA_1"  class="ask_blank"></span>
+<span id="dtA_2"  class="ask_blank"></span>
+<span id="dtA_3"  class="ask_blank"></span>
+<span id="dtA_4"  class="ask_blank"></span>
+<span id="dtA_5"  class="ask_blank"></span>
+<span id="dtA_6"  class="ask_blank"></span>
+<span id="dtA_7"  class="ask_blank"></span>
+<span id="dtA_8"  class="ask_blank"></span>
+<span id="dtA_9"  class="ask_blank"></span>
+<span id="dtA_10"  class="ask_blank"></span>
+<span id="dtA_11"  class="ask_blank"></span>
+<span id="dtA_12"  class="ask_blank"></span>
+<span id="dtA_13"  class="ask_blank"></span>
+<span id="dtA_14"  class="ask_blank"></span>
+<span id="dtA_15"  class="ask_blank"></span>
+<span id="dtA_16"  class="ask_blank"></span>
+<span id="dtA_17"  class="ask_blank"></span>
+<span id="dtA_18"  class="ask_blank"></span>
+<span id="dtA_19"  class="ask_blank"></span>
+<span id="dtA_20"  class="ask_blank"></span>
+<span id="dtA_21"  class="ask_blank"></span>
+
+
+<div  class="right_img">
+<div style="width:95%; margin:0px auto;">
+<div class="ifm" id="ifm">
+
+<div class="warp">
+<h2 class="help_tit">审批按钮说明</h2>
+
+<div class="linkChild clear" id="linkChild">
+
+<p>
+	在表单上方的按钮栏，分为两部分：一部分是固定的，每个流程审批时都会出现的按钮；另一部分是在活动中定义出来的，是管理员根据实际业务需要而设置的在某一活动才显示的按钮。
+</p>
+<p>
+	1<span>）固定功能按钮有以下：</span>
+</p>
+<p>
+	<strong>发送：</strong>点击发送至下一活动节点。如该节点为最后一个活动节点，则提示，是否结束流程，点击确定可结束。
+</p>
+<p>
+<img src="pic/p_6.4.01.png" />
+</p>
+<p>
+	<strong>退回：</strong>如果审批意见为不同意，或者需要表单中提交内容进行修改，可点击该按钮。可以将流程退回至发起人，也可将流程退回至任一审批过的活动节点。填写退回原因后，选择邮件提醒范围，系统会自动发送邮件给相应人员。也可同时勾选短信提醒。比如，员工要请假，部门领导不同意，就可以将请假流程“退回”给流程发起人。
+</p>
+<p>
+<img src="pic/p_6.4.02.png" />
+</p>
+<p>
+	如果退回至非发起人环节，还可以进行重新提交时流程流转方式。
+</p>
+<p>
+<img src="pic/p_6.4.03.png" />
+</p>
+<p>
+	<strong>加签：</strong>点击“加签”按钮后，弹出“选择对象”页面，可以选择组织或用户，在当前活动节点形成会签，办理方式为多人并行。加签的意义在于：在管理员设置好流程办理人之后，当前活动办理人可以根据实际业务情况增加其他办理人，这样使固化流程和个性化需要结合起来，使流程更灵活、更易用。
+</p>
+<p>
+<img src="pic/p_6.4.04.png" />
+</p>
+<p>
+	<strong>关联流程：</strong>关联已经发起的任一状态下的流程信息（具体在流程办理环节已经做过说明）
+</p>
+<p>
+	<strong>新建流程：</strong>重新发起一个相关流程。发起成功后，和相关流程按钮的功能一样，在这两个相互关联的流程表单上的关联流程页签上，也能相互看到对方流程的链接。
+</p>
+<p>
+<img src="pic/p_6.4.05.png" />
+</p>
+<p>
+<img src="pic/p_6.4.06.png" />
+</p>
+<p>
+	<strong>保存退出：</strong>在流程表单上填写内容后保存，暂时不发送至下一办理人。该文件还在待办列表中。
+</p>
+<p>
+	<strong>邮件转发：</strong>将当前流程通过内部邮件转发给其他用户，使其能看到流程表单内容及其流转记录。
+</p>
+<p>
+	<strong>打印：</strong>点击打印按钮，出现以下页面，可以进行以下操作1.打印，若电脑连接了打印机则可以进行流程表单的打印2下载，点击弹出保存页面，可以选择自己想保存的文件格式对表单进行保存3导出<span>word</span><span>模板，点击可以将表单导出成</span><span>word</span><span>格式的文件，然后进行样式的调整，然后进行打印，这样可以给有需求的人进行打印格式的调整</span>
+</p>
+<p>
+<img src="pic/p_6.4.07.png" />
+</p>
+<p>
+	<strong>关闭：</strong>关闭当前页面。
+</p>
+<p>
+	2<span>）需管理员进行设置才会出现的按钮有以下：</span>
+</p>
+<p>
+	<strong>作废：</strong>点击该按钮会将当前流程彻底删除，在流程所有相关人的“文件办理”中均一并删除。这是一个特殊权限，系统管理员一般会很谨慎的赋予某个活动、某个办理人这个权限。
+</p>
+<p>
+	<strong>转办：</strong>如果希望当前流程转交给别人去办理，可使用“转办”按钮。“转办”相当于内部办理，不是整个流程的一部分，所以转办的过程在流程图上不显示。
+</p>
+<p>
+	<strong>阅件：</strong>可以将流程发送给相关人员进行查阅。文件出现在选择用户的待阅文件列表中。点击此按钮，会弹出以下页面，如果设置了阅件人，在此处可以直接点击阅件人，点击发送，如果没有，则可以在选择办理人中任意选择能看到的用户，若发现少发了一个阅件人，可以进行补发操作。
+</p>
+<p>&nbsp;
+	
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+<img src="pic/p_6.4.08.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+	<strong>转阅：</strong>可以将当前流程转给其他用户阅览，对方在待阅文件收到该流程文件。
+</p>
+<p>
+	<strong>反馈：</strong>这个流程我已经办理了，可以向发起人和之前已经审批过的用户发一个反馈，告诉他们这个文件我已经办理过了。
+</p>
+<p>
+	<strong>收回：</strong>和“作废”一样，这是一个特殊权限。当使用此功能时，可以将已经提交出去的文件收回来，即使这个文件已经办理完毕。所有意见在表单上保留下来。系统管理员一般会很谨慎的赋予某个活动、某个办理人这个权限。
+</p>
+<p>
+	<strong>自定义按钮：</strong>参照管理员手册
+</p>
+<p>&nbsp;
+	
+</p>
+<p class="bg">
+	如何撤回转办的文件
+</p>
+<p>
+	如果对于待办文件进行了转办处理，交给用户<span>A</span><span>去进行办理。因为工作需要，要将该流程文件撤回。可以点击进入“文件办理”模块“已办文件”，在用户</span><span>A</span><span>没有办理的情况下，点击文件标题，可以看到“转办撤办”按钮。点击“转办撤办”，在弹出的页面中点确定，该流程将从转办人的待办文件列表中撤回到您的待办文件列表中。</span>
+</p>
+<p>
+<img src="pic/p_6.4.09.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+<img src="pic/p_6.4.10.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+<img src="pic/p_6.4.11.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p class="bg">
+	流程办理后希望还能增加办理人
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+	当您完成一个流程文件的审批后，流程已经发送至活动节点“行政人事审批”办理人<span>A</span><span>处，如果想在这一办理节点增加办理人</span><span>B</span><span>，可以在“已办文件”中找到该文件，打开流程表单，点击“补签”按钮，选择办理人</span><span>B</span><span>，则用户</span><span>B</span><span>会收到该文件的待办。办理活动为“行政人事审批”。</span>
+</p>
+<p>
+<img src="pic/p_6.4.12.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+<img src="pic/p_6.4.13.png" />
+</p>
+<p>&nbsp;
+	
+</p>
+<p>
+<img src="pic/p_6.4.14.png" />
+</p>
+
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+
+
+
+</div>
+ 
+</div>
+
+</div>
+
+</div>
+  
+
+
+</td>
+    
+  </tr>
+  
+</table>
+</div>
+</div>
+
+ 
+
+</td>
+    
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<SCRIPT language="javascript" src="js/js.js"></SCRIPT>

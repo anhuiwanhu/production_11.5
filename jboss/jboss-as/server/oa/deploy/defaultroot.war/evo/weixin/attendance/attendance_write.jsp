@@ -14,12 +14,6 @@
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/template/css/alert/template.alert.css" />
 </head>
-<style type="text/css">
-#container {
-   min-width:603px;
-   min-height:767px;
-}
-</style>
 <body class="theme-green">
 <c:if test="${not empty docXml}">
  <x:parse xml="${docXml}" var="doc"/>
@@ -27,7 +21,7 @@
  <c:set var="userName"><x:out select="$doc//userName/text()"/></c:set>
  <c:set var="record"><x:out select="$doc//record/text()"/></c:set>
  <c:set var="photo"><x:out select="$doc//photo/text()"/></c:set>
- <form id="sendForm" method="post" action="/defaultroot/worklog/saveWorkLog.controller">
+ <form id="sendForm" method="post" action="/defaultroot/worklog/saveWorkLog.controller" onsubmit="return false">
   <div class="views">
     <div class="view">
       <div class="pages">
@@ -54,7 +48,7 @@
               </div>
             </div>
             <article class="wh-edit wh-edit-forum">
-              <div class="wh-container">
+              <div>
                 <div class="wh-clock-map">
                   <aside class="wh-load-clock" style="display:block">
                     <div class="wh-load-circlemax"></div>
@@ -81,11 +75,10 @@
                       	<input type="hidden" name="longitude" id="longitude"/>	
 						 <input type="hidden" name="latitude" id="latitude"/>	
 						 <input type="hidden" name="presentAddress" id="presentAddress"/>
-                          <!--<input class="edit-ipt-r" type="text" placeholder="请填写" name="remark" id="remark" />-->
-                      	 <textarea class="edit-txta edit-txta-l" placeholder="请填写" name="remark" id="remark"></textarea> 
+                          <input class="edit-ipt-r" type="text" placeholder="请填写" name="remark" id="remark" />
+                      	 <!--<textarea class="edit-txta edit-txta-l" placeholder="请填写" name="remark" id="remark"></textarea> -->
                       </td>
                     </tr>
-                    <tr></tr>
                   </tbody>
                 </table>
               </div>
@@ -99,7 +92,6 @@
         </div>
       </div>
     </div>
-	<div id="container" style="display: none"></div>
   </div>
   </form>
   </c:if>
@@ -124,6 +116,7 @@
   	if(presentAddress == ''){
   		var myApp = new Framework7();
   		myApp.alert('没有地址信息请重新定位');
+  		comflag = 1;
   		return;
   	}
   	$.ajax({
@@ -157,6 +150,7 @@
 				      window.location = '/defaultroot/attendance/myAttendance.controller';
 				    }, 2000);
 	    	}else{
+	    		comflag = 1;
 	    		myApp.alert('保存失败！');
 	    	}
 	    }

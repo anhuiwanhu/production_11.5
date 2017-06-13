@@ -46,15 +46,15 @@ boolean isright=managerBD.hasRight(userId, "GLS*01*05");
 %>
 		<SCRIPT type="text/javascript">    
             var zNodes =[
-            	{ id:10000000, pId:-1, name:"人员轨迹",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!userList.action",iconSkin:"fa fa-cog fa"}
-            	<%menuIndex++;%>
-            	,{ id:20000000, pId:-1, name:"人员位置",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!locatePersonList.action",iconSkin:"fa fa-cog fa"}
-            	<%menuIndex++;%>
-            	,{ id:30000000, pId:-1, name:"考勤信息",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!userAttendanceList.action",iconSkin:"fa fa-cog fa"}
-            	<%menuIndex++;%>
-            	,{ id:40000000, pId:-1, name:"定位白名单",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!whiteList.action",iconSkin:"fa fa-cog fa"}
-				<%menuIndex++;%>
-				,{ id:30000000, pId:-1, name:"我的定位",target:'mainFrame',open:true,url:"/defaultroot/WXLocationAction!myWxLocationList.action",iconSkin:"fa fa-cog fa"}
+            	//{ id:10000000, pId:-1, name:"人员轨迹",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!userList.action",iconSkin:"fa fa-cog fa"}
+            	//<%menuIndex++;%>
+            	//,{ id:20000000, pId:-1, name:"人员位置",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!locatePersonList.action",iconSkin:"fa fa-cog fa"}
+            	//<%menuIndex++;%>
+            	//,{ id:30000000, pId:-1, name:"考勤信息",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!userAttendanceList.action",iconSkin:"fa fa-cog fa"}
+            	//<%menuIndex++;%>
+            	//,{ id:40000000, pId:-1, name:"定位白名单",target:'mainFrame',open:true,url:"/defaultroot/LocateServiceAction!whiteList.action",iconSkin:"fa fa-cog fa"}
+				//<%menuIndex++;%>			 
+				{ id:30000000, pId:-1, name:"我的定位",target:'mainFrame',open:true,url:"/defaultroot/WXLocationAction!myWxLocationList.action",iconSkin:"fa fa-cog fa"}
             	<%menuIndex++;%>
             	 <%if (isright) {%>
             	,{ id:50000000, pId:-1, name:"数据统计",target:'mainFrame',open:true,url:"/defaultroot/WXLocationAction!wxLocationList.action",iconSkin:"fa fa-cog fa"}

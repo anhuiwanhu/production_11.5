@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 2.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+<hibernate-mapping>
+<class name="com.whir.ezoffice.bpm.po.BPMOutDataSourcePO" table="EZ_BPMPOOL_OUTDATASOURCE" schema="EZOFFICE">
+	<id name="outDataSourceId" column="OUTDATASOURCE_ID" type="long">
+		<generator class="native"/>
+	</id>
+	<property name="outDataSourceCode" column="OUTDATASOURCE_CODE" />
+	<property name="outDataSourceType" column="OUTDATASOURCE_TYPE"  />
+	<property name="outDataSourceSql" column="OUTDATASOURCE_SQL"  />
+	<property name="outDataSourceFields" column="OUTDATASOURCE_FIELDS" /> 
+	<property name="processId" column="PROCESSID" />
+	<property name="taskId" column="TASKID" />
+	<property name="isProcessSet" column="ISPROCESSSET" />
+</class>
+</hibernate-mapping>

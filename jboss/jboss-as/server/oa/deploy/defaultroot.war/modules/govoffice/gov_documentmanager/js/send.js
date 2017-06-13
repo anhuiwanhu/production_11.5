@@ -426,7 +426,7 @@ function cmdSendToMyRange(){
 //下载文件
 function cmdDowntext(){
 	//alert(1);///defaultroot/public/upload/download/download.jsp?FileName=2013051414111050017252965.zip&name=%E6%B5%81%E7%A8%8B%E8%AF%B4%E6%98%8Ev1.0.zip&path=govdocumentmanager
-		location_href ( '/defaultroot/public/download/download.jsp?verifyCode='+$("*[name='fileVerifyCode']").val()+'&FileName='+$("*[name='content']").val()+$("*[name='documentWordType']").val()+'&name='+encodeURIComponent($("*[name='documentSendFileTitle']").val())+$("*[name='documentWordType']").val()+'&path=govdocumentmanager');
+		location_href ( preUrl+'/public/download/download.jsp?verifyCode='+$("*[name='fileVerifyCode']").val()+'&FileName='+$("*[name='content']").val()+$("*[name='documentWordType']").val()+'&name='+encodeURIComponent($("*[name='documentSendFileTitle']").val())+$("*[name='documentWordType']").val()+'&path=govdocumentmanager');
 
 		//window.location.href = 'http://192.168.0.28:7099/oafile/download.jsp?FileName='+document.getElementById("content").value+'.doc&name='+encodeURIComponent(document.getElementById("documentSendFileTitle").value)+'.doc&path=govdocumentmanager';
 	

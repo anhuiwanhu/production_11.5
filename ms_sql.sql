@@ -124,3 +124,33 @@ go
 
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.08_SP_20160928','11.5.0.08',getdate());
 go
+
+
+
+
+update org_right set domain_id=-1 where righttype = '定位服务-定位白名单' or righttype='定位服务-考勤签到' or righttype='定位服务-人员轨迹'
+or righttype='定位服务-人员位置';
+go
+
+update Oa_Custmenu set righturlset='WXLocationAction!myWxLocationList.action' where menu_name='定位';
+go
+
+create table  EZ_BPMPOOL_OUTDATASOURCE(
+       OUTDATASOURCE_ID      NUMERIC(20,0) not null  identity(1,1),
+       OUTDATASOURCE_CODE    VARCHAR(100),
+       OUTDATASOURCE_TYPE    VARCHAR(100),
+       OUTDATASOURCE_SQL     TEXT,
+       OUTDATASOURCE_FIELDS  TEXT,
+       PROCESSID             VARCHAR(100),
+       TASKID                VARCHAR(100),
+       ISPROCESSSET          NUMERIC(1,0),
+       primary key(OUTDATASOURCE_ID)
+);
+go
+
+update oa_attendance_source set source_name='客户端' where source_id=1;
+go
+update oa_attendance_source set source_name='企业号' where source_id=2;
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.09_SP_20161015','11.5.0.09',getdate());
+go

@@ -171,7 +171,8 @@
 	   window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId+"&menuName="+menuName;
 	}
 	function goSSOLink(menuAction){
-	  window.location.href="http://"+menuAction;
+	  menuAction = decodeURIComponent(menuAction);
+	  window.location.href=menuAction;
 	}
 		
 

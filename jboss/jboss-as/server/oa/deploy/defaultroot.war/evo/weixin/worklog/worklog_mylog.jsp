@@ -21,10 +21,10 @@
   <x:parse xml="${docXml}" var="doc"/>
   <c:if test="${not empty dateDocXml}">
   	<x:parse xml="${dateDocXml}" var="dateDoc"/>
-  	<x:forEach select="$dateDoc//list" var="dt" >
-  		<c:set var="dtLogDate"><x:out select="$dt/date/text()"/></c:set>
-  		<input type="hidden" name="logdates" value="${dtLogDate }"/>
-  	</x:forEach>
+  	<c:set var="dateAttend">
+	 <x:forEach select="$dateDoc//list" var="dt" ><x:out select="$dt/date/text()"/>,</x:forEach>
+    </c:set>
+   <input type="hidden" id="dtAttend" value="${dateAttend}"/>
   </c:if>
   <div class="views">
     <div class="view view-content">
@@ -32,7 +32,7 @@
         <div class="page">
           <section id="sectionScroll" class="wh-section infinite-scroll wh-section-bottomfixed">
             <article class="wh-edit wh-edit-forum">
-              <div class="wh-container">
+              <div>
                 <div class="meeting-room-apply">
                   <div class="calendar hidden-print">
                     <header>
@@ -138,35 +138,27 @@
     	if(index == 0){
     		$$('.wh-table-edit').html('<tr><td>系统没有查询到相关记录</td></tr>');
     	}
-    	var arr = $("input[name='logdates']");
-    	for(var i=0;i<arr.length;i++){
-    		$("#"+setLogDate(arr[i].value)).addClass("event null");
-    	}
+    	var ids = $("#dtAttend").val();
+		if(ids != "" && ids != undefined){
+			ids = ids.substring(0,ids.length-1);
+			var idArr = ids.split(",");
+			for(var i=0;i<idArr.length;i++){
+				$("#"+setLogDate(idArr[i])).addClass("event null");
+			}
+		}
 	}
-    /* $(function(){
-    	var index = $$('.wh-table-edit tr').length;
-    	alert(index);
-    	if(index < 15){
-    		 $$('.wh-load-md').hide();
-    	}else{
-    		 $$('.wh-load-md').show();
-    	}
-    	var trLength = $$('.wh-table-edit tr').length;
-    	if(trLength == 0){
-    		$$('.wh-table-edit').html('<tr><td>系统没有查询到相关记录</td></tr>');
-    	}
-    	var arr = $("input[name='logdates']");
-    	for(var i=0;i<arr.length;i++){
-    		$("#"+setLogDate(arr[i].value)).addClass("event null");
-    	}
-     });*/
      
     //以填写日志的时间为灰色
     function grayDate(){
-    	var arr = $("input[name='logdates'");
-    	for(var i=0;i<arr.length;i++){
-    		$("#"+setLogDate(arr[i].value)).addClass("event null");
-    	}
+    	//已经预定的日期置灰
+        var ids = $("#dtAttend").val();
+		if(ids != "" && ids != undefined){
+			ids = ids.substring(0,ids.length-1);
+			var idArr = ids.split(",");
+			for(var i=0;i<idArr.length;i++){
+				$("#"+setLogDate(idArr[i])).addClass("event null");
+			}
+		}
 	}
 	
 	//格式化时间

@@ -41,7 +41,10 @@
 		<tr>
 			<td class="SearchBar_toolbar" colspan="6">
 				<!-- refreshListForm 是公共方法，queryForm 为上面的表单id-->
-                <input type="button" class="btnButton4font"  onclick="refreshListForm('queryForm');"  value="查　询" />
+                <input type="button" class="btnButton4font"  onclick="refreshListForm('queryForm');"  value="立即查找" />
+				<!--resetForm(obj)为公共方法-->
+                <input type="button" class="btnButton4font" value="清　除" onclick="resetForm(this);" />
+			</td>
 			</td>
 		</tr>
 		
@@ -133,9 +136,9 @@
 	function sourceFrom(po,i){
 		var html = '';
 		if(po.attendanceSource==1){
-			html = "evo客户端";
+			html = "客户端";
 		}else if(po.attendanceSource==2){
-			html = "微信企业号";
+			html = "企业号";
 		}
 		return html;
 	}

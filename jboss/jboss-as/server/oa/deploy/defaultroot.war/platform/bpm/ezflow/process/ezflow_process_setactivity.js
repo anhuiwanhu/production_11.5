@@ -16,7 +16,7 @@ function  changePanle(flag){
 //保存，将当前属性页面设置项保存到对象属性中
 function save(type) {
     if(!validateForm("dataForm")){
-			  return false;
+		return false;
 	}
  
 	if(model == null) {
@@ -29,6 +29,14 @@ function save(type) {
 
 	var  subType_v=$("#subType").val();
     //var  formKeyval=$('#formKey').combobox('getValue');
+
+	//配置外部数据源表单字段--20161010---start
+	var processId =opener.xiorkFlow.xiorkFlowWrapper.getModel().getID();
+	if(processId == null || processId ==''){
+		whir_alert("请先设置流程！",function(){});
+		return ;
+	}
+	//配置外部数据源表单字段--20161010---end
  
 	if(formKeyval0 != null&&formKeyval0!="") {
 	}else{
@@ -891,6 +899,28 @@ function save(type) {
 			}
 		}
 	}
+
+	//配置外部数据源表单字段--20161010---start
+	var taskId =$('#taskId').val();
+	//保存外部数据源配置数据
+	var ajaxCallUrl = whirRootPath + "/ezflowprocess!saveOutDataSource.action?isProcessSet=1&processId="+processId+"&taskId="+taskId;
+	//alert(ajaxCallUrl);
+	$.ajax({
+		cache: true,
+		type: "post", 
+		url:ajaxCallUrl,
+		data:$('#dataForm').serialize(),// 你的formid
+		async: false,
+		dataType: 'json',
+		error: function(request) {
+			whir_alert("操作异常，请联系管理员！");
+		},
+		success: function(json) {
+			
+		}
+	});
+	//配置外部数据源表单字段--20161010---end
+
 	window.close();
 }
 
@@ -2314,7 +2344,81 @@ function changerFormKey(formKey){
 			}
 		}
 	}
+	
+	//配置外部数据源表单字段--20161010---start
+	var formFieldSelect = $("select[name='outDataSourceFields']");//下拉框
+	//清空
+	if(formFieldSelect.length >0 ){
+		for( k =0;k<formFieldSelect.length;k++){
+			var alloptions = formFieldSelect[k].options;
+			for( j=alloptions.length-1;j>=0;j--){
+				formFieldSelect[k].remove(j);
+			}
+		}
+	}
 
+	if(formFieldSelect.length >0){
+		formFieldSelect.append("<option value=''>请选择...</option>");
+	}
+
+	var formFieldSelectBack = $("select[name='outDataSourceFieldsBack']");//下拉框
+	//清空
+	if(formFieldSelectBack.length >0 ){
+		for( k =0;k<formFieldSelectBack.length;k++){
+			var alloptions = formFieldSelectBack[k].options;
+			for( j=alloptions.length-1;j>=0;j--){
+				formFieldSelectBack[k].remove(j);
+			}
+		}
+	}
+
+	if(formFieldSelectBack.length >0){
+		formFieldSelectBack.append("<option value=''>请选择...</option>");
+	}
+	
+	var outDataSourceFieldsDealStr =$('#outDataSourceFieldsDealStr').val();
+	var outDataSourceFieldsObj =outDataSourceFieldsDealStr.split(",");
+	if(formFieldSelect.length >0 && outDataSourceFieldsDealStr != '' && outDataSourceFieldsObj.length >0){//修改
+		for(var j=0;j<outDataSourceFieldsObj.length;j++){
+			$(result).find("field").each(function(i){    
+				var fieldid=$(this).children("fieldid").text();   
+				var fieldtext=$(this).children("fieldtext").text();
+				var tableType=$(this).children("tabletype").text();
+				if(tableType == 0){
+					return;
+				}
+				var param_set =outDataSourceFieldsObj[j].split("|");
+				if(param_set[1] == fieldid){
+					$(formFieldSelect[j]).append("<option value='"+fieldid+"' selected>"+fieldtext+"</option>");
+				}else{
+					$(formFieldSelect[j]).append("<option value='"+fieldid+"'>"+fieldtext+"</option>");
+				}
+			});
+		}
+	}
+	
+	var outDataSourceFieldsBackStr =$('#outDataSourceFieldsBackStr').val();
+	var outDataSourceFieldsBackObj =outDataSourceFieldsBackStr.split(",");
+	if(formFieldSelectBack.length >0 && outDataSourceFieldsBackStr !='' && outDataSourceFieldsBackObj.length >0){//修改
+		for(var j=0;j<outDataSourceFieldsBackObj.length;j++){
+			$(result).find("field").each(function(i){    
+				var fieldid=$(this).children("fieldid").text();   
+				var fieldtext=$(this).children("fieldtext").text();
+				var tableType=$(this).children("tabletype").text();
+				if(tableType == 0){
+					return;
+				}
+				//alert(outDataSourceFieldsBackObj[j] +"=="+ fieldid);
+				var param_set =outDataSourceFieldsBackObj[j].split("|"); 
+				if(param_set[1] == fieldid){
+					$(formFieldSelectBack[j]).append("<option value='"+fieldid+"' selected>"+fieldtext+"</option>");
+				}else{
+					$(formFieldSelectBack[j]).append("<option value='"+fieldid+"'>"+fieldtext+"</option>");
+				}
+			});
+		}
+	}
+	//配置外部数据源表单字段--20161010---end
 
 	form2Select.append("<option value='condi_initiatorDuty'>"+workflowMessage_js.StartOnePost+"</option>");
 	form2Select.append("<option value='condi_initiatorDutyLevel'>"+workflowMessage_js.StartOneJobLevel+"</option>");
@@ -2416,7 +2520,23 @@ function changerFormKey(formKey){
                  form2Select.append("<option value='"+fieldid+"'>"+fieldtext+"</option>");
 			}
 
-
+			//配置外部数据源表单字段--20161010---start
+			if(formFieldSelect.length >0){
+				if(outDataSourceFieldsDealStr != '' && outDataSourceFieldsObj.length >0){
+					//不操作
+				}else{
+					formFieldSelect.append("<option value='"+fieldid+"'>"+fieldtext+"</option>");
+				}
+			}
+			
+			if(formFieldSelectBack.length >0){
+				if(outDataSourceFieldsBackStr !='' && outDataSourceFieldsBackObj.length >0){
+					//不操作
+				}else{
+					formFieldSelectBack.append("<option value='"+fieldid+"'>"+fieldtext+"</option>");
+				}
+			}
+			//配置外部数据源表单字段--20161010---end
 
 
 			//批示意见字段只加批示意见字段

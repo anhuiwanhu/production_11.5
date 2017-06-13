@@ -7,8 +7,8 @@
 	<package name="com.whir.ezoffice.wxlocation.actionsupport" extends="whir">
 		<action name="WXLocationAction!*" method="{1}" class="com.whir.ezoffice.wxlocation.actionsupport.WXLocationAction">
         	<result name="wxLocationList">/modules/locateservice/wxLocationList.jsp</result>
-			<result name="myWxLocationList">/modules/locateservice/myWxLocationList.jsp</result>
 			<result name="detail">/modules/locateservice/wxLocationDetail.jsp</result>
+			<result name="myWxLocationList">/modules/locateservice/myWxLocationList.jsp</result>
         </action>
     </package>
 

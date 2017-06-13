@@ -26,7 +26,7 @@
 		   <input type="hidden"  name="menuId" value="${menuId}" id="menuId"/>
             <section class="wh-section wh-section-bottomfixed">
               <article class="wh-edit wh-edit-forum">
-                <div class="wh-container">
+                <div>
                   <table class="wh-table-edit" id="contenttb">
                     
                   </table>

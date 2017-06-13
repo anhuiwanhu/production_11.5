@@ -1,0 +1,518 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帮助中心</title>
+<link href="css/css_help.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script language=javascript id=clientEventHandlersJS>
+<!--
+var number=2;
+
+function LMYC() {
+var lbmc;
+var treePic;
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+       treePic = eval('treePic'+i);
+       treePic.src = 'img/menu_a_h.png';
+      lbmc.style.display = 'none';
+		
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+   treePic = eval('treePic' + i)
+    if (lbmc.style.display == 'none') {
+        LMYC();
+       treePic.src = 'img/menu_a_h_t.png';
+      lbmc.style.display = '';
+	
+    }
+    else {
+      treePic.src = 'img/menu_a_h.png';
+        lbmc.style.display = 'none';
+    }
+}
+//-->
+      </script>
+      
+      
+            
+<script type="text/javascript">
+	function isShowIndex(tab_id,div_id,who,aId,num){
+   for(var i = 0;i < num;i++){
+    document.getElementById("dt"+who+i).style.display="none";
+      document.getElementById("sp"+who+i).className="aoff";
+   }
+ document.getElementById(div_id).style.display="block";
+   document.getElementById(tab_id).className="aon";
+}
+
+</script>
+            
+            		
+</head>
+
+<body>
+<div class="help_bg">
+<div class="help_box">
+<div class="help_head">
+<a href="index.html" title="万户--帮助中心" class="logo"><img src="img/logo.png" /></a>
+<ul class="nav_box">
+<li><a href="index.html" class="user1">用户手册</a></li><li class="on_nav"><a href="help_user.html" class="user2">管理员手册</a></li><li><a href="help_ask.html" class="user3">常见问题</a></li>
+</ul>
+
+<a href="#" onclick="openWin({url:'../about/about.jsp',width:'530',height:'380',isScroll:'no',winName:'about'});" class="ico_sm"></a>
+<a href="#" onclick="window.close();" class="ico_tc"></a>
+
+</div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="220" valign="top" class="left_nr">
+        <div class="help_left">
+ 
+     
+     
+<div class="ask_list">
+<h1 id="spA_0" onclick="isShowIndex('spA_0','dtA_0','A_','','19')"><a onClick="javascript:ShowFLT(1);" href="javascript:void(null)" target="_self">系统管理<span><img src="img/menu_a_h.png"  id="treePic1" /></span></a></h1>
+<div id=LM1 style="DISPLAY: none">
+	<h2><a href="help_user.html" target="_self" >基础设置</a></h2>
+	<h2><a href="a12.html" target="_self">组织用户管理</a></h2>
+    <h2><a href="a13.html" target="_self">自定义平台</a></h2>
+    <h2><a href="a14.html" target="_self" >安全管理</a></h2>
+</div>
+
+
+<h1 id="spA_1" onclick="isShowIndex('spA_1','dtA_1','A_','','19')"><a onClick="javascript:ShowFLT(2);" href="javascript:void(null)" target="_self">信息管理<span><img src="img/menu_a_h.png"  id="treePic2" /></span></a></h1>
+<div id=LM2 style="DISPLAY: none">
+    <h2><a href="a21.html" target="_self">权限说明</a></h2>
+    <h2><a href="a22.html" target="_self">栏目设置</a></h2>
+    <h2><a href="a23.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a24.html" target="_self" >流程设置（ezFlow）</a></h2>
+    <h2><a href="a25.html" target="_self">模板设置</a></h2>
+    <h2><a href="a26.html" target="_self" >设置标签</a></h2>
+    <h2><a href="a27.html" target="_self">所有信息</a></h2>
+    <h2><a href="a28.html" target="_self">精华信息</a></h2>
+    <h2><a href="a29.html" target="_self">全文检索</a></h2>
+    <h2><a href="a210.html" target="_self" >积分统计</a></h2>
+    <h2><a href="a211.html" target="_self">我的发布</a></h2>
+    <h2><a href="a212.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_2" onclick="isShowIndex('spA_2','dtA_2','A_','','19')"><a onClick="javascript:ShowFLT(3);" href="javascript:void(null)" target="_self">单位主页<span><img src="img/menu_a_h.png"  id="treePic3" /></span></a></h1>
+<div id=LM3 style="DISPLAY: none">
+    <h2><a href="a31.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a32.html" target="_self">系统设置</a></h2>
+</div>
+
+
+<h1 id="spA_3" onclick="isShowIndex('spA_3','dtA_3','A_','','19')"><a onClick="javascript:ShowFLT(4);" href="javascript:void(null)" target="_self">工作流程<span><img src="img/menu_a_h.png"  id="treePic4" /></span></a></h1>
+<div id=LM4 style="DISPLAY: none">
+    <h2><a href="a41.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a42.html" target="_self" >流程分类</a></h2>
+    <h2><a href="a43.html" target="_self" >流程按钮</a></h2>
+    <h2><a href="a44.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a45.html" target="_self" >流程按钮（ezFLOW）</a></h2>
+    <h2><a href="a46.html" target="_self" >流程设置（ezFLOW）</a></h2>
+    <h2><a href="a47.html" target="_self" >办理查阅</a></h2>
+    <h2><a href="a48.html" target="_self" >办理查阅(ezFLOW)</a></h2>
+    <h2><a href="a49.html" target="_self" >效率分析</a></h2>
+    <h2><a href="a410.html" target="_self" >工作流程设置总结</a></h2>
+</div>
+
+
+<h1 id="spA_4" onclick="isShowIndex('spA_4','dtA_4','A_','','19')"><a onClick="javascript:ShowFLT(5);" href="javascript:void(null)" target="_self">公文管理<span><img src="img/menu_a_h.png"  id="treePic5" /></span></a></h1>
+<div id=LM5 style="DISPLAY: none">
+    <h2><a href="a51.html" target="_self">权限说明</a></h2>
+    <h2><a href="a52.html" target="_self">发文管理</a></h2>
+    <h2><a href="a53.html" target="_self">收文管理</a></h2>
+    <h2><a href="a54.html" target="_self">文件送审签</a></h2>
+    <h2><a href="a55.html" target="_self">公文统计</a></h2>
+    <h2><a href="a56.html" target="_self">领导办理查阅</a></h2>
+    <h2><a href="a57.html" target="_self">公文交换</a></h2>
+</div>
+
+
+<h1 id="spA_5" onclick="isShowIndex('spA_5','dtA_5','A_','','19')"><a onClick="javascript:ShowFLT(6);" href="javascript:void(null)" target="_self">论坛<span><img src="img/menu_a_h.png"  id="treePic6" /></span></a></h1>
+<div id=LM6 style="DISPLAY: none">
+    <h2><a href="a61.html" target="_self">权限说明</a></h2>
+    <h2><a href="a62.html" target="_self">论坛管理</a></h2>
+</div>
+
+
+<h1 id="spA_6" onclick="isShowIndex('spA_6','dtA_6','A_','','19')"><a onClick="javascript:ShowFLT(7);" href="javascript:void(null)" target="_self">微博<span><img src="img/menu_a_h.png"  id="treePic7" /></span></a></h1>
+<div id=LM7 style="DISPLAY: none">
+    <h2><a href="a71.html" target="_self">权限说明</a></h2>
+</div>
+
+
+<h1 id="spA_7" onclick="isShowIndex('spA_7','dtA_7','A_','','19')"><a onClick="javascript:ShowFLT(8);" href="javascript:void(null)" target="_self">个人办公<span><img src="img/menu_a_h.png"  id="treePic8" /></span></a></h1>
+<div id=LM8 style="DISPLAY: none">
+    <h2><a href="a81.html" target="_self">权限说明</a></h2>
+    <h2><a href="a82.html" target="_self">联系人</a></h2>
+    <h2><a href="a83.html" target="_self">日程</a></h2>
+    <h2><a href="a84.html" target="_self">工作日志</a></h2>
+    <h2><a href="a85.html" target="_self" >工作汇报</a></h2>
+    <h2><a href="a86.html" target="_self">任务中心</a></h2>
+    <h2><a href="a87.html" target="_self" >人员去向</a></h2>
+    <h2><a href="a88.html" target="_self">状态查询</a></h2>
+</div>
+
+
+<h1 id="spA_8" onclick="isShowIndex('spA_8','dtA_8','A_','','19')"><a onClick="javascript:ShowFLT(9);" href="javascript:void(null)" target="_self">人事管理<span><img src="img/menu_a_h.png"  id="treePic9" /></span></a></h1>
+<div id=LM9 style="DISPLAY: none">
+    <h2><a href="a91.html" target="_self">人事管理</a></h2>
+    <h2><a href="a92.html" target="_self">考勤管理</a></h2>
+    <h2><a href="a93.html" target="_self" >社保及公积金管理</a></h2>
+    <h2><a href="a95.html" target="_self">薪资管理</a></h2>
+    <h2><a href="a96.html" target="_self">贺卡管理</a></h2>
+    <h2><a href="a97.html" target="_self">培训管理</a></h2>
+</div>
+
+
+<h1 id="spA_9" onclick="isShowIndex('spA_9','dtA_9','A_','','19')"><a onClick="javascript:ShowFLT(10);" href="javascript:void(null)" target="_self">综合办公<span><img src="img/menu_a_h.png"  id="treePic10" /></span></a></h1>
+<div id=LM10 style="DISPLAY: none">
+    <h2><a href="a101.html" target="_self" >车辆管理</a></h2>
+    <h2><a href="a102.html" target="_self">资料管理</a></h2>
+    <h2><a href="a103.html" target="_self">物品管理</a></h2>
+    <h2><a href="a104.html" target="_self">资产管理</a></h2>
+    <h2><a href="a105.html" target="_self">网上调查</a></h2>
+    <h2><a href="a106.html" target="_self">问卷调查</a></h2>
+    <h2><a href="a107.html" target="_self" >会务管理</a></h2>
+    <h2><a href="a108.html" target="_self">设备管理</a></h2>
+    <h2><a href="a109.html" target="_self">项目管理</a></h2>
+    <h2><a href="a1010.html" target="_self">合同管理</a></h2>
+    <h2><a href="a1011.html" target="_self">名片订购</a></h2>
+</div>
+
+
+<h1 id="spA_10" onclick="isShowIndex('spA_10','dtA_10','A_','','19')"><a onClick="javascript:ShowFLT(11);" href="javascript:void(null)" target="_self">档案管理<span><img src="img/menu_a_h.png"  id="treePic11" /></span></a></h1>
+<div id=LM11 style="DISPLAY: none">
+    <h2><a href="a111.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a112.html" target="_self">档案设置</a></h2>
+    <h2><a href="a113.html" target="_self" >文件著录</a></h2>
+    <h2><a href="a114.html" target="_self">类目管理</a></h2>
+    <h2><a href="a115.html" target="_self">档案销毁</a></h2>
+    <h2><a href="a116.html" target="_self">档案借阅</a></h2>
+    <h2><a href="a117.html" target="_self">档案统计</a></h2>
+</div>
+
+
+<h1 id="spA_11" onclick="isShowIndex('spA_11','dtA_11','A_','','19')"><a onClick="javascript:ShowFLT(12);" href="javascript:void(null)" target="_self">文档管理<span><img src="img/menu_a_h.png"  id="treePic12" /></span></a></h1>
+<div id=LM12 style="DISPLAY: none">
+    <h2><a href="a121.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a122.html" target="_self">流程设置</a></h2>
+    <h2><a href="a123.html" target="_self" >目录管理</a></h2>
+    <h2><a href="a124.html" target="_self">所有文档</a></h2>
+    <h2><a href="a125.html" target="_self">新建文档</a></h2>
+    <h2><a href="a126.html" target="_self">过期文档</a></h2>
+    <h2><a href="a127.html" target="_self" >作废文档</a></h2>
+    <h2><a href="a128.html" target="_self" >历史文档</a></h2>
+    <h2><a href="a129.html" target="_self">我的接收文档</a></h2>
+    <h2><a href="a1210.html" target="_self">发放单</a></h2>
+    <h2><a href="a1211.html" target="_self">借阅单</a></h2>
+    <h2><a href="a1212.html" target="_self" >统计报表</a></h2>
+    <h2><a href="a1213.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_12" onclick="isShowIndex('spA_12','dtA_12','A_','','19')"><a onClick="javascript:ShowFLT(13);" href="javascript:void(null)" target="_self">关系管理<span><img src="img/menu_a_h.png"  id="treePic13" /></span></a></h1>
+<div id=LM13 style="DISPLAY: none">
+    <h2><a href="a131.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a132.html" target="_self">自定义数据表</a></h2>
+    <h2><a href="a133.html" target="_self">自定义关系</a></h2>
+</div>
+
+
+<h1 id="spA_13" onclick="isShowIndex('spA_13','dtA_13','A_','','19')"><a onClick="javascript:ShowFLT(14);" href="javascript:void(null)" target="_self">预算管理<span><img src="img/menu_a_h.png"  id="treePic14" /></span></a></h1>
+<div id=LM14 style="DISPLAY: none">
+    <h2><a href="a141.html" target="_self">权限说明</a></h2>
+    <h2><a href="a142.html" target="_self">预算部门设置</a></h2>
+    <h2><a href="a143.html" target="_self">预算科目设置</a></h2>
+    <h2><a href="a144.html" target="_self">流程设置</a></h2>
+    <h2><a href="a145.html" target="_self">费用预算管理</a></h2>
+    <h2><a href="a146.html" target="_self">费用预算调整</a></h2>
+    <h2><a href="a147.html" target="_self" >预算扣减</a></h2>
+</div>
+
+
+<h1 id="spA_14" onclick="isShowIndex('spA_14','dtA_14','A_','','19')"><a onClick="javascript:ShowFLT(15);" href="javascript:void(null)" target="_self">催办督办<span><img src="img/menu_a_h.png"  id="treePic15" /></span></a></h1>
+<div id=LM15 style="DISPLAY: none">
+    <h2><a href="a151.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a152.html" target="_self">基础设置</a></h2>
+    <h2><a href="a153.html" target="_self" >督办任务</a></h2>
+    <h2><a href="a154.html" target="_self" >任务查询</a></h2>
+    <h2><a href="a155.html" target="_self">部门任务统计</a></h2>
+</div>
+
+
+<h1 id="spA_15" onclick="isShowIndex('spA_15','dtA_15','A_','','19')" class="aon"><a onClick="javascript:ShowFLT(16);" href="javascript:void(null)" target="_self">信息报送<span><img src="img/menu_a_h.png"  id="treePic16" /></span></a></h1>
+<div id=LM16 style="DISPLAY: block">
+    <h2><a href="a161.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a162.html" target="_self" class="cur">设置</a></h2>
+</div>
+
+
+<h1 id="spA_16" onclick="isShowIndex('spA_16','dtA_16','A_','','19')"><a onClick="javascript:ShowFLT(17);" href="javascript:void(null)" target="_self">短信<span><img src="img/menu_a_h.png"  id="treePic17" /></span></a></h1>
+<div id=LM17 style="DISPLAY: none">
+    <h2><a href="a171.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a172.html" target="_self">短信设置</a></h2>
+    <h2><a href="a173.html" target="_self" >短信统计</a></h2>
+</div>
+
+
+<h1 id="spA_17" onclick="isShowIndex('spA_17','dtA_17','A_','','19')"><a onClick="javascript:ShowFLT(18);" href="javascript:void(null)" target="_self">定位服务<span><img src="img/menu_a_h.png"  id="treePic18" /></span></a></h1>
+<div id=LM18 style="DISPLAY: none">
+    <h2><a href="a181.html" target="_self" >如何开通手机定位服务</a></h2>
+    <h2><a href="a182.html" target="_self">权限说明</a></h2>
+    <h2><a href="a183.html" target="_self">定位白名单</a></h2>
+</div>
+
+
+<h1 id="spA_18" onclick="isShowIndex('spA_18','dtA_18','A_','','19')"><a onClick="javascript:ShowFLT(19);" href="javascript:void(null)" target="_self">知道<span><img src="img/menu_a_h.png"  id="treePic19" /></span></a></h1>
+<div id=LM19 style="DISPLAY: none">
+    <h2><a href="a191.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a192.html" target="_self">分类设置</a></h2>
+    <h2><a href="a193.html" target="_self" >问题维护</a></h2>
+    <h2><a href="a194.html" target="_self">专家设置</a></h2>
+</div>
+
+
+<h1 id="spA_19" onclick="isShowIndex('spA_19','dtA_19','A_','','19')"><a onClick="javascript:ShowFLT(20);" href="javascript:void(null)" target="_self">知识文库<span><img src="img/menu_a_h.png"  id="treePic20" /></span></a></h1>
+<div id=LM20 style="DISPLAY: none">
+    <h2><a href="a201.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a202.html" target="_self">分类设置</a></h2>
+</div>
+
+
+
+</div>
+
+     
+    </div> 
+    
+    
+  
+       </td>
+    <td valign="top" class="right_nr">
+<div class="right_bg">
+<span id="dtA_0"  class="ask_blank" style="display:block"></span>
+<span id="dtA_1"  class="ask_blank"></span>
+<span id="dtA_2"  class="ask_blank"></span>
+<span id="dtA_3"  class="ask_blank"></span>
+<span id="dtA_4"  class="ask_blank"></span>
+<span id="dtA_5"  class="ask_blank"></span>
+<span id="dtA_6"  class="ask_blank"></span>
+<span id="dtA_7"  class="ask_blank"></span>
+<span id="dtA_8"  class="ask_blank"></span>
+<span id="dtA_9"  class="ask_blank"></span>
+<span id="dtA_10"  class="ask_blank"></span>
+<span id="dtA_11"  class="ask_blank"></span>
+<span id="dtA_12"  class="ask_blank"></span>
+<span id="dtA_13"  class="ask_blank"></span>
+<span id="dtA_14"  class="ask_blank"></span>
+<span id="dtA_15"  class="ask_blank"></span>
+<span id="dtA_16"  class="ask_blank"></span>
+<span id="dtA_17"  class="ask_blank"></span>
+<span id="dtA_18"  class="ask_blank"></span>
+<span id="dtA_19"  class="ask_blank"></span>
+<span id="dtA_20"  class="ask_blank"></span>
+
+
+<div  class="right_img">
+<div style="width:95%; margin:0px auto;">
+<div class="ifm" id="ifm">
+
+<div class="warp">
+<h2 class="help_tit">设置</h2>
+
+<div class="linkChild clear" id="linkChild">
+<ul class="hd clear">
+    <li>积分标准<b>&gt;</b></li>
+    <li>积分模式设置<b>&gt;</b></li>
+    <li>单位设置<b>&gt;</b></li>
+    <li>刊物模板设置<b>&gt;</b></li>
+    <li>刊物种类设置<b>&gt;</b></li>
+    <li>标签设置<b>&gt;</b></li>
+    <li>流程设置<b>&gt;</b></li>
+    <li>流程设置（ezFLOW）</li>
+    <div class="clearfix"></div>
+</ul>
+
+<div class="bd">
+<div class="subDiv">
+<h3>16.2.1积分标准</h3>
+<p class="p0" style="">
+	积分标准在信息采用时调用，设定的积分标准即信息采用标准；你可以根据业务需要在此设定积分名称、分值和积分方式：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p16.5.png" />
+</p>
+<p class="p0">
+	积分标准的新增页面如下：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p16.6.png" />
+</p>
+<p class="p0" style="margin-left:42pt;">
+	采用情况：即积分标准的名称；
+</p>
+<p class="p0" style="margin-left:42pt;">
+	分值：设定积分标准对应分数，仅能为数字；
+</p>
+<p class="p0" style="margin-left:42pt;">
+	积分方式：与积分模式设置相关，积分计算时根据设置判断同类型的积分是取最高值还是相互累加。
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.2积分模式设置</h3>
+<p class="p0" style="">
+	设定积分计算方式，每个积分标准对应一种积分方式，当信息被采用时，根据所选积分标准及积分方式设置计算积分；最终得分，是将三种积分方式得分累加。
+</p>
+<p class="p0">
+<img src="pic_admin/p16.7.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.3单位设置</h3>
+<p class="p0" style="">
+	设置信息报送单位，及信息报送人；设定完毕，设定的信息报送人登录系统时，其我的信息页面会出现新增按钮，若取消其信息报送人身份，则新增按钮消失。若系统配置文件中设定了主辅服务器，则辅服务器每新增、修改或删除一笔单位资料时，对应主服务器中的单位也做相应变化。
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p16.8.png" />
+</p>
+<p class="p0">
+	点击列表上方新增按钮，弹出以下新增单位页面：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p16.9.png" />
+</p>
+<p class="p0" style="">
+	是否参与积分排行，如果选择否，则统计报表中不会显示该单位的信息。这种情况一般适用于最高级别的单位，例如司法系统，最高级别单位厅办公室，他只接收下级单位报送的信息，而不需要向下级单位报送信息。
+</p>
+<p class="p0" style="">
+	删除单位时，其所有下属单位一并删除；同理，修改单位的上级单位或排序时，下属单位一起移动。
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.4刊物模板设置</h3>
+<p class="p0" style="">
+	设定的模板在刊物审核流程中使用，模板即刊物种类；新增刊物制作流程时，点击编辑正文按钮，会根据模板中的标签设置将流程中各字段的值正确带出。
+</p>
+<p class="p0">
+<img src="pic_admin/p16.10.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.5刊物种类设置</h3>
+<p class="p0" style="">
+	设定的刊物种类在刊物审核流程中使用，同时调取种类对应的模板；
+</p>
+<p class="p0" style="">
+	&nbsp;
+</p>
+<p class="p0">
+<img src="pic_admin/p16.11.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.6标签设置</h3>
+<p class="p0" style="">
+	设置信息报送标签，在模板设置时调用。点击“标签设置”如下图所示：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p16.12.png" />
+</p>
+<p class="p0" style="">
+	注意：“标签名称”一定要和信息报送刊物审核表单上的字段名称完全相同，否则不能调用，如刊物审核流程表单上是“刊物密级”，则新建标签的时候就输入“刊物密级”。产品在安装时已经增加了建立模板所需标签。
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.7流程设置</h3>
+<p class="p0" style="">
+	设置刊物制作时需要的流程。在流程设置中，可以为不同的用户设置不同的刊物审批流程。设置好流程后，在刊物制作的时候可以调用流程。
+</p>
+<p class="p0" style="">
+	同“工作流程<span>-</span><span>流程设置”。</span>
+</p>
+<p class="p0">
+<img src="pic_admin/p16.13.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>16.2.8流程设置（ezFLOW）</h3>
+<p class="p0" style="">
+	设置刊物制作时需要的流程。在流程设置中，可以为不同的用户设置不同的刊物审批流程。设置好流程后，在刊物制作的时候可以调用流程。
+</p>
+<p class="p0" style="">
+	同“工作流程<span>-</span><span>流程设置”</span>
+</p>
+<p class="p0">
+<img src="pic_admin/p16.14.png" />
+</p>
+
+</div>
+
+
+
+</div>
+
+
+
+
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+
+
+
+</div>
+ 
+</div>
+
+</div>
+
+</div>
+  
+
+
+</td>
+    
+  </tr>
+  
+</table>
+</div>
+</div>
+
+ 
+
+</td>
+    
+</tr>
+</table>
+</div>
+</body>
+</html>
+<SCRIPT language="javascript" src="js/js.js"></SCRIPT>

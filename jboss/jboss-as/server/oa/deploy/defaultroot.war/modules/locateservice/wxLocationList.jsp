@@ -146,9 +146,9 @@
 	function sourceFrom(po,i){
 		var html = '';
 		if(po.attendanceSource==1){
-			html = "evo客户端";
+			html = "客户端";
 		}else if(po.attendanceSource==2){
-			html = "微信企业号";
+			html = "企业号";
 		}
 		return html;
 	}

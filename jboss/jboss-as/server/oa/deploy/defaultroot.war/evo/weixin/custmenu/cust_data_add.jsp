@@ -34,9 +34,13 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 	<input type="hidden"  name="menuName" value="${menuName}" id="menuName"/>
 	<input type="hidden"  name="moduleType" value="${moduleType}" id="moduleType"/>
     <article class="wh-edit wh-edit-document">
-        <div class="wh-container">
+        <div>
             <c:if test="${not empty docXml}">
 				<x:parse xml="${docXml}" var="doc"/>
+				<c:if test="${not empty docXml1}">
+            		<x:parse xml="${docXml1}" var="doc2"/>
+            		<c:set var="hideField"><x:out select="$doc2//hideField/text()"/></c:set>
+           		</c:if>
 				<input  id="__sys_pageId" type="hidden"  name="__sys_pageId" value="<%=pageId%>" />
 				<input  id="processId" type="hidden"  name="processId" value="<%=processId%>" />
 				<input  id="__main_tableName" type="hidden"  name="__main_tableName" value='<x:out select="$doc//fieldList/tableName/text()"/>' />
@@ -50,16 +54,21 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 						<c:set var="mustfilled"><x:out select="$fd/mustfilled/text()"/></c:set>
 						<c:set var="id">$<x:out select="$fd/sysname/text()"/>$</c:set>
 						<tr>
-						    <th><x:out select="$fd/name/text()"/>：</th>
-							<td style="text-align: right;">
+						    <c:if test="${not empty docXml1}">
+							<th><c:if test="${mustfilled == 1 && fn:indexOf(hideField, id) == -1}"><i class="fa fa-asterisk"></i></c:if><x:out select="$fd/name/text()"/>：</th>
+							</c:if>
+							<c:if test="${empty docXml1}">
+							<th><c:if test="${mustfilled == 1}"><i class="fa fa-asterisk"></i></c:if><x:out select="$fd/name/text()"/>：</th>
+							</c:if>
+							<td>
 								<c:choose>
 									<%--单行文本 101--%>
 									<c:when test="${showtype =='101' && readwrite =='1'}">
 										<c:if test="${ fieldtype == '1000000'  }">
-											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="9" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' />
+											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="9" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onkeyup="check(this)"/>
 										</c:if>
 										<c:if test="${ fieldtype == '1000001'   }">
-											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="18" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' />
+											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="18" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onkeyup="check(this)" />
 										</c:if>
 										<c:if test="${fieldtype != '1000000' && fieldtype != '1000001'  }">
 											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text"  name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' />
@@ -128,7 +137,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 									<%--日期 107--%>
 									<c:when test="${showtype =='107' && readwrite =='1'}">
 										<div class="edit-ipt-a-arrow">
-											<input data-dateType="date" class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' placeholder="选择日期"/>
+											<input  class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onfocus="selectDateNew(this)" placeholder="选择日期"/>
 											<label class="edit-ipt-label" for="scroller"></label>
 										</div>
 									</c:when>
@@ -136,7 +145,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 									<%--时间 108--%>
 									<c:when test="${showtype =='108' && readwrite =='1'}">
 										<div class="edit-ipt-a-arrow">
-											<input data-dateType="time" class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' placeholder="选择时间"/>
+											<input  class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onfocus="selectTimeNew(this)" placeholder="选择时间"/>
 											<label class="edit-ipt-label" for="scroller"></label>
 										</div>
 									</c:when>
@@ -144,7 +153,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 									<%--日期 时间 109--%>
 									<c:when test="${showtype =='109' && readwrite =='1'}">
 										<div class="edit-ipt-a-arrow">
-											<input data-dateType="datetime" class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' placeholder="选择日期时间"/>
+											<input  class="edit-ipt-r edit-ipt-arrow" type="text" id='<x:out select="$fd/sysname/text()"/>' name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onfocus="selectDateTimeNew(this)" placeholder="选择日期时间"/>
 											<label class="edit-ipt-label" for="scroller"></label>
 										</div>
 									</c:when>
@@ -402,6 +411,33 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 							</td>
 						</tr>
 	            	</x:forEach>
+					<x:forEach select="$doc//subTableList/subTable" var="st">
+						<c:set var="subName" ><x:out select="$st/name/text()"/></c:set>
+						<c:set var="subTableName" ><x:out select="$st/tableName/text()"/></c:set>
+						<input name="subTableName" value="${subTableName}" type="hidden" />
+						<input name="subName" value="${subName}" type="hidden" />
+						<c:if test="${not empty subName}">
+							<tr>
+								<!--子表信息begin-->
+								<%--<c:set var="subTable" ></c:set>
+								<x:forEach select="$doc2//subTableList/subTable/subFieldList" var="ct" varStatus="xh">
+									<c:set var="subTable" >${xh.index+1}</c:set>
+								</x:forEach>
+								<c:if test="${not empty subTable}">
+									<th>子表填写<c:if test="${mustfilled == 1}"><i class="fa fa-asterisk"></c:if>：</th>
+									<td>
+										<input id="subTableInput" placeholder="添加子表" type="text" class="edit-ipt-r edit-ipt-arrow" value="" readonly="readonly" onclick="addSubTable();"/>
+									</td>
+								</c:if>
+								--%><!--子表信息end-->
+								<th>子表（${subName}）填写：</th>
+								<td>
+									<input id="subTableInput_${subTableName}" placeholder="添加子表" type="text" class="edit-ipt-r edit-ipt-arrow" 
+									value="" readonly="readonly" onclick="addSubTable('${subTableName}');"/>
+								</td>
+							</tr>
+						</c:if>
+					</x:forEach>	  
 					<!-- ----------------------华丽的分界线-------------------------- -->  
 	            </table>
             </c:if>
@@ -419,6 +455,10 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 </footer>
 <section id="selectContent" style="display:none">
 </section>
+<jsp:include page="../common/include_workflow_subTable.jsp" flush="true">
+	<jsp:param name="docXml" value="${docXml}" />
+	<jsp:param name="orgId" value="<%=orgId %>" />
+</jsp:include>
 </form>
 </body>
 </html>
@@ -459,82 +499,13 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
     }
 
     $(function(){
-        selectDateTime();
 		$("textarea").each(function(){
 			$(this).change(function(){ 
 				$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );
 			});
 		});
     });
-    
-    //日期空间初始化参数
-    var opt = {
-		'date': {
-			preset: 'date', //日期，可选：date\datetime\time\tree_list\image_text\select
-            theme: 'ios7', //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
-            display: 'bottom', //显示方式 ，可选：modal\inline\bubble\top\bottom
-            mode: 'scroller', //日期选择模式，可选：scroller\clickpick\mixed
-            lang:'zh',
-            dateFormat: 'yy-mm-dd', // 日期格式
-            setText: '确定', //确认按钮名称
-            cancelText: '取消',//取消按钮名籍我
-            dateOrder: 'yymmdd', //面板中日期排列格式
-            dayText: '日',
-            monthText: '月',
-            yearText: '年',
-            showNow: false,
-            endYear:2099
-		},
-		'datetime': {
-	  	 	preset: 'datetime', //日期，可选：date\datetime\time\tree_list\image_text\select
-            theme: 'ios7', //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
-            display: 'bottom', //显示方式 ，可选：modal\inline\bubble\top\bottom
-            mode: 'scroller', //日期选择模式，可选：scroller\clickpick\mixed
-            lang:'zh',
-            dateFormat: 'yy-mm-dd', // 日期格式
-            timeFormat: 'HH:ii',
-            timeWheels:'HHii',
-            setText: '确定', //确认按钮名称
-            cancelText: '取消',//取消按钮名籍我
-            dateOrder: 'yymmdd', //面板中日期排列格式
-            dayText: '日',
-            monthText: '月',
-            yearText: '年',
-            hourText:'时',
-            minuteText:'分',
-            showNow: false,
-            endYear:2099
-		},
-		'time': {
-	  	 	preset: 'time', //日期，可选：date\datetime\time\tree_list\image_text\select
-            theme: 'ios7', //皮肤样式，可选：default\android\android-ics light\android-ics\ios\jqm\sense-ui\wp light\wp
-            display: 'bottom', //显示方式 ，可选：modal\inline\bubble\top\bottom
-            mode: 'scroller', //日期选择模式，可选：scroller\clickpick\mixed
-            lang:'zh',
-            timeFormat: 'HH:ii',
-            setText: '确定', //确认按钮名称
-            cancelText: '取消',//取消按钮名籍我
-            hourText:'时',
-            minuteText:'分',
-            amText:'上午',
-            pmText:'下午',
-            showNow: false,
-            endYear:2099
-		}
-	}
-    
-    //选择日期时间
-    function selectDateTime(){
-    	var dateType = '';
-    	$('input[data-datetype=date],[data-datetype=datetime],[data-datetype=time]').each(function(){
-    		dateType = $(this).data('datetype');
-    		if(dateType){
-				$(this).mobiscroll(opt[dateType]);
-    		}
-    	});
-    }
-    
-    
+        
     //保存草稿
     function saveDraft(){
     	alert("功能暂无......");
@@ -595,9 +566,9 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 		}
 		var postUrl = '';
 		if(listType == 'org'){
-			postUrl = '/defaultroot/person/searchOrg.controller?flag=org';
+			postUrl = '/defaultroot/person/searchOrg.controller?flag=org&type=newcss';//新框架css有差异
 		}else if(listType=='user'){
-			postUrl = '/defaultroot/person/newsearch.controller?flag=user';
+			postUrl = '/defaultroot/person/newsearch.controller?flag=user&type=newcss';
 		}
 		$.ajax({
 			url : postUrl,
@@ -735,6 +706,274 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 		var menuName =$("#menuName").val();
 		window.location = "/defaultroot/custmenu/custData.controller?menuId="+menuId+"&menuName="+menuName;
 	}
+
+	function check(obj){
+		var id=obj.id;
+		var objval =document.getElementById(id).value;
+        if(isNaN(objval)){
+			document.getElementById(id).value="";
+			alert("请输入数字");
+			return false;
+		}
+	}
+
+	//日期选择器
+  function selectDateNew(obj){
+	  var myApp = new Framework7();
+	  var id = obj.id;
+	  var today = new Date();
+	  var pickerDate = myApp.picker({
+		input: "#"+id,
+		toolbarTemplate: '<div class="toolbar">' +
+		  '<div class="toolbar-inner">' +
+		  '<div class="left">' +
+		  '<a href="#" class="link reset-picker">重设</a>' +
+		  '</div>' +
+		  '<div class="right">' +
+		  '<a href="#" class="link close-picker">完成</a>' +
+		  '</div>' +
+		  '</div>' +
+		  '</div>',
+
+		//当触发的时候
+		onOpen: function(picker, values, displayValues) {
+		  //var todayArr = [today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), (today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes())];
+		  var todayArr = [today.getFullYear(), today.getMonth()+1, today.getDate()];
+		  picker.setValue(todayArr);
+		  picker.container.find('.reset-picker').on('click', function() {
+			picker.setValue(todayArr);
+		  })
+		},
+		onChange: function(picker, values, displayValues) {
+		  //获取当前月份的总天数
+		  var daysInMonth = new Date(picker.value[0], picker.value[1] * 1, 0).getDate();
+		  //如果设置月数大于当前月的总天数，设置天数为总天数
+		  if (values[2] > daysInMonth) {
+			picker.cols[2].setValue(daysInMonth);
+		  }
+		},
+		//返回给input的格式，“-” 可以换成“年月日”
+		formatValue: function(p, values, displayValues) {
+		  return values[0] + '-' + values[1] + '-' + values[2];// + ',' + values[3] + ':' + values[4];
+		},
+		//返回 value数组
+		cols: [
+		  // 年
+		  {
+			values: (function() {
+			  var arr = [];
+			 var date = new Date();
+			 newYear = date.getFullYear() + 15;
+			  for (var i = 1990; i <= newYear; i++) {
+				arr.push(i);
+			  }
+			  return arr;
+			})(),
+		  },
+		  // 月
+		  {
+			values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		  },
+		  // 日
+		  {
+			values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+		  },
+		  // 空格
+		  {
+			divider: true,
+			content: ' '
+		  }//,
+		  // 时
+		  /*{
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 23; i++) {
+				arr.push(i);
+			  }
+			  return arr;
+			})(),
+		  },
+		  // 冒号
+		  {
+			divider: true,
+			content: ':'
+		  },
+		  // 分
+		  {
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 59; i++) {
+				arr.push(i < 10 ? '0' + i : i);
+			  }
+			  return arr;
+			})(),
+		  }*/
+		]
+	  });
+      myApp = null;   
+  }
+	
+	//时分选择器
+  function selectTimeNew(obj){
+	  var myApp = new Framework7();
+	  var id = obj.id;
+	  var today = new Date();
+	  var pickerDate = myApp.picker({
+		input: '#'+id,
+		toolbarTemplate: '<div class="toolbar">' +
+		  '<div class="toolbar-inner">' +
+		  '<div class="left">' +
+		  '<a href="#" class="link reset-picker">重设</a>' +
+		  '</div>' +
+		  '<div class="right">' +
+		  '<a href="#" class="link close-picker">完成</a>' +
+		  '</div>' +
+		  '</div>' +
+		  '</div>',
+
+		//当触发的时候
+		onOpen: function(picker, values, displayValues) {
+		  //var todayArr = [today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), (today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes())];
+		  var todayArr = [today.getHours(), (today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes())];
+		  picker.setValue(todayArr);
+		  picker.container.find('.reset-picker').on('click', function() {
+			picker.setValue(todayArr);
+		  })
+		},
+		onChange: function(picker, values, displayValues) {
+		  //获取当前月份的总天数
+		  var daysInMonth = new Date(picker.value[0], picker.value[1] * 1, 0).getDate();
+		  //如果设置月数大于当前月的总天数，设置天数为总天数
+		  if (values[2] > daysInMonth) {
+			picker.cols[2].setValue(daysInMonth);
+		  }
+		},
+		//返回给input的格式，“-” 可以换成“年月日”
+		formatValue: function(p, values, displayValues) {
+		  return values[0] + ':' + values[1];
+		},
+		//返回 value数组
+		cols: [     
+		  {
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 23; i++) {
+				arr.push(i);
+			  }
+			  return arr;
+			})(),
+		  },
+		  // 冒号
+		  {
+			divider: true,
+			content: ':'
+		  },
+		  // 分
+		  {
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 59; i++) {
+				arr.push(i < 10 ? '0' + i : i);
+			  }
+			  return arr;
+			})(),
+		  }
+		]
+	  });
+    }
+//日期时分选择器
+  function selectDateTimeNew(obj){
+	  var myApp = new Framework7();//设成全局变量会影响附件上传
+	  var id = obj.id;
+	  var today = new Date();
+	  var pickerDate = myApp.picker({
+		input: "#"+id,
+		toolbarTemplate: '<div class="toolbar">' +
+		  '<div class="toolbar-inner">' +
+		  '<div class="left">' +
+		  '<a href="#" class="link reset-picker">重设</a>' +
+		  '</div>' +
+		  '<div class="right">' +
+		  '<a href="#" class="link close-picker">完成</a>' +
+		  '</div>' +
+		  '</div>' +
+		  '</div>',
+
+		//当触发的时候
+		onOpen: function(picker, values, displayValues) {
+		  var todayArr = [today.getFullYear(), today.getMonth()+1, today.getDate(), today.getHours(), (today.getMinutes() < 10 ? '0' + today.getMinutes() : today.getMinutes())];
+		  picker.setValue(todayArr);
+		  picker.container.find('.reset-picker').on('click', function() {
+			picker.setValue(todayArr);
+		  })
+		},
+		onChange: function(picker, values, displayValues) {
+		  //获取当前月份的总天数
+		  var daysInMonth = new Date(picker.value[0], picker.value[1] * 1, 0).getDate();
+		  //如果设置月数大于当前月的总天数，设置天数为总天数
+		  if (values[2] > daysInMonth) {
+			picker.cols[2].setValue(daysInMonth);
+		  }
+		},
+		//返回给input的格式，“-” 可以换成“年月日”
+		formatValue: function(p, values, displayValues) {
+		  return values[0] + '-' + values[1] + '-' + values[2] + ',' + values[3] + ':' + values[4];
+		},
+		//返回 value数组
+		cols: [
+		  // 年
+		  {
+			values: (function() {
+			  var arr = [];
+			 var date = new Date();
+			 newYear = date.getFullYear() + 15;
+			  for (var i = 1990; i <= newYear; i++) {
+				arr.push(i);
+			  }
+			  return arr;
+			})(),
+		  },
+		  // 月
+		  {
+			values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+		  },
+		  // 日
+		  {
+			values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31],
+		  },
+		  // 空格
+		  {
+			divider: true,
+			content: ' '
+		  },
+		  // 时
+		  {
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 23; i++) {
+				arr.push(i);
+			  }
+			  return arr;
+			})(),
+		  },
+		  // 冒号
+		  {
+			divider: true,
+			content: ':'
+		  },
+		  // 分
+		  {
+			values: (function() {
+			  var arr = [];
+			  for (var i = 0; i <= 59; i++) {
+				arr.push(i < 10 ? '0' + i : i);
+			  }
+			  return arr;
+			})(),
+		  }
+		]
+	  });
+  }
 </script>
 
 

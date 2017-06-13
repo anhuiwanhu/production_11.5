@@ -1,0 +1,1932 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帮助中心</title>
+<link href="css/css_help.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+</head>
+
+<body>
+<div class="help_bg">
+<div class="help_box">
+<div class="help_head">
+<a href="index.html" title="万户--帮助中心" class="logo"><img src="img/logo.png" /></a>
+<ul class="nav_box">
+<li><a href="index.html" class="user1">用户手册</a></li><li><a href="help_user.html" class="user2">管理员手册</a></li><li class="on_nav"><a href="help_ask.html" class="user3">常见问题</a></li>
+</ul>
+
+<a href="#" onclick="openWin({url:'../about/about.jsp',width:'530',height:'380',isScroll:'no',winName:'about'});" class="ico_sm"></a>
+<a href="#" onclick="window.close();" class="ico_tc"></a>
+
+</div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="220" valign="top" class="left_nr">
+        <div class="help_left">
+ 
+     
+     
+<div class="ask_list">
+<div id=LM1 style="DISPLAY: block">
+	<h2><a href="help_ask.html" target="_self" >系统及公共部分类问题</a></h2>
+	<h2><a href="c2.html" target="_self">工作流程类问题</a></h2>
+    <h2><a href="c3.html" target="_self"  >个人办公及综合事务类问题</a></h2>
+    <h2><a href="c4.html" target="_self" >信息管理类问题</a></h2>
+    <h2><a href="c5.html" target="_self" >内部邮件及论坛类问题</a></h2>
+    <h2><a href="c6.html" target="_self" class="cur" >咨询问题汇总</a></h2>
+</div>
+
+</div>
+
+     
+    </div> 
+    
+    
+  
+       </td>
+    <td valign="top" class="right_nr">
+<div class="right_bg">
+<span id="dtA_0"  class="ask_blank" style="display:block"></span>
+<span id="dtA_1"  class="ask_blank"></span>
+<span id="dtA_2"  class="ask_blank"></span>
+<span id="dtA_3"  class="ask_blank"></span>
+<span id="dtA_4"  class="ask_blank"></span>
+<span id="dtA_5"  class="ask_blank"></span>
+
+
+<div  class="right_img">
+<div style="width:95%; margin:0px auto;">
+<div class="ifm" id="ifm">
+
+<div class="warp">
+<h2 class="help_tit">咨询问题汇总</h2>
+
+<div class="linkChild clear" id="linkChild">
+<p>
+	<b>1. 批示意见丢失怎么办？</b>
+</p>
+<p>
+	<b>答：</b>之前讨论过批示意见丢失的情况，多指表单中部分批示意见丢失，那么如果整张表单上的所有批示意见都消失了呢？注意观察页面，左下角会显示一个感叹号，双击打开会显示一个缺少对象的错误提示（如果页面左下角未显示感叹号，请检查IE选项中的‘显示每个脚本错误的通知’是否勾选)。我们判断造成缺少对象的原因是用户在输入批示意见的时候输入了一些特殊符号，如空格、半角符号等，这些都有可能导致表单页面代码无法执行，造成了页面批示意见显示不出来。只要找出这些有问题的批示意见，把其中的特殊符号去掉，就可以了。
+</p>
+<p>
+	<b>2. 如何批量添加流程活动的操作按钮？</b>
+</p>
+<p>
+	<b>答：</b>用户在设置流程活动时，因对产品不熟悉或者其他的原因，没有添加‘打印’等按钮，后期发现此问题时，发现已经很多活动了，手动一个个增加工作量巨大，这里提供一个方法批量修改。
+</p>
+<p>
+	select*from wf_activity;
+</p>
+<p>
+	观察 operbutton 字段，cmdBackcmdAddSigncmdRelationcmdUndocmdAddNewcmdWait;这样的内容，在后面添加 cmdEmailSend; 标识邮件转发按钮 cmdPrint; 标识打印按钮。
+</p>
+<p>
+	<b>3. linux下查看硬件的命令</b>
+</p>
+<p>
+	<b>（1）主板信息</b>
+</p>
+<p>
+	#使用命令:
+</p>
+<p>
+	a. dmidecode | grep -i ‘serial number’;
+</p>
+<p>
+	#查看板卡信息:
+</p>
+<p>
+	b. cat /proc/pci;
+</p>
+<p>
+	<b>（2）cpu信息</b>
+</p>
+<p>
+	#通过/proc文件系统:
+</p>
+<p>
+	a. cat /proc/cpuinfo;
+</p>
+<p>
+	#通过查看开机信息:
+</p>
+<p>
+	b. dmesg | grep -i ‘cpu’;
+</p>
+<p>
+	#
+</p>
+<p>
+	c. dmidecode -t processor;
+</p>
+<p>
+	<b>（3）硬盘信息</b>
+</p>
+<p>
+	#查看分区情况:
+</p>
+<p>
+	fdisk -l;
+</p>
+<p>
+	#查看大小情况:
+</p>
+<p>
+	df -h;
+</p>
+<p>
+	#查看使用情况:
+</p>
+<p>
+	du -h;
+</p>
+<p>
+	#
+</p>
+<p>
+	hdparm -I /dev/sda;
+</p>
+<p>
+	#
+</p>
+<p>
+	dmesg | grep sda;
+</p>
+<p>
+	<b>（4）内存信息</b>
+</p>
+<p>
+	a. cat /proc/meminfo;
+</p>
+<p>
+	b. dmesg | grep mem;
+</p>
+<p>
+	c. free -m;
+</p>
+<p>
+	d. vmstat;
+</p>
+<p>
+	e. dmidecode | grep -i mem;
+</p>
+<p>
+	<b>（5）网卡信息</b>
+</p>
+<p>
+	a. dmesg | grep -i ‘eth’;
+</p>
+<p>
+	b. cat /etc/sysconfig/hwconf | grep -i eth;
+</p>
+<p>
+	c. lspci | grep -i ‘eth’;
+</p>
+<p>
+	<b>（6）鼠标键盘和USB信息</b>
+</p>
+<p>
+	查看键盘和鼠标：cat /proc/bus/input/devices;
+</p>
+<p>
+	查看USB设备：cat /proc/bus/usb/devices;
+</p>
+<p>
+	查看各设备的中断请求(IRQ):cat /proc/interrupts;
+</p>
+<p>
+	<b>（7） 显卡信息</b>
+</p>
+<p>
+	a. lspci |grep -i ‘VGA’;
+</p>
+<p>
+	b. dmesg | grep -i ‘VGA’;
+</p>
+<p>
+	<b>（8）</b>a. lspci |grep -i ‘VGA’;
+</p>
+<p>
+	b. dmesg | grep -i ‘VGA’;
+</p>
+<p>
+	<b>（9） 用硬件检测程序kuduz探测新硬件</b>
+</p>
+<p>
+	a. service kudzu start ( or restart);
+</p>
+<p>
+	b. dmesg (查看所有启动时检测到的硬件信息);
+</p>
+<p>
+	c. lspci (显示外设信息, 如usb，网卡等信息);
+</p>
+<p>
+	d. cat /etc/sysconfig/hwconf;
+</p>
+<p>
+	e. mpstat;
+</p>
+<p>
+	<b>4．Oracle归档设置可以开启吗？</b>
+</p>
+<p>
+	<b>答：</b>不建议开启。如果开启需要管理员经常维护归档日志，这个归档文件默认会有大小的，写满后如果忘记维护oracle实例会自动关闭。
+</p>
+<p>
+	<b>（1）开启归档</b>
+</p>
+<p>
+	a. 关闭数据库shutdown immediate;
+</p>
+<p>
+	b. startup mount;
+</p>
+<p>
+	c. alter database archivelog;
+</p>
+<p>
+	d. alter database opne;
+</p>
+<p>
+	<b>（2） 禁止归档</b>
+</p>
+<p>
+	a. 关闭数据库shutdown immediate;
+</p>
+<p>
+	b. startup mount;
+</p>
+<p>
+	c. alter database archivelog;
+</p>
+<p>
+	d. alter database opne;
+</p>
+<p>
+	归档信息可以通过如下语句查看:
+</p>
+<p>
+	SQL&gt; archive log list;
+</p>
+<p>
+	<b>5. WebSphere报错: 某一服务方法创建了未捕获到的异常。创建的异常，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>WebSphere报错:[11-11-23 16:55:21:766 CST] 0000001b servlet E com.ibm.ws.webcontainer.servlet.ServletWrapper service SRVE0068E: 应用程序 ezOFFICE 中 servlet CustomDesktopAction 的某一服务方法创建了未捕获到的异常。创建的异常：java.lang.NullPointerException at com.whir.ezoffice.customdesktop.action.CustomDesktopAction.service(CustomDesktopAction.java:63) at javax.servlet.http.HttpServlet.service(HttpServlet.java:831) at com.ibm.ws.cache.servlet.ServletWrapper.serviceProxied(ServletWrapper.java:307) at com.ibm.ws.cache.servlet.CacheHook.handleFragment(CacheHook.java:574) at com.ibm.ws.cache.servlet.CacheHook.handleServlet(CacheHook.java:250) at com.ibm.ws.cache.servlet.ServletWrapper.service(ServletWrapper.java:259) at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1657) at com.ibm.ws.webcontainer.servlet.ServletWrapper.service(ServletWrapper.java:1597) at com.ibm.ws.webcontainer.filter.WebAppFilterChain.doFilter(WebAppFilterChain.java:104) at com.ibm.ws.webcontainer.filter.WebAppFilterChain._doFilter(WebAppFilterChain.java:77) at com.ibm.ws.webcontainer.filter.WebAppFilterManager.doFilter(WebAppFilterManager.java:908) at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:934) at com.ibm.ws.webcontainer.servlet.ServletWrapper.handleRequest(ServletWrapper.java:502) at com.ibm.ws.webcontainer.servlet.ServletWrapperImpl.handleRequest(ServletWrapperImpl.java:179) at com.ibm.ws.webcontainer.servlet.CacheServletWrapper.handleRequest(CacheServletWrapper.java:91) at com.ibm.ws.webcontainer.WebContainer.handleRequest(WebContainer.java:864) at com.ibm.ws.webcontainer.WSWebContainer.handleRequest(WSWebContainer.java:1583) at com.ibm.ws.webcontainer.channel.WCChannelLink.ready(WCChannelLink.java:186) at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleDiscrimination(HttpInboundLink.java:445) at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.handleNewRequest(HttpInboundLink.java:504) at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.processRequest(HttpInboundLink.java:301) at com.ibm.ws.http.channel.inbound.impl.HttpInboundLink.ready(HttpInboundLink.java:275) at com.ibm.ws.tcp.channel.impl.NewConnectionInitialReadCallback.sendToDiscriminators(NewConnectionInitialReadCallback.java:214) at com.ibm.ws.tcp.channel.impl.NewConnectionInitialReadCallback.complete(NewConnectionInitialReadCallback.java:11 at com.ibm.ws.tcp.channel.impl.AioReadCompletionListener.futureCompleted(AioReadCompletionListener.java:165) at com.ibm.io.async.AbstractAsyncFuture.invokeCallback(AbstractAsyncFuture.java:217) at com.ibm.io.async.AsyncChannelFuture.fireCompletionActions(AsyncChannelFuture.java:161) at com.ibm.io.async.AsyncFuture.completed(AsyncFuture.java:138) at com.ibm.io.async.ResultHandler.complete(ResultHandler.java:204) at com.ibm.io.async.ResultHandler$2.run(ResultHandler.java:905) at com.ibm.ws.util.ThreadPool$Worker.run(ThreadPool.java:1563)
+</p>
+<p>
+	这个错误与weblogic中的空指针错误相似，以上错误信息是：自定义桌面报空指针，暂不影响系统使用。
+</p>
+<p>
+	<b>6．jboss内存如何分配？</b>
+</p>
+<p>
+	<b>答：</b>jboss中run.bat中的一段，最好每个参数都解释：
+</p>
+<p>
+	set JAVA_OPTS=%JAVA_OPTS% -Xms256m -Xmx2048m;
+</p>
+<p>
+	-XX:PermSize=128m -XX:MaxPermSize=256m;
+</p>
+<p>
+	-Dsun.rmi.dgc.client.gcInterval=3600000;
+</p>
+<p>
+	-Dsun.rmi.dgc.server.gcInterval=3600000;
+</p>
+<p>
+	这些是配置JBoss运行的JVM优化参数。
+</p>
+<p>
+	-Xms256m 初始的java内存堆大小 256M;
+</p>
+<p>
+	-Xmx2048m 最大的java内存堆大小 2048M;
+</p>
+<p>
+	-XX:PermSize=128m GC;预留的内存，如果你的应用有大量的Class被动态载入或卸载，你应该不这个参数设大些；
+</p>
+<p>
+	-XX:MaxPermSize=256m; 最大的GC预留内存-Dsun.rmi.dgc.client.gcInterval=3600000; RMI客户端GC发生周期的设定，-Dsun.rmi.dgc.server.gcInterval=3600000; RMI服务端GC发生周期的设定。
+</p>
+<p>
+	<b>7．如何修改用户中文名10个字的限制？</b>
+</p>
+<p>
+	<b>答：</b>账号的姓名最多只能输入10个字，再多就无法输入了。这里是受到表中字段属性和代码中的限制，首先增加字段的长度：alter table ezoffice.org_employee alter column empname nvarchar(100); 然后修改D:\bea\user_projects\domains\mydomain\defaultroot\system_manager路径下的systemmanager_user_add.jsp文件中修改‘10’为‘50’这样中文名可以输入50个字。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/297.gif" />
+</div>
+<p>
+	<b>8．AD域的密码做了修改，OA要做什么修改？</b>
+</p>
+<p>
+	<b>答：</b>修改D:\bea\user_projects\domains\mydomain\config路径下的config.xml或whconfig.xml文件中的关于AD域部分中的密码即可。
+</p>
+<p>
+	<b>9．ezSMS无法在64位系统上应用，怎么办？</b>
+</p>
+<p>
+	<b>答：</b>ezSMS所调用的短信平台的接口是不支持64位系统的，所以要把ezSMS放到32位的系统上才能正常运行，只要配置好数据库服务器的ip和用户、密码即可（注意：要确定mysql.user中的ezoffice用户的密码和你输入的用户密码一致，不然会连不到数据库）。
+</p>
+<p>
+	<b>10．标准版OA修改默认端口，需要修改哪些文件？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>修改D:\ezOFFICE\conf\server.xmlD:\ezOFFICE\bin\config\whconfig.xml;
+</p>
+<p>
+	D:\ezOFFICE\bin\config\hibernate\hibernate.property.xml文件中的默认端口号为您所需要的端口号即可。
+</p>
+<p>
+	<b>11．在线感知有哪些作用？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>OA产品帮助 管理员手册中有介绍‘在线感知’，具体如下图：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/298.gif" />
+</div>
+<p>
+	但是并不仅仅是如此。如果系统管理中默认选项不勾选启用的话，还会导致 RTX提醒无法使用。
+</p>
+<p>
+	<b>12．物品管理中物品为何无法领用？</b>
+</p>
+<p>
+	<b>答：</b>物品单据已经审批完毕，但是状态依旧是未审批，因此该物品无法领用，具体处理办法如下：
+</p>
+<p>
+	select*from gj_ssmaster where ss_serial=‘单号’；update GJ_SSMASTER set check_flag=‘Y’ where ss_serial=‘单号’；
+</p>
+<p>
+	这样该物品就可以被领用了。
+</p>
+<p>
+	<b>13．如何删除历史员工？</b>
+</p>
+<p>
+	<b>答：</b>用户被删除后随即转移到人事管理——历史员工。历史员工如何删除？
+</p>
+<p>
+	（1） 执行语句查询改员工的ID
+</p>
+<p>
+	select emp_id from org_employee where empname =‘员工姓名’;记录该ID，如A。
+</p>
+<p>
+	（2） 执行语句删除相关信息
+</p>
+<p>
+	DELETE FROM ORG_ORGANIZATION_USER WHERE EMP_ID = A; DELETE FROM ORG_RIGHTSCOPE WHERE EMP_ID = A; DELETE FROM ORG_USER_ROLE WHERE EMP_ID = A; DELETE FROM ORG_EMPLOYEE WHERE EMP_ID = A;
+</p>
+<p>
+	<b>14．升级后为何自动编号不能自动生成了？</b>
+</p>
+<p>
+	<b>答：</b>由于升级后系统中修改了原来的编号处值方法，由1开始，历史版本中部分是从0开始。处理方法:找到自定义用户数据表。将以前的启始编号0改为其它数据就可以了。
+</p>
+<p>
+	<b>15．信息中正文串文如何处理？</b>
+</p>
+<p>
+	<b>答：</b>如下操作：
+</p>
+<p>
+	（1）可以再发个和A内容同样的一个信息C，标题不同。如果需要流程审核的不需要进行审核。
+</p>
+<p>
+	（2）然后到数据库OA_INFORMATION（信息表）里面用语句查询到C的INFORMATIONCONTENT字段中的数字。
+</p>
+<p>
+	select INFORMATIONCONTENT;* from OA_INFORMATION where informationtitle=‘C文的标题’;找到INFORMATIONCONTENT这个字段。
+</p>
+<p>
+	这个字段储存的就是一串文件数字，如“1313643472569”这样的数字来表示的，这串数字就代表数据库里面的文件名。
+</p>
+<p>
+	（3）然后到数据库OA_INFORMATION（信息表）里面用语句查询到C的INFORMATIONCONTENT字段中的数字，
+</p>
+<p>
+	select INFORMATIONCONTENT;* from OA_INFORMATION where informationtitle=‘C文的标题’;
+</p>
+<p>
+	找到INFORMATIONCONTENT这个字段，这个字段储存的就是一串文件数字，如“1313643472569”这样的数字来表示的，这串数字就代表数据库里面的文件名。
+</p>
+<p>
+	那么用语句把这串数字更新取代到原来信息A中在数据库里面的INFORMATIONCONTENT字段就可以了。
+</p>
+<p>
+	Update OA_INFORMATION set INFORMATIONCONTENT=‘查到的C的对应的字段数字’;where informationtitle=‘A文的标题’;
+</p>
+<p>
+	（4）删除信息C。
+</p>
+<p>
+	<b>16．公文批意见为什么不显示办理人？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>这个情况应该是在新版本中出现的。属于产品的BUG。由于以前不批的时候会有默认值，现版本需要手动点一下默认的批示意见或者手动输入批示意见。
+</p>
+<p>
+	<b>17．如何删除某人的所有邮件？</b>
+</p>
+<p>
+	<b>答：</b>有某些客户有此要求，按照如下进行操作：
+</p>
+<p>
+	select * from org_employee where EMPNAME=‘姓名’;
+</p>
+<p>
+	select * from OA_MAIL_USER where EMP_ID=数值;
+</p>
+<p>
+	delete from OA_MAIL_USER where EMP_ID=数值;
+</p>
+<p>
+	<b>18．如何修改任务进度？</b>
+</p>
+<p>
+	<b>答：</b>任务进度修改后，前台并没有同步更新，可以到数据库表里面修改任务列表里面的完成度。
+</p>
+<p>
+	<b>19．代办提醒为何不准？</b>
+</p>
+<p>
+	<b>答：</b>有时会遇上代办提醒不准的情况，有很多原因。可以到数据库里面暂时更改过来。
+</p>
+<p>
+	select * from ORG_EMPLOYEE where EMPNAME=‘祖磊’(查到emp_id=59);
+</p>
+<p>
+	select COUNT(*) from WF_WORK where WORKSTATUS=‘0’and WF_CUREMPLOYEE_ID=‘59’（查到此人的代办文件数量）;
+</p>
+<p>
+	update OA_SYSTEM_REMIND set waitFile=‘17’; where userid=‘59’（更改代办数量）;
+</p>
+<p>
+	<b>20．批示意见为何不见了？</b>
+</p>
+<p>
+	<b>答：</b>打开该流程表单，找到recordid，如X.在数据库中执行如下语句：
+</p>
+<p>
+	select * from wf_dealwith where databaserecord_id=X; 找到对应的批示意见的 wf_dealwith_id;可能有多行，例如其中id为a的批示意见不能显示，但是id为b的能显示，再执行下列语句：
+</p>
+<p>
+	select * from wf_dealwithcomment where wf_dealwith_id=a;
+</p>
+<p>
+	确定不能显示的批示意见，执行更新：
+</p>
+<p>
+	update wf_dealwithcomment set wf_dealwith_id=b where wf_dealwith_id=a;
+</p>
+<p>
+	<b>21．打补丁是不是必须把myserver缓存清空？</b>
+</p>
+<p>
+	<b>答：</b>不是必须要清，视具体情况而定：
+</p>
+<p>
+	（1）补丁中只有JSP可以不清缓存;
+</p>
+<p>
+	（2）有扩展名为.class的文件，这时候就需要清除缓存，在清空MYSERVER文件中的内容时，建议先备份。
+</p>
+<p>
+	<b>22．升级后自定义栏目报错，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>升级后自定义栏目，前台页面出现JAVA报错,是由于历史权限写法于新的权限不同。
+</p>
+<p>
+	处理方法:用EZOFFICE进入数据库OA_CUSTMENU表中找到munu_level字段.历史权限为数字。新权限写法是“userChannel_10002”
+</p>
+<p>
+	可以新建一个自定义栏目，比较一下munu_level，修改即可。
+</p>
+<p>
+	<b>23．为什么自定义的模块在角色中赋予权限时，看不到模块的名称？</b>
+</p>
+<p>
+	<b>答：</b>这是自定义模块名称太长导致的，把模块的名称修改短后就能看到了。
+</p>
+<p>
+	<b>24．如何打开sql server 2005 的1433端口?</b>
+</p>
+<p>
+	<b>答：</b>有时候因为数据库的端口没有打开，导致oa的服务无法连到数据库，oa服务启动报错。
+</p>
+<p>
+	处理方法： 配置工具-&gt;Sql Server Configuration Manager-&gt;MSSQLSERVER的协议看看TCP/IP协议是否启动,如果启动,右键菜单点"属性" ,在分页菜单中选"IP地址",把"IP1"和"IP2"中"TCP端口"为1433, "已启用"改为"是" 配置工具-&gt;Sql Server Configuration Manager-&gt;SQL Native Client 配置-&gt;客户端协议-&gt;TCP/IP 选择TCP/IP右键菜单中"属性",确认"默认端口"是1433,"已启用"为"是" 。
+</p>
+<p>
+	<b>25．如何屏蔽掉审批意见中的附件上传按钮？</b>
+</p>
+<p>
+	<b>答：</b>D:\bea\user_projects\domains\mydomain\defaultroot\work_flow只要屏蔽掉workflow_iframe_wfaccessory.jsp这个文件即可。
+</p>
+<p>
+	<b>26．论坛信息中如何屏蔽不显示账号的ip地址？</b>
+</p>
+<p>
+	<b>答：</b>D:\bea\user_projects\domains\mydomain\defaultroot\forum修改文件forum_document_list.jsp,把关于ipaddress的语句注销即可。
+</p>
+<p>
+	<b>27．如何修复mysql数据表？</b>
+</p>
+<p>
+	<b>答：</b>mysql提供myisamchk.exe工具来修复损坏的数据表。我们的标准本安装包中未集成，所以要安装一个完整的mysql客户端，从客户端bin目录中找到myisamchk.exe文件，复制到服务器上，最好也放在我们标准版安装目录下面。进入CMD命令提示符，在该目录下输入 myisamchk 就可以查看所有的参数和操作方法了。将常用的参数命令罗列：
+</p>
+<p>
+	命令使用方法 myisamchk 【options】 tab_name;
+</p>
+<p>
+	Cbackup, -B 在进行修复前作相关表得备份Cdata-file-length=#, -D # 重建表时，指定数据文件得最大长度。
+</p>
+<p>
+	Cextend-check, -e 试图去恢复每个数据行，会产生一些垃圾数据行，万般无奈的情况下用。
+</p>
+<p>
+	Cforce, -f 当遇到文件名相同的.TMD文件时，将其覆盖掉;keys-used=#, -k # 指定所用的keys可加快处理速度，每个二进制位代表一个key.第一个key为0;
+</p>
+<p>
+	Crecover, -r 最常用的选项，大多数破坏都可以通过它来修复。如果你的内存足够大，可以增大参数sort_buffer_size的值来加快恢复的速度。但是遇到唯一键由破坏而不唯一的表时，这种方式不管用。
+</p>
+<p>
+	Csafe-recover －o 最彻底的修复方式，但是比-r方式慢，一般在-r修复失败后才使用。这种方式读出所有的行，并以行为基础来重建索引。它的硬盘空间需求比-r方式稍微小一点，因为它没创建分类缓存。你可以增加key_buffer_size的值来加快修复的速度。
+</p>
+<p>
+	Csort-recover, -n mysql用它类分类索引，尽管结果是临时文件会非常大;
+</p>
+<p>
+	Ctmpdir=path, -t 如果你不想用环境变量TMPDIR的值的话，可以自定义临时文件的存放位置;
+</p>
+<p>
+	Cquick, -q 最快的修复方式，当数据文件没有被修改时用，当存在多键时，第二个-q将会修改数据文件;
+</p>
+<p>
+	Cunpack, -u 解开被myisampack打包的文件;
+</p>
+<p>
+	<b>28．自定义模块导入数据要注意哪些问题？</b>
+</p>
+<p>
+	<b>答：</b>OA中自定义模块可以使用‘启动数据列表项’来关联数据表，有权限的管理人员可以进行数据的新增、导入、删除等操作。导入数据的模版可以直接点击‘下载模版’获得，但是要注意几个问题
+</p>
+<p>
+	（1）模版中字段的名称和顺序必须和自定义数据表中一致；
+</p>
+<p>
+	（2）工作表名称必须和数据表名称一致；
+</p>
+<p>
+	（3）要注意数据表的字段类型，文本字符类型的字段可以不填任何数据，浮点和整形如果该字段无内容 也要填充0，并且要注意将这个单元格格式改成数字-数值；
+</p>
+<p>
+	（4）部分版本要注意将有数据的区域增加边框，不是全部表格。
+</p>
+<p>
+	<b>29．升级后自定义模块为何浏览不到数据？</b>
+</p>
+<p>
+	<b>答：</b>在自定义模块中要实现根据登录用户来查询，自己只能看到与自己相关的数据。如某单位将工资和奖金数据导入到OA中的自定义模块中，每个员工都可以看到自己的工资奖金明细。自定义模块设置界面如下：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/299.gif" />
+</div>
+<p>
+	实现效果却是这样：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/300.gif" />
+</div>
+<p>
+	表明主表约束并没有生效。
+</p>
+<p>
+	这里要注意以下几点：
+</p>
+<p>
+	（1）在设置模块的查看权限时，要给与全部权限；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/301.gif" />
+</div>
+<p>
+	（2）自定义模块设置使用 自定义SQL 语句，要求首先数据表中必须有与登录用户帐号或者姓名对应的字段，如 whir$t4007_f4014 对应登录人帐号，那么自定义SQL编写；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/302.gif" />
+</div>
+<p>
+	要注意的是，自定义语句必须以 and 关键字开头，且不能以分号结尾。
+</p>
+<p>
+	（3）在设置自定义模块数据查看范围要勾选看到所有数据：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/303.gif" />
+</div>
+<p>
+	这样，我们的自定义模块就能 实现预定的功能了。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/304.gif" />
+</div>
+<p>
+	<b>30．html编辑框中上传文档提示“无效的文档”，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>由于控件受阻导致。一般将地址加入可信站点即可。
+</p>
+<p>
+	<b>31．信息中如何修改浏览点击次数？</b>
+</p>
+<p>
+	<b>答：</b>有的政府部门需要将浏览次数进行修改，可以直接到 OA_INFORMATION（信息表）中修改 INFORMATIONKITS（点击次数）。
+</p>
+<p>
+	<b>32．问卷管理中,已经投过票，如何再修改问卷的投票及查看范围？</b>
+</p>
+<p>
+	<b>答：</b>有时，有的客户开放了小范围做投票测试，测试后再将范围改大，但问卷调查中如果已经投票成功，范围则无法修改。又不愿意重新做问卷时，可以到数据库中进行修改。
+</p>
+<p>
+	先到员工信息表中找到要修改的组织ID等信息，将问卷管理表（oa_quetionnaire）中的actororg,examineorg,examinename,actorname,actoremp，examineemp字段修改为要修改的组织对应字段。
+</p>
+<p>
+	<b>33、收文流水号跳号，如何处理？</b>
+</p>
+<p>
+	答：与文号跳号类似。有时候客户流水号会出现重复情况，客户删除后,流水号并没有做修改,导致跳号。可以到数据库里面去修改 GOV_RECEIVEFILESEQ 表的 seqfigR 字段为目前在用的最大流水号。
+</p>
+<p>
+	<b>34．如何解决远程桌面超出最大连接数的问题？</b>
+</p>
+<p>
+	<b>答：</b>今天管理一台Windows2003服务器，远程连接时帐号密码都输入完后，点连接后弹出一个 “终端服务器超出最大允许连接”。上网查了一下归结一下出现这种情况的原因和解决办法。
+</p>
+<p>
+	<b>原因:</b>用远程桌面链接登录到终端服务器时经常会遇到“终端服务器超出最大允许链接数”诸如此类错误导致无法正常登录终端服务器，引起该问题的原因在于终端服务的缺省链接数为2个链接，并且当登录远程桌面后如果不是采用注销方式退出，而是直接关闭远程桌面窗口，那么实际上session并没有释放掉，而是继续保留在服务器端，这样就会占用总的链接数，当这个数量达到最大允许值时就会出现上面的提示。 如何避免？
+</p>
+<p>
+	（1）用注销来退出远程桌面而不是直接关闭窗口；
+</p>
+<p>
+	（2）限制已断开链接的session存在时间；
+</p>
+<p>
+	（3）是增加连接数。
+</p>
+<p>
+	下面给大家说一个可以在不进入服务器的情况下，强行登陆！当你服务器泛起这样提示的时候你也不用再发愁重启服务器了。方法如下：
+</p>
+<p>
+	按开始--&gt;运行--&gt; mstsc /console /v:;服务器名或IP或域名。例如 mstsc /console /v:8.8.8.8;或者 mstsc /console /v:www.cn778899.com;也可以 mstsc www.cn778899.com /console;
+</p>
+<p>
+	注：这种方法尤其适用于直接关闭窗口而导致的问题。
+</p>
+<p>
+	<b>35．Linux vim文件如何加密？</b>
+</p>
+<p>
+	<b>答：</b>vim 加密使用 -x 参数，即vim -x myfile。然后会提示让你输入两次密码，这样就算给你的文件加上密码了，下次要看文件用VIM 打开会要求输入密码，输入错误密码则会得到一堆乱码，用其他编辑器打开也是一堆乱码。要清除密码只要在正确打开文件后用 “:X” 指令，然后给一个空密码就行。
+</p>
+<p>
+	当然vim 加密还是有很多局限的，算法弱并且中间会有交换文件，交换文件是不加密的，虽然有“-n” 参数可以不使用交换文件但不用交换文件让我不得不时刻记得要存盘。
+</p>
+<p>
+	vim加密的算法很弱所以要更好的保护你的文件你需要专业的加密工具，如openssl;gpg。
+</p>
+<p>
+	<b>36．ssh server 公钥改变后客户端为何无法登录？</b>
+</p>
+<p>
+	<b>答：</b>ssh会你每个你访问过的计算机的公钥(public key)都记录在~/.ssh/known_hosts。当下次访问相同计算机时，OpenSSH会核对公钥。如果公钥不同，OpenSSH会发出警告， 避免你受到DNS Hijack之类的攻击。所以当服务器公钥改变而我还在用老的公钥时系统就给了你如上的提示。
+</p>
+<p>
+	解决办法：
+</p>
+<p>
+	实用ssh-keygen -R 释放：
+</p>
+<p>
+	[hew@localhost ~]$ ssh hew@linuxsky.org [hew@localhost ~]$ ssh-keygen -R linuxsky.org /home/hew/.ssh/known_hosts updated.;
+</p>
+<p>
+	Original contents retained as /home/hew/.ssh/known_hosts.old [hew@localhost ~]$ ssh hew@linuxsky.org The authenticity of host 'linuxsky.org (203.171.237.x)' can't be established. RSA key fingerprint is 46:bc:0a:4e:80:a7:6f:73:b9:73:71:51:a4:52:59:x. Are you sure you want to continue connecting (yes/no)?
+</p>
+<p>
+	<b>37．哪些字段可以设置成流程提醒项？</b>
+</p>
+<p>
+	<b>答：</b>我们OA中自定义数据表中目前提供4种数据类型，每种数据类型又提供了很多种显示方式。但并不是所有的显示方式都能 设置成流程提醒项，罗列如下：
+</p>
+<p>
+	单行文本/单选/多选/下拉框/金额/金额大写/日期/时间/日期时间/自动编号。
+</p>
+<p>
+	<b>38．为何 IE 无法显示部分加载项的加载时间？</b>
+</p>
+<p>
+	<b>答：</b>IE 浏览器为我们提供了“管理加载项”工具用以查看或设置浏览器加载项（Addons）。在“管理加载项”对话框显示的加载项相关信息中，其中有一项是加载项的“加载时间（Load Time）”，精确到 10 毫秒，显示（例如 0.02s）。然而，IE 浏览器通常并不能显示出所有加载项的加载时间。在大部分计算机中，很多加载项的“加载时间”都是空白的。甚至在某些极端情况下，“管理加载项”中可以看到的所有加载项的“加载时间”都是空白。只有很少的一部分加载项可以显示“加载时间”，这是为什么呢？
+</p>
+<p>
+	首先，IE 浏览器无法显示 ActiveX 控件以及基于注册表建立的浏览器扩展工具（工具栏按钮或工具条）的加载时间，也无法显示那些在自身的选项中已经设置为不运行的加载项的加载时间，这是设计使然。例如，以 ActiveX 控件形式安装的 Shockwave Flash Object 就不显示加载时间，即使 IE 已经使用它打开了来自网站的视频。
+</p>
+<p>
+	其次，如果 IE 在监控某加载项的运行状态时无法获得此加载项的 CoCreateInstance 参数信息，也将无法显示此加载项的加载时间。这个问题有两种可能原因：第一是加载项在设计开发的过程中原本就没有配置CoCreateInstance 参数，这样的加载项肯定无法显示加载时间；第二是 IE 浏览器的版本没有及时更新，我们需要为 IE 安装版本最新的累积性安全更新，以提高 IE 获取加载项的 CoCreateInstance 参数信息的成功率。截止到 2011 年 8 月，IE 的最新累积性安全更新是 MS11-057（KB2559049）： http://www.microsoft.com/china/technet/security/bulletin/ms11-057.mspx;
+</p>
+<p>
+	所有版本的 IE 都应及时安装 KB2559049 以升级至最新的累积性安全更新版本。部分无法显示加载时间的加载项可能会在安装最新的 IE 累积性安全更新后恢复显示加载时间。
+</p>
+<p>
+	<b>39．配置流程图时，预览提示某某文件拒绝写入，导致流程图配置不成功。如何处理？</b>
+</p>
+<p>
+	<b>答：</b>c:\windows\temp这个文件的权限问题导致，在属性--安全中增加everyone用户，赋予其所有权限即可。
+</p>
+<p>
+	<b>40．组织被用户删除后才发现组织中还有用户要用，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>处理起来较简单。把ORG_ORGANIZATION(组织机构表)中的这个组织的字段ORGSTATUS改成‘1’，然后到历史员工中恢复这些用户，等这些用户都转移到其他组织后，再删除组织。
+</p>
+<p>
+	<b>41．公文正文窜文，客户又不想重新发起流程如何处理？</b>
+</p>
+<p>
+	<b>答：</b>如果公文都到分发这步了，一般客户不原意重新发起公文流程，担心领导有意见。如果真的不能说服客户可以做如下处理：重新发起一个流程（此流程不用办理），正文和被窜丢失的正文一样，在收文表中找到这个新发流程的记录，记录下字段sendfile_text;把以前公文的这个字段更新为新发流程的就可以，然后删除新发的公文流程。
+</p>
+<p>
+	<b>42．如何修改频道的默认页面？</b>
+</p>
+<p>
+	<b>答：</b>用户要求修改频道打开时右边内容窗口的默认页面，修改数据库表oa_menuset 中该频道对应的righturl字段值，为要修改的页面URL，URL 可以从页面中点击右键属性获取。
+</p>
+<p>
+	<b>43．信息管理中栏目信息为何无法修改？</b>
+</p>
+<p>
+	<b>答：</b>部分栏目的信息，可查看人，新建人等均不能修改，观察数据库表 OA_INFORMATIONCHANNEL 中channelNameString 字段，部分为null，导致这些栏目的信息无法被正确读写。修改null为null.test，其中 test为一个正常的栏目名称，这样这个栏目的信息就可以被修改保存了，在重新保存后系统会自动生成正确 channelNameString 数据。
+</p>
+<p>
+	<b>44．在人事管理中新增用户，开通的帐号为何不能修改密码？</b>
+</p>
+<p>
+	<b>答：</b>在人事管理中新增用户，直接勾选开通帐号，此帐号首次登录修改密码后就不能登录了， 在用户管理中为改员工增加上级领导就可以了。
+</p>
+<p>
+	<b>45．如何使oracle11g导出空表？</b>
+</p>
+<p>
+	Declare stmt varchar2(200);
+</p>
+<p>
+	begin for tb in (select table_name from user_tables) loop stmt:=‘alter table ’||tb.table_name||‘allocate extent’;
+</p>
+<p>
+	execute immediate stmt;
+</p>
+<p>
+	end loop;
+
+</p>
+<p>
+	end;
+</p>
+<p>
+	11g在用EXP 命令导出时就不会丢失空表了。
+</p>
+<p>
+	<b>46．linux 开源许可说明有哪些？</b>
+</p>
+<p>
+	<b>答：</b>
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/305.gif" />
+</div>
+<p>
+	<b>47．流程删除后，在办文件中报500 错误，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>Select * from wf_work where worktitle=’’; 用update语句将workdelete=0（未删状态）改成=1。（已删除状态）
+</p>
+<p>
+	<b>48．OA系统为何无法登陆？</b>
+</p>
+<p>
+	<b>答：</b>进程数小了。执行下面语句增加这个进程数 alter system set processes=200 scope=spfile;
+</p>
+<p>
+	<b>49．将所有账户修改为可移动办公？</b>
+</p>
+<p>
+	<b>答：</b>系统管理里面一个个打钩比较麻烦。可以到表中修改字段状态进行修改。 update ORG_EMPLOYEE set mobile_user_flag=‘1’;
+</p>
+<p>
+	<b>50．如何修改浏览器窗口上显示名称？</b>
+</p>
+<p>
+	<b>答：</b>在defaultroot\login.jsp中搜索“wanhu”并替换成客户所需名称。
+</p>
+<p>
+	<b>51．如何利用脚本自动安装SQL Server ？</b>
+</p>
+<p>
+	<b>答：</b>在工作中，经常被要求安装SQL Server 2008。每当这种情况发生的时候，我总会心里默念道：杯具啊，这辈子也装不完了。因为SQL Server的安装还是比较复杂的，要先安装.Net、Windows Installer，在正式安装的过程中还要交互的填写各种参数，当然这个还不包括拷贝3GB多的安装文件的时间。在经历了几次这样的悲剧之后，我果断的意识到必须研究一下写个脚本改变这个残酷的现实。
+</p>
+<p>
+	实验环境：在VMware里面装了个Windows server 2003 企业版 X86 SP2，用的是SQL Server 2008 R2。安装文件解压后保存虚拟机快照，保存下这个纯净的系统环境，这样可以随时还原回来，重新实验。
+</p>
+<p>
+	自动化脚本：
+</p>
+<p>
+	Setup.exe /QS ;
+</p>
+<p>
+	Setup.exe /QS /ACTION=Install;
+</p>
+<p>
+	/IACCEPTSQLSERVERLICENSETERMS;
+</p>
+<p>
+	/FEATURES=SQLEngine,IS,SSMS /INSTANCENAME=MSSQLSERVER;
+</p>
+<p>
+	/INSTALLSQLDATADIR="D:\sqlserverdata";
+</p>
+<p>
+	/AGTSVCACCOUNT="SYSTEM";
+</p>
+<p>
+	/AGTSVCSTARTUPTYPE="Disabled" /SQLSVCACCOUNT="SYSTEM";
+</p>
+<p>
+	/SQLSVCSTARTUPTYPE="Automatic" /ISSVCACCOUNT="SYSTEM";
+</p>
+<p>
+	/ISSVCStartupType="Automatic" /ISSVCACCOUNT="LOCAL SERVICE";
+</p>
+<p>
+	/ISSVCStartupType="Automatic";
+</p>
+<p>
+	/SQLSYSADMINACCOUNTS="ezoffice";
+</p>
+<p>
+	pause;
+</p>
+<p>
+	整个脚本最主要的部分就是上面的两段，其实安装并把参数传递进去原本只需要一行。但是由于SQL Server的安装过程比较特殊，所以需要分为两行来写。真正的安装需要先安装.NET补丁和Windows Installer的补丁，在安装完毕Windows Installer之后整个程序会中断。所以第一行的那个不带很长参数的就是为了触发安装.NET补丁和Windows Installer的补丁。这两个补丁被安装之后程序会中断，所以这里也不需要附带很长的参数。第二行那个带很长参数的才是真正的SQL Server的安装过程。
+</p>
+<p>
+	在这个很长的一大串参数里面，其实归纳一下也还是有规律的。
+</p>
+<p>
+	首先就是/QS /ACTION=Install /IACCEPTSQLSERVERLICENSETERMS，这些参数用于设定安装模式、同意授权协议。
+</p>
+<p>
+	然后，/FEATURES=SQLEngine;IS;SSMS /INSTANCENAME=MSSQLSERVER /INSTALLSQLDATADIR="D:\sqlserverdata";这些参数设定安装的组件和实例信息。
+</p>
+<p>
+	这里有一点的觉得需要说明一下的，脚本安装时支持设定Windows和SQL认证的，如果什么参数都不填就是默认Windows认证。我这里强烈建议用Windows认证方式，如果需要SQL认证可以等安装完毕之后再设定验证模式，如果在脚本里面设定SQL验证的话，里面会记录有sa账户密码。如果脚本丢失，大量的机器都是用这个脚本安装的，那个就不用解释了，悲剧……
+</p>
+<p>
+	再下面的一段就是纯粹的服务设定了，SQL Server的很多功能都是以服务的方式运行的，所以就要给他们赋予相应的启动方式（自动、禁止等）。还有就是对服务给予适当的启动账户（系统账户、本地服务、域权限等）。权限给低了许多权限不够，权限给高了会影响安全性，这个也要综合考虑。
+</p>
+<p>
+	最后就是/SQLSYSADMINACCOUNTS="ezoffice"，给SQL的sysadmin添加一个账户用于登陆。
+</p>
+<p>
+	关于其他优化：
+</p>
+<p>
+	（1）SQL Server的安装盘里面包含了X86、X64、AI64这3个版本，如果只用到其中的一个构架的版本，可以把存放其他版本安装文件的个文件夹给直接删了，然后再打包，这样能精简安装包。
+</p>
+<p>
+	（2）我这个实力脚本式对应SQL Server 2008的，如果是之前的版本可能需要打补丁。可以把补丁文件也整合进脚本，然后走脚本自动安装。我实验过一个脚本安装了SQL Server 2008和它的SP1补丁，这个很方便。
+</p>
+<p>
+	（3）SQL Server不同版本之间的脚本在参数上有小的差异，这里推荐用虚拟机快照保存最初状态，然后慢慢反复尝试。如果有错误，脚本会在命令行里给出错误参数。详细的参数查询可以使用/help命令或者去MSDN查询。
+</p>
+<p>
+	用了自动化脚本还是很爽的，原来手动安装半小时的活，现在点一下鼠标就行了。甚至可以给脚本加的自动重启的命令，点下鼠标，半小时之后来直接就能用了。不过对于我这种经常大量安装任务的人来说，可以说是一次投资终身受用。这里分享给大家，希望对大家有所帮助。
+</p>
+<p>
+	<b>52．我的系统资源去了那里？</b>
+</p>
+<p>
+	<b>答：</b>当系统变得缓慢时，我该如何诊断是谁在占用我的系统资源呢？
+</p>
+<p>
+	别急，今天我们就来一起看看，如何利用 Windows 7 内置的"资源监视器"这一强大工具，来诊断系统资源占用引发的一些问题。
+</p>
+<p>
+	首先，我们来一起认识一下这个叫做"资源监视器"的工具吧。认识完了咱们会在文章最后结合具体案例给大家进行一个实用指导的。
+</p>
+<p>
+	要打开资源监视器，有以下几种方法：
+</p>
+<p>
+	（1）打开任务管理器，切换到"性能"选项卡，然后单击右下角的按钮" 资源监视器 (R)..."
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/306.gif" />
+</div>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/307.gif" />
+</div>
+<p>
+	（2）在开始菜单的搜索框里键入"资源管理器"或者"resmon"进行搜索：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/308.gif" />
+</div>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/309.gif" />
+</div>
+<p>
+	打开之后，咱们就可以见到资源管理器的界面啦，它一共有5个选项卡，分别是概述、CPU、内存、磁盘以及网络，概述选项卡则相当于一个概要，将后面的CPU、内存、磁盘及网络的摘要信息集中显示在这里:
+</p>
+<p>
+	从概述这里，我们可以简单地得知系统四大资源的实时使用率，也可以从 CPU 一栏下面的进程列表里通过打勾的方式进行筛选，然后在磁盘、网络和内存栏目下看到筛选结果的对应具体信息。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/310.gif" />
+</div>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/311.gif" />
+</div>
+<p>
+	好了，我们再来看看 CPU 选项卡里面有啥强大功能吧。在这里，您可以看到每个进程的CPU使用情况，并且还能对进程关联的服务、句柄和模块进行列举分析：
+</p>
+<p>
+	能搜索关联的句柄可是个好功能呀，为什么呢？句柄（Handles）其实意味着进程加载的各种资源，这些资源里面当然也包含文件这一类。您还记得有时候删除一个文件时，系统提示您该文件正在被某个程序占用而无法删除吗？没关系，有了资源监视器，您就可以轻松应对了，只需搜索您要删除的这个文件的部分文件名，例如，我们在上图的例子中直接搜索要删除的 Word 2010 文档的扩展名"docx"，资源监视器很快就告诉您是 WinWord.exe （也就是咱们的 Word 程序）在占用该资源呢。是不是很方便呢？呵呵。下面"关联的模块"一栏也是很有用的，在某些情况下，您可以从中发现一些可疑的、引起问题的模块，也许这些模块就是导致该程序不稳定或者发生各种故障的原因呢。
+</p>
+<p>
+	除此之外，您还可以右击某个进程，然后在弹出的菜单中选择挂起/恢复进程，让程序暂停运行或者恢复运行。有的时候，您的某个程序无响应，那么它可能会在CPU进程列表中以红色高亮显示，那么您就可以使用右键菜单中的分析等待链功能，来看看是因为等待哪个进程或者资源而导致的程序无响应，从而让您明确去如何去处理。这里的联机搜索功能也很好用，它会调用您 IE 浏览器的默认搜索引擎去在互联网上搜索这个进程，帮助您判断这个进程是否可疑。
+</p>
+<p>
+	<b>注意：</b>这里的每个栏目均支持排序，如果您要诊断哪个进程占用 CPU 资源最多，只需单击 CPU 这一列的列标题就可以进行降序排序，列在第一项的当然是占用该资源最多的啦~再次单击列标题可以升序排列哦。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/312.gif" />
+</div>
+<p>
+	<b>案例一：</b>查找大量消耗 CPU 资源使系统变缓慢的程序 ：
+</p>
+<p>
+	我们利用 WinRAR 程序的菜单"工具"中的"性能和硬件测试"选项来构造一个 CPU 资源几乎被耗尽的情况。然后，咱们启动资源监视器，切换到 CPU 选项卡并单击"CPU"这一列的标题，让其按数值降序排列，情况就像是这样：
+</p>
+<p>
+	排在第一位的就是 WinRAR.exe 了，CPU 占用 78%，加上其他进程所使用的 CPU 资源，系统当前的总 CPU 使用率已经为 100% 了。咱们可以右击 WinRAR.exe 这一项，然后选择结束进程，然后您可以立即见到 CPU 占用率降下来了，系统也不再缓慢了。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/313.gif" />
+</div>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/314.gif" />
+</div>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/315.gif" />
+</div>
+<p>
+	内存选项卡的功能比较简单，大家看看就明白啦~接下来咱们再看看磁盘选项卡吧：
+</p>
+<p>
+	这里您可以看到当前的磁盘活动I/O速度总量，而且更加强大的是，您同样可以筛选出某个进程，查看该进程正在读取或者写入磁盘上的哪个文件。例如上图所示的，Word 就在读取虚拟内存页面文件 (C:\pagefile.sys)，因为它在"读（字节/秒）"这一列有值，在"写（字节/秒）"这列值为0.
+</p>
+<p>
+	最后，我们再看看资源监视器的"网络"选项卡里边儿的功能：
+</p>
+<p>
+	当前所有含网络活动的进程都会默认出现在这里。同样，您可以选中某项或者某几项进程，然后在下方的网络活动中看到这些进程连接的远端地址和流量速度，在 TCP 连接下面可以看到它们所拥有的活动 TCP 连接，在侦听端口下面也可以看到这些进程所使用的 TCP、UDP 端口。这也可以帮助您发现一些在后台默默使用网络资源的可疑程序。当然，您也可以在网络活动这一栏之上看见当前本机的总网络 I/O 速度，并且您也可以在"网络活动的进程"一栏按照"总数（字节/秒）"来排序，找出当前占用网络最多的进程。
+</p>
+<p>
+	到这里，您应该基本认识了这个方便又实用的"资源监视器"了吧。好，最后咱们来个结合实际案例的动手实践指导。
+</p>
+<p>
+	<b>案例二：</b>查找大量消耗磁盘资源导致系统响应缓慢的进程：
+</p>
+<p>
+	在这里，我们可以启动磁盘碎片整理程序（dfrgui.exe），并让它分析系统盘。在它分析的同时，我们通过资源监视器切换到"磁盘"选项卡，单击"读（字节/秒）"这一栏的标题，让其按照数值降序排列，可以发现，排在第一的就是磁盘整理服务（defragsvc，通过svchost进程运行）。我们还可以将这一项前面的复选框打上勾，在下面的"磁盘活动"栏目中，我们便能够发现它当前正在分析哪些磁盘文件呢。
+</p>
+<p>
+	好了，看完上面的介绍和动手实验指导，相信您一定对资源监视器有了进一步的了解，不妨您也动手试试吧，例如，开个下载的程序，用资源监视器来看看是不是它占用了最多的网络资源呢？您还可以勾选中这个下载程序，切换到"磁盘"选项卡，在磁盘活动栏目下看看它把下载的文件放在哪儿了。嘿嘿，各种组合新玩法，资源监视器会让您发现许多关于系统资源的奥秘。相信它一定会成为您管理和分析系统主要资源的得力助手。
+</p>
+<p>
+	<b>53．Oracle表被锁，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>（1）下面的语句用来查询哪些对象被锁：SELECT S.USERNAME,S.OSUSER,S.SID,S.SERIAL#,P.SPID FROM V$SESSION S,V$PROCESS P WHERE S.PADDR=P.ADDR AND S.USERNAME IS NOT NULL;
+</p>
+<p>
+	（2）下面的语句用来杀死一个进程：alter system kill session ‘sid,serial#’;
+</p>
+<p>
+	<b>注：</b>以上两步，可以通过的管理控制台来执行。
+</p>
+<p>
+	如果出现题目的错误，可以select a.spid,b.sid,b.serial#,b.username from v$process a,v$session b where a.addr=b.paddr and b.status=‘KILLED’;
+</p>
+<p>
+	（3）如果利用上面的命令杀死一个进程后，进程状态被置为"killed"，但是锁定的资源很长时间没有被释放，那么可以在os一级再杀死相应的进程（线程），首先执行下面的语句获得进程（线程）号：select spid, osuser, s.program from v$session s,v$process p where s.paddr=p.addr and s.sid=39;(39就是上面的sid)
+</p>
+<p>
+	（4）在OS上杀死这个进程（线程）
+</p>
+<p>
+	a. 在unix上，用root身份执行命令:#kill -9 12345（即第3步查询出的spid）;
+</p>
+<p>
+	b. 在（unix也适用）用orakill杀死线程，orakill是oracle提供的一个可执行命令，语法为：orakill sid thread;
+</p>
+<p>
+	其中：sid：表示要杀死的进程属于的实例名.thread：是要杀掉的线程号，即第3步查询出的spid。 例：c:&gt;orakill orcl 12345.Ps：这里要注意的是kill OS进程是在服务端操作，而不是你程序所在客户机。
+</p>
+<p>
+	<b>54．ezOFFICE2006升级到新版本，流程关联新表单后，已经发生的流程为何无法正确显示数据？</b>
+</p>
+<p>
+	<b>答：</b>此问题的是因为在2006版中表单是根据自定义数据表自动生成，已经发生的老流程对应的表单ID，在升级后都不存在了，所以无法抓取到新表单。按照以下步骤可解决：
+</p>
+<p>
+	（1）确定老的流程对应的表单ID， select distinct workfiletype,worktable_id from wf_work ，查询此语句，可以找到老流程所关联的表单ID，
+</p>
+<p>
+	（2）确定新表单的ID，这个很简单 只要查询 tpage表即可获得
+</p>
+<p>
+	（3）执行以下语句：
+</p>
+<p>
+	update wf_work set worktable_id= 新表单ID; where worktable_id = 旧表单ID;
+</p>
+<p>
+	update wf_dealwith set databasetable_id = 新表单ID;where databasetable_id = 旧表单ID;
+</p>
+<p>
+	update WF_PROCEEDACTIVITY set ttable_id = 新表单ID;where ttable_id = 旧表单ID;
+</p>
+<p>
+	update wf_proceedflow set table_id = 新表单ID; where table_id = 旧表单ID;
+</p>
+<p>
+	update wf_dealwithlog set tableid = 新表单ID; where tableid = 旧表单ID;
+</p>
+<p>
+	update WF_PROCEEDACTIVITY set form_id = ‘新表单ID’; where form_id = ‘旧表单ID’;
+</p>
+<p>
+	注意，form_id字段的类型，如果是 num 把引号去掉。
+</p>
+<p>
+	<b>55．新建自定义表单为何无法保存？</b>
+</p>
+<p>
+	<b>答：</b>因为表单ID由系统自动生成，位数超过了表单信息表 tpage 中 page_ID 的宽度，增加此字段位数即可解决此问题。
+</p>
+<p>
+	注意，系统在保存表单时，同时会在 telt表中生成对应的信息，我们修改了 tpage中page_ID宽度时，要同时注意 telt 表中各ID字段的宽度是否达到要求。
+</p>
+<p>
+	<b>56．部分用户的组织串和所属组织不符合，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>重新保存此用户所属组织信息即可修改为正确的组织串。但要注意观察此用户所属组织在组织信息表ORG_ORGANIZATION 中 ORGIDSTRING 是否正确，只有此字段中ID和所属组织相符，此方法才能生效。
+</p>
+<p>
+	<b>57．sql中的表受损，如何修复？</b>
+</p>
+<p>
+	<b>答：</b>（1）执行 dbcc checktable(oa);可以检测出受损的表；
+</p>
+<p>
+	（2）执行 sp_dboption ‘oa’;‘single user’;‘true’; single user; 选项为 true 时，每次只能有一个用户访问数据库
+</p>
+<p>
+	（3）执行语句 DBCC CHECKDB(‘表名’,REPAIR_ALLOW_DATA_LOSS)修复受损的表。
+</p>
+<p>
+	（4）执行 sp_dboption ‘oa’;‘multi user’;‘true’;
+</p>
+<p>
+	<b>58．数据库的端口修改后oa中要修改哪些文件？</b>
+</p>
+<p>
+	<b>答：</b>（1）修改config。xml中链接池中的端口。
+</p>
+<p>
+	（2）如果是9300以前的版本要修改goldgrid。prop中的端口号；以后版本的要修改whconfig，xml中的端口。
+</p>
+<p>
+	<b>59．新建流程活动无法保存，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>工作流程活动表WF_ACTIVITY 中 FORM_ID 字段宽度不够导致活动信息不能保存，修改字段属性扩大至20位。
+</p>
+<p>
+	<b>60．域同步到OA中的账号无法登陆OA，提示账号不存在，但是新增加的用户和admin可以登陆，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>查看域的用户和密码是否修改，或者域的登陆用户是否被禁用。
+</p>
+<p>
+	<b>61．代办文件中流程打开显示表单标签，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>多数是由于流程中带入了特殊字符。如：可以在数据库中找到对应字段将特殊字符去除即可
+</p>
+<p>
+	<b>62．首页的‘最近更新’中出现‘这个频道的地址似乎不正确或不存在’的提示，最近更新不能显示，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>查看下最近发的信息，信息的标题中有没有特殊的字符，如果有删除字符后就可以正确显示了。
+</p>
+<p>
+	<b>63．如何显示天气预报的有效代码地址？</b>
+</p>
+<p>
+	<b>答：</b>http://service.weather.com.cn/plugin/index.shtml，可以自由选择所在城市。
+</p>
+<p>
+	<b>64．如何彻底卸载sql2005？</b>
+</p>
+<p>
+	<b>答：</b>参照下列步骤：
+</p>
+<p>
+	（1）停止所有服务；
+</p>
+<p>
+	（2）可以上网去下Windows Install Clean Up 工具卸载SQL 2005组件；
+</p>
+<p>
+	（3）上网下SrvInstw.exe工具删除所有SQL服务；
+</p>
+<p>
+	（4）清除注册表：
+</p>
+<p>
+	a. 将HKEY_CURRENT_USER---Software----Microsoft下的Microsoft SQL Server文件夹全部删除。
+</p>
+<p>
+	b. 将HKEY_LOCAL_MACHINE---SOFTWARE---Microsoft下的Microsoft SQL Native Client ,Microsoft SQL Server, Microsoft SQL Server 2005 Redist全部删除。
+</p>
+<p>
+	（5）删除残留文件
+</p>
+<p>
+	将C盘——Program File下的Microsoft SQL Server 文件夹删除。6.重启电脑，重新安装。
+</p>
+<p>
+	<b>65．公文中某些按钮报404错误，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>报404错误表示找不到页面。如果表单是自定义的，用ie6浏览器重新保存表单即可。
+</p>
+<p>
+	<b>66．为何打印表单为空白？</b>
+</p>
+<p>
+	<b>答：</b>显示模板中显示正常，但打印出来表单空白。可以将显示模板中代码拷贝至打印模块中即可。
+</p>
+<p>
+	<b>67．Linux中RPM有哪些常用下载地址？</b>
+</p>
+<p>
+	<b>答：</b>可以在以下页面搜索，常用的都有。http://rpmfind.net/linux/rpm2html/search.php。
+</p>
+<p>
+	<b>68．为什么用2008系统OA系统时间变了？</b>
+</p>
+<p>
+	<b>答：</b>windows 2008所用的时间格式为UTC时间，而windows 2003 用的格式是GMT时间。
+</p>
+<p>
+	UTC是协调世界时(Universal Time Coordinated)英文缩写，是由国际无线电咨询委员会规定和推荐,并由国际时间局(BIH)负责保持的以秒为基础的时间标度。UTC相当于本初子午线(即经度0度)上的平均太阳时，过去曾用格林威治平均时(GMT)来表示.北京时间比UTC时间早8小时，以1999年1月1日0000UTC为例，UTC时间是零点，北京时间为1999年1月1日早上8点整。
+</p>
+<p>
+	算法:UTC + 时区差 ＝ 本地时间；时区差东为正，西为负。在此，把东八区时区差记为 +0800， UTC + (＋0800) = 本地（北京）时间。
+</p>
+<p>
+	<b>69．物品管理中出库单的流程已经审批结束，但是在出库单中查询时显示还是未审核状态，无法领用，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>物资中的出库流程审核后GJ_SSMASTER(出货表) 中的字段CHECK_FLAG中会改成Y，就显示为审核。如果还是N就会显示还未审核 ，此时可以修改CHECK_FLAG=‘Y’即可。
+</p>
+<p>
+	<b>70．流程中查看流程图时，出现了登录要求输入用户和密码的界面，流程图无法显示，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>在计算机用户中把匿名访问internet的账号禁用会出现这样问题。只要把这个账户启用就可以正常显示流程图了。
+</p>
+<p>
+	<b>71．如何处理两个流程中的正文相同（窜文）的问题？</b>
+</p>
+<p>
+	<b>答：</b>有的流程在办理过程中出现两个正文的内容变成一样的了，有的客户也不愿意重新发起流程如何处理。如果此时有A,B,两个流程，B流程中的正文和A的正文一样了。
+</p>
+<p>
+	处理：
+</p>
+<p>
+	（1）重新发起一个流程C，这个流程中的正文和B发起时的正文是一样的。发送到下一步后不要办理。
+</p>
+<p>
+	（2）找到C流程对应的数据库表;如合同审批的数据库表是whir$t3037，找到这个正文对应的字段。whir$t3037_f2225,复制这个字段中的一串数字如：123456789（这串数字是正文生成的doc文件名）。
+</p>
+<p>
+	（3）select * from document_file where recordid=‘123456789’;执行这个语句，找到的记录就是C流程正文生成文件的路径。
+</p>
+<p>
+	（4）在whir$t3037 中找到B流程的记录，修改对应whir$t3037_f2225字段为C的‘12345678’ 这样B正文对应的正文就和C的正文一样了。然后删除或取消C流程。
+</p>
+<p>
+	<b>72．如何删除申请用户记录？</b>
+</p>
+<p>
+	<b>答：</b>修改申请状态，0为表示未申请。
+</p>
+<p>
+	select is_apply_account,* from org_employee where empname=‘陈晓锋’;
+</p>
+<p>
+	update org_employee set is_apply_account='0' where empname=‘陈晓锋’;
+</p>
+<p>
+	<b>73．如何修改问卷调查中“答案”框字符长度？</b>
+</p>
+<p>
+	<b>答：</b>问卷调查——问卷管理——问卷设计中类型为“单选”时，选项中的“答案”框字符长度。
+</p>
+<p>
+	A： subsidiary_worksubsidiarywork_questheme_Add.jsp和 subsidiary_worksubsidiarywork_questheme_Modi.jsp两个jsp文件中修改。查询关键字maxlength，前面有“答案”字样的maxlength='30'。将默认的数值30修改为你要修改的数值即可。
+</p>
+<p>
+	<b>74．如何修改OA登陆后首页的问候语？</b>
+</p>
+<p>
+	<b>答：</b>OA首页左上角问候语“XX您好，今天是2011年6月17日 星期五”修改为“XX同志您好，今天是2011年6月17日 星期五”。
+</p>
+<p>
+	A：bea\..\commonresource.gbk中进行修改。可以搜索“您好”两字，找到comm.welcome={0};您好,今天是{1}。在“您好”前加入“同志”，并双击change.bat后重启服务。
+</p>
+<p>
+	<b>75．快速导入CA有哪些方法？</b>
+</p>
+<p>
+	<b>答:</b>（1）先自定义一个用户数据表、表单、在定义一个模块；
+</p>
+<p>
+	（2）将CA提供的CA用户信息做成自定义模块的导入格式，导入自定义模块；
+</p>
+<p>
+	（3）去后台执行以下SQL语句；update org_employee set org_employee.keyserial=whir$t3000.whir$t3000_f3002 from org_employee;whir$t3000 where (org_employee.empname=whir$t3000.whir$t3000_F3001);
+</p>
+<p>
+	说明，ORG_employee为用户信息表， keyserial为CA信息字段，empname用户名字段。whir$T3000为自定义数据表 ，whir$t3000_f3002为自定义数据表CA字段,whir$t3000_F3001为自定义数据表用户名字段。在EXCEL模块中找到用户名重复的用户，在手动修改一下即可。
+</p>
+<p>
+	<b>76．如何修改登陆时提示的“Wanhu ezOFFICE”？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>修改 oa_patchinfo 表中的最新版本信息中的 patch_editinfo中的内容将“Wanhu ezOFFICE"替换为你想替换的内容就可以了。
+</p>
+<p>
+	<b>77．如何处理公文跳号问题？</b>
+</p>
+<p>
+	<b>答：</b>在表GOV_SENDDOCUMENTSEQ(发文流水号设置表)中找到跳号的文号，修改字段seqfig数值为现在使用的最大数值，下次生成问号时就会自动生成下个数值了。
+</p>
+<p>
+	<b>78．加密狗增加用户后，显示的用户数却没有增加，增加用户时会造成用户超出，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>用户数没有写入到表中，ORG_DOMAIN(域帐户表)，修改字段DOMAIN_USERNUM为新增后的用户数就可以了。
+</p>
+<p>
+	<b>79．为何安装ezOFFICE（9.3.0.0）sql版后流程图不能用？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>由于公司发布的产品中打包的默认为ORACLE数据库，需要修改以下配置。
+</p>
+<p>
+	D:\bea\user_projects\domains\mydomain\ezflow\Predictor.Runtime\bin\Predictor.xml
+</p>
+<p>
+	D:\bea\user_projects\domains\mydomain\ezflow\Predictor.Runtime\Predictor.xml
+</p>
+<p>
+	这一中的 "Predictor.OracleServerDAL" 替换为"Predictor.SQLServerDAL";
+</p>
+<p>
+	这行中的 default="false"改为default="true";
+</p>
+<p>
+	这行中的default="true"改为 default="false";
+</p>
+<p>
+	<b>80．OA系统用户登陆提示“网络异常”，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>由于前台应用无法连接数据库，请检查数据库服务是否正常。同出现单位账号问题基本相同。
+</p>
+<p>
+	<b>81．为何执行升级SQL语句时提示输入变量值？</b>
+</p>
+<p>
+	<b>答：</b>此问题并不是我们的升级语句的问题，是用户在打开SQL文本时使用纯文本模式，破坏了SQL语句内的结构，例如“&lt;”纯文本显示为“&lt;”，而“&gt;”显示为“&gt;”，如果执行这样的语句，就会提示输入 lt 或者 gt 的值。因此，要随时注意和提醒用户注意，打开带有结构信息的SQL或者XML文本时，一定要用editplus一类的编辑器打开，尤其要注意不能使用记事本 保存文本。
+</p>
+<p>
+	<b>82．如何去掉Oracle用户密码校验次数限制？</b>
+</p>
+<p>
+	<b>答：</b>OA实例的新建用户为ezOFFICE，新建时Oracle默认其密码尝试登录次数为3次，如超过3次，ezOFFICE用户将被锁定，用户便无法登录OA系统。下面介绍如何取消Oracle默认密码尝试登录次数：
+</p>
+<p>
+	（1）首先使用sys并以dba身份登录控制台；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/316.gif" />
+</div>
+<p>
+	（2）打开“管理”选项卡，找到“概要文件”；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/317.gif" />
+</div>
+<p>
+	（3）选择“default”概要文件，点击“编辑”；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/318.gif" />
+</div>
+<p>
+	（4）点击“口令”选项卡，在“登录失败”处的“锁定前允许的最大登录次数”点击编辑；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/319.gif" />
+</div>
+<p>
+	（5）可以选择不限制尝试登录次数，如下图所示；
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/320.gif" />
+</div>
+<p>
+	另：针对Oracle控制台无法打开亦或其他情况，皆可执行如下sql实现；
+</p>
+<p>
+	ALTER PROFILE "DEFAULT" LIMIT FAILED_LOGIN_ATTEMPTS UNLIMITED；
+</p>
+<p>
+	Commit；
+</p>
+<p>
+	针对大部分用户，我们并不建议去掉用户密码校验次数的限制。对于恶意攻击者，或许会不断尝试用不同的密码去登录，我们的建议是更换ezOFFICE系统默认的密码。
+</p>
+<p>
+	<b>83．为何升级后新建发文报500错误？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>这是因为发文流程用的表单非系统默认表单。 公文管理—发文管理—发文设置—表单设置—右边的表单，点修改，再进行保存就可以了。
+</p>
+<p>
+	<b>84．ezOFFICE 数据库密码错误后台有哪些常见报错？</b>
+</p>
+<p>
+	<b>答：</b>后台提示如下：
+</p>
+<p>
+	2011-05-20 13:41:00,016 INFO LoggingTriggerHistoryPlugin:387 [TestScheduler_Work er-1] - Trigger group1.PressDealJob fired job group1.helloworld at: 13:41:00 05 /20/2011
+</p>
+<p>
+	2011-05-20 13:41:00,031 INFO LoggingTriggerHistoryPlugin:433 [TestScheduler_Work er-1] - Trigger group1.PressDealJob completed firing job group1.helloworld at 13:41:00 05/20/2011 with resulting trigger instruction code: DO NOTHING
+</p>
+<p>
+	com.microsoft.sqlserver.jdbc.SQLServerException: 用户 ‘ezoffice’ 登录失败。
+</p>
+<p>
+	com.microsoft.sqlserver.jdbc.SQLServerException: 用户 ‘ezoffice’ 登录失败。
+</p>
+<p>
+	注：以下两个地方的密码要保持一致
+</p>
+<p>
+	（1）数据库登陆密码；
+</p>
+<p>
+	（2）mydomain/config.xml中的JDBC连接的账号密码。
+</p>
+<p>
+	<b>85．怎样隐藏邮件中的匿名可选项？</b>
+</p>
+<p>
+	<b>答：</b>在defaultroot\comm_mail\mail_innermail_add.jsp文件中找到&nbsp;替换为
+</p>
+<p>
+	<b>86．老版本中，匿名邮件如何查询发信人？</b>
+</p>
+<p>
+	<b>答：</b>Select mailposterid, * from OA_MAILINTERIOR where MAILSUBJECT like ‘%标题%’ Select empname,* from org_employee where emp_id='mailposterid
+</p>
+<p>
+	<b>87．短信发送重复如何排查是否OA问题</b>？
+</p>
+<p>
+	<b>答：</b>可以先停止ezSMS服务，再进行短信发送。查看 ms_infoflow表中所发记录是否为一条记录。如果一条记录说明不是OA问题。建议协调客户找mas机厂商。
+</p>
+<p>
+	<b>88．老版本的用户数超出导致OA不能启用，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>数据库中将状态修改为已删除状态。
+</p>
+<p>
+	select count(*) from org_employee where userisactive=1 and userisdeleted=0;
+</p>
+<p>
+	select * from org_employee where empname in (‘赵韩杰’,‘滕欣诗’,‘肖昆’,‘文继莉’,‘陆敏’);
+</p>
+<p>
+	update org_employee set userisdeleted=1 where empname in (‘赵韩杰’,‘滕欣诗’,‘肖昆’,‘文继莉’,‘陆敏’）;
+</p>
+<p>
+	<b>89．OA后台报用户被锁（account was locked）,系统无法登录，服务不能重启，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>此时ezOFFICE用户被锁，无法登录plsql。换用system登录plsql，登录后在users中找到ezoffice账户，右键‘编辑’把【账户被锁住】签名的勾去掉，然后重新启动服务。
+</p>
+<p>
+	<b>90．用ORALCE11G后发现新建的ezOFFICE账号只能用180天就过期，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>Q:Oracle错误代码：ORA-28002。导致密码消失的原因：Oracle 11g中默认的DEFAULT概要文件中口令有效期PASSWORD_LIFE_TIME默认值为180天。当以客户端登陆Oracle提示ORA-28002，则基本可以确定登陆帐号已过有效期，使用具有DBA权限的帐号重置该帐号密码即可。
+</p>
+<p>
+	A:处理办法如下
+</p>
+<p>
+	（1）查看口令失效，用户的profile文件SQL&gt;SELECT username,profile FROM dba_users; EM：服务器&gt;用户，查看口令失效的用户对应的概要文件，这里假设为DEFAULT，下同。
+</p>
+<p>
+	（2）查看对应的概要文件的口令有效期设置：SQL&gt;SELECT * FROM dba_profiles WHERE profile=‘DEFAULT’ AND resource_name=‘PASSWORD_LIFE_TIME’;EM：服务器&gt;概要文件&gt;选择刚刚查到的概要文件DEFAULT&gt;查看，查看口令下面的有效期值。
+</p>
+<p>
+	（3）将口令有效期默认值180天修改成“无限制”。SQL&gt;ALTER PROFILE DEFAULT LIMIT PASSWORD_LIFE_TIME UNLIMITED;EM：服务器&gt;概要文件&gt;选择刚刚查到的概要文件DEFAULT&gt;编辑&gt;口令，在有效期输入或选择你需要的值，保存。
+</p>
+<p>
+	该参数修改实时生效。出于数据库安全性考虑，不建议将PASSWORD_LIFE_TIME值设置成UNLIMITED，即建议客户能够定期修改数据库用户口令。在修改PASSWORD_LIFE_TIME值之前已经失效的用户，还是需要重新修改一次密码才能使用。
+</p>
+<p>
+	SQL&gt;ALTER USER test INDENTIFIED BY password;
+</p>
+<p>
+	<b>91．在linux如何新建计划任务？</b>
+</p>
+<p>
+	<b>答：</b>cron是一个linux下的定时执行工具，可以在无需人工干预的情况下运行作业。由于Cron 是Linux的内置服务，但它不自动起来，可以用以下的方法启动、关闭这个服务:
+</p>
+<p>
+	/sbin/service crond start; //启动服务
+</p>
+<p>
+	/sbin/service crond stop; //关闭服务
+</p>
+<p>
+	/sbin/service crond restart; //重启服务
+</p>
+<p>
+	/sbin/service crond reload; //重新载入配置
+</p>
+<p>
+	你也可以将这个服务在系统启动的时候自动启动:在/etc/rc.d/rc.local这个脚本的末尾加上:/sbin/service crond start;
+</p>
+<p>
+	现在Cron这个服务已经在进程里面了，我们就可以用这个服务了，Cron服务提供以下几种接口供大家使用:
+</p>
+<p>
+	（1） 直接用crontab命令编辑
+</p>
+<p>
+	cron服务提供crontab命令来设定cron服务的，以下是这个命令的一些参数与说明:
+</p>
+<p>
+	crontab -u; //设定某个用户的cron服务，一般root用户在执行这个命令的时候需要此参数
+</p>
+<p>
+	crontab -l; //列出某个用户cron服务的详细内容
+</p>
+<p>
+	crontab -r; //删除没个用户的cron服务
+</p>
+<p>
+	crontab -e; //编辑某个用户的cron服务
+</p>
+<p>
+	比如说root查看自己的cron设置:crontab -u root -l;
+</p>
+<p>
+	再例如，root想删除fred的cron设置:crontab -u fred -r;
+</p>
+<p>
+	在编辑cron服务时，编辑的内容有一些格式和约定，输入:crontab -u root -e;
+</p>
+<p>
+	进入vi编辑模式，编辑的内容一定要符合下面的格式:*/1 * * * * ls &gt;&gt; /tmp/ls.txt;
+</p>
+<p>
+	任务调度的crond常驻命令。crond 是linux用来定期执行程序的命令。当安装完成操作系统之后，默认便会启动此任务调度命令。crond命令每分锺会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。
+</p>
+<p>
+	（1）linux任务调度的工作主要分为以下两类：
+</p>
+<p>
+	a. 系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
+</p>
+<p>
+	b. 个人执行的工作：某个用户定期要做的工作，例如每隔10分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置。
+</p>
+<p>
+	（2）crontab命令选项:
+</p>
+<p>
+	-u指定一个用户；
+</p>
+<p>
+	-l列出某个用户的任务计划；
+</p>
+<p>
+	-r删除某个用户的任务；
+</p>
+<p>
+	-e编辑某个用户的任务。
+</p>
+<p>
+	（3）cron文件语法:
+</p>
+<p>
+	分小时日月星期命令: 0-59; 0-23; 1-31; 1-12; 0-6; command (取值范围,0表示周日一般一行对应一个任务)
+</p>
+<p>
+	（4）记住几个特殊符号的含义:
+</p>
+<p>
+	"*"代表取值范围内的数字；
+</p>
+<p>
+	"/"代表"每"；
+</p>
+<p>
+	"-"代表从某个数字到某个数字；
+</p>
+<p>
+	","分开几个离散的数字。
+</p>
+<p>
+	a. 任务调度设置文件的写法
+</p>
+<p>
+	可用crontab -e命令来编辑,编辑的是/var/spool/cron下对应用户的cron文件,也可以直接修改/etc/crontab文件，具体格式如下：
+</p>
+<p>
+	Minute Hour Day Month Dayofweek command;分钟小时天月天每星期命令。每个字段代表的含义如下：
+</p>
+<p>
+	Minute 每个小时的第几分钟执行该任务；
+</p>
+<p>
+	Hour 每天的第几个小时执行该任务；
+</p>
+<p>
+	Day 每月的第几天执行该任务；
+</p>
+<p>
+	Month 每年的第几个月执行该任务；
+</p>
+<p>
+	DayOfWeek 每周的第几天执行该任务；
+</p>
+<p>
+	Command 指定要执行的程序。
+</p>
+<p>
+	在这些字段里，除了“Command”是每次都必须指定的字段以外，其它字段皆为可选字段，可视需要决定。对于不指定的字段，要用“*”来填补其位置。举例如下：
+</p>
+<p>
+	5 * * * * ls; 指定每小时的第5分钟执行一次ls命令；
+</p>
+<p>
+	30 5 * * * ls; 指定每天的 5:30 执行ls命令；
+</p>
+<p>
+	30 7 8 * * ls; 指定每月8号的7：30分执行ls命令；
+</p>
+<p>
+	30 5 8 6 * ls; 指定每年的6月8日5：30执行ls命令；
+</p>
+<p>
+	30 6 * * 0 ls; 指定每星期日的6:30执行ls命令[注：0表示星期天，1表示星期1，以此类推，也可以用英文来表示，sun表示星期天，mon表示星期一等。]；
+</p>
+<p>
+	30 3 10,20 * * ls; 每月10号及20号的3：30执行ls命令[注：“，”用来连接多个不连续的时段]；
+</p>
+<p>
+	25 8-11 * * * ls; 每天8-11点的第25分钟执行ls命令[注：“-”用来连接连续的时段]；
+</p>
+<p>
+	*/15 * * * * ls; 每15分钟执行一次ls命令 [即每个小时的第0 15 30 45 60分钟执行ls命令 ]；
+</p>
+<p>
+	30 6 */10 * * ls; 每个月中，每隔10天6:30执行一次ls命令[即每月的1、11、21、31日是的6：30执行一次ls命令。 ]；
+</p>
+<p>
+	每天7：50以root 身份执行/etc/cron.daily目录中的所有可执行文件。
+</p>
+<p>
+	50 7 * * * root run-parts /etc/cron.daily; [ 注：run-parts参数表示，执行后面目录中的所有可执行文件。 ]。
+</p>
+<p>
+	b. 新增调度任务
+</p>
+<p>
+	新增调度任务可用两种方法：
+</p>
+<p>
+	1. 在命令行输入: crontab -e 然后添加相应的任务，wq存盘退出。
+</p>
+<p>
+	2. 直接编辑/etc/crontab 文件，即vi /etc/crontab，添加相应的任务。
+</p>
+<p>
+	c. 查看调度任务
+</p>
+<p>
+	crontab -l; //列出当前的所有调度任务
+</p>
+<p>
+	crontab -l -u jp; //列出用户jp的所有调度任务
+</p>
+<p>
+	d. 删除任务调度工作
+</p>
+<p>
+	crontab -r; //删除所有任务调度工作
+</p>
+<p>
+	e. 任务调度执行结果的转向
+</p>
+<p>
+	例1：每天5：30执行ls命令，并把结果输出到/jp/test文件中。
+</p>
+<p>
+	30 5 * * * ls &gt;/jp/test 2&gt;&amp;1;注：2&gt;&amp;1 表示执行结果及错误信息。
+</p>
+<p>
+	编辑/etc/crontab 文件配置cron
+</p>
+<p>
+	cron服务每分钟不仅要读一次/var/spool/cron内的所有文件，还需要读一次/etc/crontab,因此我们配置这个文件也能运用cron服务做一些事情。用crontab配置是针对某个用户的，而编辑/etc/crontab是针对系统的任务。此文件的文件格式是:
+</p>
+<p>
+	SHELL=/bin/bash
+</p>
+<p>
+	PATH=/sbin:/bin:/usr/sbin:/usr/bin
+</p>
+<p>
+	MAILTO=root //如果出现错误，或者有数据输出，数据作为邮件发给这个帐号。
+</p>
+<p>
+	HOME=/ //使用者运行的路径,这里是根目录。
+</p>
+<p>
+	# run-parts
+</p>
+<p>
+	01 * * * * root run-parts /etc/cron.hourly; //每小时执行/etc/cron.hourly内的脚本。
+</p>
+<p>
+	02 4 * * * root run-parts /etc/cron.daily; //每天执行/etc/cron.daily内的脚本。
+</p>
+<p>
+	22 4 * * 0 root run-parts /etc/cron.weekly; //每星期执行/etc/cron.weekly内的脚本。
+</p>
+<p>
+	42 4 1 * * root run-parts /etc/cron.monthly; //每月去执行/etc/cron.monthly内的脚本。
+</p>
+<p>
+	大家注意"run-parts"这个参数了，如果去掉这个参数的话，后面就可以写要运行的某个脚本名，而不是文件夹名了。例如：1、在命令行输入: crontab -e 然后添加相应的任务，wq存盘退出。
+</p>
+<p>
+	1. 在命令行输入: crontab -e; 然后添加相应的任务，wq存盘退出。
+</p>
+<p>
+	2. 直接编辑/etc/crontab 文件，即vi /etc/crontab，添加相应的任务。11 2 21 10 * rm -rf /mnt/fb;
+</p>
+<p>
+	<b>92．Weblogic 后台提示java.lang.OutOfMemoryError;如何处理？</b>
+</p>
+<p>
+	<b>答：</b>报错如下：
+</p>
+<p>
+	####&lt;2011-4-20 上午09时36分39秒&gt;&nbsp;<executethread: '62'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101020&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Servlet failed with Exception&gt; java.lang.OutOfMemoryError &lt;&gt; ####&lt;2011-4-20 上午09时36分39秒&gt;&nbsp;<executethread: '58'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101017&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Root cause of ServletException&gt; java.lang.NullPointerException &lt;&gt; ####&lt;2011-4-20 上午09时36分39秒&gt;&nbsp;<executethread: '15'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101017&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Root cause of ServletException&gt; java.lang.NullPointerException &lt;&gt; ####&lt;2011-4-20 上午09时38分08秒&gt;&nbsp;<executethread: '66'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101017&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Root cause of ServletException&gt; java.lang.NullPointerException &lt;&gt; ####&lt;2011-4-20 上午09时38分08秒&gt;&nbsp;<executethread: '9'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101017&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Root cause of ServletException&gt; java.lang.NullPointerException &lt;&gt; ####&lt;2011-4-20 上午09时38分47秒&gt;&nbsp;<executethread: '12'="" for="" queue:="" 'default'="">&lt;&gt; &lt;101017&gt; &lt;[ServletContext(id=3227927,name=defaultroot,context-path=/defaultroot)] Root cause of ServletException&gt; java.lang.OutOfMemoryError &lt;&gt;
+</p>
+<p>
+	在后台域的LOG日志中看到上面的错误提示为内存溢出，这个错误如果出现在后台连续的多次，一般情况下这个服务就会自动关闭就是宕了。处理办法:
+</p>
+<p>
+	1. 减少WebLogic的JDBC连接数。webloGIC数据库连接池JDBC对于内存的消耗带常大，减少连接数会有效的减少内存溢出的出现。
+</p>
+<p>
+	2. 修startWebLogic.com中的JAVA内存参数，添加内存容量。（set MEM_ARGS=-Xms512m -Xmx512m; ）
+</p>
+<p>
+	<b>93．后台Weblogic 提示ORA-00600 内部错误，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>后台weblogic 提示ORA-00600 内部错误。
+</p>
+<p>
+	&lt;问题现象&gt; ：
+</p>
+<p>
+	在进行多表关联复杂查询时出现 ORA-00600: 内部错误代码, 参数: [19004], [], [], [], [], [], [], [] 错误。
+</p>
+<p>
+	&lt;解决办法&gt; ：
+</p>
+<p>
+	处理办法1: 以DBA身份执行: execute dbms_stats.delete_schema_stats(‘EZOFFICE’);
+</p>
+<p>
+	处理办法2:如果只有个别表在查询时出现错误,可以只对出错表理行处理 execute dbms_stats.delete_table_stats(‘EZOFFICE’,‘OA_INFORMATION’);
+</p>
+<p>
+	备注: "EZOFFICE" 是你报错的那个表所属的oracle用户。"OA_INFORMATION" 是EZOFFICE用户下表名。
+</p>
+<p>
+	用以上方法操作后，可以删除报错的对象，然后重新创建即可！(未删除统计信息时无法删除对象)
+</p>
+<p>
+	以上问题是康缘药业升级64位ORACLE后报的错。通过以上方法成功进行处理，处理前请先做好数据备份。
+</p>
+<p>
+	<b>94．ezOFFICE(9.3.0.0)及之前版本如何收回公文分发件？</b>
+</p>
+<p>
+	<b>答：</b>在我的收文表中将多分发的人员记录删除。
+</p>
+<p>
+	select * from gov_sendfile_user where username=‘万户’;
+</p>
+<p>
+	select * from gov_documentsendfile where documentsendfile_id=‘676’;
+</p>
+<p>
+	delete from gov_sendfile_user where username=‘万户’ and sendfile_id=‘676’;
+</p>
+<p>
+	95．在win2000/2003/xp/vista/win7下如何注册金格控件？
+</p>
+<p>
+	答：（1）在win2000/2003/xp/vista/win7 IE上首先查看Internet选项，找到高级中的“起用内存保护帮助……”，如果有该选项就将其禁用，然后关闭该网页重新打开，这个选项一般是系统打上了新的补丁而加上的，如果没有正常情况下控件都能安装成功。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/321.gif" />
+</div>
+<p>
+	（2）在vista/win7环境下，首先需要禁用UAC用户帐户，如下：VISTA默认打开了用户帐户控制，这对安装控件有时会造成影响，需要用以下的方法暂时关闭：
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/322.gif" />
+</div>
+<p>
+	1. 首先进入控制面板，找到用户帐户。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/323.gif" />
+</div>
+<p>
+	2. 打开用户帐户后，进入打开或关闭“用户帐户控制”。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/324.gif" />
+</div>
+<p>
+	3. 把“使用用户帐户控制(UAC)帮助保护您的计算机”的勾去掉，然后确定重启计算机后就可以开始安装金格控件了。
+</p>
+<p>
+	4. 如果还需要启用用户帐户控制保护计算机，可以在安装完控件后按上述的方法进入，重新在把其勾选上。
+</p>
+<p>
+	5. win7上操作移动到最低，然后重启电脑，再去设置上面说的ie选项。
+</p>
+<div align="center" style="font-family:宋体;font-size:14px;">
+	<img src="pic_comm/325.gif" />
+</div>
+<p>
+	<b>96．oracle EM无法打开，如何处理？</b>
+</p>
+<p>
+	<b>答：</b>启动OracleDBConsoleXXX服务，服务启动不了。错误排查:
+</p>
+<p>
+	先设置window环境变量 ORACLE_SID=数据库SID, 打开cmd， 输入 emctl start dbconsole 。将会有错误信息提示，如果没有设置ORACLE_SID 则提示 Environment variable ORACLE_SID not defined; Please define it.;如果已经设置了ORACLE_SID 则错误提示为 ：oc4j configration; issue.D:\oracle\product\10.1.0\db_1\oc4j\j2ee\OC4J_DBConsole_localhost_java not found;
+</p>
+<p>
+	其中D:\oracle\product\10.1.0\db_1;为你自己机器中ORacle10g的home目录。 这个信息非常的重要，也是服务起不来的根本原因。DBConsole是一个java的web application，在建立dbconsole的时候，我们会根据机器以及Oracle的信息创建repos，这个repos就是存放 DBConsole的配置信息的仓库，由于机器断网，会把机器的名字映射为localhost，而建库的时候是默认用的是机器名，所以这时候两个目录不匹配了，DBConsole找不到配置仓库的目录也就出错了。解决方案：
+</p>
+<p>
+	解决方案有两种，一种是比较正式的： 通过emca重新建立repos 命令。如下 ：
+</p>
+<p>
+	emca -config dbcontrol db -repos recreate;
+</p>
+<p>
+	方法二是自己实验出来的，并不是一个正式的方法，但是比上一种方法简单，易于操作。 信息提示里找不到一个目录D:\oracle\product\10.1.0\db_1\oc4j\j2ee \OC4J_DBConsole_localhost_java， 到这个信息提示的上一层目录里一看，可以看到有个类似的目录，形如,OC4J_DBConsole_janes_java，这里janes是我的机器名，把这个目录copy到当前目录下，改成信息提示里没有找到的目录名，比如我这里就改成D:\oracle\product\10.1.0\db_1\oc4j\j2ee \OC4J_DBConsole_localhost_java。同时来到D:\oracle\product\10.1.0\db_1目录下，可以找到一个名字形如janes_ORCL的目录。
+</p>
+<p>
+	注意:janes_ORCL 这里的janes是我的机器名，ORCL是我这里ORacle的SID，你可以根据你的具体情况，来找到类似的目录, 同样在当前copy到当前目录，并改名为localhost_ORCL。
+</p>
+<p>
+	还有第三方法，不过没有试过有出现这样问题的帮着试试 set ORACLE_HOSTNAME=localhost;然后通过emctl start dbconsole或者服务里的ORacleDBConsoleXXXX的服务就可以启动了。
+</p>
+<p>
+	<b>97．Weblogic数据库连接池JDBC中的连接数越大越好吗</b>？
+</p>
+<p>
+	<b>答：</b>JDBC是WeBLOGIC与数据库的连接池.就像城市与城市之间的高速通道。设置的过大，会导致数据库无法处理，大量连接超时。设置过小,会导致数据库与应用之间的连接被占满，而OA很慢，建议设置50-70之间。
+</p>
+<p>
+	<b>98．为什么在最近更新中看不到某些栏目的更新信息？</b>
+</p>
+<p>
+	<b>答:&nbsp;</b>首页中的‘最近更新’显示的是在首页中没有显示的栏目的更新内容，如果在首页中已经显示的栏目的更新就不会在‘最近更新’中显示了。
+</p>
+<p>
+	<b>99. 如何实现‘我的收文’能复制</b>？
+</p>
+<p>
+	<b>答：</b>在新版本中已经实现了收文是否复制的自主控制。公文管理--发文管理--基础设置--参数设置中。
+</p>
+<p>
+	<b>100、流程在办理过程中，在流程图中显示退回，所有办理人找不到流程到哪里了？</b>
+</p>
+<p>
+	<b>答：</b>在流程办理过程中表WF_WORK中待办活动的字段workstatus变成了‘101’（办理结束），导致没有后继活动，所以无法找到活动到哪里去了。把表WF_WORK中相应记录对应的字段workstatus从‘101’改成‘0’即可继续办理下去了。
+</p>
+
+
+
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+
+
+
+</div>
+ 
+</div>
+
+</div>
+
+</div>
+  
+
+
+</td>
+    
+  </tr>
+  
+</table>
+</div>
+</div>
+
+ 
+
+</td>
+    
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<SCRIPT language="javascript" src="js/js.js"></SCRIPT>

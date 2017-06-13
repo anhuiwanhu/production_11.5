@@ -39,7 +39,7 @@ String orgId = session.getAttribute("orgId").toString();
 <c:if test="${not empty EmpLivingPhoto}"><c:set var="EmpLivingPhoto">/defaultroot/upload/peopleinfo/${EmpLivingPhoto}</c:set></c:if>
 <section class="wh-section wh-section-bottomfixed">
     <article class="wh-edit wh-edit-document">
-        <div class="wh-container">
+        <div>
             <div class="wh-article-lists">
                 <ul>
                     <li>
@@ -470,7 +470,7 @@ String orgId = session.getAttribute("orgId").toString();
         });
     }
     
-     $(function(){
+    $(function(){
         //更多菜单展开
         var fbtnMore = $("#fbtnMore");
         var fbtnMoreCon = $(".fbtn-more-nav");

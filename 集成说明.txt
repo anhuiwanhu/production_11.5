@@ -158,3 +158,37 @@
 5、清服务端缓存，启动OA服务
 
 6、验证系统功能
+
+
+
+
+
+
+1、停OA服务
+
+2、备份生产环境程序、数据库
+
+3、覆盖产品补丁包到OA安装目录d:\jboss
+
+4、修改以下文件名称为jquery-1.11.1.min.js
+../deploy/defaultroot.war/scripts/jquery-1.4.4.min.js
+../deploy/defaultroot.war/scripts/plugins/zTree_v3/jquery-1.4.4.min.js
+../deploy/defaultroot.war/help/js/jquery-1.4.4.min.js
+
+修改以下文件名称为jquery-1.11.2.min.js
+../deploy/defaultroot.war/scripts/jquery-1.8.0.min.js
+../deploy/defaultroot.war/public/viewfile/js/jquery-1.8.0.min.js
+
+5、删除以下文件
+../deploy/defaultroot.war/public/treeselect/test.jsp
+../deploy/defaultroot.war/public/treeselectcode/test.jsp
+
+6、修改配置文件../deploy/defaultroot.war/WEB-INF/config/hibernate/hibernate.cfg.xml,增加语句(注意位置，勿重复）
+<mapping resource="com/whir/ezoffice/bpm/po/BPMOutDataSourcePO.hbm.xml" />
+
+
+7、执行数据库升级脚本（分oralce、sqlserver两种类型库）
+
+8、清服务端缓存，启动OA服务
+
+9、验证系统功能

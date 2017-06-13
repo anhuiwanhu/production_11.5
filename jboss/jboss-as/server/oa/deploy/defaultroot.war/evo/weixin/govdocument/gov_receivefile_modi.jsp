@@ -37,12 +37,12 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 <c:set var="worktitle"><x:out select="$doc//workInfo/worktitle/text()"/></c:set>
 <c:set var="worksubmittime"><x:out select="$doc//workInfo/worksubmittime/text()"/></c:set>
 <c:set var="wfsmsRight"><x:out select="$doc//smsRight/text()"/></c:set>
-<c:set var="trantype"><x:out select="$doc//workInfo/trantype/text()"/></c:set>
 <c:set var="EmpLivingPhoto"><x:out select="$doc//workInfo/empLivingPhoto/text()"/></c:set>
+<c:set var="trantype"><x:out select="$doc//workInfo/trantype/text()"/></c:set>
 <c:if test="${not empty EmpLivingPhoto}"><c:set var="EmpLivingPhoto">/defaultroot/upload/peopleinfo/${EmpLivingPhoto}</c:set></c:if>
 <section class="wh-section wh-section-bottomfixed">
     <article class="wh-edit wh-edit-document">
-        <div class="wh-container">
+        <div>
             <div class="wh-article-lists">
                 <ul>
                     <li>
@@ -224,7 +224,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 								</td>
 							</tr>
 						</x:if> 
-						
 						<x:if select="$govDoc//doComment">
 							<c:set var="commentFieldName"><x:out select="$doc//workInfo/commentFieldName/text()"/></c:set>
 							<c:if test="${commentFieldName !='' }">
@@ -865,7 +864,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 							</tr>
 						</x:forEach>
 						-->
-						
 						<c:set var="commentField"><x:out select="$govDoc//commentList//text()"/></c:set>
 						<c:if test="${commentField == '' }">
 						<x:forEach select="$doc//commentList/comment" var="cm" >
@@ -1266,7 +1264,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 <script type="text/javascript" src="/defaultroot/evo/weixin/template/js/selector.js"></script>
 <script type="text/javascript" src="/defaultroot/evo/weixin/template/js/alert/zepto.alert.js"></script>
 <script type="text/javascript" src="/defaultroot/evo/weixin/js/subClick.js"></script>
-<script type="text/javascript" src="/defaultroot/evo/weixin/js/jquery-1.8.2.min.js"></script>
 <script type="text/javascript">
     var dialog = null;
     var flag = 1;//防止重复提交
@@ -1306,6 +1303,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
             fbtnMoreCon.toggle();
         });
     });
+    
 	function workfolwSend(workId){
 		//发送流程
 		$.ajax({

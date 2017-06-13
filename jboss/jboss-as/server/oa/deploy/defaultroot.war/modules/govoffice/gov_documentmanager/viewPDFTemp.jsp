@@ -12,7 +12,7 @@ String url=rootPath+"/public/download/download.jsp?ispdf=1&FileName="+FileName+"
 <html>
 <head>
 <title></title>
-<script src="<%=rootPath%>/scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="<%=rootPath%>/scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
 </head>
 <body bgcolor="#ffffff">
 	<div id="panelFrame" align="center">

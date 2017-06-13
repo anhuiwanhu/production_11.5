@@ -11,7 +11,13 @@
         </div>
     </div>
 </header>
-<section id="sectionScroll" class="wh-section wh-section-topfixed wh-section-bottomfixed">
+<c:set var="type">${type}</c:set>
+<c:if test="${ type == 'newcss'}">
+<section id="sectionScroll" class="wh-section  wh-section-bottomfixed">
+</c:if>
+<c:if test="${ type != 'newcss'}">
+<section id="sectionScroll" class="wh-section wh-section-topfixed  wh-section-bottomfixed">
+</c:if>
     <header class="wh-search" id="search_header">
         <div class="wh-container">
             <form method="post" id="searchForm">
@@ -115,10 +121,18 @@
 <footer class="wh-footer wh-footer-text">
     <div class="wh-wrapper">
         <div class="wh-container">
-            <div class="wh-footer-btn">
-                <a href="javascript:clearSelect();" class="fbtn-cancel col-xs-6"><i class="fa fa-bitbucket"></i>清空</a>
-                <a href="javascript:confirmSelect();" class="fbtn-matter col-xs-6"><i class="fa fa-check-square"></i>确认</a>
+		    <c:if test="${ type == 'newcss'  }">
+            <div class="wh-footer-btn row">
+                <a href="javascript:clearSelect();" class="fbtn-cancel col-50">清空</a>
+                <a href="javascript:confirmSelect();" class="fbtn-matter col-50">确认</a>
             </div>
+			</c:if>
+			<c:if test="${ type != 'newcss'  }">
+            <div class="wh-footer-btn">
+            	<a href="javascript:clearSelect();" class="fbtn-cancel col-xs-6"><i class="fa fa-bitbucket"></i>清空</a>
+                <a href="javascript:confirmSelect();" class="fbtn-matter col-xs-6"><i class="fa fa-check-square"></i>确定</a>
+            </div>
+			</c:if>
         </div>
     </div>
 </footer>

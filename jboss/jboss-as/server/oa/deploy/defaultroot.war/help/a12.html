@@ -1,0 +1,975 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帮助中心</title>
+<link href="css/css_help.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script language=javascript id=clientEventHandlersJS>
+<!--
+var number=2;
+
+function LMYC() {
+var lbmc;
+var treePic;
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+       treePic = eval('treePic'+i);
+       treePic.src = 'img/menu_a_h.png';
+      lbmc.style.display = 'none';
+		
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+   treePic = eval('treePic' + i)
+    if (lbmc.style.display == 'none') {
+        LMYC();
+       treePic.src = 'img/menu_a_h_t.png';
+      lbmc.style.display = '';
+	
+    }
+    else {
+      treePic.src = 'img/menu_a_h.png';
+        lbmc.style.display = 'none';
+    }
+}
+//-->
+      </script>
+      
+      
+            
+<script type="text/javascript">
+	function isShowIndex(tab_id,div_id,who,aId,num){
+   for(var i = 0;i < num;i++){
+    document.getElementById("dt"+who+i).style.display="none";
+      document.getElementById("sp"+who+i).className="aoff";
+   }
+ document.getElementById(div_id).style.display="block";
+   document.getElementById(tab_id).className="aon";
+}
+
+</script>
+            
+            		
+</head>
+
+<body>
+<div class="help_bg">
+<div class="help_box">
+<div class="help_head">
+<a href="index.html" title="万户--帮助中心" class="logo"><img src="img/logo.png" /></a>
+<ul class="nav_box">
+<li><a href="index.html" class="user1">用户手册</a></li><li class="on_nav"><a href="help_user.html" class="user2">管理员手册</a></li><li><a href="help_ask.html" class="user3">常见问题</a></li>
+</ul>
+
+<a href="#" onclick="openWin({url:'../about/about.jsp',width:'530',height:'380',isScroll:'no',winName:'about'});" class="ico_sm"></a>
+<a href="#" onclick="window.close();" class="ico_tc"></a>
+
+</div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="220" valign="top" class="left_nr">
+        <div class="help_left">
+ 
+     
+     
+<div class="ask_list">
+<h1 id="spA_0" onclick="isShowIndex('spA_0','dtA_0','A_','','19')" class="aon"><a onClick="javascript:ShowFLT(1);" href="javascript:void(null)" target="_self">系统管理<span><img src="img/menu_a_h.png"  id="treePic1" /></span></a></h1>
+<div id=LM1 style="DISPLAY: block">
+	<h2><a href="help_user.html" target="_self" >基础设置</a></h2>
+	<h2><a href="a12.html" target="_self" class="cur">组织用户管理</a></h2>
+    <h2><a href="a13.html" target="_self" >自定义平台</a></h2>
+    <h2><a href="a14.html" target="_self" >安全管理</a></h2>
+</div>
+
+
+<h1 id="spA_1" onclick="isShowIndex('spA_1','dtA_1','A_','','19')"><a onClick="javascript:ShowFLT(2);" href="javascript:void(null)" target="_self">信息管理<span><img src="img/menu_a_h.png"  id="treePic2" /></span></a></h1>
+<div id=LM2 style="DISPLAY: none">
+    <h2><a href="a21.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a22.html" target="_self">栏目设置</a></h2>
+    <h2><a href="a23.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a24.html" target="_self" >流程设置（ezFlow）</a></h2>
+    <h2><a href="a25.html" target="_self">模板设置</a></h2>
+    <h2><a href="a26.html" target="_self" >设置标签</a></h2>
+    <h2><a href="a27.html" target="_self">所有信息</a></h2>
+    <h2><a href="a28.html" target="_self" >精华信息</a></h2>
+    <h2><a href="a29.html" target="_self">全文检索</a></h2>
+    <h2><a href="a210.html" target="_self" >积分统计</a></h2>
+    <h2><a href="a211.html" target="_self">我的发布</a></h2>
+    <h2><a href="a212.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_2" onclick="isShowIndex('spA_2','dtA_2','A_','','19')"><a onClick="javascript:ShowFLT(3);" href="javascript:void(null)" target="_self">单位主页<span><img src="img/menu_a_h.png"  id="treePic3" /></span></a></h1>
+<div id=LM3 style="DISPLAY: none">
+    <h2><a href="a31.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a32.html" target="_self">系统设置</a></h2>
+</div>
+
+
+<h1 id="spA_3" onclick="isShowIndex('spA_3','dtA_3','A_','','19')"><a onClick="javascript:ShowFLT(4);" href="javascript:void(null)" target="_self">工作流程<span><img src="img/menu_a_h.png"  id="treePic4" /></span></a></h1>
+<div id=LM4 style="DISPLAY: none">
+    <h2><a href="a41.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a42.html" target="_self" >流程分类</a></h2>
+    <h2><a href="a43.html" target="_self" >流程按钮</a></h2>
+    <h2><a href="a44.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a45.html" target="_self" >流程按钮（ezFLOW）</a></h2>
+    <h2><a href="a46.html" target="_self" >流程设置（ezFLOW）</a></h2>
+    <h2><a href="a47.html" target="_self" >办理查阅</a></h2>
+    <h2><a href="a48.html" target="_self" >办理查阅(ezFLOW)</a></h2>
+    <h2><a href="a49.html" target="_self" >效率分析</a></h2>
+    <h2><a href="a410.html" target="_self" >工作流程设置总结</a></h2>
+</div>
+
+
+<h1 id="spA_4" onclick="isShowIndex('spA_4','dtA_4','A_','','19')"><a onClick="javascript:ShowFLT(5);" href="javascript:void(null)" target="_self">公文管理<span><img src="img/menu_a_h.png"  id="treePic5" /></span></a></h1>
+<div id=LM5 style="DISPLAY: none">
+    <h2><a href="a51.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a52.html" target="_self">发文管理</a></h2>
+    <h2><a href="a53.html" target="_self" >收文管理</a></h2>
+    <h2><a href="a54.html" target="_self">文件送审签</a></h2>
+    <h2><a href="a55.html" target="_self" >公文统计</a></h2>
+    <h2><a href="a56.html" target="_self">领导办理查阅</a></h2>
+    <h2><a href="a57.html" target="_self" >公文交换</a></h2>
+</div>
+
+
+<h1 id="spA_5" onclick="isShowIndex('spA_5','dtA_5','A_','','19')"><a onClick="javascript:ShowFLT(6);" href="javascript:void(null)" target="_self">论坛<span><img src="img/menu_a_h.png"  id="treePic6" /></span></a></h1>
+<div id=LM6 style="DISPLAY: none">
+    <h2><a href="a61.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a62.html" target="_self">论坛管理</a></h2>
+</div>
+
+
+<h1 id="spA_6" onclick="isShowIndex('spA_6','dtA_6','A_','','19')"><a onClick="javascript:ShowFLT(7);" href="javascript:void(null)" target="_self">微博<span><img src="img/menu_a_h.png"  id="treePic7" /></span></a></h1>
+<div id=LM7 style="DISPLAY: none">
+    <h2><a href="a71.html" target="_self" >权限说明</a></h2>
+</div>
+
+
+<h1 id="spA_7" onclick="isShowIndex('spA_7','dtA_7','A_','','19')"><a onClick="javascript:ShowFLT(8);" href="javascript:void(null)" target="_self">个人办公<span><img src="img/menu_a_h.png"  id="treePic8" /></span></a></h1>
+<div id=LM8 style="DISPLAY: none">
+    <h2><a href="a81.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a82.html" target="_self">联系人</a></h2>
+    <h2><a href="a83.html" target="_self" >日程</a></h2>
+    <h2><a href="a84.html" target="_self">工作日志</a></h2>
+    <h2><a href="a85.html" target="_self" >工作汇报</a></h2>
+    <h2><a href="a86.html" target="_self">任务中心</a></h2>
+    <h2><a href="a87.html" target="_self" >人员去向</a></h2>
+    <h2><a href="a88.html" target="_self" >状态查询</a></h2>
+</div>
+
+
+<h1 id="spA_8" onclick="isShowIndex('spA_8','dtA_8','A_','','19')"><a onClick="javascript:ShowFLT(9);" href="javascript:void(null)" target="_self">人事管理<span><img src="img/menu_a_h.png"  id="treePic9" /></span></a></h1>
+<div id=LM9 style="DISPLAY: none">
+    <h2><a href="a91.html" target="_self" >人事管理</a></h2>
+    <h2><a href="a92.html" target="_self">考勤管理</a></h2>
+    <h2><a href="a93.html" target="_self" >社保及公积金管理</a></h2><h2><a href="a95.html" target="_self">薪资管理</a></h2>
+    <h2><a href="a96.html" target="_self">贺卡管理</a></h2>
+    <h2><a href="a97.html" target="_self">培训管理</a></h2>
+</div>
+
+
+<h1 id="spA_9" onclick="isShowIndex('spA_9','dtA_9','A_','','19')"><a onClick="javascript:ShowFLT(10);" href="javascript:void(null)" target="_self">综合办公<span><img src="img/menu_a_h.png"  id="treePic10" /></span></a></h1>
+<div id=LM10 style="DISPLAY: none">
+    <h2><a href="a101.html" target="_self" >车辆管理</a></h2>
+    <h2><a href="a102.html" target="_self">资料管理</a></h2>
+    <h2><a href="a103.html" target="_self" >物品管理</a></h2>
+    <h2><a href="a104.html" target="_self">资产管理</a></h2>
+    <h2><a href="a105.html" target="_self" >网上调查</a></h2>
+    <h2><a href="a106.html" target="_self">问卷调查</a></h2>
+    <h2><a href="a107.html" target="_self" >会务管理</a></h2>
+    <h2><a href="a108.html" target="_self">设备管理</a></h2>
+    <h2><a href="a109.html" target="_self">项目管理</a></h2>
+    <h2><a href="a1010.html" target="_self">合同管理</a></h2>
+    <h2><a href="a1011.html" target="_self">名片订购</a></h2>
+</div>
+
+
+<h1 id="spA_10" onclick="isShowIndex('spA_10','dtA_10','A_','','19')"><a onClick="javascript:ShowFLT(11);" href="javascript:void(null)" target="_self">档案管理<span><img src="img/menu_a_h.png"  id="treePic11" /></span></a></h1>
+<div id=LM11 style="DISPLAY: none">
+    <h2><a href="a111.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a112.html" target="_self">档案设置</a></h2>
+    <h2><a href="a113.html" target="_self" >文件著录</a></h2>
+    <h2><a href="a114.html" target="_self">类目管理</a></h2>
+    <h2><a href="a115.html" target="_self">档案销毁</a></h2>
+    <h2><a href="a116.html" target="_self">档案借阅</a></h2>
+    <h2><a href="a117.html" target="_self">档案统计</a></h2>
+</div>
+
+
+<h1 id="spA_11" onclick="isShowIndex('spA_11','dtA_11','A_','','19')"><a onClick="javascript:ShowFLT(12);" href="javascript:void(null)" target="_self">文档管理<span><img src="img/menu_a_h.png"  id="treePic12" /></span></a></h1>
+<div id=LM12 style="DISPLAY: none">
+    <h2><a href="a121.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a122.html" target="_self">流程设置</a></h2>
+    <h2><a href="a123.html" target="_self" >目录管理</a></h2>
+    <h2><a href="a124.html" target="_self">所有文档</a></h2>
+    <h2><a href="a125.html" target="_self" >新建文档</a></h2>
+    <h2><a href="a126.html" target="_self">过期文档</a></h2>
+    <h2><a href="a127.html" target="_self" >作废文档</a></h2>
+    <h2><a href="a128.html" target="_self" >历史文档</a></h2>
+    <h2><a href="a129.html" target="_self">我的接收文档</a></h2>
+    <h2><a href="a1210.html" target="_self" >发放单</a></h2>
+    <h2><a href="a1211.html" target="_self">借阅单</a></h2>
+    <h2><a href="a1212.html" target="_self" >统计报表</a></h2>
+    <h2><a href="a1213.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_12" onclick="isShowIndex('spA_12','dtA_12','A_','','19')"><a onClick="javascript:ShowFLT(13);" href="javascript:void(null)" target="_self">关系管理<span><img src="img/menu_a_h.png"  id="treePic13" /></span></a></h1>
+<div id=LM13 style="DISPLAY: none">
+    <h2><a href="a131.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a132.html" target="_self">自定义数据表</a></h2>
+    <h2><a href="a133.html" target="_self" >自定义关系</a></h2>
+</div>
+
+
+<h1 id="spA_13" onclick="isShowIndex('spA_13','dtA_13','A_','','19')"><a onClick="javascript:ShowFLT(14);" href="javascript:void(null)" target="_self">预算管理<span><img src="img/menu_a_h.png"  id="treePic14" /></span></a></h1>
+<div id=LM14 style="DISPLAY: none">
+    <h2><a href="a141.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a142.html" target="_self">预算部门设置</a></h2>
+    <h2><a href="a143.html" target="_self" >预算科目设置</a></h2>
+    <h2><a href="a144.html" target="_self">流程设置</a></h2>
+    <h2><a href="a145.html" target="_self" >费用预算管理</a></h2>
+    <h2><a href="a146.html" target="_self">费用预算调整</a></h2>
+    <h2><a href="a147.html" target="_self" >预算扣减</a></h2>
+</div>
+
+
+<h1 id="spA_14" onclick="isShowIndex('spA_14','dtA_14','A_','','19')"><a onClick="javascript:ShowFLT(15);" href="javascript:void(null)" target="_self">催办督办<span><img src="img/menu_a_h.png"  id="treePic15" /></span></a></h1>
+<div id=LM15 style="DISPLAY: none">
+    <h2><a href="a151.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a152.html" target="_self">基础设置</a></h2>
+    <h2><a href="a153.html" target="_self" >督办任务</a></h2>
+    <h2><a href="a154.html" target="_self" >任务查询</a></h2>
+    <h2><a href="a155.html" target="_self">部门任务统计</a></h2>
+</div>
+
+
+<h1 id="spA_15" onclick="isShowIndex('spA_15','dtA_15','A_','','19')"><a onClick="javascript:ShowFLT(16);" href="javascript:void(null)" target="_self">信息报送<span><img src="img/menu_a_h.png"  id="treePic16" /></span></a></h1>
+<div id=LM16 style="DISPLAY: none">
+    <h2><a href="a161.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a162.html" target="_self">设置</a></h2>
+</div>
+
+
+<h1 id="spA_16" onclick="isShowIndex('spA_16','dtA_16','A_','','19')"><a onClick="javascript:ShowFLT(17);" href="javascript:void(null)" target="_self">短信<span><img src="img/menu_a_h.png"  id="treePic17" /></span></a></h1>
+<div id=LM17 style="DISPLAY: none">
+    <h2><a href="a171.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a172.html" target="_self">短信设置</a></h2>
+    <h2><a href="a173.html" target="_self" >短信统计</a></h2>
+</div>
+
+
+<h1 id="spA_17" onclick="isShowIndex('spA_17','dtA_17','A_','','19')"><a onClick="javascript:ShowFLT(18);" href="javascript:void(null)" target="_self">定位服务<span><img src="img/menu_a_h.png"  id="treePic18" /></span></a></h1>
+<div id=LM18 style="DISPLAY: none">
+    <h2><a href="a181.html" target="_self" >如何开通手机定位服务</a></h2>
+    <h2><a href="a182.html" target="_self">权限说明</a></h2>
+    <h2><a href="a183.html" target="_self">定位白名单</a></h2>
+</div>
+
+
+<h1 id="spA_18" onclick="isShowIndex('spA_18','dtA_18','A_','','19')"><a onClick="javascript:ShowFLT(19);" href="javascript:void(null)" target="_self">知道<span><img src="img/menu_a_h.png"  id="treePic19" /></span></a></h1>
+<div id=LM19 style="DISPLAY: none">
+    <h2><a href="a191.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a192.html" target="_self">分类设置</a></h2>
+    <h2><a href="a193.html" target="_self" >问题维护</a></h2>
+    <h2><a href="a194.html" target="_self">专家设置</a></h2>
+</div>
+
+
+<h1 id="spA_19" onclick="isShowIndex('spA_19','dtA_19','A_','','19')"><a onClick="javascript:ShowFLT(20);" href="javascript:void(null)" target="_self">知识文库<span><img src="img/menu_a_h.png"  id="treePic20" /></span></a></h1>
+<div id=LM20 style="DISPLAY: none">
+    <h2><a href="a201.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a202.html" target="_self">分类设置</a></h2>
+</div>
+
+
+
+</div>
+
+     
+    </div> 
+    
+    
+  
+       </td>
+    <td valign="top" class="right_nr">
+<div class="right_bg">
+<span id="dtA_0"  class="ask_blank" style="display:block"></span>
+<span id="dtA_1"  class="ask_blank"></span>
+<span id="dtA_2"  class="ask_blank"></span>
+<span id="dtA_3"  class="ask_blank"></span>
+<span id="dtA_4"  class="ask_blank"></span>
+<span id="dtA_5"  class="ask_blank"></span>
+<span id="dtA_6"  class="ask_blank"></span>
+<span id="dtA_7"  class="ask_blank"></span>
+<span id="dtA_8"  class="ask_blank"></span>
+<span id="dtA_9"  class="ask_blank"></span>
+<span id="dtA_10"  class="ask_blank"></span>
+<span id="dtA_11"  class="ask_blank"></span>
+<span id="dtA_12"  class="ask_blank"></span>
+<span id="dtA_13"  class="ask_blank"></span>
+<span id="dtA_14"  class="ask_blank"></span>
+<span id="dtA_15"  class="ask_blank"></span>
+<span id="dtA_16"  class="ask_blank"></span>
+<span id="dtA_17"  class="ask_blank"></span>
+<span id="dtA_18"  class="ask_blank"></span>
+<span id="dtA_19"  class="ask_blank"></span>
+<span id="dtA_20"  class="ask_blank"></span>
+
+
+<div  class="right_img">
+<div style="width:95%; margin:0px auto;">
+<div class="ifm" id="ifm">
+
+<div class="warp">
+<h2 class="help_tit">组织用户管理</h2>
+
+<div class="linkChild clear" id="linkChild">
+
+<ul class="hd clear">
+	<li>组织管理<b>&gt;</b></li>
+    <li>群组管理<b>&gt;</b></li>
+    <li>角色管理<b>&gt;</b></li>
+    <li>权限管理<b>&gt;</b></li>
+    <li>用户管理<b>&gt;</b></li>
+    <li>工作代理<b>&gt;</b></li>
+    <li>单点登录系统设置<b>&gt;</b></li>
+    <li>深入了解系统的权限模型<b>&gt;</b></li>
+    <li>用户同步</li>
+    
+	<div class="clearfix"></div>
+</ul>
+
+<div class="bd">
+
+<div class="subDiv">
+	<h3>1.2.1组织管理</h3>
+
+
+<p class="p0" style="">
+	在这里，您可以进行组织的新增、编辑、查找和删除。
+</p>
+<p class="p0" style="">
+	<strong>新增组织：</strong>点击右侧列表上方新增按钮，打开新增组织页面
+</p>
+<p class="p0">
+<img src="pic_admin/p1.39.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0">
+<img src="pic_admin/p1.40.png" />
+</p>
+<p class="p0" style="">
+	在新增页面进行组织信息的完善，一些具体释义如下：
+</p>
+<p class="p0" style="">
+	<strong>a.&nbsp;组织编码：</strong>用于“<span>ezOFFICE</span><span>导入工具”导入组织和用户时识别组织；</span>
+</p>
+<p class="p0" style="">
+	<strong>b.&nbsp;单位标识：</strong>当单位标识设为“是”时，有两种作用，其一：自定义数据表中“登录人组织”字段用，“登录人组织”取值范围选择：从本单位开始至未端，在页面显示此字段内容时，首先要判断组织中的单位标识，从组织树最下往上找，找到单位标识的组织开始显示。如“万户软件”设置为单位标识，则显示为“万户软件<span>.</span><span>产品管理中心</span><span>.</span><span>产品部”。其二：认为该组织为单位属性，在选择组织用户页面中，增加显示本单位组织架构，例如：“万户网络</span><span>.</span><span>产品部</span><span>.</span><span>质量部”中“产品部”设置了单位标识，则属于“产品部”及其下属组织的用户，在选择组织用户页面中显示如下图：</span>
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p1.41.png" />
+</p>
+<p class="p0" style="">
+	<strong>c.&nbsp;分管领导、部门领导：</strong>选择组织的分管领导和部门领导。选择后，新增属于该组织的用户的分管领导和部门领导将自动填充；
+</p>
+<p class="p0" style="">
+	<strong>d.&nbsp;所属组织：</strong>如果是一级组织，则保持默认一级组织，若为子组织，则选择所从属的组织即可；
+</p>
+<p class="p0" style="">
+	<strong>e.&nbsp;存放位置：</strong>设置与系统内已经存在的组织之间的显示前后顺序；
+</p>
+<p class="p0" style="">
+	<strong>f.&nbsp;单位主页：</strong>默认为无，如果选择为有的话，则表示该组织有单位主页，您可以选择采用系统默认的页面，也可以选择外部网页作为单位主页：<span>+</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.42.png" />
+</p>
+<p class="p0" style="">
+	<strong>g.&nbsp;可查看人：</strong>对于设置的组织单位主页，哪些人能够进行查看；
+</p>
+<p class="p0" style="">
+	<strong>h.&nbsp;窗口标题：</strong>对组织内人员登录系统后查看到的窗口标题进行单独设置；
+</p>
+<p class="p0" style="">
+	<strong>i.&nbsp;组织<span>LOGO</span><span>：</strong>对组织内人员登录系统后查看到的首页左上角</span><span>logo</span><span>进行单独设置。</span>
+</p>
+<p class="p0" style="">
+	<strong>编辑组织：</strong>组织管理页面右侧，您可以看到系统内部已经建立的组织树状图。右击组织名称，可以对组织进行修改删除和添加子组织。
+</p>
+<p class="p0">
+	&nbsp;&nbsp;&nbsp;&nbsp;点击修改组织，可以打开组织修改页面，直接进行编辑后，保存退出即可。
+</p>
+<p class="p0">
+<img src="pic_admin/p1.43.png" />
+</p>
+<p class="p0" style="">
+	<strong>删除组织：</strong>在上图中，点击删除组织，可对组织进行删除。需要注意的是，删除组织会造成相关子组织、单位主页、用户等一并删除，且在这里删除的用户信息，系统内部无法进行恢复，所以需慎重操作！
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.44.png" />
+</p>
+<p class="p0" style="">
+	<strong>添加子组织：</strong>点击会出现新增组织页面，在所属组织项，直接默认当前选中组织：
+</p>
+<p class="p0">
+<img src="pic_admin/p1.45.png" />
+</p>
+
+</div>
+
+
+<div class="subDiv">
+	<h3>1.2.2群组管理</h3>
+
+<p class="p0" style="">
+	应用举例：我们成立了一个项目小组，项目小组的成员由各个部门抽调组成，项目结束后项目小组自动解散。这种项目小组与传统的部门岗位等形成了一种网状交叉，通常称之为矩阵式组织结构。ezOFFICE系统为用户提供了矩阵式组织结构的解决方案，群组设置是针对矩阵式组织结构设计的。
+</p>
+<p class="p0">
+<img src="pic_admin/p1.46.png" />
+</p>
+
+</div>
+
+
+<div class="subDiv">
+<h3>1.2.3角色管理</h3>
+
+<p class="p0" style="">
+	管理员可以根据实际业务需要，建立各种角色。在“角色管理”中，有三个默认角色，不可删除。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.47.png" />
+</p>
+<p class="p0" style="background:#CCFFCC;">
+	1<span>、三个默认角色</span>
+</p>
+<p class="p0" style="">
+	我们先介绍一下三个默认角色。
+</p>
+<p class="p0" style="">
+	角色是对组织内某一类工作内容、性质相同或相似的人的组合，比如部门经理角色、仓库管理员角色等。角色有什么用？在下文“用户管理”中将贯穿介绍角色管理、用户管理、权限管理、数据范围以及他们之间的关系，即<span>ezOFFICE</span><span>系统的权限模型。</span>
+</p>
+<p class="p0">
+	l&nbsp;系统管理员：在<span>ezOFFICE</span><span>系统拥有最大的系统管理权限。拥有这个权限的用户可以在功能菜单栏看见“系统管理”，点击进入，在左侧可以看见所有系统基础管理功能。</span>
+</p>
+<p class="p0">
+	l&nbsp;普通管理员<span>-</span><span>自定义平台：指的是拥有自定义平台部分的管理权限。拥有这个权限的用户可以在功能菜单栏看见“系统管理”，点击进入，在左侧只有“自定义平台”。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.48.png" />
+</p>
+<p class="p0">
+	l&nbsp;普通管理员<span>-</span><span>用户管理：指的是拥有基础设置部分的管理权限。拥有这个权限的用户可以在功能菜单栏看见“系统管理”，点击进入，在左侧只有“基础设置”中的部分功能。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.49.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0" style="background:#CCFFCC;">
+	2<span>、如何新增角色</span>
+</p>
+<p class="p0" style="">
+	点击右侧的“新增”按钮，打开新角色页面。
+</p>
+<p class="p0" style="">
+	<strong>全选：</strong>即选中全部权限。
+</p>
+<p class="p0" style="">
+	<strong>清除：</strong>将所选权限全部清除。
+</p>
+<p class="p0" style="">
+	<strong>全部闭合：</strong>将权限下的所有分类全部闭合。
+</p>
+<p class="p0" style="">
+	<strong>全部展开：</strong>将权限下的所有分类全部展开，可以直观查看当前角色已经选择了哪些权限。
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0">
+<img src="pic_admin/p1.50.png" />
+</p>
+
+</div>
+
+
+<div class="subDiv">
+<h3>1.2.4权限管理</h3>
+
+<p class="p0" style="">
+	在权限管理中，列出了系统各个模块中的所有权限，共<span>93</span><span>个系统权限。这些权限是根据每个模块的具体情况、根据实际业务管理需要而开发设计的，用户不可新增、删除。每个权限的具体含义将在每个模块说明中详细说明。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.51.png" />
+</p>
+<p class="p0" style="">
+	点击每个权限操作栏的修改按钮，显示了权限和角色的对应关系。当在角色管理中设置了某个角色对应某些权限之后，同时在这里也从某个权限的角度看出和所属角色之间的对应关系。同样，在这里修改某个权限和角色之间的对应关系之后，同时在角色管理中也可以从某个角色的角度看出和相关权限之间的对应关系。
+</p>
+<p class="p0">
+<img src="pic_admin/p1.52.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>1.2.5用户管理</h3>
+
+<div class="anchor">
+<a href="#id1">1.2.5.1当前用户</a>
+<a href="#id2">1.2.5.2禁用用户</a>
+<a href="#id3">1.2.5.3休眠用户</a>
+<a href="#id4">1.2.5.4申请用户</a>
+<a href="#id5">1.2.5.5移动设备用户</a>
+<a href="#id6">1.2.5.6浏览范围</a>
+<a href="#id7">1.2.5.7加密狗授权说明</a>
+<div class="clearfix"></div>
+</div>
+
+<h4 id="id1">
+1.2.5.1当前用户
+</h4>
+<p class="p0" style="background:#CCFFCC;">
+	1.&nbsp;<span>列表及功能按钮</span>
+</p>
+<p class="p0" style="">
+	在当前用户中，可以看到权限范围内的所有在用用户。
+</p>
+<p class="p0" style="">
+	删除用户<img src="pic_admin/ico5.png" style="margin:0; display:inline-block;" />：如果某个用户离职了，可以将这个账号删除。删除后的用户在“人事管理”→“人事信息”→“历史员工”显示。在“历史员工”中的用户账号，可以恢复。
+</p>
+<p class="p0" style="">
+	禁用用户<img src="pic_admin/ico6.png" style="margin:0; display:inline-block;" />：如果暂时禁止某个用户登录系统，可使用禁用功能。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.53.png" />
+</p>
+<p class="p0">
+	查询：查询条件“中文名”、“账号”、“简码”三个字段，可同时输入多个条件进行查询。条件输入规则：在条件中间以空格隔开，比如在“中文名”条件中输入“刘&nbsp;李”，就查询出中文名中含有“刘”和“李”的所有用户。
+</p>
+<p class="p0">
+	复制用户：选择某个用户之后，点击“复制”按钮，自动新增一个用户，其账号为“原账号<span>(2)</span><span>”，如“</span><span>liuyd(2)</span><span>”，再次复制，则为“</span><span>liuyd(2)(2)</span><span>”，简码字段也如此。除了账号和简码以外，其他所有字段值都相同。比较适用于相同部门员工的新增，可以在复制原有用户基础上进行少量修改。</span>
+</p>
+<p class="p0">
+	最后登录时间：记录所有当前用户最后登录系统的时间，用于系统推广时管理员清楚掌握用户登录系统的情况，或者当用户注册数有限时管理员可以将很久没有登录系统的用户删除、便于新增其他需要使用系统的用户。
+</p>
+<p class="p0">
+	批量新增：用于批量新增用户，快捷、直观、方便的进行用户账号初始化工作。在批量新增页面，只列出账号、密码等必填字段。点击页面右上角的新增按钮，会增加一行，且继承最后一条数据的各字段内容。
+</p>
+<p class="p0">
+<img src="pic_admin/p1.54.png" />
+</p>
+<p class="p0">
+	批量修改：选择多个用户后，点击“批量修改”按钮，可以批量修改职务、所属组织和上级领导等。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.55.png" />
+</p>
+<p class="p0">
+	休眠：选择用户后，点击“休眠”按钮，就将这些用户设置成了休眠用户。休眠的用户不能登录系统，除此之外，和当前用户没有任何区别，其他用户仍然能选择他。当结束休眠状态的时候，在休眠期间收到的任何事务都能查看和办理。
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0" style="background:#CCFFCC;">
+	2<span>．新增用户</span>
+</p>
+<p class="p0">
+	在右侧点击“新增”按钮，可以新增用户账号。在这里可以清楚的看到<span>ezOFFICE</span><span>系统的权限模型：</span>
+</p>
+<p class="p0">
+	基本信息：
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.56.png" />
+</p>
+<p class="p0">
+	账号：用户登录系统的身份识别方式，不能重复。
+</p>
+<p class="p0">
+	用户简码：用于发邮件时快速查找用户。
+</p>
+<p class="p0" style="">
+	发邮件时输入用户简码后回车找到符合条件的用户的组织识别。如下图所示：<span>lx</span><span>为企划部刘星的简称，输入</span><span>lx</span><span>后点击回车键，自动调出</span><span>lx</span><span>的中文名和部门名称。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.57.png" />
+</p>
+<p class="p0">
+	令牌认证：插入<span>ezOFFICE</span><span>系统指定的身份令牌（一种</span><span>USB</span><span>身份认证设备），同时输入用户名和密码才可以登录系统。</span>
+</p>
+<p class="p0">
+	l&nbsp;特权：特权用户不受访问<span>IP</span><span>范围的限制。详见本文档“访问</span><span>IP</span><span>设置”。</span>
+</p>
+<p class="p0">
+	l&nbsp;移动办公：安全策略目前仅对于<span>Android</span><span>手机版有效，如果对该用户设置的是“高安全策略”，则首次登录时系统记录该用户登录时使用的手机设备</span><span>ID</span><span>、手机号码等但不允许其登录，直到该设备</span><span>ID</span><span>开通，由系统管理员通过用户管理列表中“绑定”操作为该用户的该手机设备</span><span>ID</span><span>开通访问权限，授权该用户使用已绑定的手机能够访问移动办公系统。</span>
+</p>
+<p class="p0">
+	排序：同一部门下的用户可以从<span>1</span><span>开始编码排序，排序后的用户在“选择对象”页面会按顺序显示。</span>
+</p>
+<p class="p0">
+	职务：下拉框中的选项是在“人事管理”→“设置”→“职务设置”中设置，或者是在“系统管理”&nbsp;→“基础设置”→“基础数据设置”&nbsp;→“职务设置”中设置。
+</p>
+<p class="p0">
+	兼职组织：可以设置用户在其他组织中兼职。
+</p>
+<p class="p0">
+	分管领导、部门领导、上级领导：选择所属组织后，分管领导和部门领导均自动带出该组织管理中设置的分管领导和部门领导，上级领导也默认为部门领导。在流程的活动设置中，“分管领导”、“部门领导”、“上级领导”均从这里的设置调用。另外，上级领导可以查看下属的日程，工作日志和工作汇报等。
+</p>
+<p class="p0">
+	签名图片：可以设置签名图片，在审批流程的时候，在批示意见字段中自动显示。
+</p>
+<p class="p0">
+	浏览范围：当前用户在系统中打开“选择对象”页面时，显示哪些组织。一般用于限制当前用户在系统中选择用户的范围。
+</p>
+<p class="p0">
+	邮箱容量：系统设置中也相应设置了内部邮箱容量和我的文档容量。用户管理中可以再次进行设置，最终以在“用户管理”中设置的容量大小为准。便于实现不同用户的不同需求。
+</p>
+<p class="p0">
+	角色权限：
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.58.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;权限：在右侧选择角色之后，在权限下方会列出这些角色对应的所有权限。“权限”后面的下拉框选项：本人、本组织、本组织及下属组织、全部、自定义，指的是对所有选择权限的数据范围进行批量设置。
+</p>
+<p class="p0" style="">
+	l&nbsp;数据范围：本人、本组织、本组织及下属组织、全部、自定义，指的是这个权限所生效的数据范围。比如管理员给企划部的刘星设置了工作流程的办理查阅权限，数据范围为“本组织及下属组织”，那么刘星就可以查阅企划部下所有用户提交的工作流程文件。
+</p>
+<p class="p0">
+	信息栏目权限：
+</p>
+<p class="p0">
+	显示该用户在信息管理模块各栏目的权限。其中灰色栏目表示没有该栏目的权限。这种以用户为维度查看其在信息管理各栏目权限的设计，目的在于不用到信息管理每个栏目中查看该用户是否有相应权限了。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.59.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0" style="background:#CCFFCC;">
+	3<span>．关于密码规则的说明</span>
+</p>
+<p class="p0" style="">
+	密码必须为数字<span>+</span><span>字母</span><span>+</span><span>字符（大于等于</span><span>7</span><span>位），要求每三个月至少更新一次，且两年内不能和以前的密码重复。系统提前两周提醒。如果没有修改，则每次登录时都会提示剩余天数。如果到期仍不修改，则系统自动禁用此用户。</span>
+</p>
+<p class="p0">
+	如果用户密码输错六次，则系统自动禁用此用户。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.60.png" />
+</p>
+<p class="p0" style="">
+	密码修改提醒：登录后判断是否初始密码，如果是沿用目前的提醒；如果不是则判断是否启用了密码规则，如果是则判断当前密码是否近3个月未修改，如果未修改则提前2周进行提醒。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.61.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0" style="background:#CCFFCC;">
+	3<span>．关于兼职的说明</span>
+</p>
+<p class="p0">
+	（1）&nbsp;兼职问题在信息管理中
+</p>
+<p class="p0" style="">
+	信息的查看和修改权限中设置的范围中含有组织的，均考虑兼职在这个组织的用户也拥有这些权限。
+</p>
+<p class="p0">
+	（2）&nbsp;兼职问题在工作流程中
+</p>
+<p class="p0" style="">
+	流程的适用范围考虑对兼职的判断。
+</p>
+<p class="p0" style="">
+	从本部门中选择及选定的范围中选择时，也支持兼职。
+</p>
+<p class="p0">
+	（3）&nbsp;兼职问题在公文管理中
+</p>
+<p class="p0" style="">
+	新建发文、新建收文、新建文件送审签的流程增加对兼职的支持。
+</p>
+<p class="p0" style="">
+	发文机关代字的设置增加对兼职的支持。
+</p>
+<p class="p0">
+	（4）&nbsp;兼职问题在论坛中
+</p>
+<p class="p0" style="">
+	论区根据论坛管理中所设置的“用户范围”来显示，当前用户的兼职组织在相应论区的用户范围中时要求显示该论区。
+</p>
+<p class="p0">
+	（5）&nbsp;兼职问题在综合办公中
+</p>
+<p class="p0" style="">
+	资源使用页面的车辆信息根据车辆的适用范围显示，显示当前用户适用范围内或兼职组织在相应的适用范围内的车辆。
+</p>
+<p class="p0" style="">
+	资源使用页面的资料借阅显示当前用户在某资料→资料室→“读者范围”内的资料，需要增加当前用的兼职组织在某资料→资料室→“读者范围”内的资料也显示出来。
+</p>
+<p class="p0" style="">
+	物品管理中采购进货、领用出库、领用退库等下面所显示的仓库目前根据当前用户在相应的适用范围内或兼职组织在相应的适用范围内的仓库显示出来。
+</p>
+<p class="p0" style="">
+	网上调查，问卷调查的可查看人、可投票人均增加对兼职的支持。
+</p>
+<p class="p0" style="">
+	档案分类，案卷及文件的适用范围均增加对兼职的支持。
+</p>
+<p class="p0" style="">
+	会议室的适用范围增加对兼职的判断。
+</p>
+<p class="p0">
+	（6）&nbsp;兼职问题在人事管理中
+</p>
+<p class="p0" style="">
+	节日贺卡、生日贺卡增加对兼职的支持。
+</p>
+<p class="p0">
+	培训管理增加我的考卷增加对兼职的支持。
+</p>
+
+<h4 id="id2">
+	1.2.5.2禁用用户
+</h4>
+<p class="p0" style="">
+	显示所有被禁用的用户。系统管理员可以看到列表中所有被禁用的用户，普通管理员只能看到授权范围内的禁用用户。
+</p>
+<p class="p0" style="">
+	恢复<img src="pic_admin/ico7.png" style="margin:0; display:inline-block;" />：可以对禁用用户进行恢复操作，恢复后的用户转移到“当前用户”。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.62.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h4 id="id3">
+	1.2.5.3休眠用户
+</h4>
+<p class="p0" style="">
+	显示所有休眠用户。
+</p>
+<p class="p0" style="">
+	恢复<img src="pic_admin/ico7.png" style="margin:0; display:inline-block;" />：可以对休眠用户进行恢复操作，恢复后的用户转移到“当前用户”
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.63.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h4 id="id4">
+	1.2.5.4申请用户
+</h4>
+<p class="p0" style="">
+	在“申请用户”中显示了所有申请用户账号、正在等待审批的用户信息。系统管理员可以看到所有申请用户列表，普通管理员只能看到授权范围内的申请用户列表。
+</p>
+<p class="p0" style="">
+	在哪里申请用户账号呢？在“人事管理”→“人事信息”→“在职员工”中，人事专员在新增员工的时候，可以选择是否“申请系统账号”。如果选择“申请”，那么在“申请用户”列表中就列出了等待审批的用户信息。即，人事部门先增加员工，然后向<span>ezOFFICE</span><span>系统的管理员申请用户账号。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.64.png" />
+</p>
+<p class="p0">
+	&nbsp;&nbsp;&nbsp;&nbsp;“申请用户”列表如下。点击操作栏申请账号按钮<img src="pic_admin/ico8.png" style="margin:0; display:inline-block;" />，即可打开新增用户的页面。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.65.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h4 id="id5">
+	1.2.5.5移动设备用户
+</h4>
+<p class="p0" style="">
+	新增用户或者修改用户时，移动办公选择高安全策略保存后，用户操作栏中会出现<img src="pic_admin/ico9.png" style="margin:0; display:inline-block;" />&nbsp;“绑定”按钮。用户第一次登陆系统记录该用户登录时使用的手机设备<span>ID</span><span>、手机号码等但不允许其登录，系统管理员通过用户管理列表中“绑定”操作为该用户的该手机设备</span><span>ID</span><span>开通访问权限后，在移动设备用户列表中增加该用户。如下图所示：</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.66.png" />
+</p>
+<h4 id="id6">
+	1.2.5.6浏览范围
+</h4>
+<p class="p0" style="">
+	可以设置用户只能在“选择对象”页面浏览到本系统中的哪些用户，比如发邮件时只能选择到某些用户。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.67.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h4 id="id7">
+	1.2.5.7加密狗授权说明
+</h4>
+<p class="p0" style="">
+	ezOFFICE<span>是通过加密狗来实现授权的，所授权的用户数指系统注册用户数。</span>
+</p>
+<p class="p0" style="">
+	被删除的用户不占用授权用户数，禁用用户和休眠用户仍占用授权用户数。
+</p>
+<p class="p0">
+	当注册用户数超出授权用户数时，只有<span>admin</span><span>用户可以登录系统，其他所有用户都不能登录。以</span><span>admin</span><span>用户进入系统删除部分用户使注册用户数少于授权用户数时，所有用户才可以正常登录。</span>
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>1.2.6工作代理</h3>
+
+<p class="p0">
+	列出所有用户自己在个人设置中所设置的工作代理。管理员可以修改和删除。点击“新增”按钮，打开新工作代理页面，设置代理范围，代理人，被代理人，代理期限，选择代理流程等。
+</p>
+<p class="p0">
+<img src="pic_admin/p1.68.png" />
+</p>
+</div>
+
+<div class="subDiv">
+<h3>1.2.7单点登录系统设置</h3>
+<p class="p0" style="">
+	单点登录用于登录本系统之后，在首页点击第三方系统的登录链接，不需要再次输入用户名和密码，就可以直接登录第三方系统，如邮件、客户关系管理系统等等。本模块只适合特定的第三方系统：<span>1</span><span>、登录没有验证码验证，</span><span>2</span><span>、登录入口没有防盗链限制，充许外部提交数据。本设置需要专业知识，如果设置有困难，请咨询相关技术人员。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.69.png" />
+</p>
+<p class="p0">
+	点击“新增”，弹出如下页面，来设置需要单点登录的第三方系统的相关参数。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.70.png" />
+</p>
+<p class="p0">
+	系统名称：第三方系统名称。
+</p>
+<p class="p0">
+	&nbsp;URL<span>：第三方系统的访问地址。</span>
+</p>
+<p class="p0">
+	&nbsp;账号参数：第三方系统的账号参数。如果不清楚，可以咨询第三方系统的技术人员。
+</p>
+<p class="p0">
+	&nbsp;密码参数：第三方系统的密码参数。如果不清楚，可以咨询第三方系统的技术人员。
+</p>
+<p class="p0">
+	&nbsp;参数名称：根据情况设置，有的第三方系统登录时，只有账号参数和密码参数的验证，而没有其他的参数。如果不清楚，可以咨询第三方系统的技术人员。
+</p>
+<p class="p0">
+	&nbsp;参数值：参数名称对应的参数值。
+</p>
+<p class="p0">
+	&nbsp;显示：在首页点击第三方系统的链接后，是内嵌显示，还是弹出显示。
+</p>
+<p class="p0">
+	&nbsp;提交方式：是针对不同系统提交验证的不同需求。如果登录是一个独立系统，选择<span>post</span><span>或</span><span>get</span><span>。</span>Post<span>：登录参数（如账号、密码等）隐藏方式提交，在</span><span>url</span><span>中不会显示出来。</span>Get<span>：登录参数（如账号、密码等）会显示提交，在</span><span>url</span><span>中会显示出来。如果登录用的是</span><span>windows</span><span>身份验证，则选择“</span><span>windows</span><span>域”。</span>
+</p>
+<p class="p0">
+	&nbsp;系统类型：如果所选择的模块不需要登录，比如只是一个普通网站，则选择“普通”。反之选择“登录”。
+</p>
+<p class="p0">
+	&nbsp;使用状态：该条第三方系统是否启用。如果启用，普通用户在个人办公<span>-</span><span>个人设置</span><span>-</span><span>单点登录账号设置中，可以调用此系统名称。</span>
+</p>
+</div>
+
+<div class="subDiv">
+<h3>1.2.8深入了解系统的权限模型</h3>
+<p class="p0" style="">
+	ezOFFICE<span>系统采用了基于角色的权限模型，权限模型图如下所示：</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p1.71.png" />
+</p>
+<p class="p0" style="">
+	图中显示了用户、角色及权限之间的关系。在<span>ezOFFICE</span><span>系统中权限的内容和数量是固定的，角色由管理员创建，用户的所属角色由管理员分配。用户与角色、角色与权限之间都是多对多的关系。一个角色拥有多个权限，一个用户又拥有多个角色，这个用户同时也拥有了多种权限（这里的权限指每个角色拥有权限的总和）。一个角色可以被不同的用户同时拥有，一个权限也可以被不同用户同时拥有。</span>
+</p>
+<p class="p0" style="">
+	在<span>ezOFFICE</span><span>系统中的权限模型中，还有第四维“数据范围”。在新增用户账号页面，我们看到了这思维权限模型各要素之间的关系。通过四维权限模型，我们可以很精准的为系统中的每个账号、实际业务中的各种角色进行功能权限的定位。</span>
+</p>
+<p class="p0" style="">
+	基于角色的权限模型的设计有什么好处呢？我们举一个例子来说明。所有的部门经理在实际工作中的权限大致相同，那么在<span>ezOFFICE</span><span>系统中的权限也大致相同，那么我们可以建立一个部门经理角色，将这些部门经理都纳入到这个角色中。这样，我们可以将部门经理需要的功能权限直接赋予这个角色，而不用一个一个地赋予每个部门经理个人。另外，当部门经理发生部门调整，或者离职等情况，我们只需要将他的账号从角色中去掉即可。</span>
+</p>
+<p class="p0" style="">&nbsp;
+	
+</p>
+<p class="p0" style="text-align:center;">
+注意：拥有“系统管理员”权限的用户，并不等于拥有了系统中的所有权限，不过，系统管理员可以在系统管理模块中设置权限（包括所有权限）。所以，可以这样理解，有系统管理员权限的用户还需要通过赋予自己很多具体权限，才拥有具体功能的权限。
+</p>
+<p class="p0">
+注意：拥有“普通管理员<span>-</span><span>用户管理”权限的用户，可以新增角色、给角色赋予所有权限、将所有建立的角色分配给用户，这样是不是和系统管理员权限一样了？答案是否定的。拥有“普通管理员</span><span>-</span><span>用户管理”权限的用户所做的关于角色、权限、用户的分配管理工作，其默认数据范围都是此普通管理员所管理范围内的组织及其下属组织。比如，某用户是惠州电子厂的普通管理员，那么他给惠州电子厂的某个用户赋予了工作流程的办理查阅权限，那么默认权限范围是：查阅惠州电子厂及其下属组织的用户发起的工作流程文件，而不能查阅其他组织的用户发起的工作流程文件。</span>
+</p>
+</div>
+
+<div class="subDiv">
+<h3>1.2.9用户同步</h3>
+<p class="p0" style="">
+	只有<span>admin</span><span>用户才可以看到“用户同步”。</span>
+</p>
+<p class="p0" style="">
+	如果同时使用了第三方即时沟通软件，那么通过“用户同步”可以将<span>ezOFFICE</span><span>系统的组织和用户同步到即时沟通软件中，这样就避免了重复初始化和日常管理。</span>
+</p>
+<p class="p0" style="">
+	其中，全部同步是指全部同步组织和用户数据，增量同步是指在上次同步的基础上对新近变化的组织和用户进行同步。
+</p>
+</div>
+
+
+
+</div>
+
+
+
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+
+
+
+</div>
+ 
+</div>
+
+</div>
+
+</div>
+  
+
+
+</td>
+    
+  </tr>
+  
+</table>
+</div>
+</div>
+
+ 
+
+</td>
+    
+  </tr>
+</table>
+</div>
+</body>
+</html>
+<SCRIPT language="javascript" src="js/js.js"></SCRIPT>

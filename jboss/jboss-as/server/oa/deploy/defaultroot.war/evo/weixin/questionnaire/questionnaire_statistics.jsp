@@ -79,7 +79,7 @@
 	                  		<c:set var="themeOptionTitle"><x:out select="$tolR/themeOptionTitle/text()"/></c:set>
 	                  		<c:set var="eachOptSum"><x:out select="$tolR/eachOptSum/text()"/></c:set>
 	                  		<c:set var="isMySelected"><x:out select="$tolR/isMySelected/text()"/></c:set>
-	                  		<c:set var="answerRatio1"><fmt:formatNumber value="${eachOptSum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+	                  		<c:set var="answerRatio1"><fmt:formatNumber value="${eachOptSum / answerSheetSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
 	                  		<c:set var="opImgSaveName"><x:out select="$tolR/opImgSaveName/text()"/></c:set>
 	                  		<c:choose>
 	                  			<c:when test="${opImgSaveName !='' }">
@@ -126,7 +126,7 @@
                       	  <c:set var="isMyOtherAnswer"><x:out select="$qr/isMyOtherAnswer/text()"/></c:set>
                       	  <c:set var="myOtherAnswerContent"><x:out select="$qr/myOtherAnswerContent/text()"/></c:set>
                       	  <c:set var="otherAnswerNum"><x:out select="$qr/otherAnswerNum/text()"/></c:set>
-                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / answerSheetSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
 	                      <div class="box">  
 	                        <p>
 	                          <label class="label-radio item-content">
@@ -171,7 +171,7 @@
 		                  		<c:set var="themeOptionTitle"><x:out select="$tolC/themeOptionTitle/text()"/></c:set>
 		                  		<c:set var="eachOptSum"><x:out select="$tolC/eachOptSum/text()"/></c:set>
 		                  		<c:set var="isMySelected"><x:out select="$tolC/isMySelected/text()"/></c:set>
-		                  		<c:set var="answerRatio1"><fmt:formatNumber value="${eachOptSum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+		                  		<c:set var="answerRatio1"><fmt:formatNumber value="${eachOptSum / answerSheetSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
 		                  		<c:set var="opImgSaveName"><x:out select="$tolC/opImgSaveName/text()"/></c:set>
 		                  		<c:choose>
 		                  			<c:when test="${opImgSaveName !='' }">
@@ -218,7 +218,7 @@
 	                      	  <c:set var="isMyOtherAnswer"><x:out select="$qc/isMyOtherAnswer/text()"/></c:set>
 	                      	  <c:set var="myOtherAnswerContent"><x:out select="$qc/myOtherAnswerContent/text()"/></c:set>
 	                      	  <c:set var="otherAnswerNum"><x:out select="$qc/otherAnswerNum/text()"/></c:set>
-	                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / allCanAnswerSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
+	                      	  <c:set var="answerRatio1ot"><fmt:formatNumber value="${otherAnswerNum / answerSheetSum *100}" pattern="##.##" minFractionDigits="0" ></fmt:formatNumber>%</c:set>
 		                      <div class="box">  
 		                        <p>
 		                          <label class="label-radio item-content">

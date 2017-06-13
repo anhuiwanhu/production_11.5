@@ -44,7 +44,7 @@
         <div class="page">  
           <section id="sectionScroll" class="wh-section wh-section-bottomfixed"> 
             <article class="wh-edit wh-edit-forum wh-article-log-edit">
-              <div class="wh-container">
+              <div>
                 <div class="log-edit-tip clearfix">
                   <ul>
                     <li id="org" <c:if test="${weather == '晴天'}">class="current"</c:if>>
@@ -511,6 +511,9 @@
 		    		 $$('.wh-load-md').hide();
 		    	}else{
 		    		 $$('.wh-load-md').show();
+		    	}
+		    	if(index == 0){
+		    		$$('.wh-article-lists').html('<li>系统没有查询到相关记录</p></li>');
 		    	}
 				$("#proLi_"+liId).addClass("current");
 				myApp.hidePreloader();

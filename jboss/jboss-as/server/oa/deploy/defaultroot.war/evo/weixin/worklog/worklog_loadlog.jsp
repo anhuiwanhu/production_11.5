@@ -25,7 +25,7 @@
               <c:set var="logDate"><x:out select="$doc//logDetail/logDate/text()"/></c:set>
               <c:set var="logType"><x:out select="$doc//logDetail/logType/text()"/></c:set>
               <c:set var="logId"><x:out select="$doc//logDetail/id/text()"/></c:set>
-              <div class="wh-container">
+              <div>
                 <div class="log-edit-tip clearfix">
                   <ul>
                     <li <c:if test="${weather == '晴天'}">class="current"</c:if>>

@@ -103,7 +103,7 @@ if(style.equals("pure")){
 		var whir_agent = "<%=com.whir.component.security.crypto.EncryptUtil.htmlcode(whir_agent)%>"; 
 		var whir_locale = "<%=whir_locale.toLowerCase()%>"; 
   </script>
-  <script type="text/javascript" src="<%=rootPath%>/scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="<%=rootPath%>/scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
   <script type="text/javascript" src="<%=rootPath%>/scripts/i18n/<%=whir_locale%>/CommonResource.js" type="text/javascript"></script>  
 	<script src="<%=rootPath%>/scripts/plugins/lhgdialog/lhgdialog.js?skin=idialog" type="text/javascript"></script>
 	<script type="text/javascript" src="<%=rootPath%>/scripts/plugins/form/jquery.form.js" type="text/javascript"></script>

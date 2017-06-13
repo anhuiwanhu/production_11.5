@@ -134,7 +134,7 @@
 					$$('.wh-article-lists ul').append(html);
 				},
 				error : function(xhr, status) {
-					$$('.wh-article-lists').append('<tr><td><p>没有更多记录</p></td></tr>');
+					$$('.wh-article-lists').html('<li>系统没有查询到相关记录</p></li>');
 					$$('.wh-load-tap').hide();
 					$$('.wh-load-md').hide();
 				}
@@ -197,13 +197,13 @@
 					if(selhtml !=''){
 						$$('.wh-article-lists ul').html(selhtml);
 					}else{
-						$$('.wh-article-lists ul').html('<li>没有查询到记录</p></li>');
+						$$('.wh-article-lists').html('<li>系统没有查询到相关记录</p></li>');
 						$$('.wh-load-tap').hide();
 						$$('.wh-load-md').hide();
 					}
 				},
 				error : function(xhr, status) {
-					$$('.wh-article-lists ul').html('<li>没有查询到记录</p></li>');
+					$$('.wh-article-lists').html('<li>系统没有查询到相关记录</p></li>');
 					$$('.wh-load-tap').hide();
 					$$('.wh-load-md').hide();
 				}

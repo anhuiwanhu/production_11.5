@@ -1,0 +1,1112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>帮助中心</title>
+<link href="css/css_help.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/jquery.SuperSlide.2.1.1.js"></script>
+<script language=javascript id=clientEventHandlersJS>
+<!--
+var number=2;
+
+function LMYC() {
+var lbmc;
+var treePic;
+    for (i=1;i<=number;i++) {
+        lbmc = eval('LM' + i);
+       treePic = eval('treePic'+i);
+       treePic.src = 'img/menu_a_h.png';
+      lbmc.style.display = 'none';
+		
+    }
+}
+ 
+function ShowFLT(i) {
+    lbmc = eval('LM' + i);
+   treePic = eval('treePic' + i)
+    if (lbmc.style.display == 'none') {
+        LMYC();
+       treePic.src = 'img/menu_a_h_t.png';
+      lbmc.style.display = '';
+	
+    }
+    else {
+      treePic.src = 'img/menu_a_h.png';
+        lbmc.style.display = 'none';
+    }
+}
+//-->
+      </script>
+      
+      
+            
+<script type="text/javascript">
+	function isShowIndex(tab_id,div_id,who,aId,num){
+   for(var i = 0;i < num;i++){
+    document.getElementById("dt"+who+i).style.display="none";
+      document.getElementById("sp"+who+i).className="aoff";
+   }
+ document.getElementById(div_id).style.display="block";
+   document.getElementById(tab_id).className="aon";
+}
+
+</script>
+            
+            		
+</head>
+
+<body>
+<div class="help_bg">
+<div class="help_box">
+<div class="help_head">
+<a href="index.html" title="万户--帮助中心" class="logo"><img src="img/logo.png" /></a>
+<ul class="nav_box">
+<li><a href="index.html" class="user1">用户手册</a></li><li class="on_nav"><a href="help_user.html" class="user2">管理员手册</a></li><li><a href="help_ask.html" class="user3">常见问题</a></li>
+</ul>
+
+<a href="#" onclick="openWin({url:'../about/about.jsp',width:'530',height:'380',isScroll:'no',winName:'about'});" class="ico_sm"></a>
+<a href="#" onclick="window.close();" class="ico_tc"></a>
+
+</div>
+
+
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="220" valign="top" class="left_nr">
+        <div class="help_left">
+ 
+     
+     
+<div class="ask_list">
+<h1 id="spA_0" onclick="isShowIndex('spA_0','dtA_0','A_','','19')"><a onClick="javascript:ShowFLT(1);" href="javascript:void(null)" target="_self">系统管理<span><img src="img/menu_a_h.png"  id="treePic1" /></span></a></h1>
+<div id=LM1 style="DISPLAY: none">
+	<h2><a href="help_user.html" target="_self" >基础设置</a></h2>
+	<h2><a href="a12.html" target="_self">组织用户管理</a></h2>
+    <h2><a href="a13.html" target="_self">自定义平台</a></h2>
+    <h2><a href="a14.html" target="_self" >安全管理</a></h2>
+</div>
+
+
+<h1 id="spA_1" onclick="isShowIndex('spA_1','dtA_1','A_','','19')"><a onClick="javascript:ShowFLT(2);" href="javascript:void(null)" target="_self">信息管理<span><img src="img/menu_a_h.png"  id="treePic2" /></span></a></h1>
+<div id=LM2 style="DISPLAY: none">
+    <h2><a href="a21.html" target="_self">权限说明</a></h2>
+    <h2><a href="a22.html" target="_self">栏目设置</a></h2>
+    <h2><a href="a23.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a24.html" target="_self" >流程设置（ezFlow）</a></h2>
+    <h2><a href="a25.html" target="_self">模板设置</a></h2>
+    <h2><a href="a26.html" target="_self" >设置标签</a></h2>
+    <h2><a href="a27.html" target="_self">所有信息</a></h2>
+    <h2><a href="a28.html" target="_self">精华信息</a></h2>
+    <h2><a href="a29.html" target="_self">全文检索</a></h2>
+    <h2><a href="a210.html" target="_self" >积分统计</a></h2>
+    <h2><a href="a211.html" target="_self">我的发布</a></h2>
+    <h2><a href="a212.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_2" onclick="isShowIndex('spA_2','dtA_2','A_','','19')"><a onClick="javascript:ShowFLT(3);" href="javascript:void(null)" target="_self">单位主页<span><img src="img/menu_a_h.png"  id="treePic3" /></span></a></h1>
+<div id=LM3 style="DISPLAY: none">
+    <h2><a href="a31.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a32.html" target="_self">系统设置</a></h2>
+</div>
+
+
+<h1 id="spA_3" onclick="isShowIndex('spA_3','dtA_3','A_','','19')" class="aon"><a onClick="javascript:ShowFLT(4);" href="javascript:void(null)" target="_self">工作流程<span><img src="img/menu_a_h.png"  id="treePic4" /></span></a></h1>
+<div id=LM4 style="DISPLAY: block">
+    <h2><a href="a41.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a42.html" target="_self" >流程分类</a></h2>
+    <h2><a href="a43.html" target="_self" >流程按钮</a></h2>
+    <h2><a href="a44.html" target="_self" >流程设置</a></h2>
+    <h2><a href="a45.html" target="_self" >流程按钮（ezFLOW）</a></h2>
+    <h2><a href="a46.html" target="_self" class="cur" >流程设置（ezFLOW）</a></h2>
+    <h2><a href="a47.html" target="_self" >办理查阅</a></h2>
+    <h2><a href="a48.html" target="_self" >办理查阅(ezFLOW)</a></h2>
+    <h2><a href="a49.html" target="_self" >效率分析</a></h2>
+    <h2><a href="a410.html" target="_self" >工作流程设置总结</a></h2>
+</div>
+
+
+<h1 id="spA_4" onclick="isShowIndex('spA_4','dtA_4','A_','','19')"><a onClick="javascript:ShowFLT(5);" href="javascript:void(null)" target="_self">公文管理<span><img src="img/menu_a_h.png"  id="treePic5" /></span></a></h1>
+<div id=LM5 style="DISPLAY: none">
+    <h2><a href="a51.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a52.html" target="_self">发文管理</a></h2>
+    <h2><a href="a53.html" target="_self" >收文管理</a></h2>
+    <h2><a href="a54.html" target="_self">文件送审签</a></h2>
+    <h2><a href="a55.html" target="_self" >公文统计</a></h2>
+    <h2><a href="a56.html" target="_self">领导办理查阅</a></h2>
+    <h2><a href="a57.html" target="_self" >公文交换</a></h2>
+</div>
+
+
+<h1 id="spA_5" onclick="isShowIndex('spA_5','dtA_5','A_','','19')"><a onClick="javascript:ShowFLT(6);" href="javascript:void(null)" target="_self">论坛<span><img src="img/menu_a_h.png"  id="treePic6" /></span></a></h1>
+<div id=LM6 style="DISPLAY: none">
+    <h2><a href="a61.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a62.html" target="_self">论坛管理</a></h2>
+</div>
+
+
+<h1 id="spA_6" onclick="isShowIndex('spA_6','dtA_6','A_','','19')"><a onClick="javascript:ShowFLT(7);" href="javascript:void(null)" target="_self">微博<span><img src="img/menu_a_h.png"  id="treePic7" /></span></a></h1>
+<div id=LM7 style="DISPLAY: none">
+    <h2><a href="a71.html" target="_self" >权限说明</a></h2>
+</div>
+
+
+<h1 id="spA_7" onclick="isShowIndex('spA_7','dtA_7','A_','','19')"><a onClick="javascript:ShowFLT(8);" href="javascript:void(null)" target="_self">个人办公<span><img src="img/menu_a_h.png"  id="treePic8" /></span></a></h1>
+<div id=LM8 style="DISPLAY: none">
+    <h2><a href="a81.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a82.html" target="_self">联系人</a></h2>
+    <h2><a href="a83.html" target="_self" >日程</a></h2>
+    <h2><a href="a84.html" target="_self">工作日志</a></h2>
+    <h2><a href="a85.html" target="_self" >工作汇报</a></h2>
+    <h2><a href="a86.html" target="_self">任务中心</a></h2>
+    <h2><a href="a87.html" target="_self" >人员去向</a></h2>
+    <h2><a href="a88.html" target="_self" >状态查询</a></h2>
+</div>
+
+
+<h1 id="spA_8" onclick="isShowIndex('spA_8','dtA_8','A_','','19')"><a onClick="javascript:ShowFLT(9);" href="javascript:void(null)" target="_self">人事管理<span><img src="img/menu_a_h.png"  id="treePic9" /></span></a></h1>
+<div id=LM9 style="DISPLAY: none">
+    <h2><a href="a91.html" target="_self" >人事管理</a></h2>
+    <h2><a href="a92.html" target="_self">考勤管理</a></h2>
+    <h2><a href="a93.html" target="_self" >社保及公积金管理</a></h2><h2><a href="a95.html" target="_self">薪资管理</a></h2>
+    <h2><a href="a96.html" target="_self">贺卡管理</a></h2>
+    <h2><a href="a97.html" target="_self">培训管理</a></h2>
+</div>
+
+
+<h1 id="spA_9" onclick="isShowIndex('spA_9','dtA_9','A_','','19')"><a onClick="javascript:ShowFLT(10);" href="javascript:void(null)" target="_self">综合办公<span><img src="img/menu_a_h.png"  id="treePic10" /></span></a></h1>
+<div id=LM10 style="DISPLAY: none">
+    <h2><a href="a101.html" target="_self" >车辆管理</a></h2>
+    <h2><a href="a102.html" target="_self">资料管理</a></h2>
+    <h2><a href="a103.html" target="_self" >物品管理</a></h2>
+    <h2><a href="a104.html" target="_self">资产管理</a></h2>
+    <h2><a href="a105.html" target="_self" >网上调查</a></h2>
+    <h2><a href="a106.html" target="_self">问卷调查</a></h2>
+    <h2><a href="a107.html" target="_self" >会务管理</a></h2>
+    <h2><a href="a108.html" target="_self">设备管理</a></h2>
+    <h2><a href="a109.html" target="_self">项目管理</a></h2>
+    <h2><a href="a1010.html" target="_self">合同管理</a></h2>
+    <h2><a href="a1011.html" target="_self">名片订购</a></h2>
+</div>
+
+
+<h1 id="spA_10" onclick="isShowIndex('spA_10','dtA_10','A_','','19')"><a onClick="javascript:ShowFLT(11);" href="javascript:void(null)" target="_self">档案管理<span><img src="img/menu_a_h.png"  id="treePic11" /></span></a></h1>
+<div id=LM11 style="DISPLAY: none">
+    <h2><a href="a111.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a112.html" target="_self">档案设置</a></h2>
+    <h2><a href="a113.html" target="_self" >文件著录</a></h2>
+    <h2><a href="a114.html" target="_self">类目管理</a></h2>
+    <h2><a href="a115.html" target="_self">档案销毁</a></h2>
+    <h2><a href="a116.html" target="_self">档案借阅</a></h2>
+    <h2><a href="a117.html" target="_self">档案统计</a></h2>
+</div>
+
+
+<h1 id="spA_11" onclick="isShowIndex('spA_11','dtA_11','A_','','19')"><a onClick="javascript:ShowFLT(12);" href="javascript:void(null)" target="_self">文档管理<span><img src="img/menu_a_h.png"  id="treePic12" /></span></a></h1>
+<div id=LM12 style="DISPLAY: none">
+    <h2><a href="a121.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a122.html" target="_self">流程设置</a></h2>
+    <h2><a href="a123.html" target="_self" >目录管理</a></h2>
+    <h2><a href="a124.html" target="_self">所有文档</a></h2>
+    <h2><a href="a125.html" target="_self" >新建文档</a></h2>
+    <h2><a href="a126.html" target="_self">过期文档</a></h2>
+    <h2><a href="a127.html" target="_self" >作废文档</a></h2>
+    <h2><a href="a128.html" target="_self" >历史文档</a></h2>
+    <h2><a href="a129.html" target="_self">我的接收文档</a></h2>
+    <h2><a href="a1210.html" target="_self" >发放单</a></h2>
+    <h2><a href="a1211.html" target="_self">借阅单</a></h2>
+    <h2><a href="a1212.html" target="_self" >统计报表</a></h2>
+    <h2><a href="a1213.html" target="_self" >办理查阅</a></h2>
+</div>
+
+
+<h1 id="spA_12" onclick="isShowIndex('spA_12','dtA_12','A_','','19')"><a onClick="javascript:ShowFLT(13);" href="javascript:void(null)" target="_self">关系管理<span><img src="img/menu_a_h.png"  id="treePic13" /></span></a></h1>
+<div id=LM13 style="DISPLAY: none">
+    <h2><a href="a131.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a132.html" target="_self">自定义数据表</a></h2>
+    <h2><a href="a133.html" target="_self" >自定义关系</a></h2>
+</div>
+
+
+<h1 id="spA_13" onclick="isShowIndex('spA_13','dtA_13','A_','','19')"><a onClick="javascript:ShowFLT(14);" href="javascript:void(null)" target="_self">预算管理<span><img src="img/menu_a_h.png"  id="treePic14" /></span></a></h1>
+<div id=LM14 style="DISPLAY: none">
+    <h2><a href="a141.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a142.html" target="_self">预算部门设置</a></h2>
+    <h2><a href="a143.html" target="_self" >预算科目设置</a></h2>
+    <h2><a href="a144.html" target="_self">流程设置</a></h2>
+    <h2><a href="a145.html" target="_self" >费用预算管理</a></h2>
+    <h2><a href="a146.html" target="_self">费用预算调整</a></h2>
+    <h2><a href="a147.html" target="_self" >预算扣减</a></h2>
+</div>
+
+
+<h1 id="spA_14" onclick="isShowIndex('spA_14','dtA_14','A_','','19')"><a onClick="javascript:ShowFLT(15);" href="javascript:void(null)" target="_self">催办督办<span><img src="img/menu_a_h.png"  id="treePic15" /></span></a></h1>
+<div id=LM15 style="DISPLAY: none">
+    <h2><a href="a151.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a152.html" target="_self">基础设置</a></h2>
+    <h2><a href="a153.html" target="_self" >督办任务</a></h2>
+    <h2><a href="a154.html" target="_self" >任务查询</a></h2>
+    <h2><a href="a155.html" target="_self">部门任务统计</a></h2>
+</div>
+
+
+<h1 id="spA_15" onclick="isShowIndex('spA_15','dtA_15','A_','','19')"><a onClick="javascript:ShowFLT(16);" href="javascript:void(null)" target="_self">信息报送<span><img src="img/menu_a_h.png"  id="treePic16" /></span></a></h1>
+<div id=LM16 style="DISPLAY: none">
+    <h2><a href="a161.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a162.html" target="_self">设置</a></h2>
+</div>
+
+
+<h1 id="spA_16" onclick="isShowIndex('spA_16','dtA_16','A_','','19')"><a onClick="javascript:ShowFLT(17);" href="javascript:void(null)" target="_self">短信<span><img src="img/menu_a_h.png"  id="treePic17" /></span></a></h1>
+<div id=LM17 style="DISPLAY: none">
+    <h2><a href="a171.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a172.html" target="_self">短信设置</a></h2>
+    <h2><a href="a173.html" target="_self" >短信统计</a></h2>
+</div>
+
+
+<h1 id="spA_17" onclick="isShowIndex('spA_17','dtA_17','A_','','19')"><a onClick="javascript:ShowFLT(18);" href="javascript:void(null)" target="_self">定位服务<span><img src="img/menu_a_h.png"  id="treePic18" /></span></a></h1>
+<div id=LM18 style="DISPLAY: none">
+    <h2><a href="a181.html" target="_self" >如何开通手机定位服务</a></h2>
+    <h2><a href="a182.html" target="_self">权限说明</a></h2>
+    <h2><a href="a183.html" target="_self">定位白名单</a></h2>
+</div>
+
+
+<h1 id="spA_18" onclick="isShowIndex('spA_18','dtA_18','A_','','19')"><a onClick="javascript:ShowFLT(19);" href="javascript:void(null)" target="_self">知道<span><img src="img/menu_a_h.png"  id="treePic19" /></span></a></h1>
+<div id=LM19 style="DISPLAY: none">
+    <h2><a href="a191.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a192.html" target="_self">分类设置</a></h2>
+    <h2><a href="a193.html" target="_self" >问题维护</a></h2>
+    <h2><a href="a194.html" target="_self">专家设置</a></h2>
+</div>
+
+
+<h1 id="spA_19" onclick="isShowIndex('spA_19','dtA_19','A_','','19')"><a onClick="javascript:ShowFLT(20);" href="javascript:void(null)" target="_self">知识文库<span><img src="img/menu_a_h.png"  id="treePic20" /></span></a></h1>
+<div id=LM20 style="DISPLAY: none">
+    <h2><a href="a201.html" target="_self" >权限说明</a></h2>
+    <h2><a href="a202.html" target="_self">分类设置</a></h2>
+</div>
+
+
+
+</div>
+
+     
+    </div> 
+    
+    
+  
+       </td>
+    <td valign="top" class="right_nr">
+<div class="right_bg">
+<span id="dtA_0"  class="ask_blank" style="display:block"></span>
+<span id="dtA_1"  class="ask_blank"></span>
+<span id="dtA_2"  class="ask_blank"></span>
+<span id="dtA_3"  class="ask_blank"></span>
+<span id="dtA_4"  class="ask_blank"></span>
+<span id="dtA_5"  class="ask_blank"></span>
+<span id="dtA_6"  class="ask_blank"></span>
+<span id="dtA_7"  class="ask_blank"></span>
+<span id="dtA_8"  class="ask_blank"></span>
+<span id="dtA_9"  class="ask_blank"></span>
+<span id="dtA_10"  class="ask_blank"></span>
+<span id="dtA_11"  class="ask_blank"></span>
+<span id="dtA_12"  class="ask_blank"></span>
+<span id="dtA_13"  class="ask_blank"></span>
+<span id="dtA_14"  class="ask_blank"></span>
+<span id="dtA_15"  class="ask_blank"></span>
+<span id="dtA_16"  class="ask_blank"></span>
+<span id="dtA_17"  class="ask_blank"></span>
+<span id="dtA_18"  class="ask_blank"></span>
+<span id="dtA_19"  class="ask_blank"></span>
+<span id="dtA_20"  class="ask_blank"></span>
+
+
+<div  class="right_img">
+<div style="width:95%; margin:0px auto;">
+<div class="ifm" id="ifm">
+
+<div class="warp">
+<h2 class="help_tit">流程设置（ezFLOW）</h2>
+
+<div class="linkChild clear" id="linkChild">
+<ul class="hd clear">
+	<li>新增流程<b>&gt;</b></li>
+    <li>设置活动<b>&gt;</b></li>
+    <li>部署活动<b>&gt;</b></li>
+    <li>复制流程<b>&gt;</b></li>
+    <li>导入、导出流程<b>&gt;</b></li>
+    <li>子流程（ezFLOW）</li>    
+	<div class="clearfix"></div>
+</ul>
+
+<div class="bd">
+
+<div class="subDiv">
+<h3>4.6.1新增流程</h3>
+<p class="p0" style="">
+	点击“流程设置”，在右侧显示所有已经增加的流程。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.48.png" />
+</p>
+<p class="p0" style="">
+	点击“新增”按钮，弹出<span>wed</span><span>工作流设计器页面，如下图。</span>
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.49.png" />
+</p>
+<p class="p0" style="">
+	点击“流程设置”，弹出新增流程的页面，如下图。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.50.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;所属分类：可以自己新建一个分类，将同一类型的流程放在分类下，点击所属分类，支持多选，保存后流程显示在多个分类下
+</p>
+<p class="p0" style="">
+	l&nbsp;流程<span>ID</span><span>：</span>ID<span>不能重复</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;流程名称：可以按照自己的意愿去给流程进行命名
+</p>
+<p class="p0" style="">
+	l&nbsp;适用范围：部署流程后，在范围内的用户才可以使用这个流程，不在范围内的用户看不见这个流程。
+</p>
+<p class="p0" style="">
+	l&nbsp;表单类型：选择“自定义表单”，则下方显示“使用表单”，在其中可以选择在自定义表单中设置的流程表单；如果选择“<span>JSP</span><span>文件”，则下方显示“流程启动</span><span>JSP</span><span>文件”和“流程流转</span><span>JSP</span><span>文件”的预留功能，可上传开发好的</span><span>JSP</span><span>文件。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;可写字段：发起流程时，没有设置设置为“可写字段”的字段内容，不可以填写或者修改，设置了“可写字段”，可以填写或修改字段内容
+</p>
+<p class="p0" style="">
+	l&nbsp;对发起人隐藏字段：发起流程与流程审批时，流程发起人在文件办理中打开流程页面，隐藏的字段内容屏蔽不显示。
+</p>
+<p class="p0" style="">
+	l&nbsp;流程办结抄送：勾选“需要”，页面展开办结抄送人的选择方式，选择参与人方式后，当流程办结完毕时，发送阅件给选择的参与人。
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.51.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;提醒项：指的是在文件办理中的“待办文件”等栏目的文件列表中，将这些提醒字段作为标题的一部分，以方便查询搜索。比如，提醒项选择“起始时间”，那么在待办文件中可能提醒“李心白的2011-11-11<span>请假申请流程</span>等待您的办理！”其中，“2011-11-11<span>”就是这个流程中的“起始时间”，这样，我们按请假的起始时间查询就很方便。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;提醒项预览：可以事先查看选择的提醒项在文件列表中的展现形式，以方便用户按照自己的使用习惯进行调整。
+</p>
+<p class="p0" style="">
+	l&nbsp;办理期限：用于效率分析<span>-</span><span>超期流程排名（</span><span>ezFLOW</span><span>）中，列表中显示所有超过设定的办理期限的流程记录。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.52.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;字段联动：在自定义表单中设置字段联动和属性关联，点击下拉框显示设置的字段联动和字段触发
+</p>
+<p class="p0" style="">
+	l&nbsp;办理查阅查看人：在范围内的用户可以看到办理查阅菜单并且可以看到设置的流程名称
+</p>
+<p class="p0" style="">
+	l&nbsp;办理查阅维护人：在范围内的用户可以对流程进行：打印、催办、邮件转发、删除、批量删除、导出、选种导出、强制结束操作。详见下文“办理查阅”说明。
+</p>
+<p class="p0" style="">
+	l&nbsp;流程管理员：在范围内的用户可以看到该流程的所有流程记录
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>归档：</span>如果选择，那么本流程下所有文件流转完毕，会自动归档到<span>ezOFFICE</span><span>系统的档案管理模块中。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>流程办结后发起人可以打印：</span>如果选择，那么发起人在我的办结文中打开此文件后显示打印按钮，可以进行打印操作。
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span>流程办理结束时邮件提醒：如果选择，那么在流程办理结束后自动发送邮件给流程启动人。
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>在表单上保留退回意见：</span>如果选择，那么在退回时表单中的批示意见字段内容被保留。
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>批示意见不能为空：</span>如果选择，那么在流程办理过程中所有的批示意见必须填写，若不填写，系统提示请输入批示意见。
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>批示意见允许上传附件：</span>如果选择，那么在流程办理过程中批示意见下方显示上传附件按钮，可以上传附件。
+</p>
+<p class="p0" style="">
+	l&nbsp;设置项<span>-</span><span>批示意见排序：</span>
+</p>
+<p class="p0" style="">
+	u&nbsp;按时间顺序显示：如果选择，那么批示意见内容按照时间先后顺序排列
+</p>
+<p class="p0" style="">
+	u&nbsp;按时间倒序显示：如果选择，那么批示意见内容按照时间先后倒序排列
+</p>
+<p class="p0" style="">
+	u&nbsp;按职务顺序显示：如果选择，那么批示意见内容按照职务高低顺序排列
+</p>
+<p class="p0" style="">
+	u&nbsp;按职务倒序显示：如果选择，那么批示意见内容按照职务高低倒序排列
+</p>
+<p class="p0" style="">
+	l&nbsp;流程办结后可以打印<span>&nbsp;</span><span>：</span>如果选择，那么流程办结后，流程办理人和参与者在文件办理中都可以打印流程。
+</p>
+<p class="p0" style="">
+	l&nbsp;活动参与者为空自动跳转下一步：如果选择，那么流程在审批过程中，发送至下一活动环节时，若下一活动环节无匹配的办理人，则直接跳过此活动环节至后续的活动环节。
+</p>
+<p class="p0" style="">
+	l&nbsp;同步到手机端：如果选择，那么在手机上可以审批此流程。
+</p>
+<p class="p0" style="">
+	l&nbsp;同步到<span>PAD</span><span>端：</span>如果选择，那么在<span>PAD</span><span>中可以发起和审批此流程。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;流程说明：对于流程应用的一个说明，输入内容后可以点击流程前面的图标进行查看，如下图
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.53.png" />
+</p>
+<p class="p0">
+	接口页签下菜单：
+</p>
+<p class="p0" style="">
+	l&nbsp;表单处理类：开发接口。
+</p>
+<p class="p0" style="">
+	l&nbsp;表单提交方法：开发接口。
+</p>
+<p class="p0" style="">
+	l&nbsp;流程结束方法：开发接口。
+</p>
+<p class="p0" style="">
+	l&nbsp;页面加载方法名：开发接口。
+</p>
+<p class="p0" style="">
+	l&nbsp;页面保存方法名：开发接口。
+</p>
+
+</div>
+
+<div class="subDiv">
+
+<div class="anchor">
+<a href="#id11">4.6.2.1活动类型</a>
+<a href="#id12">4.6.2.2活动设置</a>
+<div class="clearfix"></div>
+</div>
+
+<h3>4.6.2设置活动</h3>
+<p class="p0" style="">
+	流程新增完毕，在<span>web</span><span>工作流设计器中增加流程的活动，比如</span>上级经理审批、行政人事部审核等。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.54.png" />
+</p>
+<p class="p0">
+注意：发起人提交表单的操作，不算一个活动。比如我要请假，提交一个请假流程，然后提交给上级领导审批。这样，第一个活动是“上级领导审批”，作为发起时填写请假单的操作不需要作为一个活动来设置。
+</p>
+<p class="p0" style="">
+	1.&nbsp;选择活动类型：点击用户任务、自动返回任务等活动，然后点击页面，那么页面中就会多出一个相应的活动图标
+</p>
+<p class="p0" style="">
+	2.&nbsp;活动设置：双击新增的活动，就会弹出活动设置页面
+</p>
+<p class="p0" style="">
+	3.&nbsp;连接活动：点击连接，按照自己的思路将活动图标进行连接，那么在流程流转过程中就会按照图中显示的连接方法进行流转
+</p>
+<p class="p0" style="">
+	注意：设置后需要进行保存，若设置后没有点击保存就关闭当前页面或点击关闭图标按钮，那么系统会弹出提示
+</p>
+<p class="p0">
+<img src="pic_admin/p4.55.png" />
+</p>
+
+
+
+
+<h4 id="id11">
+活动类型
+</h4>
+<p class="p0" style="">
+	l&nbsp;用户任务：相同于老工作流中的标准活动。
+</p>
+<p class="p0" style="">
+	l&nbsp;自动返回任务：只能连接在互斥网关后面
+</p>
+<p class="p0" style="">
+	l&nbsp;并行网关：并行网关后可以同时连接几个流程活动，所连接的活动必须全部都要办理完毕才能流转到下一步
+</p>
+<p class="p0" style="">
+	l&nbsp;互斥网关：互斥网关后可以同时连接几个流程活动，通过设置的虚拟条件，对流转方向进行多条件的自动判断，当同时又多个活动满足条件时，全部显示但是审核只能选择其中一个活动进行办理。
+</p>
+<p class="p0" style="">
+	比如，<span>1</span><span>万</span><span>&lt;</span><span>借款金额</span><span>&lt;5</span><span>万的，到分管副总审批，这样就需要使用虚拟活动了。另外，在</span><span>ezOFFICE</span><span>系统中，发起流程的时候是不能在多个后继活动中选择某</span>个活动的，而实际业务又需要在多个活动之间选择后继活动的，可以使用虚拟活动。比如一开始就判断发起人的职务是经理还是普通员工，如果是普通员工，发起时提交给部门领导，再到分管领导；如果是部门经理，就直接提交给分管领导。这样可以通过虚拟活动，在发起时就根据职务判断，自动流转到对应的后继活动。
+</p>
+<p class="p0" style="">
+	l&nbsp;包含网关：包含网关后可以同时连接几个流程活动，通过设置的虚拟条件，对流转方向进行多条件的自动判断，当同时又多个活动满足条件时，全部显示，审核能选择多个活动进行办理。
+</p>
+<p class="p0" style="">
+	l&nbsp;调用过程：<span>(</span>子过程活动)嵌入在流程中的子流程的活动。比如项目申报流程，先由分公司内部流程审核完毕，再提交到总公司的流程进行审核；在总公司流转的时候，不希望看到之前分公司的内部流转过程；总公司的这个流程又是可以独立流转的。符合这几个特征的情况下，在设置分公司流程的时候，可以将总公司的流程作为“子过程”。
+</p>
+<p class="p0" style="">
+	l&nbsp;子流程：嵌入在流程中的子流程，子流程来源于流程设置<span>-</span><span>子流程（</span><span>ezFLOW</span><span>）中。</span>
+</p>
+<h4 id="id12">
+活动设置
+</h4>
+<h5>
+设置“用户任务”
+</h5>
+<p class="p0" style="">
+	双击“用户任务”按钮，弹出活动设置页面，显示如下图。分为四个页签：基本信息、表单控制、操作按钮、接口。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.56.png" />
+</p>
+<p class="p0">
+	基本信息页签：
+</p>
+<p class="p0" style="">
+	1)&nbsp;办理方式<span>-</span><span>抢占：</span>当发送审核人为多个用户时，多个审核人同时受到该流程，其中任意一个审核人抢先办理，流程自动跳转到下一步活动
+</p>
+<p class="p0" style="">
+	2)&nbsp;办理方式<span>-</span><span>顺序</span>：当发送审核人为多个用户时，按照选择发送的顺序，第一个审核人办理后，第二个审核人收到该流程，以此类推，直至所有审核人办理完毕，跳转到下一活动
+</p>
+<p class="p0" style="">
+	3)&nbsp;办理方式<span>-</span><span>并行：</span>当发送审核人为多个用户时，多个审核人同时受到该流程，不分先后，全部办理完毕后流程跳转到下一步活动
+</p>
+<p class="p0" style="">
+	4)&nbsp;办理方式<span>-</span><span>单人：</span>发送到此活动时，只允许选择一个办理人。
+</p>
+<p class="p0" style="">
+	5)&nbsp;缓急：选择不用的缓急级别，在待办文件中，按照缓急程度以不同的颜色标识，并且按照环境程度来排序待批流程，如下图
+</p>
+<p class="p0">
+<img src="pic_admin/p4.57.png" />
+</p>
+<p class="p0" style="">
+	6)&nbsp;使用表单：“默认”指此活动使用的表单和此流程使用表单一样。“自定义”是指此活动使用单独定义的表单，和其他活动使用表单不一样；在此要注意的是，选择的自定义表单必须是和发起时的表单用的同一张数据表形成的，否则无法选择。例如：表单<span>1</span><span>和表单</span><span>2</span><span>都是关联数据表</span><span>1</span><span>来进行设计的，只是</span><span>2</span><span>个表单在流程中的表现形式不一样</span>
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.58.png" />
+</p>
+<p class="p0" style="">
+	7)&nbsp;办理提示：如果选择：有，页面展开显示提示标题和提示内容。在流程流转至此活动时，打开流程页面弹出办理提示框，提示框的标题为此处的提示标题，提示内容为此处设置的提示内容。
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.59.png" />
+</p>
+<p class="p0" style="">
+	8)&nbsp;办理期限：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.60.png" />
+</p>
+<p class="p0" style="">
+	无：指的是此活动没有任何的期限约束。
+</p>
+<p class="p0" style="">
+	固定：此活动的办理期限在设置的时间之内，比如上级领导审批的办理期限为<span>1</span><span>个小时，提前</span><span>15</span><span>分钟提醒办理人</span>
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.61.png" />
+</p>
+<p class="p0" style="">
+	到期后处理：1.<span>即时通讯提醒，到期后系统自动发送即时通讯提醒；</span>
+</p>
+<p class="p0" style="">
+	2.<span>短信提醒如果开通了短信提醒功能并办理人有电话号码，系统会自动</span>
+</p>
+<p class="p0" style="">
+	发送短信提示；
+</p>
+<p class="p0" style="">
+	3.<span>催办，系统会自动发送催办，办理人可以在系统中进行查看；</span>
+</p>
+<p class="p0" style="">
+	4.<span>自动跳转，当超过期限后，系统会自动跳转至下一活动办理人，但是下一活动办理人必须在</span>
+</p>
+<p class="p0" style="">
+	下图显示范围内才有效；
+</p>
+<p class="p0" style="">
+	5、&nbsp;自动转交，在个人办公<span>-</span><span>工作代理中设置转交人，</span>自动跳转至下一活动。部分参与者设置
+</p>
+<p class="p0" style="">
+	满足自动跳转条件、且参与者是唯一办理人时可以自动跳转。
+</p>
+<p class="p0" style="">&nbsp;
+	
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.62.png" />
+</p>
+<p class="p0" style="">
+	自定义：
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.63.png" />
+</p>
+<p class="p0" style="">
+	注释<span>1</span><span>：“字段”显示关联数据表中的字段（批示意见字段除外）。</span>
+</p>
+<p class="p0" style="">
+	注释<span>2</span><span>：“运算”显示等于、大于、大于等于、小于、小于等于、包含。</span>
+</p>
+<p class="p0" style="">
+	注释<span>3</span><span>：“值”为文本框。</span>
+</p>
+<p class="p0" style="">
+	注释<span>4</span><span>：点击操作按钮可增加、删除行。</span>
+</p>
+<p class="p0" style="">
+	注释<span>5</span><span>：此处根据设置的条件判断对应的办理期限和催办时间。</span>
+</p>
+<p class="p0" style="">
+	注释<span>6</span><span>：当满足第一行条件时执行第一行，当满足第二行条件时执行第二行，理论不会设置成两行条件都满足，若设置成两行都满足，优先以第一行为准。</span>
+</p>
+<p class="p0" style="">
+	“办理期限”说明：
+</p>
+<table style="width:521pt;padding:0pt 5.4pt;">
+	<tbody>
+		<tr>
+			<td width="132" valign="center" style="border:0.5000pt solid #000000;background:#C6D9F1;">
+				<p class="p0" style="text-align:center;">
+					<span style="font-size:10.5000pt;font-family:'宋体';">活动中设置“办理期限”</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="165" valign="center" style="border:0.5000pt solid #000000;background:#C6D9F1;">
+				<p class="p0" style="text-align:center;">
+					<span style="font-size:10.5000pt;font-family:'宋体';">“办理期限”设置为“小时<span>/</span><span>天”</span></span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="111" valign="center" style="border:0.5000pt solid #000000;background:#C6D9F1;">
+				<p class="p0" style="text-align:center;">
+					<span style="font-size:10.5000pt;font-family:'宋体';">上一环节发送时间</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="161" valign="center" style="border:0.5000pt solid #000000;background:#C6D9F1;">
+				<p class="p0" style="text-align:center;">
+					<span style="font-size:10.5000pt;font-family:'宋体';">待办列表中显示“办理期限”</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="123" valign="center" style="border:0.5000pt solid #000000;background:#C6D9F1;">
+				<p class="p0" style="text-align:center;">
+					<span style="font-size:10.5000pt;font-family:'宋体';">提前提醒“<span>15</span><span>分钟”</span></span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="132" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">固定</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="165" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">1<span>小时</span></span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="111" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-27</span><span style="font-size:10.5000pt;font-family:'宋体';">&nbsp;14:00</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="161" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-27</span><span style="font-size:10.5000pt;font-family:'宋体';">&nbsp;15:00</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="123" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-27</span><span style="font-size:10.5000pt;font-family:'宋体';">&nbsp;14:45</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="132" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">固定</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="165" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">1<span>天</span></span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="111" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-27</span><span style="font-size:10.5000pt;font-family:'宋体';">&nbsp;14:00</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="161" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-2</span><span style="font-size:10.5000pt;font-family:'宋体';">8&nbsp;14:00</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="123" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'Times New Roman';">2012-4-2</span><span style="font-size:10.5000pt;font-family:'宋体';">8&nbsp;13:45</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+		</tr>
+		<tr>
+			<td width="132" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">无</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="165" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">无</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="111" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">无</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="161" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">无</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+			<td width="123" valign="center" style="border:0.5000pt solid #000000;">
+				<p class="p0">
+					<span style="font-size:10.5000pt;font-family:'宋体';">无</span><span style="font-size:10.5000pt;font-family:'Times New Roman';"></span>
+				</p>
+			</td>
+		</tr>
+	</tbody>
+</table>
+<p class="p0" style="">&nbsp;
+	
+</p>
+<p class="p0" style="">
+	9)&nbsp;参与者：从操作方便的角度考虑，<span>ezOFFICE</span><span>系统设计了多种参与者的选择方式。流程的管理员可以根据实际业务情况来定义活动的参与者。</span>
+</p>
+<p class="p0" style="">
+	1.<span>角色选择</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;从系统角色中指定：在下拉菜单中选择“<span>AND</span><span>”，则活动参与者范围是前后两者的交集，比如“财务部”（组织）的“部门经理”（角色）。如果不选择“</span><span>AND</span><span>”，即为空，则活动参与者范围是所选“角色”，如“部门经理”，如果选择组织级别，那么在前面设置的组织要满足这个级别的设置，否则在流程中就没有符合条件的办理人显示，如果选择了“</span><span>AND</span><span>”也选择了组织级别的话，那么就必须要满足全部的条件才能获取到活动办理人</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.64.png" />
+</p>
+<p class="p0" style="">
+	在后面的下拉框中有“启动人相同办公地点”，这是一个很适用的选项。用户的办公地点在“人事管理→设置”中批量设置。
+</p>
+<p class="p0" style="">
+	设置办公地点的一个重要作用之一，在于工作流程中准确定位活动参与者。比如<span>A</span><span>集团在全国有很多分公司，组织架构类似，现在有一个“分公司款项支付申请流程”适用于所有分公司。如果流程发起人是上海分公司的员工，那么在“分公司总经理审批”一步，他希望能直接显示自己分公司的总经理；如果流程发起人是浙江分公司的，那么在“分公司总经理审批”一步，他也希望能直接显示自己分公司的总经理。这样，流程管理员可以设置活动参与者为：角色（分公司总经理）</span><span>AND</span><span>启动人相同办公地点。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;流程启动人：点击下拉框中，显示“本人”“部门领导”“分管领导”
+</p>
+<p class="p0" style="">
+	u&nbsp;选择“本人”后，在发送流程的时候会自动发送给自己
+</p>
+<p class="p0" style="">
+	u&nbsp;选择“上级领导”后：在发送流程时，流程会发送给流程启动人的上级领导，若流程启动人没有上级领导，那么流程发送时无法选择活动办理人，流程无法正常流转。
+</p>
+<p class="p0" style="">
+	u&nbsp;选择“部门领导”后：在发送流程时，流程会发送给流程启动人的部门领导，若流程启动人没有部门领导，那么流程发送时无法选择活动办理人，流程无法正常流转。
+</p>
+<p class="p0" style="">
+	l&nbsp;上一活动办理人的上级领导：应用情形举例——在流程中间环节，流转到部门员工小黄那里，小黄觉得这件事情需要请示他的上级领导，那么他的下一活动参与者可以设置为“上一活动办理人的上级领导”。
+</p>
+<p class="p0" style="">
+	l&nbsp;上一活动办理人的组织及下级组织：选择后在流程的流转过程中，活动办理人为上一活动办理人的组织及下级组织，如果选择了组织级别，那么只有满足组织级别设置的用户才能出现。
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.65.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;上一活动所有参与者：应用情形举例——上一步活动办理人是<span>5</span><span>个候选人中的小黄办理的，而下一活动也需要他办理，那么当前活动参与者可以设置为“上一活动所有参与者”。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;选中组织：点击下拉框显示“分管领导”“部门领导”
+</p>
+<p class="p0" style="">
+	u&nbsp;选择“分管领导”：在流程流转过程中，选择下一活动办理人时，可以看到所有权限范围内能看到的组织，选中组织后，点击发送后，流程自动发送给选中组织的分管领导。
+</p>
+<p class="p0" style="">
+	u&nbsp;选择“部门领导”：在流程流转过程中，选择下一活动办理人时，可以看到所有权限范围内能看到的组织，选中组织后，点击发送后，流程自动发送给选中组织的部门领导。
+</p>
+<p class="p0" style="">
+	l&nbsp;流程启动人上级组织<span>AND</span><span>职务级别：</span>选中后，在后面的下拉框中可以设置条件，如图所示，只有符合所有设置的条件办理人才会出现在下一活动办理人的选择框中
+</p>
+<p class="p0" style="">
+<img src="pic_admin/p4.66.png" />
+</p>
+<p class="p0">
+	2.<span>用户组织群组</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;从所有用户中选择：在整个组织架构、所有用户中选择办理人。
+</p>
+<p class="p0" style="text-align:center;">
+	l&nbsp;从选定的群组中选择：&nbsp;点击后面的<img src="pic_admin/ico51.png" style="margin:0; display:inline-block;" />按钮，可以选择群组，群组设置在系统设置中进行操作，若后面没有进行任何设置那么在选择下一活动办理人范围就在设置群组中选择，如设置<span>AND</span><span>条件那么要满足</span><span>AND</span><span>的所有条件才能选择活动办理人，例如：选择了群组</span><span>A</span><span>，并设置了</span><span>AND.</span><span>组织</span><span>.</span><span>启动人的组织</span><span>.</span><span>组织级别为</span><span>1</span><span>，那么只有满足所有的设置条件的用户才会显示出来以供选择。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.67.png" />
+</p>
+<p class="p0" style="">
+	l&nbsp;从本级组织及其下级组织中选择：从上一活动办理人所在组织及其下级组织中选择办理人。
+</p>
+<p class="p0" style="">
+	l&nbsp;从候选人员中指定：从管理员设置的用户中选择办理人。
+</p>
+<p class="p0" style="">
+	l&nbsp;从选定的范围中选择：从管理员设置的组织和群组中选择办理人。
+</p>
+<p class="p0">
+	3.<span>默认选择</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;指定全部办理人：将管理员设置的用户作为全部办理人，比如管理员设置了<span>5</span><span>个人，那么这</span><span>5</span><span>个人必须都办理，这个流程才可以流转下去。</span>
+</p>
+<p class="p0" style="">
+	l&nbsp;由接口决定：用于和其他系统进行相接。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.68.png" />
+</p>
+<p class="p0" style="">
+	10)&nbsp;批示意见：点击下拉框显示“无批示意见”“自动增加批示意见”“批示意见对应字段”
+</p>
+<p class="p0" style="">
+	l&nbsp;无批示意见：选择此选项后，在此活动时没有批示意见的输入框
+</p>
+<p class="p0" style="">
+	l&nbsp;自动增加批示意见：在自定义数据表的时候，并没有设置属性为“批示意见”的字段。那么活动设置时，可以选择“自动增加批示意见”，这样，当流程流转到这一步的时候，表单下方会自动显示表格，在这里可以输入办理意见。
+</p>
+<p class="p0" style="">
+	l&nbsp;批示意见对应字段：在自定义数据表时，如果将字段属性设置为“批示意见”，那么在这里会全部列出。选中某个字段名称，就表明当前活动办理人在这个字段里写批示意见。当流程流转到这一步的时候，这个字段自动为可写（可输入）状态，在这里输入批示意见提交流程之后，在表单上的这个单元格里，办理意见之后自动带上办理人的姓名和办理时间。
+</p>
+<p class="p0" style="">
+	11)&nbsp;需要阅件：如果选择“需要”，则在下方显示参与者的选择方式和“阅件意见”对应字段的设置。应用情形举例——假设当前活动为“主管领导审批”，主管领导在审批的同时可能会让其他分管领导阅一下。这时，管理员就可以设置需要阅件，阅件人的设置参照活动参与人说明。
+</p>
+<p class="p0" style="">
+	12)&nbsp;高级设置：选择“允许代办”，则如果当前活动办理人在“个人办公”→“个人设置”→“工作代理”中设置了工作代理，那么当授权人收到一个待办文件的时候，代理人也收到了一份待办文件。关于工作代理的详细说明，请参考《<span>ezOFFICE</span><span>用户使用手册》。</span>
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<p class="p0">
+	表单控制页签：
+</p>
+<p class="p0">
+	表单控制主要针对字段中读写控制、签章保护字段控制、隐藏字段设置，勾选需要设置的字段，点击保存，设置成功。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.69.png" />
+</p>
+<p class="p0" style="">
+	a)&nbsp;写字段：在审批流程时，办理人不能修改设置为“读字段”的字段内容，可以修改设置为“写字段”的字段内容。
+</p>
+<p class="p0" style="">
+	b)&nbsp;签章保护字段：在某个字段签章之后，就是对自己填写意见的确认，如果其他人修改了我的意见，那么设置了签章保护的字段中的签章就失效了。
+</p>
+<p class="p0" style="">
+	c)&nbsp;隐藏字段设置：设置了隐藏字段之后，这个活动办理人就看不到该字段的内容了。应用场景：对某个活动办理人比较敏感或需保密的字段可以设置隐藏。比如合同净利润评估，在流转过程中只给财务部审批这一步看见净利润，而不给其他活动办理人查看。【注意】隐藏字段不含批示意见字段。
+</p>
+<p class="p0">
+	“操作按钮”页签
+</p>
+<p class="p0" style="">
+	在设置活动的“操作按钮”页签，可以设置在流程审批时，在当前活动显示的功能按钮。关于每个按钮的详细说明，请参考《<span>ezOFFICE</span><span>用户使用手册》。</span>
+</p>
+<p class="p0">
+	“接口”页签
+</p>
+<p class="p0" style="">
+	在设置活动的“接口”页签，是用于开发的接口。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.70.png" />
+</p>
+<h5>
+设置“并行网关”
+</h5>
+<p class="p0">
+	双击并行网关，可以修改活动名称<img src="pic_admin/ico52.png" style="margin:0; display:inline-block;" />
+</p>
+<p class="p0">
+	并行网关必须是并行网关开始，并行网关结束，中间可以同时链接用户任务、调用过程多个活动，如下图：
+</p>
+<p class="p0">
+<img src="pic_admin/p4.71.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h5>
+设置“互斥网关”
+</h5>
+<p class="p0">
+	双击互斥网关，弹出“网关设置”页面，可以修改活动名称和默认走向，如下图：
+</p>
+<p class="p0">
+<img src="pic_admin/p4.72.png" />
+</p>
+<p class="p0">
+	互斥网关后可以链接“用户任务”“自动返回任务”“调用过程”，链接完成后点击“选择”，双击链接箭头，设置条件表达式，只能选择一个符合条件的活动。
+</p>
+<p class="p0">
+<img src="pic_admin/p4.73.png" />
+</p>
+<p class="p0">&nbsp;
+	
+</p>
+<h5>
+设置“包含网关”
+</h5>
+<p class="p0">
+	双击包含网关，可以修改活动名称<img src="pic_admin/ico53.png" style="margin:0; display:inline-block;" />
+</p>
+<p class="p0">
+	包含网关后可以链接“用户任务”“调用过程”多个活动，链接完成后点击“选择”，双击链接箭头，设置条件表达式，能选择多个符合条件的活动并行。
+</p>
+</div>
+
+<div class="subDiv">
+<h3>4.6.3部署活动</h3>
+<p class="p0">
+	新增流程后显示在列表中，部署成功后才能显示在新建流程中。
+</p>
+<p class="p0" style="">
+	1、&nbsp;新建流程
+</p>
+<p class="p0" style="">
+	点击“部署”<img src="pic_admin/ico54.png" style="margin:0; display:inline-block;" />，弹出提示框<img src="pic_admin/ico55.png" style="margin:0; display:inline-block;" />，点击确定后，
+</p>
+<p class="p0" style="">
+	适用范围内的用户在“新建流程”中能够查看并发起此流程
+</p>
+<p class="p0" style="">
+	2、&nbsp;修改流程
+</p>
+<p class="p0" style="">
+	点击“部署”<img src="pic_admin/ico54.png" style="margin:0; display:inline-block;" />，弹出提示框<img src="pic_admin/ico55.png" style="margin:0; display:inline-block;" />，点击确定后，流程的修改操作生效。
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>4.6.4复制流程</h3>
+<p>
+如要新建的流程与已有流程类似，只有些许的变更，那么我们就可以考虑使用复制流程这个功能，复制流程后稍做改动。勾选一个或多个需要复制的流程，点击列表上方“复制流程”按钮即可。
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>4.6.5导入、导出流程</h3>
+<p class="p0" style="">
+	可以实现不同<span>OA</span><span>系统间的流程数据共享，例如：管理员可以把在测试环境</span><span>OA</span><span>系统中已编辑好的流程导出后导入至正式生产环境中使用。又如某</span><span>A</span><span>单位的</span><span>OA</span><span>系统创建了一个出差报销流程，</span><span>A</span><span>单位管理员可以把流程导出，发送给</span><span>B</span><span>单位管理员，</span><span>B</span><span>单位管理员可以导入到自己的</span><span>OA</span><span>系统中使用。注意：</span><span>B</span><span>单位的出差报销流程导入到系统后，流程使用的表单和适用范围等数据都是</span><span>A</span><span>单位的，所以需要把流程的表单和适用范围等数据重新编辑后才可正常使用。下面介绍具体的操作步骤：</span>
+</p>
+<p class="p0" style="">
+	1.&nbsp;导出流程
+</p>
+<p class="p0" style="">
+	勾选要导出的流程记录，点击列表右上方的导出按钮，下载到本地，流程记录以压缩文件方式存储在本地。
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.74.png" />
+</p>
+<p class="p0" style="">
+	2.&nbsp;导入流程
+</p>
+<p class="p0" style="">
+	解压缩导出的流程压缩包，选择流程分类后，点击导入按钮，选择要导入的流程数据，导入成功后，在列表中显示。
+</p>
+<p class="p0">
+<img src="pic_admin/p4.75.png" />
+</p>
+
+</div>
+
+<div class="subDiv">
+<h3>4.6.6子流程（ezFLOW）</h3>
+<div style="background:#f6f6f6; border:1px solid #ddd; padding:15px; margin:15px 0;">
+<p>
+针对大集团在流程创建过程中存在很多相同的审批环节，此时可以将公共环节部分作为子流程放到流程中，当公共审批环节发生变更时，只需要在子流程中修改一次，既可以同步更新至所有调用了此子流程的主流程中，从而节省了繁复的工作量。
+</p>
+</div>
+<div class="anchor">
+<a href="#id21">4.6.6.1创建子流程</a>
+<a href="#id22">4.6.6.2调用子流程</a>
+<div class="clearfix"></div>
+</div>
+<h4 id="id21">
+创建子流程
+</h4>
+<p class="p0" style="">
+	子流程的具体创建步骤与新工作流的流程创建相同，参见<span>2.3.1</span><span>、</span><span>2.3.2</span><span>、</span><span>2.3.3</span><span>。</span>
+</p>
+<h4 id="id22">
+调用子流程
+</h4>
+<p class="p0" style="">
+	在流程设置（<span>ezFLOW</span><span>）中，点击列表的新增按钮进入工作流设计器页面，设计流程审批环节，添加子流程环节，如下图。</span>
+</p>
+<p class="p0" style="text-align:center;">
+<img src="pic_admin/p4.76.png" />
+</p>
+<p class="p0" style="">
+	添加子流程环节后，双击子流程活动节点按钮，弹出子流程页面，选择需要调用的子流程后保存页面。
+</p>
+<p class="p0">
+<img src="pic_admin/p4.77.png" />
+</p>
+<p class="p0" style="">
+	保存并部署流程后，流程环节设计完毕。用户在新建流程菜单中，打开流程发起页面，点击流程图页签，可以看到主流程活动节点图与子流程的活动节点图，如下图。
+</p>
+<p class="p0">
+<img src="pic_admin/p4.78.png" />
+</p>
+
+</div>
+
+
+
+</div>
+
+<div class="clearfix"></div>
+</div>
+
+</div>
+
+
+
+
+</div>
+ 
+</div>
+
+</div>
+
+</div>
+  
+
+
+</td>
+    
+  </tr>
+  
+</table>
+</div>
+</div>
+
+ 
+
+</td>
+    
+</tr>
+</table>
+</div>
+</body>
+</html>
+<SCRIPT language="javascript" src="js/js.js"></SCRIPT>

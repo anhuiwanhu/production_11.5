@@ -162,3 +162,34 @@ commit;
 
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.08_SP_20160928','11.5.0.08',sysdate);
 commit;
+
+
+
+
+
+update org_right set domain_id=-1 where righttype = '定位服务-定位白名单' or righttype='定位服务-考勤签到' or righttype='定位服务-人员轨迹'
+or righttype='定位服务-人员位置';
+commit;
+
+update Oa_Custmenu set righturlset='WXLocationAction!myWxLocationList.action' where menu_name='定位';
+commit;
+
+CREATE TABLE EZ_BPMPOOL_OUTDATASOURCE (	
+	OUTDATASOURCE_ID        NUMBER(20,0) not null, 
+	OUTDATASOURCE_CODE      VARCHAR2(100), 
+	OUTDATASOURCE_TYPE      VARCHAR2(100), 
+	OUTDATASOURCE_SQL       CLOB,
+	OUTDATASOURCE_FIELDS    CLOB,
+	PROCESSID               VARCHAR2(100), 
+	TASKID                  VARCHAR2(100), 
+	ISPROCESSSET            NUMBER(1,0), 
+	primary key(OUTDATASOURCE_ID)
+);
+commit;
+
+update oa_attendance_source set source_name='客户端' where source_id=1;
+commit;
+update oa_attendance_source set source_name='企业号' where source_id=2;
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.09_SP_20161015','11.5.0.09',sysdate);
+commit;

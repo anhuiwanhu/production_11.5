@@ -13,7 +13,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0,minimal-ui">
-  <title>计划列表展开表单页</title>
+  <title>表单页</title>
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.ios.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.min.css" />
   <link rel="stylesheet" href="/defaultroot/evo/weixin/frameworktemplate/css/template.style.colors.min.css" />
@@ -26,7 +26,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
         <div class="page">
           <section class="wh-section wh-section-bottomfixed">
             <article class="wh-edit wh-edit-forum">
-              <div class="wh-container">
+              <div>
 			  <c:if test="${not empty docXml}">
             	<x:parse xml="${docXml}" var="doc"/>
                 <table class="wh-table-edit">
@@ -51,7 +51,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 									</c:otherwise>
 								</c:choose>
 							</th>
-						<td style="text-align:right">
+						<td>
 						<c:choose>
 							<%--单行文本 101--%>
 							<c:when test="${showtype =='101' && readwrite =='1'}">
@@ -540,6 +540,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
       </div>
     </div>
   </div>
+    <script type="text/javascript" src="/defaultroot/evo/weixin/js/subClick.js"></script>
 </body>
 
 </html>

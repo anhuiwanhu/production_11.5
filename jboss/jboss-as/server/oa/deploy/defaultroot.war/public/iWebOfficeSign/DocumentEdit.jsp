@@ -471,7 +471,7 @@ H  “1” 是否允许手写批注  “0” 不可以批注， “1” 可以�
 <link rel='stylesheet' type='text/css' href='test.css'>
 
 
-<script src="/defaultroot/scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+<script src="/defaultroot/scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
 <script language="javascript" for=WebOffice event="OnMenuClick(vIndex,vCaption)">
 	//作用：套用模版定稿
 function WebInsertFile(){
