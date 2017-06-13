@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Licensed under the Apache License, Version 2.0 (the "License");
+  ~ you may not use this file except in compliance with the License.
+  ~ You may obtain a copy of the License at
+  ~
+  ~       http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~ Unless required by applicable law or agreed to in writing, software
+  ~ distributed under the License is distributed on an "AS IS" BASIS,
+  ~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~ See the License for the specific language governing permissions and
+  ~ limitations under the License.
+  -->
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntity">
+
+  <!-- HISTORIC PROCESS INSTANCE INSERT -->
+  
+  <insert id="insertHistoricProcessInstance" parameterType="org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntity">
+      insert into EZ_FLOW_HI_PROCINST (
+        ID_,
+        PROC_INST_ID_,
+        BUSINESS_KEY_,
+        PROC_DEF_ID_,
+        START_TIME_,
+        END_TIME_,
+        DURATION_,
+        START_USER_ID_,
+        START_ACT_ID_,
+        END_ACT_ID_,
+        SUPER_PROCESS_INSTANCE_ID_,
+        DELETE_REASON_,
+        whir_status,
+        whir_startOrgId,
+        whir_startOrgName,
+        whir_formKey,
+        whir_remindTitle,
+        WHIR_DEALING_ACTIVITY,
+        WHIR_DEALING_USERS,
+        WHIR_STARTUSERNAME,
+        WHIR_STARTUSERID,
+        WHIR_ISDELETED,
+        WHIR_PROCESSDESIGNERID,
+        WHIR_PROCESSDESIGNERNAME,
+        WHIR_MOBILE_STATUS,
+        WHIR_MOBILE_PHONE_STATUS,
+        WHIR_DEADLINEDATE,
+        WHIR_HAVEDEADLINE,
+        WHIR_UPDATE_URL,
+        WHIR_DEALED_ACT_INFO,
+        WHIR_FROMTASKID
+      ) values (
+        #{id ,jdbcType=VARCHAR},
+        #{processInstanceId, jdbcType=VARCHAR},
+        #{businessKey, jdbcType=VARCHAR},
+        #{processDefinitionId, jdbcType=VARCHAR},
+        #{startTime, jdbcType=TIMESTAMP},
+        #{endTime, jdbcType=TIMESTAMP},
+        #{durationInMillis ,jdbcType=BIGINT},
+        #{startUserId, jdbcType=VARCHAR},
+        #{startActivityId, jdbcType=VARCHAR},
+        #{endActivityId, jdbcType=VARCHAR},
+        #{superProcessInstanceId, jdbcType=VARCHAR},
+        #{deleteReason, jdbcType=VARCHAR},
+        #{whir_status, jdbcType=INTEGER},
+        #{whir_startOrgId, jdbcType=VARCHAR},
+        #{whir_startOrgName, jdbcType=VARCHAR},
+        #{whir_formKey, jdbcType=VARCHAR},
+        #{whir_remindTitle,jdbcType=VARCHAR},
+        #{whir_dealingActivity,jdbcType=VARCHAR},
+        #{whir_dealingUsers,jdbcType=VARCHAR},
+        #{whir_startUserName,jdbcType=VARCHAR},
+        #{whir_startUserId ,jdbcType=BIGINT},
+        #{whir_isdeleted ,jdbcType=INTEGER},
+        #{whir_processDesignerId ,jdbcType=VARCHAR},
+        #{whir_processDesignerName ,jdbcType=VARCHAR},
+        #{whir_mobileStatus ,jdbcType=VARCHAR},
+        #{whir_mobilePhoneStatus ,jdbcType=VARCHAR},
+        #{whir_deadlineDate, jdbcType=TIMESTAMP}, 
+        #{whir_haveDeadline,jdbcType=INTEGER},
+        #{whir_updateURL,jdbcType=VARCHAR},
+        #{whir_dealedActInfo,jdbcType=VARCHAR},
+        #{whir_fromTaskId,jdbcType=VARCHAR}
+      )
+  </insert>
+
+  <!-- HISTORIC PROCESS INSTANCE UPDATE -->
+  
+  <update id="updateHistoricProcessInstance" parameterType="org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntity">
+    update EZ_FLOW_HI_PROCINST set
+      PROC_DEF_ID_ = #{processDefinitionId, jdbcType=VARCHAR},
+      START_TIME_ = #{startTime, jdbcType=TIMESTAMP},
+      END_TIME_ = #{endTime, jdbcType=TIMESTAMP},
+      DURATION_ = #{durationInMillis ,jdbcType=BIGINT},
+      END_ACT_ID_ = #{endActivityId, jdbcType=VARCHAR},
+      DELETE_REASON_ = #{deleteReason, jdbcType=VARCHAR},
+      whir_status = #{whir_status, jdbcType=INTEGER},
+      WHIR_ISDELETED = #{whir_isdeleted, jdbcType=INTEGER},
+      whir_remindTitle=#{whir_remindTitle, jdbcType=VARCHAR},
+      WHIR_DEALING_ACTIVITY= #{whir_dealingActivity,jdbcType=VARCHAR},
+      WHIR_DEALING_USERS= #{whir_dealingUsers,jdbcType=VARCHAR},
+      WHIR_NEEDNEWGRAPH = #{whir_needNewGraph, jdbcType=INTEGER},
+      WHIR_UPDATE_URL= #{whir_updateURL,jdbcType=VARCHAR},
+      BUSINESS_KEY_= #{businessKey,jdbcType=VARCHAR},
+      WHIR_DEALED_ACT_INFO= #{whir_dealedActInfo,jdbcType=VARCHAR}
+    where ID_ = #{id}
+  </update>
+
+  <!-- HISTORIC PROCESS INSTANCE DELETE -->
+  
+  <delete id="deleteHistoricProcessInstance">
+    delete from EZ_FLOW_HI_PROCINST where PROC_INST_ID_ = #{processInstanceId}
+  </delete>
+
+  <!-- HISTORIC PROCESS INSTANCE RESULT MAP -->
+  
+  <resultMap id="historicProcessInstanceResultMap" type="org.activiti.engine.impl.persistence.entity.HistoricProcessInstanceEntity">
+    <id property="id" column="ID_" jdbcType="VARCHAR" />
+    <result property="processInstanceId" column="PROC_INST_ID_" jdbcType="VARCHAR" />
+    <result property="businessKey" column="BUSINESS_KEY_" jdbcType="VARCHAR"/>
+    <result property="processDefinitionId" column="PROC_DEF_ID_" jdbcType="VARCHAR" />
+    <result property="startTime" column="START_TIME_" jdbcType="TIMESTAMP" />
+    <result property="endTime" column="END_TIME_" jdbcType="TIMESTAMP" />
+    <result property="durationInMillis" column="DURATION_" jdbcType="BIGINT" />
+    <result property="startUserId" column="START_USER_ID_" jdbcType="VARCHAR" />
+    <result property="startActivityId" column="START_ACT_ID_" jdbcType="VARCHAR" />
+    <result property="endActivityId" column="END_ACT_ID_" jdbcType="VARCHAR" />
+    <result property="superProcessInstanceId" column="SUPER_PROCESS_INSTANCE_ID_" jdbcType="VARCHAR" />
+    <result property="deleteReason" column="DELETE_REASON_" jdbcType="VARCHAR" />
+    
+    <result property="whir_status" column="WHIR_STATUS" jdbcType="INTEGER" />
+    <result property="whir_remindTitle" column="whir_remindTitle" jdbcType="VARCHAR" />
+    <result property="whir_dealingActivity" column="WHIR_DEALING_ACTIVITY" jdbcType="VARCHAR" />
+    <result property="whir_dealingUsers" column="WHIR_DEALING_USERS" jdbcType="VARCHAR" />
+    <result property="whir_startUserName" column="WHIR_STARTUSERNAME" jdbcType="VARCHAR" /> 
+    <result property="whir_startUserId" column="WHIR_STARTUSERID" jdbcType="BIGINT" />  
+    <result property="whir_isdeleted" column="WHIR_ISDELETED" jdbcType="INTEGER" />
+    <result property="whir_processDesignerId" column="WHIR_PROCESSDESIGNERID" jdbcType="VARCHAR" />
+    <result property="whir_processDesignerName" column="WHIR_PROCESSDESIGNERNAME" jdbcType="VARCHAR" />
+    
+    <result property="whir_mobileStatus" column="WHIR_MOBILE_STATUS" jdbcType="VARCHAR" />
+    <result property="whir_mobilePhoneStatus" column="WHIR_MOBILE_PHONE_STATUS" jdbcType="VARCHAR" />
+    <result property="whir_deadlineDate" column="WHIR_DEADLINEDATE" jdbcType="TIMESTAMP" />
+    <result property="whir_haveDeadline" column="WHIR_HAVEDEADLINE" jdbcType="INTEGER" />  
+    <result property="whir_updateURL" column="WHIR_UPDATE_URL" jdbcType="VARCHAR" />
+    
+    <result property="whir_needNewGraph" column="WHIR_NEEDNEWGRAPH" jdbcType="INTEGER" />
+    <result property="whir_dealedActInfo" column="WHIR_DEALED_ACT_INFO" jdbcType="VARCHAR" />
+     
+    <result property="whir_fromTaskId" column="WHIR_FROMTASKID" jdbcType="VARCHAR" />
+ 
+  
+  </resultMap>
+
+  <!-- HISTORIC PROCESS INSTANCE SELECT -->
+  
+  <select id="selectHistoricProcessInstance" resultMap="historicProcessInstanceResultMap">
+    select * from EZ_FLOW_HI_PROCINST where PROC_INST_ID_ = #{processInstanceId}
+  </select>
+
+  <select id="selectHistoricProcessInstanceIdsByProcessDefinitionId" parameterType="string" resultType="string">
+    select ID_
+    from EZ_FLOW_HI_PROCINST 
+    where PROC_DEF_ID_ = #{processDefinitionId}
+  </select>
+  
+
+  <select id="selectHistoricProcessInstancesByQueryCriteria" parameterType="org.activiti.engine.impl.HistoricProcessInstanceQueryImpl" resultMap="historicProcessInstanceResultMap">
+    select *
+    <include refid="selectHistoricProcessInstancesByQueryCriteriaSql"/>
+    <if test="orderBy != null">
+      order by ${orderBy}
+    </if>
+  </select>
+  
+  <select id="selectHistoricProcessInstanceCountByQueryCriteria" parameterType="org.activiti.engine.impl.HistoricProcessInstanceQueryImpl" resultType="long">
+    select count(*)
+    <include refid="selectHistoricProcessInstancesByQueryCriteriaSql"/>
+  </select>
+  
+  <sql id="selectHistoricProcessInstancesByQueryCriteriaSql">
+    from EZ_FLOW_HI_PROCINST HPI
+    <where>
+      <if test="processInstanceId != null">
+        HPI.PROC_INST_ID_ = #{processInstanceId}
+      </if>
+      <if test="processInstanceIds != null and !processInstanceIds.isEmpty()">
+        and HPI.PROC_INST_ID_ in
+        <foreach item="item" index="index" collection="processInstanceIds" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+      
+      <if test="whir_processdesignIds != null and !whir_processdesignIds.isEmpty()">
+        and HPI.Whir_Processdesignerid in
+        <foreach item="item" index="index" collection="whir_processdesignIds" open="(" separator="," close=")">
+          #{item}
+        </foreach>
+      </if>
+      <if test="processDefinitionId != null">
+        and HPI.PROC_DEF_ID_ = #{processDefinitionId}
+      </if>
+      <if test="processDefinitionKey != null">
+        and HPI.PROC_DEF_ID_ like #{processDefinitionIdLike}
+      </if>
+      <if test="businessKey != null">
+        and HPI.BUSINESS_KEY_ = #{businessKey}
+      </if>
+      <if test="startDateOn">
+        and HPI.START_TIME_ &gt;= #{startDateOnBegin}
+        and HPI.START_TIME_ &lt;= #{startDateOnEnd}
+      </if>
+      <if test="finishDateOn">
+        and HPI.END_TIME_ &gt;= #{finishDateOnBegin}
+        and HPI.END_TIME_ &lt;= #{finishDateOnEnd}
+      </if>
+      <if test="finishDateBy">
+        and HPI.END_TIME_ &lt;= #{finishDateBy}
+      </if>
+      <if test="startDateBy">
+        and HPI.START_TIME_ &gt;= #{startDateBy}
+      </if>
+      <if test="unfinished">
+        and HPI.END_TIME_ IS NULL
+      </if>
+      <if test="finished">
+        and HPI.END_TIME_ is not NULL
+      </if>
+      <if test="startedBy != null">
+        and HPI.START_USER_ID_ = #{startedBy}
+      </if>
+      <if test="superProcessInstanceId != null">
+        and HPI.SUPER_PROCESS_INSTANCE_ID_ = #{superProcessInstanceId}
+      </if>  
+      <if test="whir_startOrgName != null">
+        and HPI.whir_startOrgName = #{whir_startOrgName}
+      </if>
+      <if test="whir_startUserName != null">
+        and HPI.WHIR_STARTUSERNAME  like #{whir_startUserName}
+      </if>
+      <if test="whir_remindTitle != null">
+        and HPI.whir_remindTitle like  #{whir_remindTitle}
+      </if>    
+      <if test="whir_status != null">
+           <if test="whir_status.equals(-101)">
+              and HPI.whir_status in(1,100)
+           </if>
+           <if test="!whir_status.equals(-101)">
+              and HPI.whir_status = #{whir_status}
+           </if>        
+      </if>
+   
+      <if test="s_startTimeSBegin != null">
+        and HPI.START_TIME_  &gt;= #{s_startTimeSBegin}  
+      </if>     
+      <if test="s_startTimeSEnd != null">
+        and HPI.START_TIME_  &lt;=   #{s_startTimeSEnd}
+      </if>       
+      <if test="s_dealUserAccount != null">
+        AND  EXISTS ( SELECT  ID_  FROM   EZ_FLOW_ACTION_LOG ELOG     WHERE  ELOG.PROCESSINSTANCEID=HPI.ID_  
+        <if test="s_dealType != null">
+           AND ELOG.DEALTYPE= #{s_dealType}
+        </if>
+           AND ELOG.DEALUSERACCOUNT=#{s_dealUserAccount}
+        ) 
+      </if> 
+      <if test="whir_isdeleted != null">
+        and HPI.WHIR_ISDELETED = #{whir_isdeleted}
+      </if>
+      <foreach collection="variables" index="index" item="var">
+        and exists (
+          select HD.ID_ 
+          from EZ_FLOW_HI_DETAIL HD 
+          where
+            HD.TYPE_ = 'VariableUpdate' 
+            and HD.NAME_ =  #{var.name}
+            and HD.PROC_INST_ID_ = HPI.PROC_INST_ID_ and HD.TASK_ID_ is null
+            and HD.REV_ = (select max(HDM.REV_) from EZ_FLOW_HI_DETAIL HDM where HDM.PROC_INST_ID_ = HPI.PROC_INST_ID_ and HDM.TASK_ID_ is null and HDM.VAR_TYPE_ = #{var.type} and HDM.NAME_ = #{var.name} and HDM.TYPE_ = 'VariableUpdate')
+            and HD.TIME_ = (select max(HDM.TIME_) from EZ_FLOW_HI_DETAIL HDM where HDM.PROC_INST_ID_ = HPI.PROC_INST_ID_ and HDM.TASK_ID_ is null and HDM.VAR_TYPE_ = #{var.type} and HDM.NAME_ = #{var.name} and HDM.TYPE_ = 'VariableUpdate')
+
+            <if test="!var.type.equals('null')">
+              and HD.VAR_TYPE_ = #{var.type}
+            </if>
+            <!-- Variable value -->
+            <if test="var.textValue != null &amp;&amp; var.longValue == null &amp;&amp; var.doubleValue == null">
+              and HD.TEXT_ =  #{var.textValue}
+            </if>
+            <if test="var.textValue2 != null">
+              and HD.TEXT2_ = #{var.textValue2}
+            </if>
+            <if test="var.longValue != null">
+              and HD.LONG_ = #{var.longValue}
+            </if>
+            <if test="var.doubleValue != null">
+              and HD.DOUBLE_ = #{var.doubleValue}
+            </if>
+            <!-- Null variable type -->
+            <if test="var.textValue == null &amp;&amp; var.textValue2 == null &amp;&amp; var.longValue == null &amp;&amp; var.doubleValue == null">
+              and HD.TEXT_ is null and HD.TEXT2_ is null and HD.LONG_ is null and HD.DOUBLE_ is null and HD.BYTEARRAY_ID_ is null
+            </if>
+        )
+      </foreach>      
+    </where>
+  </sql>
+
+</mapper>

@@ -323,6 +323,53 @@ String  otherTaskId=com.whir.component.security.crypto.EncryptUtil.htmlcode(requ
 <div style="display:none" id="whir_dealTips_now"><%=com.whir.ezflow.util.EzFlowUtil.escapeHTMLTags(whir_dealTips)%></div>
 
 
+<input type="hidden" name="whir_startProcessFromTaskId"   id="whir_startProcessFromTaskId"  value="<%=request.getParameter("whir_startProcessFromTaskId")==null?"":com.whir.component.security.crypto.EncryptUtil.htmlcode(request,"whir_startProcessFromTaskId")%>" />
+
+<input type="hidden" name="p_wf_subactivitytype"   id="p_wf_subactivitytype"  value="<%=request.getAttribute("p_wf_subactivitytype")==null?"":request.getAttribute("p_wf_subactivitytype")+""%>" />
+
+<input type="hidden" name="p_wf_extendMainTable"   id="p_wf_extendMainTable"  value="<%=request.getAttribute("p_wf_extendMainTable")==null?"":request.getAttribute("p_wf_extendMainTable")+""%>" />
+<input type="hidden" name="p_wf_activityclassType"   id="p_wf_activityclassType"  value="<%=request.getAttribute("p_wf_activityclassType")==null?"":request.getAttribute("p_wf_activityclassType")+""%>" />
+
+
+<%
+
+String p_wf_activityclassType=request.getAttribute("p_wf_activityclassType")==null?"":request.getAttribute("p_wf_activityclassType").toString();
+if(p_wf_activityclassType.equals("1")){
+%>
+<div>
+<table style="width:100%">
+<%
+String [] sub_processInfo=null; 
+%>
+ <logic:iterate id="ffieldVO" name="p_wf_subActivityProList"> 
+	<%
+		 sub_processInfo = (String []) ffieldVO;
+	%>
+	 <tr style="display:<%="1".equals(request.getParameter("transend"))?"none":""%>">
+          <td  align="left"><span style="cursor:hand" onclick="startSubProcess('<%=sub_processInfo[2]%>');"><a href="#">启动“<%=sub_processInfo[1]%>”(子流程)</a></span></td>
+     </tr>
+ </logic:iterate> 	
+ <SCRIPT LANGUAGE="JavaScript">
+ <!--
+   function  startSubProcess(p_wf_pool_processId){
+		 var p_wf_subProcHref=$("#p_wf_subProcHref").val(); 
+		 var url="<%=rootPath%>/bpmstart!start.action";
+		 var paraVal="p_wf_pool_processId="+p_wf_pool_processId+"&whir_startProcessFromTaskId="+$("#p_wf_taskId").val() +
+			         "&p_wf_fffffffffpareRecordId="+$("#p_wf_recordId").val()+"&rrecordId="+ $("#p_wf_recordId").val()+"&rmoduleId="+$("#p_wf_moduleId").val()+"&subProcess=1&extendMainTable="+$("#p_wf_extendMainTable").val()+"&p_wf_pool_processType=1";
+
+		 if($("#p_wf_extendMainTable").val()=="1"){
+			 paraVal+="&parentFormId="+$("#p_wf_formId").val()+"&parentRecordId="+$("#p_wf_recordId").val(); 
+		 }
+		 url=url+"?"+paraVal;
+		 //加上 rrecordId 是让自动相关流程  
+		 openWin({url:url,width:890,height:750,isFull:true,winName:'startProcess'}); 
+  }
+ //-->
+ </SCRIPT>
+</table>          
+</div>
+<%}%>
+
 <SCRIPT LANGUAGE="JavaScript">
 <!--
  

@@ -425,6 +425,11 @@ function  ajaxFormBeforeSubmit(){
 	    if(!wf_checkBeforeJS()){
 			result=false;
 		}
+
+		//检测子活动的发送
+	    if(!judgeSubActivitySend()){
+			result=false;
+		}
 	}
 	if(actionUrl==showTran){
 	   if(!wf_checkComment("0")){
@@ -798,3 +803,27 @@ function setNote_w(obj){
 // $("#trigger1").powerFloat();  
 // 给 常用语添加 弹出层
 //$("#trigger1").powerFloat({offsets :{x:-280, y:-30} });
+
+
+
+function judgeSubActivitySend(){
+	var result=true; 
+	if($("#p_wf_activityclassType").val()=="1"&&$("#p_wf_subactivitytype").val()=="0"){ 
+		result=false;
+        var url=whirRootPath+"/platform/bpm/ezflow/operation/ezflow_judge_subactivityStatus.jsp?taskId="
+			   +$("#p_wf_taskId").val();
+		
+		var html = $.ajax({url: url,async: false,cache:false}).responseText;
+ 
+		if(html=="-1000"){
+		     whir_alert("请发起子流程.");
+		} 
+		if(html!="100"){
+		     whir_alert("请等待子流程办理结束.");
+		}else{
+			result=true;
+		}
+	}
+ 
+	return result; 
+}

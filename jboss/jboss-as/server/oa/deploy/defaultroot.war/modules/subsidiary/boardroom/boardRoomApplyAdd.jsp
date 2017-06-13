@@ -327,7 +327,8 @@ if(___boardroomId!=null&&!"".equals(___boardroomId)&&!"null".equals(___boardroom
                                         <td colspan="3" nowrap="nowrap">
                                             <input type="button" class="btnButton6font" onClick="searchBoardroom();" value='搜索会议室'/>
                                             <span id="_boardrooms">
-                                                <select name="boardroomId"  id="boardroomId"   whir-options="vtype:['notempty']" class="easyui-combobox" style="width:150px"  data-options="valueField:'id',textField:'text',panelHeight:'auto',forceSelection:true,onSelect: function(record){changeBoardRoom(record);}">
+                                                <!--<select name="boardroomId"  id="boardroomId"   whir-options="vtype:['notempty']" class="easyui-combobox" style="width:150px"  data-options="valueField:'id',textField:'text',panelHeight:'auto',forceSelection:true,onSelect: function(record){changeBoardRoom(record);}">-->
+												<select name="boardroomId" id="boardroomId" whir-options="vtype:['notempty']" class="selectlist" onChange="changeBoardRoom()" style="width:50%;">
                                                     <%
                                                     java.util.List boardRoomList=(java.util.List)request.getAttribute("boardRoomList");
                                                     if(boardRoomList !=null){
@@ -660,17 +661,33 @@ function searchBoardroom(){
 	var endTime = endHour * 3600 + endMinutes * 60;
 	//设备
 	var equipment = getCheckBoxData("bdEquName", "value");
-	var url='${ctx}/boardRoom!selectBoardroomByConditions.action?personNum=' + personNum + "&boardtime="+boardtime+"&startTime="+startTime+"&endTime="+endTime+"&equipment=" 
-	+equipment+"&p_wf_pool_processId="+p_wf_pool_processId;
-	  $('#boardroomId').combobox('clear');
+	//var url='${ctx}/boardRoom!selectBoardroomByConditions.action?personNum=' + personNum + "&boardtime="+boardtime+"&startTime="+startTime+"&endTime="+endTime+"&equipment=" 
+	//+equipment+"&p_wf_pool_processId="+p_wf_pool_processId;
+	
+	$.ajax({
+			url:whirRootPath +'/modules/subsidiary/boardroom/boardRoom_httprequest.jsp?personNum=' + personNum +"&boardtime="+boardtime+"&startTime="+startTime+"&endTime="+endTime+"&equipment=" +equipment+"&p_wf_pool_processId="+p_wf_pool_processId+"&" + Math.round(Math.random()*1000),
+			type: 'GET',
+			data: null,
+			timeout: 1000,
+			async: false,      //true异，false,ajax同步
+			error: function(){
+				whir_alert('Error loading XML document',null,null);
+			},
+			success: function(data){
+				data = data.replace(/(^\s*)|(\s*$)/g,"");
+				document.getElementById("_boardrooms").innerHTML=data;
+			}
+	});
+	changeBoardRoom(p_wf_pool_processId);
+	  //$('#boardroomId').combobox('clear');
 
-      $('#boardroomId').combobox('reload', url);
+      //$('#boardroomId').combobox('reload', url);
 
-	  $('#boardroomId').combobox({
-		onLoadSuccess : function(){
-			changeBoardRoom(p_wf_pool_processId);
-		}
-	  });
+	  //$('#boardroomId').combobox({
+		//onLoadSuccess : function(){
+		//	changeBoardRoom(p_wf_pool_processId);
+		//}
+	  //});
 }
 function initPara() {
     var formId = $("#dataForm").attr("id");

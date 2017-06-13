@@ -910,6 +910,44 @@ function save(type) {
 		}
 	}
 
+
+
+
+    
+
+	//子过程活动
+    var activityClass_v=getRadioValue("activityclass"); 
+    
+	if(activityClass_v=="1"){ 
+       if($("#subactivityIds").val()==""){
+		   	whir_poshytip($("#subactivityIds"),"不能为空");
+			return ;
+	   }  
+	}
+
+	
+	//办理提示 activityTip
+	var extension_2 = model.getWhirExtensionByName("activityclass");
+	if(extension_2 == null) {
+		extension_2 = model.newWhirExtension("activityclass");
+		model.addWhirExtension(extension_2);
+	}
+	extension_2.set("activityclassType",getRadioValue("activityclass"));
+	extension_2.set("subactivitytype",getRadioValue("subactivitytype"));
+    extension_2.set("extendMainTable","0");
+	var activityTip = $("input[name='extendMainTable']:checked");
+    if(activityTip!=null&&activityTip.length>0){
+		if(activityTip[0].value=="1"){
+			 extension_2.set("extendMainTable","1");
+		}  
+	}
+	extension_2.set("subactivityIds",$("#subactivityIds").val());
+	extension_2.set("subactivityNames",$("#subactivityNames").val());
+ 
+
+ 
+
+
 	//配置外部数据源表单字段--20161010---start
 	var taskId =$('#taskId').val();
 	//保存外部数据源配置数据
@@ -1673,6 +1711,33 @@ function initData(id) {
 	//渲染
     //setCheckStyle();
 	initSystem();
+
+    //子过程活动
+    var activityclassType="0";
+	var subactivitytype="0";
+	var extendMainTable="0";
+	activityclassextension_ = model.getWhirExtensionByName("activityclass");
+	if(activityclassextension_ == null) { 
+	}else{
+        activityclassType = activityclassextension_.get("activityclassType");
+		subactivitytype=activityclassextension_.get("subactivitytype");
+		extendMainTable=activityclassextension_.get("extendMainTable");
+	} 
+
+	if(activityclassType=="1"){
+		$('input:radio[name="activityclass"]').eq(1).attr("checked",'checked');
+		if(subactivitytype=="1"){
+			$('input:radio[name="subactivitytype"]').eq(1).attr("checked",'checked');
+		}
+		if(extendMainTable=="1"){
+			$('input:checkbox[name="extendMainTable"]').attr("checked",'checked');
+		}
+		 
+		$("#subactivityIds").val(activityclassextension_.get("subactivityIds"));
+		$("#subactivityNames").val(activityclassextension_.get("subactivityNames"));   
+		clickActivityclass();
+	}  
+	
 }
 
 
@@ -2800,4 +2865,22 @@ function clickActivityTips(value){
 		$("#activityTipTitle_tr").show();
 		$("#activityTipCotent_tr").show();
 	}
+}
+
+
+
+function  selectSubProc(id,name){ 
+    openWin({url: whirRootPath+'/ezflowprocess!ezFlowList.action?moduleId=1&iswhirchoosed=1',width:880,height:460,winName:'addUser'}) ;
+}
+
+//
+function clickActivityclass(obj){  
+    var activityClass_v=getRadioValue("activityclass");
+    if(activityClass_v=="0"){
+		$("#subactivitytr1").hide();
+	    $("#subactivitytr2").hide();
+    }else if(activityClass_v =="1"){
+		$("#subactivitytr1").show();
+	    $("#subactivitytr2").show(); 
+    }  
 }

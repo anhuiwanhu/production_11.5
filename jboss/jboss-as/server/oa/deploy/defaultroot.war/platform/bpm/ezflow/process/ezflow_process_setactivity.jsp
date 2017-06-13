@@ -124,6 +124,45 @@ if("".equals(outDataSourceCodeDealStr)){
 								</td>
 								<td width="60px">&nbsp;</td>
 							</tr>
+
+							<tr <%if(moduleId.equals("1")||moduleId.equals("2")||moduleId.equals("3")||moduleId.equals("34")){%><%}else{%>style="display:none"<%}%>>
+								<td width="90px" class="td_lefttitle" for='<s:text name="workflow.newactivityname"/>'>
+								  活动类型<span class="MustFillColor">*</span>：
+								</td>
+								<td>
+								    <INPUT value="0" type="radio" name="activityclass" onClick="clickActivityclass();" checked><s:text name="workflow.newactivitystandard"/><!--标准活动-->
+								    <INPUT value="1" type="radio" name="activityclass" onClick="clickActivityclass();"><s:text name="workflow.newactivityson"/><!-- 子过程  -->
+								</td>
+								<td width="60px">&nbsp;</td>
+							</tr>
+
+							 <tr  id="subactivitytr1" style="display:none">
+								<td width="90px" class="td_lefttitle"  >
+								  <s:text name="workflow.newactivitysontype"/><span class="MustFillColor">*</span>：
+								</td>
+								<td>
+							        <INPUT value="0" type="radio" name="subactivitytype"   checked>串行子过程
+								    <INPUT value="1" type="radio" name="subactivitytype"          >并行子过程
+									<span <%if(moduleId.equals("1")){%><%}else{%>style="display:none"<%}%>>
+								    <INPUT value="1" type="checkbox" id="extendMainTable" name="extendMainTable"><s:text name="workflow.Succeedthesamedatatableofmainworkflow"/></span>
+								</td>
+								<td width="60px">&nbsp;</td>
+							</tr>
+
+						     <tr id="subactivitytr2"  style="display:none" >
+								<td width="90px" class="td_lefttitle" for='<s:text name="workflow.newactivityname"/>'>
+								  子过程<span class="MustFillColor">*</span>：
+								</td>
+								<td>
+								  <input type="hidden"  name="subactivityIds" id="subactivityIds">
+							      <input type="text" name="subactivityNames" readonly="readonly" id="subactivityNames" class="inputText" style="width:95%;"/><a href="#" class="selectIco" onclick="selectSubProc('subactivityIds','subactivityNames');"><img src="/defaultroot/images/select_arrow.gif" width="16" height="16" align="absmiddle"/></a>  
+								</td>
+								<td width="60px">&nbsp;</td>
+							</tr>
+
+							 
+
+
 							<!--办理方式-->
 							<tr>
 							    <td  class="td_lefttitle" for='<s:text name="workflow.newactivityprocesstype"/>'>

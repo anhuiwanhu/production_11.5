@@ -278,3 +278,13 @@ commit;
 
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.13_SP_20161113','11.5.0.13',sysdate);
 commit;
+
+
+
+
+
+
+alter table   ez_flow_hi_procinst  add  WHIR_FROMTASKID varchar2(300);
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.14_SP_20161128','11.5.0.14',sysdate);
+commit;
