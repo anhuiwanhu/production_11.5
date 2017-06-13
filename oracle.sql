@@ -298,3 +298,47 @@ alter table   ez_flow_hi_procinst  add  WHIR_FROMTASKID varchar2(300);
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.15_SP_20161203','11.5.0.15',sysdate);
 commit;
+
+
+
+
+
+
+ update org_organization set onelevel_userid = '$'||onelevel_userid||'$'
+ where onelevel_userid<>' ' and onelevel_userid is not null;
+ commit;
+ update org_organization set onelevel_username = onelevel_username||','
+ where onelevel_username<>' ' and onelevel_username is not null ;
+  commit;
+ update org_organization set twolevel_userid = '$'||twolevel_userid||'$'
+ where twolevel_userid<>' ' and twolevel_userid is not null;
+ commit;
+ update org_organization set twolevel_username = twolevel_username||','
+ where twolevel_username<>' ' and twolevel_username is not null;
+  commit;
+ update org_organization set threelevel_userid = '$'||threelevel_userid||'$'
+ where threelevel_userid<>' ' and threelevel_userid is not null;
+ commit;
+ update org_organization set threelevel_username = threelevel_username||','
+ where threelevel_username<>' ' and threelevel_username is not null;
+  commit;
+ update org_organization set fourlevel_userid = '$'||fourlevel_userid||'$'
+ where fourlevel_userid<>' ' and fourlevel_userid is not null;
+ commit;
+ update org_organization set fourlevel_username = fourlevel_username||','
+ where fourlevel_username<>' ' and fourlevel_username is not null;
+  commit;
+ update org_organization set fivelevel_userid = '$'||fivelevel_userid||'$'
+ where fivelevel_userid<>' ' and fivelevel_userid is not null;
+ commit;
+ update org_organization set fivelevel_username = fivelevel_username||','
+ where fivelevel_username<>' ' and fivelevel_username is not null;
+ commit;
+ update org_organization set sixlevel_userid = '$'||sixlevel_userid||'$'
+ where sixlevel_userid<>' ' and sixlevel_userid is not null;
+ commit;
+ update org_organization set sixlevel_username = sixlevel_username||','
+ where sixlevel_username<>' ' and sixlevel_username is not null; 
+ commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.16_SP_20161219','11.5.0.16',sysdate);
+commit;

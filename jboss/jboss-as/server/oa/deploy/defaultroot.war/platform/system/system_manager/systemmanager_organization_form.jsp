@@ -166,42 +166,42 @@ if(!"".equals(logoSaveFileName_) && !"null".equals(logoSaveFileName_)){
     <tr>
         <td for="一级审批人" class="td_lefttitle">一级审批人：</td>
         <td><s:hidden name="org.oneLevelUserId" id="oneLevelUserId"/>
-            <s:textfield name="org.oneLevelUserName" id="oneLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'oneLevelUserId', allowName:'oneLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.oneLevelUserName" id="oneLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'oneLevelUserId', allowName:'oneLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 
     <tr>
         <td for="二级审批人：" class="td_lefttitle">二级审批人：</td>
         <td><s:hidden name="org.twoLevelUserId" id="twoLevelUserId"/>
-            <s:textfield name="org.twoLevelUserName" id="twoLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'twoLevelUserId', allowName:'twoLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.twoLevelUserName" id="twoLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'twoLevelUserId', allowName:'twoLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 
     <tr>
         <td for="三级审批人" class="td_lefttitle">三级审批人：</td>
         <td><s:hidden name="org.threeLevelUserId" id="threeLevelUserId"/>
-            <s:textfield name="org.threeLevelUserName" id="threeLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'threeLevelUserId', allowName:'threeLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.threeLevelUserName" id="threeLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'threeLevelUserId', allowName:'threeLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 
     <tr>
         <td for="四级审批人" class="td_lefttitle">四级审批人：</td>
         <td><s:hidden name="org.fourLevelUserId" id="fourLevelUserId"/>
-            <s:textfield name="org.fourLevelUserName" id="fourLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'fourLevelUserId', allowName:'fourLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.fourLevelUserName" id="fourLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'fourLevelUserId', allowName:'fourLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 
     <tr>
         <td for="五级审批人" class="td_lefttitle">五级审批人：</td>
         <td><s:hidden name="org.fiveLevelUserId" id="fiveLevelUserId"/>
-            <s:textfield name="org.fiveLevelUserName" id="fiveLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'fiveLevelUserId', allowName:'fiveLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.fiveLevelUserName" id="fiveLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'fiveLevelUserId', allowName:'fiveLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 
     <tr>
         <td for="六级审批人" class="td_lefttitle">六级审批人：</td>
         <td><s:hidden name="org.sixLevelUserId" id="sixLevelUserId"/>
-            <s:textfield name="org.sixLevelUserName" id="sixLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'sixLevelUserId', allowName:'sixLevelUserName', select:'user', single:'yes', show:'user', range:'*0*', limited:'1'});"></a>
+            <s:textfield name="org.sixLevelUserName" id="sixLevelUserName" cssClass="inputText" cssStyle="width:96%;" readonly="true" maxlength="100"></s:textfield><a href="javascript:void(0);" class="selectIco" onclick="openSelect({allowId:'sixLevelUserId', allowName:'sixLevelUserName', select:'user', single:'no', show:'user', range:'*0*', limited:'1'});"></a>
         </td>
     </tr>
 

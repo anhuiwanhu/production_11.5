@@ -423,6 +423,10 @@ function initData() {
 
 	if(model.getRecordId()>0){ 
 		$("input[name='id']")[0].disabled=true;
+		$("input[name='processType']")[0].disabled=true;
+		$("input[name='processType']")[1].disabled=true;
+		$("input[name='processType']")[2].disabled=true;
+		$("input[name='processType']")[3].disabled=true;
 	}
 	//whir:processRemindField		提醒字段:  ,fieldid,,fieldid,,fieldid,  
 
