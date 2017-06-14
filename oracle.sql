@@ -404,3 +404,13 @@ update oa_custmenu set MENULEVELSet=1,MENU_SCOPE='0'where MENU_NAME='资产管理';
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.18_SP_20170313','11.5.0.18',sysdate);
 commit;
+
+
+
+
+
+
+
+
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.19_SP_20170324','11.5.0.19',sysdate);
+commit;

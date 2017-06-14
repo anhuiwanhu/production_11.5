@@ -358,3 +358,12 @@ update oa_custmenu set MENULEVELSet=1,MENU_SCOPE='0'where MENU_NAME='资产管理';
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.18_SP_20170313','11.5.0.18',getdate());
 go
+
+
+
+
+
+
+
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.19_SP_20170324','11.5.0.19',getdate());
+go
