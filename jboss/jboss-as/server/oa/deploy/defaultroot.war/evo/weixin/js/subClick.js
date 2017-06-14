@@ -260,6 +260,10 @@ function clickSub(url,obj,saveFileName,moduleName,smartInUse){
 }
 
 function clickSubyz(url,obj,saveFileName,moduleName,smartInUse,isYzOffice){
+	if(isYzOffice != 1 &&　isYzOffice !=0){
+		clickSub(url,obj,saveFileName,moduleName,smartInUse);
+		return false;
+	}
 	var dialog = $.dialog({
 		content:"正在打开，请稍候...",
 		title : "ok"
@@ -328,6 +332,10 @@ function clickSubyz(url,obj,saveFileName,moduleName,smartInUse,isYzOffice){
 				return;
 			}
 		}else{
+			var convertType = 'wordToSvgHtml';
+			if(smartInUse == 0){
+				convertType = 'wordToHtml';
+			}
 			if(fileType.toLowerCase() == '.pdf' ){
 				window.open('/defaultroot/evo/weixin/common/ppt_img.jsp?saveFileName='+saveFileName+'&moduleName='+moduleName);
 			}else{
@@ -335,7 +343,7 @@ function clickSubyz(url,obj,saveFileName,moduleName,smartInUse,isYzOffice){
 					url : '/defaultroot/yzConvertFile/fileView.controller',
 					type : 'post',
 					dataType:'text',
-					data : {'fileName': saveFileName, 'path' : moduleName,'url': url, 'isEncrypt' :'0'},
+					data : {'fileName': saveFileName, 'path' : moduleName,'url': url, 'isEncrypt' :'0','smartInUse':smartInUse,'convertType':convertType},
 					success : function(data){
 						dialog.close();
 						var jsonData = eval("("+data+")");
