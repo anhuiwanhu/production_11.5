@@ -392,3 +392,17 @@ go
 
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.22_SP_20170511','11.5.0.22',getdate());
 go
+
+
+
+
+
+
+
+--系统设置：word编辑增加选人范围--
+alter table org_domain add  evoWordRangeIds text;
+go
+alter table org_domain add  evoWordRangeNames text;
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.23_SP_20170515','11.5.0.23',getdate());
+go

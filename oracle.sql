@@ -439,3 +439,17 @@ commit;
 
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.22_SP_20170511','11.5.0.22',sysdate);
 commit;
+
+
+
+
+
+
+
+--系统设置：word编辑增加选人范围--
+alter table org_domain add  evoWordRangeIds clob;
+commit;
+alter table org_domain add  evoWordRangeNames clob;
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.23_SP_20170515','11.5.0.23',sysdate);
+commit;
