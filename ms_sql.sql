@@ -406,3 +406,14 @@ alter table org_domain add  evoWordRangeNames text;
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.23_SP_20170515','11.5.0.23',getdate());
 go
+
+
+
+
+
+
+
+alter  table  ez_flow_hi_procinst  alter column WHIR_DEALING_USERS   NVARCHAR(4000);
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.24_SP_20170610','11.5.0.24',getdate());
+go

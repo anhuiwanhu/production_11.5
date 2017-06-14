@@ -479,8 +479,8 @@ String isfromgov = request.getParameter("isfromgov")==null?"":request.getParamet
 			<td width="42%">
 			<s:if test="#request.curModifyField==null || #request.curModifyField.indexOf('$information.informationKey$') > -1">
 			<div id="publictag" class="ezflow_list_package_div">
-				<s:textfield type="text" class="inputText" style="width:93%" readonly="true" id="choosed_tagName" name="information.informationKey"  rel="noteDiv" whir-options="'promptText':'<s:text name='info.selecttag'/>'"/>
-				<div id="noteDiv" align="left"  style="display:none; position: absolute;top:29px !important; left:0px !important;">
+				<s:textfield type="text" class="inputText" style="width:93%" readonly="true" id="choosed_tagName" name="information.informationKey"  rel="infoNoteDiv" whir-options="'promptText':'<s:text name='info.selecttag'/>'"/>
+				<div id="infoNoteDiv" align="left"  style="display:none; position: absolute;top:29px !important; left:0px !important;">
 					<ul>
 					<%
 					//20160516 -by jqq 公共标签列表

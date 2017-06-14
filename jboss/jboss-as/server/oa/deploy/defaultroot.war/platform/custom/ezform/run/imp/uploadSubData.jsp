@@ -68,7 +68,11 @@ try {
             file = new File(request.getRealPath("/upload/" + path + "/" + datePath) + "/" + _fn);
             if (file != null && file.isFile()) {
                 InputStream in = new FileInputStream(file);
-                jxl.Workbook rwb = Workbook.getWorkbook(in);
+                //解决全角中文特殊字符乱码问题
+                jxl.WorkbookSettings setting=new jxl.WorkbookSettings();
+				setting.setEncoding("iso-8859-1"); 
+				//解决全角中文特殊字符乱码问题
+                jxl.Workbook rwb = Workbook.getWorkbook(in,setting);
 
                 Sheet sheet = rwb.getSheet(0);
                 //列数

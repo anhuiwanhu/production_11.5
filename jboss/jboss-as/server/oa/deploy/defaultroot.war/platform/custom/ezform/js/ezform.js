@@ -978,6 +978,84 @@ function checkMustWrite(){
         }
     });
 
+    //20170609
+	if($("input[type=hidden][name$=_showtype][value=705]").length>0){
+		$("input[type=hidden][name$=_showtype][value=705]").each(function(n){
+			var _name = $(this).attr('name');
+			var _fieldName = _name.substring(0, _name.length-9);
+			var _new_component_ = document.getElementsByName('new_component_'+_fieldName)[0].value;
+			var ids = document.getElementById(_fieldName + _new_component_ + '_Id').value;
+			var names = document.getElementById(_fieldName + _new_component_ + '_Name').value;
+
+			var _size = $(document.getElementsByName(_fieldName+'_type')[0]).attr('size');//document.getElementsByName(_fieldName+'_size')[0].value;
+
+			if (_size == '8') {
+				canSubmit = true;
+				return true;
+			}
+
+			var _temp = (ids + names).replace(/[^\x00-\xff]/g, "***");
+			//var _cnt = (_fileName + _saveName).split('\|').length + 5;
+			if (_temp.length > parseInt(_size)) {
+				canSubmit = false;
+				whir_alert("多选人字段长度超出限制，请重新选择！");            
+				return false;
+			}
+		});
+	}
+
+	//20170609
+	if($("input[type=hidden][name$=_showtype][value=214]").length>0){
+		$("input[type=hidden][name$=_showtype][value=214]").each(function(n){
+			var _name = $(this).attr('name');
+			var _fieldName = _name.substring(0, _name.length-9);
+			var _new_component_ = document.getElementsByName('new_component_'+_fieldName)[0].value;
+			var ids = document.getElementById(_fieldName + _new_component_ + '_Id').value;
+			var names = document.getElementById(_fieldName + _new_component_ + '_Name').value;
+
+			var _size = $(document.getElementsByName(_fieldName+'_type')[0]).attr('size');//document.getElementsByName(_fieldName+'_size')[0].value;
+
+			if (_size == '8') {
+				canSubmit = true;
+				return true;
+			}
+
+			var _temp = (ids + names).replace(/[^\x00-\xff]/g, "***");
+			//var _cnt = (_fileName + _saveName).split('\|').length + 5;
+			if (_temp.length > parseInt(_size)) {
+				canSubmit = false;
+				whir_alert("多选组织字段长度超出限制，请重新选择！");            
+				return false;
+			}
+		});
+	}
+
+	//20170609
+	if($("input[type=hidden][name$=_showtype][value=211]").length>0){
+		$("input[type=hidden][name$=_showtype][value=211]").each(function(n){
+			var _name = $(this).attr('name');
+			var _fieldName = _name.substring(0, _name.length-9);
+			var _new_component_ = document.getElementsByName('new_component_'+_fieldName)[0].value;
+			var ids = document.getElementById(_fieldName + _new_component_ + '_Id').value;
+			var names = document.getElementById(_fieldName + _new_component_ + '_Name').value;
+
+			var _size = $(document.getElementsByName(_fieldName+'_type')[0]).attr('size');//document.getElementsByName(_fieldName+'_size')[0].value;
+
+			if (_size == '8') {
+				canSubmit = true;
+				return true;
+			}
+
+			var _temp = (ids + names).replace(/[^\x00-\xff]/g, "***");
+			//var _cnt = (_fileName + _saveName).split('\|').length + 5;
+			if (_temp.length > parseInt(_size)) {
+				canSubmit = false;
+				whir_alert("多选人全部字段长度超出限制，请重新选择！");            
+				return false;
+			}
+		});
+	}
+
     if(!canSubmit){
         canSubmit = false;
         return canSubmit;

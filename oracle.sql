@@ -453,3 +453,15 @@ alter table org_domain add  evoWordRangeNames clob;
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.23_SP_20170515','11.5.0.23',sysdate);
 commit;
+
+
+
+
+
+
+
+
+alter  table  ez_flow_hi_procinst  modify  WHIR_DEALING_USERS   VARCHAR2(4000);
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.24_SP_20170610','11.5.0.24',sysdate);
+commit;
