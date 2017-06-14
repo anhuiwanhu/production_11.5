@@ -63,13 +63,13 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
 									<%--单行文本 101--%>
 									<c:when test="${showtype =='101' && readwrite =='1'}">
 										<c:if test="${ fieldtype == '1000000'  }">
-											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="9" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onkeyup="mainMath(this);"/>
+											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="9" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/expressionval/text()"/>' onkeyup="mainMath(this);"/>
 										</c:if>
 										<c:if test="${ fieldtype == '1000001'   }">
-											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="18" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' onkeyup="mainMath(this);"/>
+											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text" maxlength="18" name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/expressionval/text()"/>' onkeyup="mainMath(this);"/>
 										</c:if>
 										<c:if test="${fieldtype != '1000000' && fieldtype != '1000001'  }">
-											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text"  name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/value/text()"/>' />
+											<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$fd/sysname/text()"/>' type="text"  name='_main_<x:out select="$fd/sysname/text()"/>' value='<x:out select="$fd/expressionval/text()"/>' />
 										</c:if>
 									</c:when>
 	
@@ -158,7 +158,7 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
 	
 									<%--多行文本 110--%>
 									<c:when test="${showtype =='110' && readwrite =='1'}">
-										<textarea onkeyup="$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );"   name='_main_<x:out select="$fd/sysname/text()"/>' class="edit-txta edit-txta-l" maxlength="300"><x:out select="$fd/value/text()"/></textarea>
+										<textarea onkeyup="$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );"   name='_main_<x:out select="$fd/sysname/text()"/>' class="edit-txta edit-txta-l" maxlength="300"><x:out select="$fd/expressionval/text()"/></textarea>
 										<span class="edit-txta-num">300</span>
 									</c:when>
 	
@@ -176,9 +176,15 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
 	
 									<%--附件上传 115--%>
 									<c:when test="${showtype =='115'}">
+										<c:set var="attachment"><x:out select="$fd/sysname/text()"/></c:set>
+									    <%
+										String att =(String)pageContext.getAttribute("attachment");
+										String natt = att.replace("$","");
+                                        pageContext.setAttribute("attachment",natt);
+										%>
 										<c:if test="${readwrite =='1'}">
 											<ul class="edit-upload">
-					                            <li class="edit-upload-in" onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
+					                            <li class="edit-upload-in" id='${attachment}' onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
 					                        </ul>
 										</c:if>
 										<c:set var="values"><x:out select="$fd/value/text()"/></c:set>
@@ -299,7 +305,7 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
 													System.out.println("valueSelf------------->"+valueSelf);
 												%>
 												<%=valueSelf %>
-												<input id='<x:out select="$fd/sysname/text()"/>' type="hidden" name='_main_<x:out select="$fd/sysname/text()"/>'  value='<x:out select="$fd/value/text()"/>' />
+												<input id='<x:out select="$fd/sysname/text()"/>' type="hidden" name='_main_<x:out select="$fd/sysname/text()"/>'  value='<%=valueSelf%>'/>
 											</c:when>
 											<%--组织长信息 --%>
 											<c:when test="${expressionval == 'full'}">
@@ -320,11 +326,11 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
 													String valueSelf = values[values.length-1];//最末端
 													String valueSelfUp = values[values.length-2];//最末端向上一个
 
-													String valueSelfUps = valueSelfUp + "." + valueSelfUp;
+													String valueSelfUps = valueSelfUp + "." + valueSelf;
 													System.out.println("valueSelf------------->"+valueSelf);
 												%>
 												<%=valueSelfUps %>
-												<input id='<x:out select="$fd/sysname/text()"/>' type="hidden" name='_main_<x:out select="$fd/sysname/text()"/>'  value='<x:out select="$fd/value/text()"/>' />
+												<input id='<x:out select="$fd/sysname/text()"/>' type="hidden" name='_main_<x:out select="$fd/sysname/text()"/>'  value='<%=valueSelfUps%>' />
 											</c:when>
 										</c:choose>
 									</c:when>
@@ -721,7 +727,8 @@ String userName = session.getAttribute("userName")==null?"":session.getAttribute
    
     //添加图片
     function addImg(name){
-	   $(".edit-upload-in").before(       
+	   var newName = name.replace("$","");
+	   $("#"+newName).before(            
 		   '<li class="edit-upload-ed" id="imgli_'+index+'" style="display:none">'+
 		       '<span>'+
 		       	   '<img src="" id="imgShow_'+index+'"/>'+

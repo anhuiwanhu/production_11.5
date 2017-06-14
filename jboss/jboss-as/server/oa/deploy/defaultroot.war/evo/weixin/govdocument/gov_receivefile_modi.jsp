@@ -224,21 +224,6 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 								</td>
 							</tr>
 						</x:if> 
-						<x:if select="$govDoc//doComment">
-							<c:set var="commentFieldName"><x:out select="$doc//workInfo/commentFieldName/text()"/></c:set>
-							<c:if test="${commentFieldName !='' }">
-							<tr>
-								<th>
-									<!-- <x:out select="$govDoc//doComment/@name" /> -->
-									${commentFieldName }
-								</th>
-								<td>
-									<!-- <row><label style="color: #330000"><x:out select="$govDoc//doComment/text()" /> -->
-									<row><textarea name='comment_input' class="edit-txta edit-txta-l" maxlength="300" placeholder="请输入文字"></textarea> 
-								</td>
-							</tr>
-							</c:if>
-						</x:if> 
 						<x:if select="$govDoc//createdTime">
 							<tr>
 								<th>

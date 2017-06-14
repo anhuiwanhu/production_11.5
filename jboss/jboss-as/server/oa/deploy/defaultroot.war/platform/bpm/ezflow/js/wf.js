@@ -299,7 +299,12 @@ function  formSuccess(responseText){
 			});
 		}else{
 			if(msg_json.result=='failure'){
-				whir_alert(workflowMessage_js.dealfailed,function(){});
+			    var  data=msg_json.data;
+				if(data!=null&&data.errorCotent!=null&&data.errorCotent!=""){
+					whir_alert(data.errorCotent,function(){}); 
+				}else{
+					whir_alert(workflowMessage_js.dealfailed,function(){});
+				}
 			}else{
 				whir_alert(msg_json.result,function(){});
 			}
@@ -357,7 +362,12 @@ function  afterCompleteProcess(responseText){
 		});
 	}else{
 		if(msg_json.result=='failure'){
-			whir_alert(workflowMessage_js.dealfailed,function(){});
+			var  data=msg_json.data;
+			if(data!=null&&data.errorCotent!=null&&data.errorCotent!=""){
+				whir_alert(data.errorCotent,function(){}); 
+			}else{
+				whir_alert(workflowMessage_js.dealfailed,function(){});
+			}  
 		}else{
 			whir_alert(msg_json.result,function(){});
 		}

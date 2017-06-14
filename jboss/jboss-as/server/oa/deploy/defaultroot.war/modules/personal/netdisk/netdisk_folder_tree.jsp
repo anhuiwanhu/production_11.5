@@ -25,7 +25,7 @@ String title = request.getParameter("title")!=null?com.whir.component.security.c
 String channelIdForOther=request.getParameter("channelIdForCollection")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getParameter("channelIdForCollection"));
 String infoId=request.getParameter("infoId")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getParameter("infoId"));
 String fromModule=request.getParameter("fromModule")==null?"info":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getParameter("fromModule"));
-String httpUrl=request.getParameter("httpUrl")==null?"":com.whir.component.security.crypto.EncryptUtil.replaceHtmlcode(request.getParameter("httpUrl"));
+String httpUrl=request.getParameter("httpUrl")==null?"":com.whir.component.security.crypto.EncryptUtil.htmlcode(request.getParameter("httpUrl"));
 
 %>
 

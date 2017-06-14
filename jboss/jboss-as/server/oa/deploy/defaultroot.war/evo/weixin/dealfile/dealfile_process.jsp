@@ -7,6 +7,7 @@ String workId = request.getParameter("workId");
 String orgId = session.getAttribute("orgId").toString();
 request.setAttribute("now",new java.util.Date());
 String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.getParameter("empLivingPhoto");
+String fromFlag = request.getParameter("fromFlag");
 %>
 <!DOCTYPE html>
 <html>
@@ -221,7 +222,22 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 								<%--Word编辑 116--%>
 								<c:when test="${showtype =='116'}">
 									<c:set var="filename"><x:out select="$fd/value/text()"/></c:set>
-									<c:if test="${not empty filename}">
+									<c:set var="newfilename"><x:out select="$fd/expressionval/text()"/></c:set>
+									<c:if test="${not empty newfilename && empty filename}">
+										<%
+										String realFileNames ="";
+										String saveFileNames ="";
+										String moduleName ="information";
+										realFileNames =(String)pageContext.getAttribute("newfilename")+".doc";
+										saveFileNames =(String)pageContext.getAttribute("newfilename")+".doc";
+										%>
+										<jsp:include page="../common/include_download.jsp" flush="true">
+											<jsp:param name="realFileNames"	value="<%=realFileNames%>" />
+											<jsp:param name="saveFileNames" value="<%=saveFileNames%>" />
+											<jsp:param name="moduleName" value="<%=moduleName%>" />
+										</jsp:include>
+									</c:if>
+									<c:if test="${not empty filename  && empty newfilename}">
 										<%
 										String realFileNames ="";
 										String saveFileNames ="";
@@ -242,7 +258,22 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 								<%--Excel编辑 117--%>
 								<c:when test="${showtype =='117'}">
 									<c:set var="filename"><x:out select="$fd/value/text()"/></c:set>
-									<c:if test="${not empty filename}">
+									<c:set var="newfilename"><x:out select="$fd/expressionval/text()"/></c:set>
+									<c:if test="${not empty newfilename && empty filename}">
+										<%
+										String realFileNames ="";
+										String saveFileNames ="";
+										String moduleName ="information";
+										realFileNames =(String)pageContext.getAttribute("newfilename")+".xls";
+										saveFileNames =(String)pageContext.getAttribute("newfilename")+".xls";
+										%>
+										<jsp:include page="../common/include_download.jsp" flush="true">
+											<jsp:param name="realFileNames"	value="<%=realFileNames%>" />
+											<jsp:param name="saveFileNames" value="<%=saveFileNames%>" />
+											<jsp:param name="moduleName" value="<%=moduleName%>" />
+										</jsp:include>
+									</c:if>
+									<c:if test="${not empty filename && empty newfilename}">
 										<%
 										String realFileNames ="";
 										String saveFileNames ="";
@@ -625,6 +656,7 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 					<input type="hidden" name="workStatus" value="0">
 					<input type="hidden" name="isDossier" value="${isDossier }">
 					<input type="hidden" name="worktype"  value='<x:out select="$doc2//worktype/text()"/>' />
+					<input type="hidden" name="fromFlag" value="<%=fromFlag%>">
             	</c:if>
         </div>
     </article>

@@ -145,7 +145,7 @@ else
 }
 //response.sendRedirect("DocumentList.jsp");
 %>
-<script src="/defaultroot/scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="/defaultroot/scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script language="javascript">
 if(opener){
 	<%if(field!=null && field.trim().length()>0 && !field.toUpperCase().equals("NULL")){%>
@@ -176,8 +176,16 @@ if(opener){
 	<%}else{%>
 		//if(parent.opener.document.all.content)parent.opener.document.all.content.value = "<%=mRecordID%>";
 		//alert("<%=mRecordID%>");
-
-		if($("*[name='content']", parent.opener.document) ) $("*[name='content']", parent.opener.document).val( "<%=mRecordID%>" );
+		//20170224 -by jqq 针对ie8浏览器保存后无法回填父页面content内容的改造
+		var browser=navigator.appName;
+		var b_version=navigator.appVersion;
+		var version=b_version.split(";"); 
+		var trim_Version=version[1].replace(/[ ]/g,"");
+		if(browser=="Microsoft Internet Explorer" && (trim_Version=="MSIE6.0" || trim_Version=="MSIE7.0" || trim_Version=="MSIE8.0" || trim_Version=="MSIE9.0")){ 
+			if(parent.opener.document.all.content) parent.opener.document.all.content.value = "<%=mRecordID%>";
+		}else{
+			if($("*[name='content']", parent.opener.document) ) $("*[name='content']", parent.opener.document).val( "<%=mRecordID%>" );
+		}
 		//alert($("*[name='content']", parent.opener.document).val());
 	<%}%>
 		try{

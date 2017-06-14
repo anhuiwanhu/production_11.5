@@ -65,8 +65,8 @@ if(haveUserTask.equals("1")){
 				<td><input  type="text" name="userTaskname"   class="inputText" value="活动1"></td> 
 				<td>
 				    <select  name="taskSequenceType">
-					   <option value="monopolise"><%=Resource.getValue(local, "workflow", "workflow.monopolise")%></option>
 					   <option value="sequential"><%=Resource.getValue(local, "workflow", "workflow.sequential")%></option>
+					   <option value="monopolise"><%=Resource.getValue(local, "workflow", "workflow.monopolise")%></option> 
 					   <option value="parataxis"><%=Resource.getValue(local, "workflow", "workflow.parataxis")%></option>
 					   <option value="monopolise_single"><%=Resource.getValue(local, "workflow", "workflow.single")%></option>
 				    </select>
@@ -349,7 +349,11 @@ if(haveUserTask.equals("1")){
  
    initProcessList();
    function initProcessList(){
+ 
 	   var list=opener.getTableListProcessSet();
+	    
+
+ 
        var eachMap=null; 
 	   if(list!=null&&list.size() > 0){
 		   var size=list.size();
@@ -374,11 +378,14 @@ if(haveUserTask.equals("1")){
 
 			   }
 		   } 
-		} 
+		}
+		 
    }
 
     //字段联动 增加行
 	function addEachTr_(obj,eachMap){ 
+
+		//alert("addEachTr_");
 		index=index+1;
 		var parentTr = $(obj).parent().parent(); 
 		var  nowIndex=parentTr.find('input[name="eachIndex"]').val();  
@@ -387,16 +394,12 @@ if(haveUserTask.equals("1")){
 		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidateId"+nowIndex,"passRound_candidateId"+index);
 		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidateId"+nowIndex,"passRound_candidateId"+index);
 		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidate"+nowIndex,"passRound_candidate"+index);
-		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidate"+nowIndex,"passRound_candidate"+index); 
-
-
-
-
+		f_tableName_tr_html=f_tableName_tr_html.replace("passRound_candidate"+nowIndex,"passRound_candidate"+index);   
 		parentTr.after($('<tr class="listTableLine1">'+f_tableName_tr_html+'</tr>'));  
 		var nextTr = parentTr.next("tr").eq(0); 
 		nextTr.find('input[name="eachIndex"]').val(index);  
         nextTr.find('input[name=passRound_candidateId'+index+']').val(eachMap.get("passRound_candidateId"));
-		alert(eachMap.get("passRound_candidate"));
+		//alert(eachMap.get("passRound_candidate"));
 		nextTr.find('input[name=passRound_candidate'+index+']').val(eachMap.get("passRound_candidate"));  
 		nextTr.find('input[name="userTaskname"]').val(eachMap.get("userTaskname"));  
 
@@ -415,6 +418,8 @@ if(haveUserTask.equals("1")){
 
  
 	function setOpenerProcessList(){
+
+	    opener.clearTableListProcess();
         var oldProcessTableList=new List();  
         var  _participantType="";
 		var  _eachIndex="";
@@ -444,9 +449,30 @@ if(haveUserTask.equals("1")){
 			  map.put("priority",_priority);
 			  map.put("userTaskname",_userTaskname);
 			  oldProcessTableList.add(map);  
+
+
+
+			  var mmap=new Array();
+			  mmap[0]=_eachIndex;
+			  mmap[1]=_participantType;
+			  mmap[2]=_participantType;
+			  mmap[3]=_passRound_candidateId;
+			  mmap[4]=_passRound_candidate;
+			  mmap[5]=_taskSequenceType;
+			  mmap[6]=_priority;
+			  mmap[7]=_userTaskname;
+			  opener.addTableListProcess(mmap);
+
 			  
 		});
-		opener.setTableListProcessSet(oldProcessTableList);   
+		//opener.setTableListProcessSet(oldProcessTableList);  
+
+
+
+		//var list222=opener.getTableListProcessSet();
+		
+ 
+ 
 
 	}
   

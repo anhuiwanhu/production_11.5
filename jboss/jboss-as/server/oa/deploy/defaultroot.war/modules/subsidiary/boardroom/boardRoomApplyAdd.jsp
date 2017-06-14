@@ -725,6 +725,10 @@ function checkFormElement(){
         if(i!=1){
             //会议时间数组
             var destineDate = $('input[name=destineDate]')[i].value;
+			if(destineDate==''){
+				whir_alert("会议时间不能为空。");
+                return false;
+			}
             $("#destineDateBeginTime").val($('select[name=startHour]')[i].value *3600 +$('select[name=startMinutes]')[i].value*60);
             $("#destineDateEndTime").val($('select[name=endHour]')[i].value *3600 +$('select[name=endMinutes]')[i].value*60);
             destineDateBeginTime = $("#destineDateBeginTime").val();

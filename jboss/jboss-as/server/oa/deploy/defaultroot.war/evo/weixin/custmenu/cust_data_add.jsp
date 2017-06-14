@@ -178,9 +178,15 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 	
 									<%--附件上传 115--%>
 									<c:when test="${showtype =='115'}">
+										<c:set var="attachment"><x:out select="$fd/sysname/text()"/></c:set>
+									    <%
+										String att =(String)pageContext.getAttribute("attachment");
+										String natt = att.replace("$","");
+                                        pageContext.setAttribute("attachment",natt);
+										%>
 										<c:if test="${readwrite =='1'}">
 											<ul class="edit-upload">
-					                            <li class="edit-upload-in" onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
+					                            <li class="edit-upload-in" id='${attachment}' onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
 					                        </ul>
 										</c:if>
 										<c:set var="values"><x:out select="$fd/value/text()"/></c:set>
@@ -627,7 +633,8 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
    
     //添加图片
     function addImg(name){
-	   $(".edit-upload-in").before(       
+	   var newName = name.replace("$","");
+	   $("#"+newName).before(         
 		   '<li class="edit-upload-ed" id="imgli_'+index+'" style="display:none">'+
 		       '<span>'+
 		       	   '<img src="" id="imgShow_'+index+'"/>'+

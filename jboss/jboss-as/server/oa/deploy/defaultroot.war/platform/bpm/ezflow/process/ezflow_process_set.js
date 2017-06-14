@@ -423,10 +423,6 @@ function initData() {
 
 	if(model.getRecordId()>0){ 
 		$("input[name='id']")[0].disabled=true;
-		$("input[name='processType']")[0].disabled=true;
-		$("input[name='processType']")[1].disabled=true;
-		$("input[name='processType']")[2].disabled=true;
-		$("input[name='processType']")[3].disabled=true;
 	}
 	//whir:processRemindField		提醒字段:  ,fieldid,,fieldid,,fieldid,  
 
@@ -503,7 +499,21 @@ function initData() {
 		 if(processCanMobilePhoneCheck.length > 0) {
 			processCanMobilePhoneCheck[0].checked = true;
 		 }
+	} 
+	
+	// 是否显示 原来的表单  
+	//手机端
+	var  processFormShowAtMobile=model.getAttribute("whir:processFormShowAtMobile");
+	if(processFormShowAtMobile==null||processFormShowAtMobile==""){
+	     processFormShowAtMobile="0";
+	}
+	if(processFormShowAtMobile=="1"){
+		 var processFormShowAtMobileCheck = $("input[name='processFormShowAtMobile'][value='1']");
+		 if(processFormShowAtMobileCheck.length > 0) {
+			processFormShowAtMobileCheck[0].checked = true;
+		 }
 	}  
+
 
 	/*
 	//
@@ -1079,6 +1089,15 @@ function save(type){
 		model.setAttribute("whir:mobilePhoneStatus", "1");
 	}else{
 		model.setAttribute("whir:mobilePhoneStatus","0");
+	}
+
+
+	//手机端 
+	var processFormShowAtMobileCheck = $("input[name='processFormShowAtMobile']:checked");
+	if(processFormShowAtMobileCheck.length > 0) {
+		model.setAttribute("whir:processFormShowAtMobile", "1");
+	}else{
+		model.setAttribute("whir:processFormShowAtMobile","0");
 	}
 
 	//whir:processNeedDossier		是否需要归档，  true /false

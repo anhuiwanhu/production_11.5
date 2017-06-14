@@ -340,3 +340,21 @@ values
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.17_SP_20170103','11.5.0.17',getdate());
 go
+
+
+
+
+
+
+update tfield set field_name = 'boardroomId' where field_code='boardroomid';
+go
+update wf_oa_relatefield set field_table_displayname = '人员表(系统)' where field_table_displayname='人员表(系统))';
+go
+insert into  EZ_SECU_PAGELIST(SECU_URL,LIST_TYPE)values('/OpenFromMobile',1);
+go
+insert into  EZ_SECU_PAGELIST(SECU_URL,LIST_TYPE)values('/OpenFromMobile',3);
+go
+update oa_custmenu set MENULEVELSet=1,MENU_SCOPE='0'where MENU_NAME='资产管理';
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.18_SP_20170313','11.5.0.18',getdate());
+go

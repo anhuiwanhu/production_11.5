@@ -122,7 +122,7 @@ function saveFormData(flag, obj){
 		return;
 	}*/
 	if(wfModuleId=="15"){
-		if(fieldelt.indexOf("oa_boardroomapply-boardroomid")<0){
+		if(fieldelt.indexOf("oa_boardroomapply-boardroomId")<0){
 			whir_alert("会议室名称是必选项，请您选中!");
 			return;
 		}

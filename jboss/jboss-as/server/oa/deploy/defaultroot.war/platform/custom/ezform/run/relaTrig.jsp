@@ -266,7 +266,12 @@ if(settingPO!=null){
 								    }
 								}
 							}else{
-								destVal = dd[0][i].value;
+								//单选探出选择字段联动带出了组织id
+								if(code=='404'){
+									destVal = dd[0][i].value.split(";")[0];
+								}else{
+									destVal = dd[0][i].value;
+								}
 							}
                         
                             if(destVal=='null'||destVal=='NULL'){
@@ -368,7 +373,7 @@ if(settingPO!=null){
 					  var params = paramValue.split(",");
 					  var values="";
 					  for(var i=0;i< params.length;i++){
-					  	  values+=document.getElementById(params[i]).value+",";
+					  	  values+=document.getElementsByName(params[i])[indexNO].value+",";
 					  }
 					  if(values!=""){
 					  	  values = values.substring(0,values.length-1);
@@ -416,7 +421,12 @@ if(settingPO!=null){
 												}
 											}
 										}else{
-											destVal = dd[0][i].value;
+											//单选探出选择字段联动带出了组织id
+											if(code=='404'){
+												destVal = dd[0][i].value.split(";")[0];
+											}else{
+												destVal = dd[0][i].value;
+											}
 										}
 									 
 										 if(destVal=='null'||destVal=='NULL'){
@@ -706,7 +716,8 @@ if(relaSet!=null && relaSet.size()>0){
         }
 
         if(document.getElementById(_d_oldFieldName)){
-            document.getElementById(_d_oldFieldName).style.width="98%";
+			//20170220 被加上必填项的字段复选框会独享一行，导致表单中字段换行，显示不正常
+            //document.getElementById(_d_oldFieldName).style.width="98%";
         }
 
         if('0'=='<%=destFieldOpt%>'){//编辑
@@ -720,7 +731,8 @@ if(relaSet!=null && relaSet.size()>0){
             if(mustWrite_len==0){
                 $("div[id$='-<%=d_oldFieldName%>']").eq(indexNO).append(_getMustFillSpan(_d_oldFieldName));
                 if(document.getElementById(_d_oldFieldName)){
-                    document.getElementById(_d_oldFieldName).style.width="94%";
+					//20170220 被加上必填项的字段复选框会独享一行，导致表单中字段换行，显示不正常 
+                    //document.getElementById(_d_oldFieldName).style.width="94%";
                 }
             }
         }

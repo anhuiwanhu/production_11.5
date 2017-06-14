@@ -87,7 +87,7 @@ String fileTypeDesc  = request.getParameter("fileTypeDesc")!=null?request.getPar
 //Allowed extensions in the browse dialog (server-side validation should also be used)
 String fileTypeExts         = "";
 String fileTypeExts_img     = "*.jpg;*.jpeg;*.gif;*.png;*.bmp;";boolean img_b = false;
-String fileTypeExts_ms      = "*.doc;*.docx;*.xls;*.xlsx;*.xlsm;*.ppt;*.pptx;*.pps;*.wps;*.mpp;*.odt;*.ods;*.odp;";boolean ms_b = false;
+String fileTypeExts_ms      = "*.doc;*.docx;*.xls;*.xlsx;*.xlsm;*.ppt;*.pptx;*.pps;*.wps;*.mpp;*.odt;*.ods;*.odp;*.cebx;";boolean ms_b = false;
 String fileTypeExts_file    = "*.rar;*.zip;*.7z;*.txt;*.pdf;*.xml;*.dwg;*.vsd;*.eml;*.msg;*.ceb;*.tif;*.tiff;*.key;*.iso;*.ofd;";boolean file_b = false;
 String fileTypeExts_vm      = "*.asf;*.wmv;*.wav;*.swf;*.flv;*.mp3;*.mp4;*.rm;*.rmvb;*.avi;";boolean vm_b = false;
 String fileTypeExts_default = fileTypeExts_file + fileTypeExts_ms + fileTypeExts_img + fileTypeExts_vm;
@@ -181,7 +181,7 @@ if("netdisk".equals(dir)){
 	var whir_agent = "<%=whir_agent%>"; 
 	var whir_locale = "<%=whir_locale.toLowerCase()%>"; 
 </script>
-<script src="<%=rootPath%>/scripts/jquery-1.11.2.min.js" type="text/javascript"></script>
+<script src="<%=rootPath%>/scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
 <script src="<%=rootPath%>/scripts/i18n/<%=whir_locale%>/CommonResource.js" type="text/javascript"></script>
 <script src="<%=rootPath%>/scripts/plugins/lhgdialog/lhgdialog.js" type="text/javascript"></script>
 <script src="<%=rootPath%>/scripts/main/whir.application.js" type="text/javascript"></script>

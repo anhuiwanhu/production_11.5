@@ -260,8 +260,16 @@ function addRow(ind, isInvoke) {
 
 		var firstChild = tbl.firstChild;
 		var nextChild = firstChild.nextSibling;
-		if(nextChild.id==undefined || nextChild.id==""){
-			ri = ri-1;
+		var nextChild2 = nextChild.nextSibling;
+		var nextChild3 = nextChild2.nextSibling;
+		if(firstChild.innerHTML==undefined){
+			if(nextChild3.id==undefined || nextChild3.id==""){
+				ri = ri-1;
+			}
+		}else{
+			if(nextChild.id==undefined || nextChild.id==""){
+				ri = ri-1;
+			}
 		}
 
         //var newTr = tbl.insertRow(row.rowIndex + 1);
@@ -271,11 +279,15 @@ function addRow(ind, isInvoke) {
         var newTd = null;
         var _cnt = currentRow.rowIndex;
         var _index = _cnt-1;
-
-		var firstChild = tbl.firstChild;
-		var nextChild = firstChild.nextSibling;
-		if(nextChild.id==undefined || nextChild.id==""){
-			_index = _index-1;
+		
+		if(firstChild.innerHTML==undefined){
+			if(nextChild3.id==undefined || nextChild3.id==""){
+				_index = _index-1;
+			}
+		}else{
+			if(nextChild.id==undefined || nextChild.id==""){
+				_index = _index-1;
+			}
 		}
 
         //alert(_cnt);

@@ -25,9 +25,28 @@
 		 tableListProcessSet=list;
 	 }
 
-	 function getTableListProcessSet(){
+	 function clearTableListProcess(){
+	 	  tableListProcessSet = new List(); 
+	 }
+ 
+	 function addTableListProcess(str){ 
+		 var varmap=new Map(); 
+		 varmap.put("eachIndex",str[0]);
+		 varmap.put("participantType",str[1]);
+		 varmap.put("eachIndex",str[2]);
+		 varmap.put("passRound_candidateId",str[3]); 
+		 varmap.put("passRound_candidate",str[4]);
+		 varmap.put("taskSequenceType",str[5]);
+		 varmap.put("priority",str[6]);
+		 varmap.put("userTaskname",str[7]);
+		 tableListProcessSet.add(varmap);   
+	 }
+
+	 function getTableListProcessSet(){ 
 		 return tableListProcessSet;
 	 }
+ 
+
  
 //-->
 </script>
