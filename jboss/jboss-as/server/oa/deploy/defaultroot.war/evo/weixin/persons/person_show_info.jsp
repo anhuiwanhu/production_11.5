@@ -95,7 +95,6 @@ $(function(){
 })
 
 function toMessage(uCcounts,uid){
-	alert("uCcounts--------->"+uCcounts);
 	wx.openEnterpriseChat({
 		userIds:uCcounts,
 		groupName:'',
@@ -103,8 +102,6 @@ function toMessage(uCcounts,uid){
 			
 		},
         fail: function(res){
-			alert("msg----------->"+res.errMsg);
-			alert("code-------------->"+res.errCode);
         	if(res.errMsg.indexOf('function not exist') > 0){
                 alert("微信版本过低请升级!")
             }else if(res.errCode == '-1'){

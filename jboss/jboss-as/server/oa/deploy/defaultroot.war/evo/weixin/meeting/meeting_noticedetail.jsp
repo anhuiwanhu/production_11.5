@@ -154,188 +154,231 @@ String empLivingPhoto = request.getParameter("empLivingPhoto")==null?"":request.
 		<input type="hidden" id ="meetingTime" value="${meetingTime}">
 		<input type="hidden" id ="empLivingPhoto" value="${empLivingPhoto}">
         <table class="wh-table-edit">
-          <tr>
-            <th>会议室名称</th>
-            <td>
-              <span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomName/text()" /></span>
-            </td>
-          </tr>
-		  <tr>
-            <th>地址：</th>
-            <td>
-               <span class="edit-ipt-reslut-l" ><x:out select="$doc//addr/text()" /></span>
-            </td>
-          </tr>
-          <tr>
-            <th>点数：</th>
-            <td>
-               <span class="edit-ipt-reslut-l" ><x:out select="$doc//mailsubject/text()" /></span>
-            </td>
-          </tr>
-          <tr>
-            <th>出席人数：</th>
-            <td>
-			    <c:set var="personNum"><x:out select="$doc//personNum/text()"/></c:set>
-				<%
-				String pnum =(String)pageContext.getAttribute("personNum");
-				if(pnum == null || "null".equals(pnum)){
-					String npnum ="";
-					pageContext.setAttribute("personNum",npnum);	
-				}
-				%>
-               <span class="edit-ipt-reslut-l" >${personNum}</span>
-            </td>
-          </tr>
-          <tr>
-            <th>会议主题：</th>
-            <td>
-				<span class="edit-ipt-reslut-l" ><x:out select="$doc//motif/text()" /></span>
-            </td>
-          </tr>
-          <tr>
-            <th>主持人：</th>
-            <td>
-				<span class="edit-ipt-reslut-l" ><x:out select="$doc//emceeName/text()" /></span>
-            </td>
-          </tr>
-          <tr>
-            <th>时间：</th>
-            <td>
-				<span class="edit-ipt-reslut-l" >${meetingTime}</span> 
-            </td>
-          </tr>
-          <tr>
-            <th>会议内容：</th>
-            <td>
-				<span class="edit-ipt-reslut-l" ><x:out select="$doc//depict/text()" /></span> 
-            </td>
-          </tr>
+		  <x:if select="$doc//boardroomName">
+			  <tr>
+				<th>会议室名称</th>
+				<td>
+				  <span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomName/text()" /></span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//addr">
+			  <tr>
+				<th>地址：</th>
+				<td>
+				   <span class="edit-ipt-reslut-l" ><x:out select="$doc//addr/text()" /></span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//mailsubject">
+			  <tr>
+				<th>点数：</th>
+				<td>
+				   <span class="edit-ipt-reslut-l" ><x:out select="$doc//mailsubject/text()" /></span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//personNum">
+			  <tr>
+				<th>出席人数：</th>
+				<td>
+					<c:set var="personNum"><x:out select="$doc//personNum/text()"/></c:set>
+					<%
+					String pnum =(String)pageContext.getAttribute("personNum");
+					if(pnum == null || "null".equals(pnum)){
+						String npnum ="";
+						pageContext.setAttribute("personNum",npnum);	
+					}
+					%>
+				   <span class="edit-ipt-reslut-l" >${personNum}</span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//motif">
+			  <tr>
+				<th>会议主题：</th>
+				<td>
+					<span class="edit-ipt-reslut-l" ><x:out select="$doc//motif/text()" /></span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//emceeName">
+			  <tr>
+				<th>主持人：</th>
+				<td>
+					<span class="edit-ipt-reslut-l" ><x:out select="$doc//emceeName/text()" /></span>
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//meetingTimeList">
+			  <tr>
+				<th>时间：</th>
+				<td>
+					<span class="edit-ipt-reslut-l" >${meetingTime}</span> 
+				</td>
+			  </tr>
+		  </x:if>
+		   <x:if select="$doc//depict">
+			  <tr>
+				<th>会议内容：</th>
+				<td>
+					<span class="edit-ipt-reslut-l" ><x:out select="$doc//depict/text()" /></span> 
+				</td>
+			  </tr>
+		  </x:if>
 			<!-- 会议室编号 -->
-			<tr>				
-				<th>会议室编号：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomCode/text()" /></span> 
-				</td>
-			</tr>
+			<x:if select="$doc//boardroomCode">
+				<tr>				
+					<th>会议室编号：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomCode/text()" /></span> 
+					</td>
+				</tr>
+			</x:if>
 			<!-- 会议类型 -->
-			<tr>				
-				<th>会议类型：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomApplyType/text()" /></span>    
-				</td>
-			</tr>
+			<x:if select="$doc//boardroomApplyType">
+				<tr>				
+					<th>会议类型：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//boardroomApplyType/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 出席领导 -->
-			<tr>				
-				<th>出席领导 ：</th>
-				<td>					
-				    <c:set var="attendeeLeader"><x:out select="$doc//attendeeLeader/text()"/></c:set>
-					<%
-					String att =(String)pageContext.getAttribute("attendeeLeader");
-					if(att == null || "null".equals(att)){
-						String natt ="";
-						pageContext.setAttribute("attendeeLeader",natt);	
-					}
-					%>
-					<span class="edit-ipt-reslut-l" >${attendeeLeader}</span>    
-				</td>
-			</tr>
+			 <x:if select="$doc//attendeeLeader">
+				<tr>				
+					<th>出席领导 ：</th>
+					<td>					
+						<c:set var="attendeeLeader"><x:out select="$doc//attendeeLeader/text()"/></c:set>
+						<%
+						String att =(String)pageContext.getAttribute("attendeeLeader");
+						if(att == null || "null".equals(att)){
+							String natt ="";
+							pageContext.setAttribute("attendeeLeader",natt);	
+						}
+						%>
+						<span class="edit-ipt-reslut-l" >${attendeeLeader}</span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 会议记录人 -->
-				<th>会议记录人 ：</th>
-				<td>	
-				    <c:set var="notePersonName"><x:out select="$doc//notePersonName/text()"/></c:set>
-					<%
-					String notePer =(String)pageContext.getAttribute("notePersonName");
-					if(notePer == null || "null".equals(notePer)){
-						String nnotePer ="";
-						pageContext.setAttribute("notePersonName",nnotePer);	
-					}
-					%>
-					<span class="edit-ipt-reslut-l" >${notePersonName}</span>   
-				</td>
-			</tr>
+			 <x:if select="$doc//notePersonName">
+				 <tr>
+					<th>会议记录人 ：</th>
+					<td>	
+						<c:set var="notePersonName"><x:out select="$doc//notePersonName/text()"/></c:set>
+						<%
+						String notePer =(String)pageContext.getAttribute("notePersonName");
+						if(notePer == null || "null".equals(notePer)){
+							String nnotePer ="";
+							pageContext.setAttribute("notePersonName",nnotePer);	
+						}
+						%>
+						<span class="edit-ipt-reslut-l" >${notePersonName}</span>   
+					</td>
+				</tr>
+			</x:if>
 			<!-- 会议出席人 -->
-			<tr>				
-				<th>会议出席人：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//attendee/text()" /></span>    
-				</td>
-			</tr>
+			 <x:if select="$doc//attendee">
+				<tr>				
+					<th>会议出席人：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//attendee/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 其它参会人 -->
-			<tr>				
-				<th>其它参会人：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//otherAttendeePerson/text()" /></span>    
-				</td>
-			</tr>
+			 <x:if select="$doc//otherAttendeePerson">
+				<tr>				
+					<th>其它参会人：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//otherAttendeePerson/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 预定者 -->
-			<tr>				
-				<th>预定者：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//applyEmpName/text()" /></span>    
-				</td>
-			</tr>
+			 <x:if select="$doc//applyEmpName">
+				<tr>				
+					<th>预定者：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//applyEmpName/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 预定部门 -->
-			<tr>				
-				<th>预定部门：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//applyOrgName/text()" /></span>   
-				</td>
-			</tr>
+			 <x:if select="$doc//applyOrgName">
+				<tr>				
+					<th>预定部门：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//applyOrgName/text()" /></span>   
+					</td>
+				</tr>
+			</x:if>
 			<!-- 预定日期 -->
-			<tr>				
-				<th>预定日期：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" >${applyDate}</span>  
-				</td>
-			</tr>
+			<x:if select="$doc//applyDate">
+				<tr>				
+					<th>预定日期：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" >${applyDate}</span>  
+					</td>
+				</tr>
+			</x:if>
 			<!-- 联系电话 -->
-			<tr>				
-				<th>联系电话：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//linkTelephone/text()" /></span>    
-				</td>
-			</tr>
+			<x:if select="$doc//linkTelephone">
+				<tr>				
+					<th>联系电话：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//linkTelephone/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 席卡 -->
-			<tr>				
-				<th>席卡：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//seatcard/text()" /></span>    
-				</td>
-			</tr>
+			<x:if select="$doc//seatcard">
+				<tr>				
+					<th>席卡：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//seatcard/text()" /></span>    
+					</td>
+				</tr>
+			</x:if>
 			<!-- 备注 -->
-			<tr>				
-				<th>备注：</th>
-				<td>					
-					<span class="edit-ipt-reslut-l" ><x:out select="$doc//remark/text()" /></span>     
-				</td>
-			</tr>
-			 <tr>
-				 <th>附件：</th>
-				 <td>
-						<c:set var="rfn">
-						<x:forEach select="$doc//boardroomFileList" var="fe" ><x:out select="$fe/boardroomFileName/text()"/>|</x:forEach>
-						</c:set>
-						<c:set var="sfn">
-						<x:forEach select="$doc//boardroomFileList" var="ffe" ><x:out select="$ffe/boardroomSaveName/text()"/>|</x:forEach>
-						</c:set>
-						<c:if test="${not empty sfn}">
-							<%
-								String realFileNames =(String)pageContext.getAttribute("rfn");
-								String saveFileNames =(String)pageContext.getAttribute("sfn");
-								String moduleName ="customform";
-								
-								realFileNames =realFileNames.substring(0,realFileNames.length() -1);
-								saveFileNames =saveFileNames.substring(0,saveFileNames.length() -1);
-								
-							%>
-							<jsp:include page="../common/include_download.jsp" flush="true">
-									<jsp:param name="realFileNames"	value="<%=realFileNames%>" />
-									<jsp:param name="saveFileNames" value="<%=saveFileNames%>" />
-									<jsp:param name="moduleName" value="<%=moduleName%>" />
-							</jsp:include>
-						</c:if>
-				 <td>
-			 </tr>
+			<x:if select="$doc//remark">
+				<tr>				
+					<th>备注：</th>
+					<td>					
+						<span class="edit-ipt-reslut-l" ><x:out select="$doc//remark/text()" /></span>     
+					</td>
+				</tr>
+			</x:if>
+			 <x:if select="$doc//boardroomFileList">
+				 <tr>
+					 <th>附件：</th>
+					 <td>
+							<c:set var="rfn">
+							<x:forEach select="$doc//boardroomFileList" var="fe" ><x:out select="$fe/boardroomFileName/text()"/>|</x:forEach>
+							</c:set>
+							<c:set var="sfn">
+							<x:forEach select="$doc//boardroomFileList" var="ffe" ><x:out select="$ffe/boardroomSaveName/text()"/>|</x:forEach>
+							</c:set>
+							<c:if test="${not empty sfn}">
+								<%
+									String realFileNames =(String)pageContext.getAttribute("rfn");
+									String saveFileNames =(String)pageContext.getAttribute("sfn");
+									String moduleName ="customform";
+									
+									realFileNames =realFileNames.substring(0,realFileNames.length() -1);
+									saveFileNames =saveFileNames.substring(0,saveFileNames.length() -1);
+									
+								%>
+								<jsp:include page="../common/include_download.jsp" flush="true">
+										<jsp:param name="realFileNames"	value="<%=realFileNames%>" />
+										<jsp:param name="saveFileNames" value="<%=saveFileNames%>" />
+										<jsp:param name="moduleName" value="<%=moduleName%>" />
+								</jsp:include>
+							</c:if>
+					 <td>
+				 </tr>
+			 </x:if>
 			 <c:if test="${content !='null' && content !=''}">
              <tr>
 				 <th>不参会原因：</th>

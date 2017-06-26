@@ -465,3 +465,28 @@ alter  table  ez_flow_hi_procinst  modify  WHIR_DEALING_USERS   VARCHAR2(4000);
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.24_SP_20170610','11.5.0.24',sysdate);
 commit;
+
+
+
+
+
+
+alter table oa_boardroomapply add  formid varchar2(200);
+commit;
+alter table SYS_CORP_SET_APP add moduleSecret varchar2(200);
+commit;
+create table ezmobile_wxToken(
+  id  NUMBER(20),
+  corpsecret VARCHAR2(500),
+  wxToken VARCHAR2(500),	
+  tokenTimeStamp VARCHAR2(20)
+);
+commit;
+comment on column ezmobile_wxToken.corpsecret is'企业微信应用对应secret';
+commit;
+comment on column ezmobile_wxToken.wxToken is'微信生成的token';
+commit;
+comment on column ezmobile_wxToken.tokenTimeStamp is'token生成的时间戳';
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.25_SP_20170626','11.5.0.25',sysdate);
+commit;

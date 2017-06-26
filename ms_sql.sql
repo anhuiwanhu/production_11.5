@@ -417,3 +417,23 @@ alter  table  ez_flow_hi_procinst  alter column WHIR_DEALING_USERS   NVARCHAR(40
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.24_SP_20170610','11.5.0.24',getdate());
 go
+
+
+
+
+
+
+
+alter table oa_boardroomapply add  formid varchar(200);
+go
+alter table SYS_CORP_SET_APP add  moduleSecret nvarchar(200);
+go
+CREATE table EZOFFICE.ezmobile_wxToken(
+    id              numeric(20,0),
+    corpsecret          NVARCHAR(500),
+    wxToken           NVARCHAR(500),  
+    tokenTimeStamp       NVARCHAR(20)  
+);
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.25_SP_20170626','11.5.0.25',getdate());
+go

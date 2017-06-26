@@ -112,6 +112,7 @@
 				 var result='';
 				 var statuName='';
 				 var boardroomApplyId ='';
+				 var formId ='';
 				 for(var i = 0; i < jsonData.data0.length; i++){
 					status = jsonData.data0[i].status;
 					emceeName = jsonData.data0[i].emceeName;
@@ -126,6 +127,7 @@
 						createDate ="";
 					}
 					boardroomApplyId = jsonData.data0[i].boardroomApplyId;
+					formId = jsonData.data0[i].formId;
 					var cla ='';
                     if(status == '2'){
 						statuName = '已参加';
@@ -140,7 +142,7 @@
                     result  +='<li>'
 						    +	  '<strong class="'+cla+'">'+statuName+'</strong>'
 						    +  '<p>'
-							+	'<a href="javascript:openNotice('+boardroomApplyId+')">'+emceeName+'在'+meetingDate+'召开的'+motif+'等待您的参与！</a>'
+							+	'<a href="javascript:openNotice('+boardroomApplyId+','+formId+')">'+emceeName+'在'+meetingDate+'召开的'+motif+'等待您的参与！</a>'
 							+	'<span>'+createDate+'</span>'
 							+  '</p>' 
 							+ '</li>'
@@ -183,9 +185,9 @@
     	}
     }
     
-	function  openNotice(val){					
+	function  openNotice(val,formId){					
 		var detailUrl="/defaultroot/meeting/meetingNoticeDetail.controller";
-		window.location = detailUrl+"?boardroomApplyId="+val;		
+		window.location = detailUrl+"?boardroomApplyId="+val+"&formId="+formId;		
 	}
 	
 </script>

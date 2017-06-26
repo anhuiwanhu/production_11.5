@@ -45,6 +45,7 @@ String nowDate = df.format(ndate).toString();
 <body>
 <form id="sendForm" class="dialog" action="/defaultroot/meeting/ezSendMeeting.controller" method="post">
 <input type="hidden" name="meetRoomId" value="${meetRoomId}">
+<input type="hidden" name="formId" value="${param.formId}">
 <section class="wh-section wh-section-bottomfixed" id="mainContent">
     <article class="wh-edit wh-edit-forum">
         <div>

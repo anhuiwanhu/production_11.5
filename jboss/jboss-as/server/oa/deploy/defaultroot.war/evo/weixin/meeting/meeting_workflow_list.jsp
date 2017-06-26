@@ -44,7 +44,8 @@
 							<c:set var="processName" ><x:out select="$ct//processName/text()" /></c:set>
 							<c:set var="ezflowprocess_defid" ><x:out select="$ct//pool_ezflowprocess_defid/text()" /></c:set>
 							<c:set var="pool_ezflowprocess_formKey" ><x:out select="$ct//pool_ezflowprocess_formKey/text()" /></c:set>
-							<li onclick="newezform('${pool_ezflowprocess_formKey}','${ezflowprocess_defid}','${processName}');">
+							<c:set var="formId" ><x:out select="$ct//formId/text()" /></c:set>
+							<li onclick="newezform('${pool_ezflowprocess_formKey}','${ezflowprocess_defid}','${processName}','${formId}');">
 							<strong class="flow-icon">
 								<i class="fa fa-file-text"></i>
 							</strong>
@@ -99,7 +100,7 @@
     }
     
     //新建新流程
-	function newezform(pageId,processId,processName){
+	function newezform(pageId,processId,processName,formId){
 		var personNum =$("#personNum").val();
 		var startDate =$("#startDate").val();
 		var sHour =$("#sHour").val();
@@ -110,6 +111,6 @@
 		var meetRoomId =$("#meetRoomId").val();
         var meetRoomName =$("#meetRoomName").val();
 		var isVideo =$("#isVideo").val();
-		window.location = '/defaultroot/meeting/newEzmeetForm.controller?pageId='+pageId+'&processId='+processId+'&processName='+processName+'&personNum='+personNum+'&startDate='+startDate+'&sHour='+sHour+'&sMinu='+sMinu+'&endDate='+endDate+'&eHour='+eHour+'&eMinu='+eMinu+'&meetRoomId='+meetRoomId+'&meetRoomName='+meetRoomName+'&isVideo='+isVideo;
+		window.location = '/defaultroot/meeting/newEzmeetForm.controller?pageId='+pageId+'&processId='+processId+'&processName='+processName+'&personNum='+personNum+'&startDate='+startDate+'&sHour='+sHour+'&sMinu='+sMinu+'&endDate='+endDate+'&eHour='+eHour+'&eMinu='+eMinu+'&meetRoomId='+meetRoomId+'&meetRoomName='+meetRoomName+'&isVideo='+isVideo+'&formId='+formId;
 	}
 </script>
