@@ -61,6 +61,9 @@
 		<property name="unsignUser" column="UNSIGNUSER" />
 		
 		<property name="formId" column="FORMID" />
+		<!-- 20170629 -->
+		<property name="directlyPublish" column="DIRECTLYPUBLISH" />
+		<property name="formCode" column="FORMCODE" />
 		
 		<many-to-one name="boardroom" class="com.whir.ezoffice.boardroom.po.BoardRoomPO" not-null="true">
 			<column name="BOARDROOMID"/>

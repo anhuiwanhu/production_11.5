@@ -137,7 +137,18 @@ try {
                         }else{
                             String tempData = ((Cell) sheet.getCell(k++, row)).getContents();
 							String reg = "^[+-]?\\d+(\\.\\d+)?$";
-							if(tempData.matches(reg)){
+							if(tempData.startsWith("0") && !tempData.substring(1,2).equals(".")){
+								if(tempData != null && !"".equals(tempData) && !"null".equals(tempData)){
+									if("number".equals(_typeArr[j])){
+										Double.parseDouble(tempData);//校验数值型
+									}
+								}
+								if(tempData!=null){
+									tempData = tempData.replaceAll("\"", "\\\\\\\"");//"\\\\\\\\\\\\\"");
+									tempData = tempData.replaceAll("\r|\n", "");
+								}
+								data += tempData;
+							}else if(tempData.matches(reg)){
 								NumberCell numberCell = (NumberCell)sheet.getCell(k-1, row);
 								double namberValue = numberCell.getValue();
 								tempData = namberValue+"";

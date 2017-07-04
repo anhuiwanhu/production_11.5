@@ -544,3 +544,23 @@
 5、执行数据库升级脚本（分oralce、sqlserver两种类型库）
 
 6、清服务端缓存，启动OA服务，验证系统功能
+
+
+
+
+
+
+
+1、停OA服务
+
+2、备份生产环境程序、数据库
+
+3、覆盖产品补丁包到OA安装目录d:\jboss
+
+4、删除..\defaultroot.war\WEB-INF\classes\com\whir\org\vo文件夹（不存在跳过）
+
+5、把文件夹..\defaultroot.war\WEB-INF\com拖入whir_common.jar(勿解压）
+
+6、执行数据库升级脚本（分oralce、sqlserver两种类型库）
+
+7、清服务端缓存，启动OA服务，验证系统功能

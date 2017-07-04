@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC 
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" 
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+
+	<package name="com.whir.ezoffice.boardroom.actionsupport" extends="whir">
+        <action name="boardRoom!*" method="{1}" class="com.whir.ezoffice.boardroom.actionsupport.BoardRoomAction">
+            <result name="boardRoomApplyTypeList">/modules/subsidiary/boardroom/boardRoomAppTypeList.jsp</result>
+			<result name="addBoardRoomApplyType">/modules/subsidiary/boardroom/boardRoomAppTypeAddOrUpdate.jsp</result>
+
+			<result name="boardroomList">/modules/subsidiary/boardroom/boardRoomList.jsp</result>
+			<result name="weeklyView">/modules/subsidiary/boardroom/boardRoom_weeklyView.jsp</result>
+			<result name="init">/modules/subsidiary/boardroom/boardRoomInit.jsp</result>
+			<result name="listView">/modules/subsidiary/boardroom/boardRoom_listView.jsp</result>
+			<result name="boardRoomUseInfo">/modules/subsidiary/boardroom/boardRoomUseInfo.jsp</result>
+
+			<result name="readOldMeeting">/modules/subsidiary/boardroom/readOldMeeting.jsp</result>
+
+			<result name="boardroomAdd">/modules/subsidiary/boardroom/boardRoomAddOrUpdate.jsp</result>
+			<result name="boardroomView">/modules/subsidiary/boardroom/boardRoomView.jsp</result>
+			<result name="statusDetail">/modules/subsidiary/boardroom/boardRoomApplyInfo.jsp</result>
+			<result name="boardroomDetail">/modules/subsidiary/boardroom/boardRoomDetail.jsp</result>
+
+			<result name="boardroomApplyAdd">/modules/subsidiary/boardroom/boardRoomApplyAdd.jsp</result>
+			<result name="boardroomApplyModi">/modules/subsidiary/boardroom/boardRoomApplyModi.jsp</result>
+			<result name="boardroomApplyList">/modules/subsidiary/boardroom/boardRoomApplyList.jsp</result>
+			<result name="boardroomApplyView">/modules/subsidiary/boardroom/boardRoomApplyView.jsp</result>
+
+			<result name="applyReportList">/modules/subsidiary/boardroom/boardRoomApply_report.jsp</result>
+			<result name="executeStatus">/modules/subsidiary/boardroom/boardRoomExecuteStatus.jsp</result>
+
+			<result name="viewUsers">/modules/subsidiary/boardroom/boardRoomViewUsers.jsp</result>
+			<result name="unviewUsers">/modules/subsidiary/boardroom/boardRoomUnviewUsers.jsp</result>
+			<result name="boardroomUseList">/modules/subsidiary/boardroom/boardRoomUseList.jsp</result>
+
+			<result name="boardroomApplyZFModify">/modules/subsidiary/boardroom/boardRoomZdyApplyModify.jsp</result>
+			<result name="boardroomApplyModify">/modules/subsidiary/boardroom/boardRoomApplyModify.jsp</result>
+			<result name="meetingInformList">/modules/subsidiary/boardroom/meetingInform.jsp</result>
+			<result name="meetingInformWeekList">/modules/subsidiary/boardroom/meetingInform_week.jsp</result>
+			<result name="boardroomApplyAddSW">/modules/subsidiary/boardroom/boardRoomApplyAddSW.jsp</result>
+			<result name="selectWorkFlowSW">/modules/subsidiary/boardroom/selectWorkFlowSW.jsp</result>
+			<result name="boardroomApplyViewFromDesktop">/modules/subsidiary/boardroom/boardRoomApplyViewFromDesktop.jsp</result>
+			<result name="boardRoomInit_ajax">/modules/subsidiary/boardroom/boardRoomInit_ajax.jsp</result>
+        </action>
+		<action name="equipment!*" method="{1}" class="com.whir.ezoffice.boardroom.actionsupport.EquipmentAction">
+            <result name="equipmentTypeList">/modules/subsidiary/equipment/equipmentTypeList.jsp</result>
+			<result name="equipmentTypeAdd">/modules/subsidiary/equipment/equipmentTypeAddorModi.jsp</result>
+
+			<result name="equipmentList">/modules/subsidiary/equipment/equipmentList.jsp</result>
+			<result name="equipmentAdd">/modules/subsidiary/equipment/equipmentAddorModi.jsp</result>
+			<result name="equipmentView">/modules/subsidiary/equipment/equipmentView.jsp</result>
+			<result name="statusDetail">/modules/subsidiary/equipment/equipmentApplyInfo.jsp</result>
+			<result name="equipmentDetail">/modules/subsidiary/equipment/equipmentDetail.jsp</result>
+			<result name="equipmentApplyAdd">/modules/subsidiary/equipment/equipmentApplyAdd.jsp</result>
+			<result name="equipmentApplyModi">/modules/subsidiary/equipment/equipmentApplyModi.jsp</result>
+			<result name="equipmentUseList">/modules/subsidiary/equipment/equipmentUseList.jsp</result>
+			<result name="equipmentApplyView">/modules/subsidiary/equipment/equipmentApplyView.jsp</result>
+			<result name="init">/modules/subsidiary/equipment/equipmentInit.jsp</result>
+			<result name="equipmentInit_ajax">/modules/subsidiary/equipment/equipmentInit_ajax.jsp</result>
+        </action>
+    </package>
+
+</struts>

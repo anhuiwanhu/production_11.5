@@ -490,3 +490,16 @@ comment on column ezmobile_wxToken.tokenTimeStamp is'token生成的时间戳';
 commit;
 insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.25_SP_20170626','11.5.0.25',sysdate);
 commit;
+
+
+
+
+
+
+
+alter table OA_BOARDROOMAPPLY add  directlypublish VARCHAR2(2);
+commit;
+alter table OA_BOARDROOMAPPLY add  formcode VARCHAR2(50);
+commit;
+insert into oa_patchinfo (patch_id,patch_editinfo,patch_name,patch_version,patch_time) values(hibernate_sequence.nextval,'Wanhu ezOFFICE','11.5.0.26_SP_20170630','11.5.0.26',sysdate);
+commit;

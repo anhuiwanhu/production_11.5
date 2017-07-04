@@ -978,7 +978,8 @@ String local = session.getAttribute("org.apache.struts.action.LOCALE").toString(
 					<td>
 					    <textArea  name="expressname" id="expressname" readonly="true" style="width:98%;height:100px"  class="inputTextarea"  whir-options="vtype:[{'maxLength':600}]" ></textArea>
 					    <input type="hidden" name="conditionExpression" id="conditionExpression" value="" />
-						<span class="MustFillColor"><br />在编辑模式下允许直接输入条件表达式，表达式的“条件”字段需要以{}符号标记</span>
+						<span class="MustFillColor"><br />1、在编辑模式下允许直接输入条件表达式，表达式的“条件”字段需要以{}符号标记</span>
+						<span class="MustFillColor"><br />2、在编辑模式下输入“运算符”时，需要在“运算符”的前后添加空格，否则会导致表达式失效，如：{条件}空格!=null空格</span>
 					</td>
 					<td align="left" nowrap valign="top">
 					   <input type="checkbox"  id="editTypeCheckbox" onClick="editTypeModer();"><bean:message bundle="workflow" key="workflow.editMode"/><!--撰写模式--><br/>

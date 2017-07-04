@@ -437,3 +437,16 @@ CREATE table EZOFFICE.ezmobile_wxToken(
 go
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.25_SP_20170626','11.5.0.25',getdate());
 go
+
+
+
+
+
+
+
+alter table OA_BOARDROOMAPPLY add  directlypublish VARCHAR(2);
+go
+alter table OA_BOARDROOMAPPLY add  formcode VARCHAR(50);
+go
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.26_SP_20170630','11.5.0.26',getdate());
+go
