@@ -21,13 +21,8 @@ String fieldId= request.getParameter("fieldId");
 String index= request.getParameter("index");
 
 String fieldname = request.getParameter("fieldname");
-String scheme = request.getScheme();
-String value = "";
-if("https".equals(scheme)){  
-    value = new String(request.getParameter("value").getBytes("ISO-8859-1"),"UTF-8");
-}else{
-	value = request.getParameter("value");
-}
+String value = request.getParameter("value");
+
 String[] initValue = {"[N]","","","","",""};
 if(value!=null && value.split("=").length>=5){
     initValue[0] = value.split("=")[0];

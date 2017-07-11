@@ -19,7 +19,10 @@ String _outter_arg = "";
 if(_outter_){
     _outter_arg = "&outter=1";
 }
+String userId = session.getAttribute("userId") == null ? "-1" : session.getAttribute("userId").toString();
+//String userId = session.getAttribute("userId") != null ? session.getAttribute("userId").toString() : "";
 
+System.out.println("\n\n\n\n\nuserId=====================>"+userId); 
 ModuleVO mvo = (ModuleVO)request.getAttribute("mvo");
 if(mvo!=null){
 PortletBD pbd = new PortletBD();
@@ -61,7 +64,8 @@ var jsonData = [
                 String linkUrl = "";
                	linkUrl = "javascript:"+moreType[1];//.replaceAll("\"", "\\\\\"");
                 
-                if(_outter_)linkUrl="openWin({url:'"+rootPath+"/PortalInformation!informationList.action?channelId="+cid[i0]+"', isFull:true});";
+                if(_outter_ && (userId==null || userId.equals("null") || userId.equals("-1")) )
+					linkUrl="openWin({url:'"+rootPath+"/PortalInformation!informationList.action?channelId="+cid[i0]+"', isFull:true});";
         	%>
 			{title:"<%=className%>", url:"", onclick:"<%=linkUrl%>", defaultSelected:"<%=i0==0?"on":""%>",liCss:"wh-portal-overflow", morelink:"<%=linkUrl%>"},
 			<%}%>
@@ -96,7 +100,8 @@ Portlet.setMoreLink('<%=portletSettingId%>',{});
                 String _link = "";
                 if("true".equals(ivo.getIsConf())){
                     _link = "openWin({url:'"+ivo.getLink()+"',winName:'info"+ivo.getId()+"',isFull:true});"; 
-                    if(_outter_)_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
+                    if(_outter_ && (userId==null || userId.equals("null") || userId.equals("-1")) )
+						_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
                 }else{
                     _link = "javascript:alert('这是一份加密文件,您无权查看!');";
                 }
@@ -123,7 +128,8 @@ Portlet.setMoreLink('<%=portletSettingId%>',{});
                 String _link = "";
                 if("true".equals(ivo.getIsConf())){
                     _link = "openWin({url:'"+ivo.getLink()+"',winName:'info"+ivo.getId()+"',isFull:true});";
-                    if(_outter_)_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
+                    if(_outter_ && (userId==null || userId.equals("null") || userId.equals("-1")) )
+						_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
                 }else{
                     _link = "javascript:alert('这是一份加密文件,您无权查看!');";
                 }
@@ -147,7 +153,7 @@ if(isImage){
 	String[] _images = (String[])imageMap.get(cid[i0]);
 	if(!"/defaultroot/images/nophoto.gif".equals(_images[0])){
 		String imageLink = "openWin({url:'"+_images[2]+"',winName:'info"+ivo.getId()+"', isFull:true});";
-		if(_outter_)
+		if(_outter_ && (userId==null || userId.equals("null") || userId.equals("-1")) )
 			imageLink="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+java.net.URLEncoder.encode(_images[1],"utf-8")+"&id="+_images[3]+"', isFull:true});";
 %>
 		<div class="wh-portal-pic-box">
@@ -164,7 +170,8 @@ if(isImage){
 			String _link = "";
 			if("true".equals(ivo.getIsConf())){
 				_link = "openWin({url:'"+ivo.getLink()+"',winName:'info"+ivo.getId()+"',isFull:true});";
-				if(_outter_)_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
+				if(_outter_  && (userId==null || userId.equals("null") || userId.equals("-1"))  )
+					_link="openWin({url:'"+rootPath+"/PortalInformation!getInformation.action?title="+ivo.getPoptitle()+"&id="+ivo.getId()+"', isFull:true});";
 			}else{
 				_link = "javascript:alert('这是一份加密文件,您无权查看!');";
 			}
@@ -189,7 +196,7 @@ String userChannelName= "公司新闻";
 int num = Integer.parseInt(imgNum);
 int limitNum2 = Integer.parseInt(confMap.get("limitNum")!=null&&!"".equals(confMap.get("limitNum")) ? confMap.get("limitNum") : "20");
 String domainId = CommonUtils.getSessionDomainId(request).toString();
-String userId = session.getAttribute("userId") == null ? "-1" : session.getAttribute("userId").toString();
+
 String orgId = session.getAttribute("orgId")!=null?session.getAttribute("orgId").toString():"-1";
 String orgIdString = session.getAttribute("orgIdString")!=null?session.getAttribute("orgIdString").toString():"$-1$";
 
@@ -254,7 +261,7 @@ for (int i = 0; i < listInfo.size(); i++) {
 					"&channelType=" + channelType +
 					"&userChannelName=" +
 					"信息管理";
-            if(_outter_){
+            if(_outter_  && (userId==null || userId.equals("null") || userId.equals("-1"))  ){
                 imageNewsTitleLink = rootPath+"/PortalInformation!getInformation.action?title="+imageNewsTitle+"&id="+obj[1];
             }
 
@@ -282,7 +289,7 @@ if(files.equals("")){
 					"&channelType=" + channelType +
 					"&userChannelName=" +
 					"信息管理";
-            if(_outter_){
+            if(_outter_  && (userId==null || userId.equals("null") || userId.equals("-1"))  ){
                 imageNewsTitleLinkTmp = rootPath+"/PortalInformation!getInformation.action?title="+imageTitleTmp+"&id="+obj[1];
             }
 		texts = imageTitleTmp != null ? imageTitleTmp : "暂无图片";
