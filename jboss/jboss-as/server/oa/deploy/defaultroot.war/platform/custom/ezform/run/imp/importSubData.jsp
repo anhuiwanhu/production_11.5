@@ -243,7 +243,8 @@ function fillData(data){
 
                         }else{
                             if(parentDoc.getElementsByName(_fArr[j])[_ind]){
-								var opt = parentDoc.getElementById(_fArr[j]);
+								//var opt = parentDoc.getElementById(_fArr[j]);  //合计字段没有ID
+								var opt = parentDoc.getElementsByName(_fArr[j])[0];
 								var optType = parentDoc.getElementsByName(_fArr[j]+"_type")[0].value;
 								var decnum = opt.getAttribute("decnum");
 								if(optType=="number"){

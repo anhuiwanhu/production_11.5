@@ -185,9 +185,15 @@ String fromFlag = request.getParameter("fromFlag");
 								</c:when>
 								<%--附件上传 115--%>
 								<c:when test="${showtype =='115'}">
+								    <c:set var="attachment"><x:out select="$fd/sysname/text()"/></c:set>
+									<%
+									String att =(String)pageContext.getAttribute("attachment");
+									String natt = att.replace("$","");
+									pageContext.setAttribute("attachment",natt);
+									%>
 									<c:if test="${readwrite =='1'}">
 										<ul class="edit-upload">
-				                            <li class="edit-upload-in" onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
+				                            <li class="edit-upload-in" id='${attachment}' onclick="addImg('<x:out select="$fd/sysname/text()"/>');"><span><i class="fa fa-plus"></i></span></li>
 				                        </ul>
 									</c:if>
 									<c:set var="values"><x:out select="$fd/value/text()"/></c:set>
@@ -416,7 +422,7 @@ String fromFlag = request.getParameter("fromFlag");
 										</div>		
 										<c:if test="${isEzFlow !='1' || processCommentAcc == 'true' }">
 											<ul class="edit-upload">
-												<li class="edit-upload-in" onclick="addImg('commentacc');"><span><i class="fa fa-plus"></i></span></li>
+												<li class="edit-upload-in" id='commentacc' onclick="addImg('commentacc');"><span><i class="fa fa-plus"></i></span></li>
 											</ul>
 										</c:if>
 									</c:if>
@@ -537,7 +543,7 @@ String fromFlag = request.getParameter("fromFlag");
 								</div>
 								<c:if test="${isEzFlow !='1' || processCommentAcc == 'true' }">
 									<ul class="edit-upload">
-										<li class="edit-upload-in" onclick="addImg('commentacc');"><span><i class="fa fa-plus"></i></span></li>
+										<li class="edit-upload-in" id="commentacc" onclick="addImg('commentacc');"><span><i class="fa fa-plus"></i></span></li>
 									</ul>
 								</c:if>
 		                    </td>
@@ -1065,8 +1071,9 @@ String fromFlag = request.getParameter("fromFlag");
    
     //添加图片
     function addImg(name){
+	   var newName = name.replace("$","");
 	   if(name != 'commentacc'){
-		   $(".edit-upload-in").before(       
+		   $("#"+newName).before(       
 			   '<li class="edit-upload-ed" id="imgli_'+index+'" style="display:none">'+
 				   '<span>'+
 					   '<img src="" id="imgShow_'+index+'"/>'+
@@ -1078,7 +1085,7 @@ String fromFlag = request.getParameter("fromFlag");
 				   '<input type="hidden" id="img_name_'+index+'" name="_mainfile_'+name+'"/>'+				
 			   '</li>');
 	   }else{
-	     $(".edit-upload-in").before(       
+	     $("#"+newName).before(       
 			   '<li class="edit-upload-ed" id="imgli_'+index+'" style="display:none">'+
 				   '<span>'+
 					   '<img src="" id="imgShow_'+index+'"/>'+

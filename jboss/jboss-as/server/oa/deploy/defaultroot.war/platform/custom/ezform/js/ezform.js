@@ -617,7 +617,7 @@ function checkOnlyField_(val, flag){
 	var pageId=EZFORM.formId();
 	var infoId=EZFORM.infoId();
     var _p_wf_openType = $('#p_wf_openType').val();
-    if(_p_wf_openType == 'startAgain'){//再次发送
+    if(_p_wf_openType == 'startAgain' || _p_wf_openType == 'reStart'){//再次发送
         infoId = '';
     }
 
