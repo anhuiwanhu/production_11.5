@@ -470,3 +470,11 @@ go
 
 insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.28_SP_20170718','11.5.0.28',getdate());
 go
+
+
+
+
+
+
+insert into oa_patchinfo (patch_editinfo,patch_name,patch_version,patch_time) values('Wanhu ezOFFICE','11.5.0.29_SP_20170724','11.5.0.29',getdate());
+go
