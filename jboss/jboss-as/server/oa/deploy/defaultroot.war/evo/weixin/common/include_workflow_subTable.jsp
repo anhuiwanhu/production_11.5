@@ -73,13 +73,13 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 														<%--单行文本 101--%>
 														<c:when test="${showtype =='101' && readwrite =='1'}">
 															<c:if test="${ fieldtype == '1000000'  }">
-																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text" maxlength="9" name='_sub_<x:out select="$field/sysname/text()"/>' onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');math(this)" value='<x:out select="$field/expressionval/text()"/>' />
+																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text" maxlength="9" name='_sub_<x:out select="$field/sysname/text()"/>' onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');math(this)" value='<x:out select="$field/value/text()"/>' />
 															</c:if>
 															<c:if test="${ fieldtype == '1000001'   }">
-																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text" maxlength="18" name='_sub_<x:out select="$field/sysname/text()"/>'  onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');math(this)"  value='<x:out select="$field/expressionval/text()"/>' />
+																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text" maxlength="18" name='_sub_<x:out select="$field/sysname/text()"/>'  onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');math(this)"  value='<x:out select="$field/value/text()"/>' />
 															</c:if>
 															<c:if test="${fieldtype != '1000000' && fieldtype != '1000001'  }">
-																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text"  name='_sub_<x:out select="$field/sysname/text()"/>'  onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');" value='<x:out select="$field/expressionval/text()"/>'/>
+																<input class="edit-ipt-r" placeholder="请输入" id='<x:out select="$field/sysname/text()"/>' type="text"  name='_sub_<x:out select="$field/sysname/text()"/>'  onkeyup="addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');" value='<x:out select="$field/value/text()"/>'/>
 															</c:if>
 															<input type="hidden"  name="keyv" value="${name},${totfield},_sub_<x:out select='$field/sysname/text()'/>"/>
 														</c:when>
@@ -173,7 +173,7 @@ String orgId = session.getAttribute("orgId")==null?"":session.getAttribute("orgI
 															<c:set var="fvalue"><x:out select="$field/value/text()"/></c:set>
 															<c:set var="showNum">${300-fn:length(fvalue)}</c:set>
 															<textarea name='_sub_<x:out select="$field/sysname/text()"/>' onkeyup="$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );addtot('${name}','${totfield}','_sub_<x:out select='$field/sysname/text()'/>');" 
-															onchange="$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );"   class="edit-txta edit-txta-l" maxlength="300"><x:out select="$field/expressionval/text()" /></textarea>
+															onchange="$(this).next('.edit-txta-num').html($(this).attr('maxlength')-$(this).val().length );"   class="edit-txta edit-txta-l" maxlength="300"><x:out select="$field/value/text()" /></textarea>
 															<span class="edit-txta-num">${showNum}</span>
 															<input type="hidden"  name="keyv" value="${name},${totfield},_sub_<x:out select='$field/sysname/text()'/>"/>
 														</c:when>
